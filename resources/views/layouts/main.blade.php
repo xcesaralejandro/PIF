@@ -26,6 +26,11 @@
     <!-- jQuery - Bootstrap -->
     <script src="{{ asset('recursos/jquery/jquery.js')}}"></script>
     <script src="{{ asset('recursos/bootstrap/js/bootstrap.js')}}"></script>
+    <script>
+      $(function(){
+     
+      });
+    </script>
     @yield('js')
   </body>
 </html>

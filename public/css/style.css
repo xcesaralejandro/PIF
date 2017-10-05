@@ -121,6 +121,14 @@ body{
 	min-height: 4rem;
 	margin-bottom: 2rem;
 }
+
+.modal-backdrop {
+  z-index: 0 !important;
+}
+
+.cursorPointer:hover{
+	cursor: pointer !important; 
+}
 /* FIN REGLAS CSS IMPORTANTES*/
 
 /* MISCELANIOS */
