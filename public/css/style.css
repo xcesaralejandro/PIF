@@ -122,8 +122,16 @@ body{
 	margin-bottom: 2rem;
 }
 
-.modal-backdrop {
-  z-index: 0 !important;
+.modal-backdrop.show {
+    opacity: .85;
+}
+
+.modal-backdrop{
+	z-index: 1050 !important;
+}
+
+.modal {
+	z-index: 1500 !important;
 }
 
 .cursorPointer:hover{

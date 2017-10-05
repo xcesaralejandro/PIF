@@ -19,6 +19,9 @@
       <div class="full_container">
         <div class="cabeceraPagina lightDarkPalet textoBlanco">@yield('title') <strong> | FRUST</strong></div>
         <div class="cuerpoPagina">
+          {{-- Traemos el modal del loguin --}}
+          @include('partials.modalLogin')
+          {{-- Cargamos el contenido --}}
           @yield('content')
         </div> 
       </div> 
