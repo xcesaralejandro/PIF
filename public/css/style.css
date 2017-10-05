@@ -128,6 +128,16 @@ body{
 	border-radius: 2px !important;
 }
 
+.btn-primary {
+    background-color: #842F86 !important;
+    border-color: #842F86 !important;
+}
+
+.btn-primary:hover , .btn-primary:active , .btn-primary:focus {
+    background-color: #964e98 !important;
+    border-color: #964e98 !important;
+}
+
 .textoBlanco{
 	color: #fff !important;
 }
@@ -142,3 +152,15 @@ body{
 }
 
 /* FIN MISCELANIOS
+
+/* Iniciar sesion y registrarse*/
+
+.loginMarco{
+	border: 1px solid #582C93;
+}
+
+.loginMarco .btn-primary{
+	width: 100%;
+}
+
+/* Fin iniciar sesion y registrarse*/
