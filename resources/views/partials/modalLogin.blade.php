@@ -1,4 +1,4 @@
-<!-- Modal inicar sesion -->
+<!-- Modal inicar sesion, está acá por el problema con el z-index -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

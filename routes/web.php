@@ -26,3 +26,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/prueba', function(){
 	return View('layouts.main');
 });
+
+// Rutas para vistas de información
+
+Route::get('enfermedades',function(){
+	return View('Informacion.enfermedades');
+});

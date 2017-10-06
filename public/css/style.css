@@ -25,6 +25,10 @@ nav .form-control{
 	border-radius: 2px !important;
 }
 
+nav .btn{
+	padding: .5rem 1rem;
+}
+
 .navbar-light .navbar-nav .nav-link:hover {
     background-color: #521E53 !important;
 }
@@ -142,6 +146,7 @@ body{
 /* MISCELANIOS */
 .btn{
 	border-radius: 2px !important;
+	padding: .3rem .8rem;
 }
 
 .btn-primary {
@@ -152,6 +157,8 @@ body{
 .btn-primary:hover , .btn-primary:active , .btn-primary:focus {
     background-color: #964e98 !important;
     border-color: #964e98 !important;
+    outline: none !important;
+	color: #fff !important;
 }
 
 .textoBlanco{
@@ -167,6 +174,26 @@ body{
     background-color: #521E53;
 }
 
+
+.display-3{
+	font-size: 3rem;
+}
+
+.display-4{
+	font-size: 1.5rem;
+}
+
+.infoMargin{
+	margin-bottom: 4rem;
+}
+
+.card .btn{
+	width: 100%;
+}
+
+.card{
+	width: 100%;
+}
 /* FIN MISCELANIOS
 
 /* Iniciar sesion y registrarse*/
