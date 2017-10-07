@@ -194,6 +194,21 @@ body{
 .card{
 	width: 100%;
 }
+
+.fullDiv{
+	width: 100% !important;
+	height: auto !important;
+
+}
+
+.bk_white{
+	background-color: #fff;
+}
+
+.sellosNegros{
+	max-width: 200px;
+	max-height: 200px;
+}
 /* FIN MISCELANIOS
 
 /* Iniciar sesion y registrarse*/
@@ -207,3 +222,23 @@ body{
 }
 
 /* Fin iniciar sesion y registrarse*/
+
+
+/* PAGINA SELLOS NEGROS */
+.sellosNegroTitulo{
+	background-color: #000;
+	color: #fff;
+	border-radius: 0px 0px 40px 0px;
+	display: inline-block;
+	padding: 3px;
+	padding-left: 15px;
+	padding-right: 30px;
+	font-size: 1.2rem;
+}
+
+.borderNegro{
+	border: .1rem solid #000;
+}
+
+
+/* FIN PAGINA SELLOS NEGROS*/

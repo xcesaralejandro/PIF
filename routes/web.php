@@ -32,3 +32,7 @@ Route::get('/prueba', function(){
 Route::get('enfermedades',function(){
 	return View('Informacion.enfermedades');
 });
+
+Route::get('sellosnegros',function(){
+	return View('Informacion.sellosnegros');
+});
