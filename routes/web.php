@@ -36,3 +36,7 @@ Route::get('enfermedades',function(){
 Route::get('sellosnegros',function(){
 	return View('Informacion.sellosnegros');
 });
+
+Route::get('etiquetanutricional',function(){
+	return View('Informacion.etiquetaNutricional');
+});

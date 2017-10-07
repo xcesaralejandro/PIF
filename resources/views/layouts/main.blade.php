@@ -7,9 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - Frust</title>
-    <!-- Bootstrap - FontAwesome - Hoja personalizada-->
+    <!-- Bootstrap - FontAwesome - Bootstrap select - Hoja personalizada-->
     <link rel="stylesheet" type="text/css" href="{{asset('recursos/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('recursos/fontAwesome/css/fontAwesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('recursos/chosen/chosen.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     @yield('css')
   </head>
@@ -29,11 +30,7 @@
     <!-- jQuery - Bootstrap -->
     <script src="{{ asset('recursos/jquery/jquery.js')}}"></script>
     <script src="{{ asset('recursos/bootstrap/js/bootstrap.js')}}"></script>
-    <script>
-      $(function(){
-     
-      });
-    </script>
+    <script src="{{ asset('recursos/chosen/chosen.js')}}"></script>
     @yield('js')
   </body>
 </html>

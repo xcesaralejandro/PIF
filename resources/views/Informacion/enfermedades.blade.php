@@ -6,7 +6,7 @@
 <style type="text/css">.cuerpoPagina{background-color: #F8F8F8;}</style>
 
 <div class="text-center mb-5 mt-3">
-	<span class="display-3"><i class="fa fa-stethoscope" aria-hidden="true"></i> Enfermedades</span><br/>
+	<span class="display-3">Enfermedades <i class="fa fa-stethoscope" aria-hidden="true"></i></span><br/>
 	<span class="display-4">Estas enfermedades pueden producirse por una mala alimentación</span>
 </div>
 
