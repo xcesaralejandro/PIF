@@ -45,6 +45,10 @@ Route::get('etiquetanutricional',function(){
 // Rutas administrador
 Route::group(['prefix'=>'admin'],function(){
 	Route::get('enfermedades',function(){
-		return View('admin.enfermedades.enfermedades');
+		return View('admin.enfermedades.listar');
+	});
+
+	Route::get('enfermedades/agregar',function(){
+		return View('admin.enfermedades.agregar');
 	});
 });

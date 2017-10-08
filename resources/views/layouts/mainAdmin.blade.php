@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('recursos/bootstrap/css/bootstrap.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('recursos/fontAwesome/css/fontAwesome.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{ asset('recursos/chosen/chosen.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('recursos/trumbo/ui/trumbowyg.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
   @yield('css')
 </head>
@@ -49,6 +50,7 @@
   <script src="{{ asset('recursos/jquery/jquery.js')}}"></script>
   <script src="{{ asset('recursos/bootstrap/js/bootstrap.js')}}"></script>
   <script src="{{ asset('recursos/chosen/chosen.js')}}"></script>
+  <script src="{{ asset('recursos/trumbo/trumbowyg.min.js') }}"></script>
   @yield('js')
 </body>
 </html>
