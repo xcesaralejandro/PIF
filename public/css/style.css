@@ -1,14 +1,14 @@
-/* Paleta de colores de la app */
+*:active,*:focus {outline: none !important;}
+/* ///////////////////  PALETA DE COLORES  ////////////////////////////*/
 .darkPalet{background-color: #321233 !important;}
 .lightDarkPalet{background-color: #521E53 !important;}
 .primaryPalet{background-color: #842F86 !important;}
 .lightPrimaryPalet{background-color: #C246C6 !important;}
-.backgroundPalet{background-color: #F8F8F8 !important; }
+.backgroundPalet{background-color: #F3F3F3 !important; }
 .bk_blanco{background-color: #fff !important;}
 .bk_negro{background-color: #000 !important;}
-/* Fin Paleta de colores de la app */
-
-/* Navbar CSS RULES*/
+/* /////////////////////////////////////////////////////////////////////*/
+/* //////////////////////////////  NAV  ////////////////////////////////*/
 .navbar-light .navbar-brand, .navbar-light .navbar-toggler {
     color: #fff !important;
 }
@@ -29,6 +29,10 @@ nav .form-control{
 
 nav .btn{
 	padding: .5rem 1rem;
+}
+
+.btn:hover{
+	cursor: pointer !important;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
@@ -63,7 +67,7 @@ nav .btn{
     padding-top: .2rem !important;
 }
 
-/*CSS NAVBAR TOGGABLE*/
+/* Navbar toggable*/
 .navbar-light .navbar-nav .nav-link {
     transition: all .3s ease;
 }
@@ -93,11 +97,8 @@ nav .btn{
 		padding-left: .5rem;
 	}
 }
-
-/* Fin Navbar CSS RULES*/
-
-/* REGLAS CSS IMPORTANTES */
-
+/* /////////////////////////////////////////////////////////////////////*/
+/* ////////////////////  REGLAS CSS IMPORTANTES ////////////////////////*/
 body{
 	background-image: url('../images/fondo.png');
 	background-attachment: fixed;
@@ -117,6 +118,14 @@ body{
 	padding: 5px;
 	padding-left: 1rem;
 	min-height: 2rem;
+}
+
+.headerAdmin{
+	width: 100% !important;
+	height: auto;
+	padding: 0px;
+	min-height: 2rem;
+	transition: all .3s ease;
 }
 
 .cuerpoPagina{
@@ -143,9 +152,8 @@ body{
 .cursorPointer:hover{
 	cursor: pointer !important; 
 }
-/* FIN REGLAS CSS IMPORTANTES*/
-
-/* MISCELANIOS */
+/* /////////////////////////////////////////////////////////////////////*/
+/* /////////////////////////  MICELANIOS //////////////////////////////*/
 .btn{
 	border-radius: 2px !important;
 	padding: .3rem .8rem;
@@ -162,7 +170,9 @@ body{
     outline: none !important;
 	color: #fff !important;
 }
-
+.btn-link{
+	color: #842F86 !important;
+}
 .textoBlanco{
 	color: #fff !important;
 }
@@ -182,7 +192,7 @@ body{
 }
 
 .display-4{
-	font-size: 1.5rem;
+	font-size: 2rem;
 }
 
 .infoMargin{
@@ -221,29 +231,38 @@ body{
 	font-size: 1.2rem;
 }
 
-/* FIN MISCELANIOS
-
-/* Iniciar sesion y registrarse*/
-
-.loginMarco{
-	border: 1px solid #582C93;
+.table td, .table th {
+    padding: .3rem;
 }
+/* /////////////////////////////////////////////////////////////////////*/
+/* //////////////////////  VISTAS INFORMATIVAS //////////////////////////*/
 
-.loginMarco .btn-primary{
-	width: 100%;
-}
-
-/* Fin iniciar sesion y registrarse*/
-
-
-/* PAGINA SELLOS NEGROS */
+/* Sellos negros */
 .borderNegro{
 	border: .1rem solid #000;
 }
-/* FIN PAGINA SELLOS NEGROS*/
 
-/* PAGINA ETIQUETA NUTRICIONAL */
+/* Etiqueta nutricional */
 .borderPrimary{
 	border: .1rem solid #842F86;
 }
-/* FIN PAGINA ETIQUETA NUTRICIONAL*/
+/* /////////////////////////////////////////////////////////////////////*/
+/* //////////////////////  VISTAS DE ADMINISTRADOR /////////////////////*/
+
+#secondMenu{
+	background-color: #222;
+}
+
+#secondMenu.navbar-light .navbar-nav .nav-link:hover{
+	background-color: #3F3F3F !important;
+}
+
+#secondMenu .btn-outline-success:hover {
+    background-color: #3F3F3F !important;
+}
+
+.imgAction:hover{
+	opacity: 0.7;
+}
+
+/* /////////////////////////////////////////////////////////////////////*/

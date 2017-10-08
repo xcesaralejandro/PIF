@@ -40,3 +40,11 @@ Route::get('sellosnegros',function(){
 Route::get('etiquetanutricional',function(){
 	return View('Informacion.etiquetaNutricional');
 });
+
+
+// Rutas administrador
+Route::group(['prefix'=>'admin'],function(){
+	Route::get('enfermedades',function(){
+		return View('admin.enfermedades.enfermedades');
+	});
+});
