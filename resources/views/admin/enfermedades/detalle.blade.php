@@ -1,4 +1,4 @@
-@extends('layouts.mainAdmin') 
+@extends('layouts.mainAdminDetalle') 
 
 @section('title','Administrar enfermedades') 
 
@@ -6,24 +6,23 @@
 	@include('admin.enfermedades.nav')
 @endsection 
 
+@section('urlEditar','#')
+@section('urlEliminar','#')
+
 @section('placeholderBuscar','Buscar Enfermedades') 
 @section('content')
-<div class="text-center mb-4 mt-3">
-    <span class="display-4">Ver en <strong>detalle</strong></span>
-</div>
-<hr>
-<div class="upToHr">
-<div class="row">
-	<div class="col-6 col-sm-4 offset-sm-4 col-md-3 offset-md-6 col-lg-2 offset-lg-8">
-		<a href="#" class="btn btn-primary fullDiv">
-			<i class="fa fa-wrench" aria-hidden="true"></i>
-		</a>
+	<div>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</div>
-	<div class="col-6 col-sm-4 col-md-3 col-lg-2">
-		<a href="#" class="btn btn-primary fullDiv">
-			<i class="fa fa-trash" aria-hidden="true"></i>
-		</a>
-	</div>
-</div>
-</div>
 @endsection
