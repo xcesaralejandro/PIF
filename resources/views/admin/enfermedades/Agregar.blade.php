@@ -3,12 +3,7 @@
 @section('title','Administrar enfermedades') 
 
 @section('nav')
-<li class="nav-item">
-    <a class="nav-link" href="#">Listado</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="#">Agregar</a>
-</li>
+	@include('admin.enfermedades.nav')
 @endsection 
 
 @section('placeholderBuscar','Buscar Enfermedades') @section('content')

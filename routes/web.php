@@ -44,11 +44,10 @@ Route::get('etiquetanutricional',function(){
 
 // Rutas administrador
 Route::group(['prefix'=>'admin'],function(){
-	Route::get('enfermedades',function(){
-		return View('admin.enfermedades.listar');
-	});
+	// ENFERMEDADES
+	Route::get('enfermedades','informacionController@listarEnfermedades')          ->name('listar.enfermedades');
+	Route::get('enfermedades/agregar','informacionController@agregarEnfermedades') ->name('agregar.enfermedades');
+	// SELLOS NEGROS
+	Route::get('sellosnegros','informacionController@listarSellosNegros')          ->name('listar.sellosnegros');
 
-	Route::get('enfermedades/agregar',function(){
-		return View('admin.enfermedades.agregar');
-	});
 });
