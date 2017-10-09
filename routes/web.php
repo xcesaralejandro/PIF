@@ -45,9 +45,13 @@ Route::get('etiquetanutricional',function(){
 // Rutas administrador
 Route::group(['prefix'=>'admin'],function(){
 	// ENFERMEDADES
-	Route::get('enfermedades','informacionController@listarEnfermedades')          ->name('listar.enfermedades');
-	Route::get('enfermedades/agregar','informacionController@agregarEnfermedades') ->name('agregar.enfermedades');
+	Route::get('enfermedades','informacionController@listarEnfermedades')               ->name('listar.enfermedades');
+	Route::get('enfermedades/agregar','informacionController@agregarEnfermedades')      ->name('agregar.enfermedades');
+	Route::get('enfermedades/{id}/detalle','informacionController@detalleEnfermedades') ->name('detalle.enfermedades');
 	// SELLOS NEGROS
-	Route::get('sellosnegros','informacionController@listarSellosNegros')          ->name('listar.sellosnegros');
-
+	Route::get('sellosnegros','informacionController@listarSellosNegros')               ->name('listar.sellosnegros');
+	Route::get('sellosnegros/agregar','informacionController@agregarSellosNegros')      ->name('agregar.sellosnegros');
+	// ETIQUETA NUTRICIONAL
+	Route::get('etiquetanutricional','informacionController@listarEtiqueta')            ->name('listar.etiquetanutricional');
+	Route::get('etiquetanutricional/agregar','informacionController@agregarEtiqueta')   ->name('agregar.etiquetanutricional');
 });

@@ -10,8 +10,9 @@
 
 @section('content')
 <div class="text-center mb-4 mt-3">
-    <span class="display-4">Listado de sellos negros <i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+    <span class="display-4">Listado de <strong>sellos negros</strong></span>
 </div>
+<hr>
 <table class="table table-striped table-hover">
     <thead class="thead-inverse">
         <tr>

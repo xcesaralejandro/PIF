@@ -270,4 +270,9 @@ body{
 	opacity: 0.7;
 }
 
+.upToHr{
+	position: relative !important;
+    top: -2rem !important;
+}
+
 /* /////////////////////////////////////////////////////////////////////*/
