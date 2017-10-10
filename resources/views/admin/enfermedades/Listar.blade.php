@@ -3,30 +3,32 @@
 @section('title','Administrar enfermedades') 
 
 @section('nav')
-    @include('admin.enfermedades.nav')
+@include('admin.enfermedades.nav')
 @endsection 
 
 @section('placeholderBuscar','Buscar Enfermedades') 
 
 @section('content')
 <div class="text-center mb-4 mt-3">
-    <span class="display-4">Listado de <strong>enfermedades</strong></span>
+    <span class="display-4">Listado de<strong> enfermedades</strong>
+    </span>
 </div>
 <hr>
 <table class="table table-striped table-hover">
     <thead class="thead-inverse">
         <tr>
-            <th>Enfermedad</th>
-            <th>Referencia</th>
-            <th>Acción</th>
+            <th> Enfermedad </th>
+            <th> Referencia  </th>
+            <th> Acción  </th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Nombre de la enfermedad va acá</td>
+            <td> Nombre de la enfermedad va acá  </td>
             <td class="fit">
                 <a href="#">
-                    <i class="fa fa-link" aria-hidden="true"></i> Visitar sitio
+                    <i aria-hidden="true" class="fa fa-link"></i>                      
+                    Visitar sitio
                 </a>
             </td>
             <td class="fit">
@@ -51,8 +53,7 @@
                 </div>
             </td>
         </tr>
-
-       
     </tbody>
 </table>
 @endsection
+</hr>
