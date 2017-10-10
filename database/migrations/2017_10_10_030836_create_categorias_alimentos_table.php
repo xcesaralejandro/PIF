@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSellosnegrosTable extends Migration
+class CreateCategoriasAlimentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateSellosnegrosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sellosnegros', function (Blueprint $table) {
+        Schema::create('categorias_alimentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('us_id')->unsigned();
-            $table->string('sn_nombre',256);
-            $table->text('sn_descripcion',1500);
-            $table->string('sn_url_imagen',256);
+            $table->integer('ga_id')->unsigned();
+            $table->string('ct_nombre',100);
             $table->timestamps();
 
             // FOREIGN KEY
-            $table->foreign('us_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('ga_id')->references('id')->on('grupos_alimentos')->onDelete('cascade');
         });
     }
 
@@ -33,6 +31,6 @@ class CreateSellosnegrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sellosnegros');
+        Schema::dropIfExists('categorias_alimentos');
     }
 }
