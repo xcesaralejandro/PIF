@@ -13,7 +13,7 @@ class CreateEtiquetasNutricionalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('etiquetasnutricionales', function (Blueprint $table) {
+        Schema::create('etiquetasNutricionales', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('us_id')->unsigned();
             $table->string('en_url_imagen',256);
@@ -33,6 +33,6 @@ class CreateEtiquetasNutricionalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('etiquetasnutricionales');
+        Schema::dropIfExists('etiquetasNutricionales');
     }
 }

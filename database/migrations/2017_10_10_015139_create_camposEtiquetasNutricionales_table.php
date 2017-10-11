@@ -13,7 +13,7 @@ class CreateCamposEtiquetasNutricionalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('campos_etiquetas_nutricionales', function (Blueprint $table) {
+        Schema::create('camposEtiquetasNutricionales', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('en_id')->unsigned();
             $table->string('cen_nombre',256);
@@ -21,7 +21,7 @@ class CreateCamposEtiquetasNutricionalesTable extends Migration
             $table->timestamps();
 
             // FOREIGN KEY
-            $table->foreign('en_id')->references('id')->on('etiquetasnutricionales')->onDelete('cascade');
+            $table->foreign('en_id')->references('id')->on('etiquetasNutricionales')->onDelete('cascade');
 
         });
     }
@@ -33,6 +33,6 @@ class CreateCamposEtiquetasNutricionalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campos_etiquetas_nutricionales');
+        Schema::dropIfExists('camposEtiquetasNutricionales');
     }
 }

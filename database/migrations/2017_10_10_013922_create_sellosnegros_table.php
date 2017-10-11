@@ -13,7 +13,7 @@ class CreateSellosnegrosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sellosnegros', function (Blueprint $table) {
+        Schema::create('sellosNegros', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('us_id')->unsigned();
             $table->string('sn_nombre',256);
@@ -33,6 +33,6 @@ class CreateSellosnegrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sellosnegros');
+        Schema::dropIfExists('sellosNegros');
     }
 }

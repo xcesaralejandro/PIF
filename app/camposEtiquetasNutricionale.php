@@ -4,9 +4,9 @@ namespace frust;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Campos_etiquetas_nutricionale extends Model
+class camposEtiquetasNutricionale extends Model
 {
-    protected $table = 'campos_etiquetas_nutricionales';
+    protected $table = 'camposEtiquetasNutricionales';
 
     protected $fillable = [
     	'id',

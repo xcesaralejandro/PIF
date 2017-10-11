@@ -4,13 +4,14 @@ namespace frust;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Grupos_alimento extends Model
+class comida_planesAlimentario extends Model
 {
-    protected $table = 'grupos_alimentos';
+    protected $table = 'comida_planesAlimentario';
 
     protected $fillable = [
     	'id',
-    	'ga_nombre',
+    	'pa_id',
+    	'cm_id',
     	'created_at',
     	'updated_at'
     ];

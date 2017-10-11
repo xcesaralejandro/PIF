@@ -24,7 +24,7 @@ class CreateAlimentosTable extends Migration
             $table->timestamps();
 
             // FOREIGN KEY 
-            $table->foreign('ct_id')->references('id')->on('categorias_alimentos')->onDelete('cascade');
+            $table->foreign('ct_id')->references('id')->on('categoriasAlimentos')->onDelete('cascade');
         });
     }
 

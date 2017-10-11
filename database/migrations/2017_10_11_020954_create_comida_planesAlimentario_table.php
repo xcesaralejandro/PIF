@@ -13,14 +13,14 @@ class CreateComidaPlanesAlimentarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('comida_planes_alimentario', function (Blueprint $table) {
+        Schema::create('comida_planesAlimentario', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('pa_id')->unsigned();
             $table->integer('cm_id')->unsigned();
             $table->timestamps();
 
             // FOREIGN KEY
-            $table->foreign('pa_id')->references('id')->on('planes_alimentarios')->onDelete('cascade');
+            $table->foreign('pa_id')->references('id')->on('planesAlimentarios')->onDelete('cascade');
             $table->foreign('cm_id')->references('id')->on('comidas')->onDelete('cascade');
         });
     }
@@ -32,6 +32,6 @@ class CreateComidaPlanesAlimentarioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comida_planes_alimentario');
+        Schema::dropIfExists('comida_planesAlimentario');
     }
 }

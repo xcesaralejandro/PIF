@@ -13,7 +13,7 @@ class CreateGruposAlimentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupos_alimentos', function (Blueprint $table) {
+        Schema::create('gruposAlimentos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ga_nombre',100);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateGruposAlimentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupos_alimentos');
+        Schema::dropIfExists('gruposAlimentos');
     }
 }

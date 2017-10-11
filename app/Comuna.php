@@ -4,7 +4,7 @@ namespace frust;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comuna extends Model
+class comuna extends Model
 {
     protected $table = 'comunas';
 

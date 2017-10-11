@@ -4,7 +4,7 @@ namespace frust;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Factore extends Model
+class factore extends Model
 {
     protected $table = 'factores';
 

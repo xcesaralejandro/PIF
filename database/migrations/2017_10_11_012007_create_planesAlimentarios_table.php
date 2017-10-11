@@ -13,7 +13,7 @@ class CreatePlanesAlimentariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('planes_alimentarios', function (Blueprint $table) {
+        Schema::create('planesAlimentarios', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('ft_id')->unsigned();
             $table->integer('na_id')->unsigned();
@@ -25,7 +25,7 @@ class CreatePlanesAlimentariosTable extends Migration
 
             // FOREIGN KEY
             $table->foreign('ft_id')->references('id')->on('factores')->onDelete('cascade');
-            $table->foreign('na_id')->references('id')->on('nuevos_avances')->onDelete('cascade');
+            $table->foreign('na_id')->references('id')->on('nuevosAvances')->onDelete('cascade');
             $table->foreign('us_id')->references('id')->on('users')->onDelete('cascade');
 
 
@@ -39,6 +39,6 @@ class CreatePlanesAlimentariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('planes_alimentarios');
+        Schema::dropIfExists('planesAlimentarios');
     }
 }

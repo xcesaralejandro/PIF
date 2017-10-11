@@ -4,9 +4,9 @@ namespace frust;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sellosnegro extends Model
+class sellosNegro extends Model
 {
-    protected $table = 'sellosnegros';
+    protected $table = 'sellosNegros';
 
     protected $fillable = [
     	'id',

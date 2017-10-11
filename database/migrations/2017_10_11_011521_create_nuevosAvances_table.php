@@ -13,7 +13,7 @@ class CreateNuevosAvancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('nuevos_avances', function (Blueprint $table) {
+        Schema::create('nuevosAvances', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('us_id')->unsigned();
             $table->integer('na_peso');
@@ -34,6 +34,6 @@ class CreateNuevosAvancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nuevos_avances');
+        Schema::dropIfExists('nuevosAvances');
     }
 }
