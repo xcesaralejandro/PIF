@@ -18,4 +18,10 @@ class enfermedade extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    // SUS HIJOS
+    // SUS PADRES
+    public function User(){
+        return $this->belongsTo('frust\User','us_id','id');
+    }
 }

@@ -19,4 +19,22 @@ class planesAlimentario extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    // SUS HIJOS
+    public function consumosDiarios(){
+        return $this->hasMany('frust\consumosDiario');
+    }
+
+    public function comida_planesAlimentarios(){
+        return $this->belongsToMany('frust\comida_planesAlimentario');
+    }
+
+    // SUS PADRES
+    public function User(){
+        return $this->belongsTo('frust\User','us_id','id');
+    }
+
+    public function factore(){
+        return $this->belongsTo('frust\factore','ft_id','id');
+    }
 }

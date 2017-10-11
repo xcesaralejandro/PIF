@@ -14,4 +14,10 @@ class comuna extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    // SUS PADRES
+    // SUS HIJOS
+    public function Users(){
+        return $this->hasMany('frust\User');
+    }
 }

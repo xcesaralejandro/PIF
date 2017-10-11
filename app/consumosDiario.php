@@ -19,4 +19,14 @@ class consumosDiario extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    // SUS HIJOS
+    // SUS PADRES
+    public function User(){
+        return $this->belongsTo('frust\User','us_id','id');
+    }
+
+    public function planesAlimentario(){
+        return $this->belongsTo('frust\planesAlimentario','pa_id','id');
+    }
 }

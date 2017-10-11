@@ -15,6 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'id',
         'co_id',
         'us_email',
         'us_contrasenia',
@@ -41,4 +42,35 @@ class User extends Authenticatable
     protected $hidden = [
         'us_contrasenia', 'remember_token',
     ];
+
+    // SUS HIJOS
+
+    public function enfermedades(){
+        return $this->hasMany('frust\enfermedade');
+    }
+
+    public function sellosNegros(){
+        return $this->hasMany('frust\sellosNegro');
+    }
+
+    public function etiquetasNutricionales(){
+        return $this->hasMany('frust\etiquetasNutricionale');
+    }
+
+    public function planesAlimentarios(){
+        return $this->hasMany('frust\planesAlimentario');
+    }
+
+    public function nuevosAvances(){
+        return $this->hasMany('frust\nuevosAvance');
+    }
+
+    public function consumosDiarios(){
+        return $this->hasMany('frust\consumosDiario');
+    }
+
+    // SUS PADRES
+    public function comuna(){
+        return $this->belongsTo('frust\comuna','co_id','id');
+    }
 }

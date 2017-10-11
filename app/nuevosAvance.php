@@ -19,4 +19,13 @@ class nuevosAvance extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    // SUS HIJOS
+    public function planesAlimentarios(){
+        return $this->hasMany('planesAlimentario');
+    }
+    // SUS PADRES
+    public function User(){
+        return $this->belongsTo('frust\User','us_id','id');
+    }
 }

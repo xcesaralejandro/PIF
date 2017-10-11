@@ -15,4 +15,13 @@ class comida_planesAlimentario extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    // SUS HIJOS
+    // SUS PADRES
+    public function planesAlimentario(){
+		return $this->belongsTo('frust\planesAlimentario','pa_id','id');
+	}
+	public function comida(){
+		return $this->belongsTo('frust\comida','cm_id','id');
+	}
 }

@@ -19,4 +19,11 @@ class factore extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    // SUS HIJOS
+    public function factores(){
+        return $this->hasMany('frust\factore');
+    }
+    // SUS PADRES
+     
 }

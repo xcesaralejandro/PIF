@@ -14,4 +14,11 @@ class gruposAlimento extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    // SUS HIJOS
+    public function categoriasAlimentos(){
+		return $this->hasMany('frust\categoriasAlimento');
+	}
+
+	// SUS PADRES
 }

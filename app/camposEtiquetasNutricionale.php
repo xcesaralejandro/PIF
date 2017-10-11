@@ -16,4 +16,11 @@ class camposEtiquetasNutricionale extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    // SUS HIJOS
+
+    // SUS PADRES
+    public function etiquetasNutricionale(){
+    	return $this->belongsTo('frust\etiquetasNutricionale','en_id','id');
+    }
 }

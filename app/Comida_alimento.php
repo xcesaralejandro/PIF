@@ -15,4 +15,14 @@ class comida_alimento extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    // SUS HIJOS
+    // SUS PADRES
+    public function alimento(){
+		return $this->belognsTo('frust\alimento','al_id','id');
+	}
+
+	public function comida(){
+		return $this->belongsTo('frust\comida','cm_id','id');
+	}
 }
