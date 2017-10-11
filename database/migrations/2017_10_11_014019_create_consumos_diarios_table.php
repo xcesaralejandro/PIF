@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEtiquetanutricionalTable extends Migration
+class CreateConsumosDiariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,20 @@ class CreateEtiquetanutricionalTable extends Migration
      */
     public function up()
     {
-        Schema::create('etiquetanutricional', function (Blueprint $table) {
+        Schema::create('consumos_diarios', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('us_id')->unsigned();
-            $table->string('en_url_imagen',256);
-            $table->string('en_titulo',100);
-            $table->text('en_descripcion',1500);
+            $table->integer('pa_id')->unsigned();
+            $table->integer('cs_ingesta_agua');
+            $table->text('cs_alimentacion_familia',2000);
+            $table->text('cs_alimentos_extra',2000);
+            $table->date('cs_fecha');
             $table->timestamps();
 
-            // FOREIGN KEY
+            // FOREIGN  KEY
             $table->foreign('us_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('pa_id')->references('id')->on('planes_alimentarios')->onDelete('cascade');
+
         });
     }
 
@@ -33,6 +37,6 @@ class CreateEtiquetanutricionalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('etiquetanutricional');
+        Schema::dropIfExists('consumos_diarios');
     }
 }

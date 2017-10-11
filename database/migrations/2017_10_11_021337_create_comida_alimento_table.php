@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCampoEtiquetaNutricionalTable extends Migration
+class CreateComidaAlimentoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateCampoEtiquetaNutricionalTable extends Migration
      */
     public function up()
     {
-        Schema::create('campo_etiqueta_nutricional', function (Blueprint $table) {
+        Schema::create('comida_alimento', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('en_id')->unsigned();
-            $table->string('cen_nombre',256);
-            $table->text('cen_descripcion',300);
+            $table->integer('al_id')->unsigned();
+            $table->integer('cm_id')->unsigned();
             $table->timestamps();
 
             // FOREIGN KEY
-            $table->foreign('en_id')->references('id')->on('etiquetanutricional')->onDelete('cascade');
+            $table->foreign('al_id')->references('id')->on('alimentos')->onDelete('cascade');
+            $table->foreign('cm_id')->references('id')->on('comidas')->onDelete('cascade');
 
         });
     }
@@ -33,6 +33,6 @@ class CreateCampoEtiquetaNutricionalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campo_etiqueta_nutricional');
+        Schema::dropIfExists('comida_alimento');
     }
 }
