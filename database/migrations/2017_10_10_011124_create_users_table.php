@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->integer('co_id') ->unsigned();
             $table->string('us_email',150);
-            $table->string('us_contrasenia',30);
+            $table->string('us_contrasenia',250);
             $table->string('us_nombres',150);
             $table->string('us_apellido_paterno',80);
             $table->string('us_apellido_materno',80);
