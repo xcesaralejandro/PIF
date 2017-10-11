@@ -16,12 +16,12 @@ class comida extends Model
     	'updated_at'
     ];
     // SUS HIJOS
-    public function comida_planesAlimentarios(){
-    	return $this->belongsToMany('frust\comida_planesAlimentario');
+    public function planesAlimentarios(){
+    	return $this->belongsToMany('frust\planesAlimentario');
     }
 
-    public function comida_alimentos(){
-		return $this->belongsToMany('frust\comida_alimento');
+    public function alimentos(){
+		return $this->belongsToMany('frust\alimento');
 	}
     // SUS PADRES
 }

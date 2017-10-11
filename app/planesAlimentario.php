@@ -25,8 +25,8 @@ class planesAlimentario extends Model
         return $this->hasMany('frust\consumosDiario');
     }
 
-    public function comida_planesAlimentarios(){
-        return $this->belongsToMany('frust\comida_planesAlimentario');
+    public function comidas(){
+        return $this->belongsToMany('frust\comida');
     }
 
     // SUS PADRES

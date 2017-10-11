@@ -21,8 +21,8 @@ class alimento extends Model
     ];
 
     // SUS HIJOS
-    public function comida_alimentos(){
-        return $this->hasMany('frust\comida_alimento');
+    public function comidas(){
+        return $this->belongsToMany('frust\comida');
     }
 
     // SUS PADRES
