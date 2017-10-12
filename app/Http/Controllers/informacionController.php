@@ -5,16 +5,6 @@ namespace frust\Http\Controllers;
 class informacionController extends Controller
 {
     // ENFERMEDADES
-    public function listarEnfermedades()
-    {
-        return View('admin.enfermedades.listar');
-    }
-
-    public function agregarEnfermedades()
-    {
-        return View('admin.enfermedades.agregar');
-    }
-
     public function detalleEnfermedades()
     {
         return View('admin.enfermedades.detalle');

@@ -12,9 +12,8 @@
 </div>
 <hr>
 <div class="p-3">
-	{{ Form::Open() }}
+	{{ Form::Open(['route' => 'enfermedades.store', 'method'=>'POST']) }}
 	    @include('admin.enfermedades.form')
-
 	    <div class="row text-center">
 	    	<div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 mt-4 mb-5 pl-5 pr-5">
 	    		<button type="submit" class="btn btn-primary">
@@ -29,9 +28,6 @@
 	    		</button>
 	    	</div>
 	    </div>
- 
-
-
 	{{ Form::Close() }}
 </div>
 @endsection

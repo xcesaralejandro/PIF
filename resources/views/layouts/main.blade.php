@@ -7,11 +7,8 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>@yield('title') - Frust</title>
-  <!-- Bootstrap - FontAwesome - Bootstrap select - Hoja personalizada-->
-  <link rel="stylesheet" type="text/css" href="{{asset('recursos/bootstrap/css/bootstrap.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('recursos/fontAwesome/css/fontAwesome.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('recursos/chosen/chosen.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+  <!-- carga de todos los archivos css para todos los main -->
+  @include('partials.mainCSS')
   @yield('css')
 </head>
 <body>
@@ -24,13 +21,12 @@
         @include('partials.modalLogin')
         {{-- Cargamos el contenido --}}
         @yield('content')
-      </div> 
+        @include('partials.desplegarErrors')
+      </div>
     </div> 
   </div>
-  <!-- jQuery - Bootstrap -->
-  <script src="{{ asset('recursos/jquery/jquery.js')}}"></script>
-  <script src="{{ asset('recursos/bootstrap/js/bootstrap.js')}}"></script>
-  <script src="{{ asset('recursos/chosen/chosen.js')}}"></script>
+  <!-- carga de archivos js para todos los main -->
+  @include('partials.mainJS')
   @yield('js')
 </body>
 </html>
