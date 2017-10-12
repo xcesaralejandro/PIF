@@ -3,3 +3,5 @@
 <script src="{{ asset('recursos/chosen/chosen.js')}}"></script>
 <script src="{{ asset('recursos/trumbo/trumbowyg.min.js')}}"></script>
 <script src="{{ asset('recursos/alertify/alertify.min.js')}}"></script>
+<script src="{{ asset('recursos/trumbo/trumbowyg.min.js')}}"></script>
+<script src="{{ asset('recursos/alertifyLaravel/alertify.js')}}"></script>

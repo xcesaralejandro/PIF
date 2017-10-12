@@ -179,7 +179,7 @@ return [
 
         // NUESTROS PROVIDERS
         Collective\Html\HtmlServiceProvider::class,
-
+        odannyc\Alertify\AlertifyServiceProvider::class,
     ],
 
     /*
@@ -233,7 +233,7 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
+        'Alertify' => odannyc\Alertify\Alertify::class,
     ],
 
 ];

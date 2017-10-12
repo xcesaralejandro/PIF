@@ -28,5 +28,6 @@
   <!-- carga de archivos js para todos los main -->
   @include('partials.mainJS')
   @yield('js')
+  @include('alertify::alertify')
 </body>
 </html>

@@ -3,4 +3,5 @@
 <link rel="stylesheet" type="text/css" href="{{asset('recursos/chosen/chosen.css') }}">
 <link rel="stylesheet" type="text/css" href="{{asset('recursos/trumbo/ui/trumbowyg.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{asset('recursos/alertify/css/alertify.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{asset('recursos/alertifyLaravel/css/alertify.css') }}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">

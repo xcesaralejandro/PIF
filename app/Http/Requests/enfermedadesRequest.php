@@ -27,7 +27,7 @@ class enfermedadesRequest extends FormRequest
             'ef_nombre'      =>'required|min:5|max:50',
             'ef_descripcion' =>'required|min:5|max:256',
             'ef_url'         =>'required|min:5|max:256',
-            'ef_url_imagen'  =>'required|image'
+            'ef_url_imagen'  =>'required'
         ];
     }
 }

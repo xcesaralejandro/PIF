@@ -35,7 +35,10 @@ class enfermedadesController extends Controller
      */
     public function store(enfermedadesRequest $request)
     {
-        dd($request->all());
+        alertify()->success('Updated record successfully')->persistent()->clickToClose();
+        // You can also add multiple alerts!
+        alertify('You are awesome!')->persistent()->clickToClose();
+        return redirect()->back();
     }
 
     /**
