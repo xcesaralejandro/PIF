@@ -239,6 +239,14 @@ body{
     white-space: nowrap;
     width: 15%;
 }
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: transparent;
+    opacity: 1;
+    text-align: center;
+    color: #a09c9c;
+}
+
 /* /////////////////////////////////////////////////////////////////////*/
 /* //////////////////////  VISTAS INFORMATIVAS //////////////////////////*/
 
@@ -276,3 +284,55 @@ body{
 }
 
 /* /////////////////////////////////////////////////////////////////////*/
+/* //////////////////////  VISTAS DE PLAN ALIMENTARIO //////////////////*/
+.contenedorSecciones .display-4{
+	color: #4c4c4c;
+}
+
+.fullComida{
+	border: 2px solid #842F86;
+}
+
+.tituloComida{
+	font-size: 1.1rem;
+}
+
+.requisitosVal{
+	display: inline-block;
+	margin-right: 1rem;
+}
+
+#buscarAlimento{
+	position: sticky !important;
+	top: 0;
+}
+
+#buscarAlimento a{
+	text-decoration: none;
+	color: #292b2c;
+}
+
+.fullSolid{
+	border: 2px solid #25796A;
+}
+
+.rblSolid{
+	border-left: 2px solid #25796A;
+	border-right: 2px solid #25796A;
+	border-bottom: 2px solid #25796A;
+}
+
+#bodySearch .btn-primary {
+    background-color: #25796A !important;
+    border-color: #25796A !important;
+}
+
+#bodySearch .btn-primary {
+    background-color: #25796A !important;
+    border-color: #25796A !important;
+}
+
+#bodySearch .btn-primary:hover , #bodySearch .btn-primary:active , #bodySearch .btn-primary:focus{
+	background-color: #2E9684 !important;
+    border-color: #2E9684 !important;
+}

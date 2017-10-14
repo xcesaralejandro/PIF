@@ -28,3 +28,10 @@ Route::group(['prefix' => 'admin'], function () {
     // ENFERMEDADES
     Route::resource('enfermedades','enfermedadesController');
 });
+
+
+// Rutas cliente
+Route::group(['prefix'=>'cliente'],function(){
+	// Plan alimentario
+	Route::resource('planAlimentario','planesAlimentariosController');
+});
