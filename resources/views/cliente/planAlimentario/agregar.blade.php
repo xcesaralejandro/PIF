@@ -164,27 +164,24 @@
 		<div id="bodySearch" class="p-3 rblSolid">
 			<div class="row">
 				<div class="col-md-4 mb-2">
-					<select class="chosen-select">
-						<option>grupo1</option>
-						<option>grupo2</option>
-						<option>grupo3</option>
-					</select>
+					{{ Form::select('gruposAlimentos',['1' => 'Grupo 1',
+													   '2' => 'Grupo 2',
+													   '3' => 'Grupo 3',
+													   '4' => 'Grupo 4'], null, ['class'=>'chosen-select gpo_alim']) }}
 				</div>
 
 				<div class="col-md-4 mb-2">
-					<select class="chosen-select">
-						<option>categoria1</option>
-						<option>categoria2</option>
-						<option>categoria3</option>
-					</select>
+					{{ Form::select('categoriasAlimento',['1' => 'Categoria 1',
+													      '2' => 'Categoria 2',
+													      '3' => 'Categoria 3',
+													      '4' => 'Categoria 4'], null, ['class'=>'chosen-select cat_alim']) }}
 				</div>
 
 				<div class="col-md-4 mb-2">
-					<select class="chosen-select">
-						<option>alimento1</option>
-						<option>alimento2</option>
-						<option>alimento3</option>
-					</select>
+					{{ Form::select('Alimento',['1' => 'Alimento 1',
+											    '2' => 'Alimento 2',
+											    '3' => 'Alimento 3',
+											    '4' => 'Alimento 4'], null, ['class'=>'chosen-select alim']) }}
 				</div>
 			</div>
 			<hr>
@@ -195,7 +192,7 @@
 				<div class="headAlimento pl-3 pr-3 hideHeadAlimento">
 					<div class="row mb-1">
 						<div class="col-10 nombreAlimento text-left">
-							
+							Default name
 						</div>
 						<div class="col-2 text-right">
 							<a class="deleteAlimento" href="#">

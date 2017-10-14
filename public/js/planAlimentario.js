@@ -45,8 +45,9 @@ headSearch.on('click',function(e){
 });
 
 //------------------- AGREGAR ALIMENTO -------------------//
-	var btnAgregar = $('#agregarAlimento');
-	var divComida = $('.fullComida');
+	var btnAgregar         = $('#agregarAlimento');
+	var divComida          = $('.fullComida');
+	var alimentoEncontrado = $('div.alimentoEncontrado');
 	var divComidaSeleccionado;
 	divComida.on('click',function(){
 		divComidaSeleccionado = $(this);
@@ -59,8 +60,9 @@ headSearch.on('click',function(e){
 
 	btnAgregar.on('click',function(){
 		if (divComidaSeleccionado){
-			alert('ok');
-
+			var clonAlmEnc = alimentoEncontrado.clone();
+			var xd = clonAlmEnc.find('div.headAlimento').removeClass('hideHeadAlimento').parents('.fullAlimento');
+			divComidaSeleccionado.find('div.listadoComida').append(xd);
 			// Acá hay que llamar a las funciones que sumarán todo
 		}else{
 			alertify.error('Debe seleccionar una comida previamente');
