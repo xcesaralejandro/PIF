@@ -44,13 +44,40 @@ headSearch.on('click',function(e){
 	}
 });
 
+//------------------- AGREGAR ALIMENTO -------------------//
+	var btnAgregar = $('#agregarAlimento');
+	var divComida = $('.fullComida');
+	var divComidaSeleccionado;
+	divComida.on('click',function(){
+		divComidaSeleccionado = $(this);
+		if (divComidaSeleccionado.css('opacity') != 1) {
+			alertify.success('Ha seleccionado: ' + divComidaSeleccionado.find('.tituloComida').text());
+			divComida.css('opacity','0.4');
+			divComidaSeleccionado.css('opacity','1');
+		}
+	});
+
+	btnAgregar.on('click',function(){
+		if (divComidaSeleccionado){
+			alert('ok');
+
+			// Acá hay que llamar a las funciones que sumarán todo
+		}else{
+			alertify.error('Debe seleccionar una comida previamente');
+		}
+	});
+
 //------------------- ELIMINAR ALIMENTO -------------------//
 	$('.deleteAlimento').on('click', function(e){
 		e.preventDefault();
 		var deleteTrigger = $(this);
 		var nombreAlimentoBorrado = deleteTrigger.parents('.headAlimento').find('.nombreAlimento').text();
-		deleteTrigger.parents('.fullAlimento').remove();
-		alertify.success('Se ha eliminado: ' + nombreAlimentoBorrado);
+		var deleteAlimentox = deleteTrigger.parents('.fullAlimento').remove();
+		if (deleteAlimentox) {
+			alertify.success('Se ha eliminado: ' + nombreAlimentoBorrado);
+		}else{
+			alertify.error('Error al eliminar: ' + nombreAlimentoBorrado);
+		}
 	});
 
 });// JQuery on load

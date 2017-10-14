@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Enfermedades por una mala alimentación')
+@section('title','Crear plan alimentario')
 
 @section('content')
 {{-- Sobrescribimos el css del documento para que sea gris solo en esta pagina--}}
@@ -188,38 +188,96 @@
 				</div>
 			</div>
 			<hr>
-			<div class="row">
-				<div class="col-6 col-md-3">
-					<div class="form-group">
-						<label for="al_gramos">100 Gramos</label>
-						<input id="al_gramos" type="number" class="form-control" readonly="">
-					</div>	
+			<div class="alimentoEncontrado">
+				{{-- 1 ALIMENTO--}}
+			<div id="alimento" class="fullAlimento m-2">
+				{{-- HEAD ALIMENTO --}}
+				<div class="headAlimento pl-3 pr-3 hideHeadAlimento">
+					<div class="row mb-1">
+						<div class="col-10 nombreAlimento text-left">
+							
+						</div>
+						<div class="col-2 text-right">
+							<a class="deleteAlimento" href="#">
+								<i class="fa fa-times" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
 				</div>
+				{{-- CUERPO DEL ALIMENTO --}}
+				<div class="bodyAlimento pr-3 pl-3">
+					<div class="row">
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									Cod
+								</div>
+								<div class="col-8 codigoAlimento">
+									{{ Form::number('al_id',0,['class'=>'form-control','readonly']) }}
+								</div>
+							</div>
+						</div>
 
-				<div class="col-6 col-md-3">
-					<div class="form-group">
-						<label for="al_proteina">Proteinas</label>
-						<input id="al_proteina" type="number" class="form-control" readonly="" value="123.8">
-					</div>	
-				</div>
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									Gramos
+								</div>
+								<div class="col-8 g">
+									{{ Form::number('gramos_ingeridos',0,['class'=>'form-control gramos_ingeridos','readonly']) }}
+								</div>
+							</div>
+						</div>
 
-				<div class="col-6 col-md-3">
-					<div class="form-group">
-						<label for="al_lipidos">Lipidos</label>
-						<input id="al_lipidos" type="number" class="form-control" readonly="">
-					</div>	
-				</div>
 
-				<div class="col-6 col-md-3">
-					<div class="form-group">
-						<label for="al_carbohidratos">Carbohidratos</label>
-						<input id="al_carbohidratos" type="number" class="form-control" readonly="">
-					</div>	
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									Kcal
+								</div>
+								<div class="col-8">
+									{{ Form::number('kcalAlimento',0,['class'=>'form-control kcalAlimento','readonly']) }}
+								</div>
+							</div>
+						</div>
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									PROT
+								</div>
+								<div class="col-8">
+									{{ Form::number('protAlimento',0,['class'=>'form-control protAlimento','readonly']) }}
+								</div>
+							</div>
+						</div>
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									LIP
+								</div>
+								<div class="col-8">
+									{{ Form::number('lipAlimento',0,['class'=>'form-control lipAlimento','readonly']) }}
+								</div>
+							</div>
+						</div>
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									CH
+								</div>
+								<div class="col-8 total CH">
+									{{ Form::number('al_id',0,['class'=>'form-control','readonly']) }}
+								</div>
+							</div>
+						</div>
+
+					</div>
 				</div>
 			</div>
+			</div>
 			<div class="row">
-				<div class="col-md-4 offset-md-4">
-					<button class="btn btn-primary fullDiv">Agregar alimento</button>
+				<div class="col-md-4 offset-md-4 mt-2">
+					<button class="btn btn-primary fullDiv" id="agregarAlimento">Agregar alimento</button>
 				</div>
 			</div>
 		</div>
@@ -245,7 +303,7 @@
 				<div class="headAlimento pl-3 pr-3">
 					<div class="row mb-1">
 						<div class="col-10 nombreAlimento">
-							nombre del alimento
+							Pan integral blanco
 						</div>
 						<div class="col-2 text-right">
 							<a class="deleteAlimento" href="#">
@@ -331,7 +389,7 @@
 				<div class="headAlimento pl-3 pr-3">
 					<div class="row mb-1">
 						<div class="col-10 nombreAlimento">
-							nombre del alimento
+							pan integral negro
 						</div>
 						<div class="col-2 text-right">
 							<a class="deleteAlimento" href="#">
@@ -417,7 +475,7 @@
 				<div class="headAlimento pl-3 pr-3">
 					<div class="row mb-1">
 						<div class="col-10 nombreAlimento">
-							nombre del alimento
+							Leche semidescremada
 						</div>
 						<div class="col-2 text-right">
 							<a class="deleteAlimento" href="#">
@@ -503,7 +561,7 @@
 				<div class="headAlimento pl-3 pr-3">
 					<div class="row mb-1">
 						<div class="col-10 nombreAlimento">
-							nombre del alimento
+							Fideos
 						</div>
 						<div class="col-2 text-right">
 							<a class="deleteAlimento" href="#">
@@ -653,7 +711,7 @@
 				<div class="headAlimento pl-3 pr-3">
 					<div class="row mb-1">
 						<div class="col-10 nombreAlimento">
-							nombre del alimento
+							Arroz
 						</div>
 						<div class="col-2 text-right">
 							<a class="deleteAlimento" href="#">
@@ -1639,7 +1697,7 @@
 				<div class="headAlimento pl-3 pr-3">
 					<div class="row mb-1">
 						<div class="col-10 nombreAlimento">
-							nombre del alimento
+							Narana
 						</div>
 						<div class="col-2 text-right">
 							<a class="deleteAlimento" href="#">
@@ -1725,7 +1783,7 @@
 				<div class="headAlimento pl-3 pr-3">
 					<div class="row mb-1">
 						<div class="col-10 nombreAlimento">
-							nombre del alimento
+							Almendras
 						</div>
 						<div class="col-2 text-right">
 							<a class="deleteAlimento" href="#">
