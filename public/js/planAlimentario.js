@@ -44,4 +44,13 @@ headSearch.on('click',function(e){
 	}
 });
 
+//------------------- ELIMINAR ALIMENTO -------------------//
+	$('.deleteAlimento').on('click', function(e){
+		e.preventDefault();
+		var deleteTrigger = $(this);
+		var nombreAlimentoBorrado = deleteTrigger.parents('.headAlimento').find('.nombreAlimento').text();
+		deleteTrigger.parents('.fullAlimento').remove();
+		alertify.success('Se ha eliminado: ' + nombreAlimentoBorrado);
+	});
+
 });// JQuery on load

@@ -365,11 +365,12 @@ body{
 #containerSticky .chosen-container-single, #containerSticky .chosen-single{
 	border: none;
 	border-radius: 0px;
-	border-bottom: 1px solid #842f86;
+	border-bottom: .1px solid #842f86;
 	transition: all .3s ease;
 	text-align: left;
 	-webkit-box-shadow: 0px;
 	box-shadow: none;
+	cursor: pointer;
 }
 
 #containerSticky .form-control{
