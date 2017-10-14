@@ -257,13 +257,24 @@
 				{{-- CUERPO DEL ALIMENTO --}}
 				<div class="bodyAlimento pr-3 pl-3">
 					<div class="row">
-						<div class="col-6 col-lg-2 offset-lg-1">
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									Cod
+								</div>
+								<div class="col-8">
+									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-6 col-lg-2">
 							<div class="row">
 								<div class="col-4">
 									Gramos
 								</div>
 								<div class="col-8">
-									<input style="text-align: center;" type="number" value="100" name="" class="form-control max60">
+									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
 								</div>
 							</div>
 						</div>
