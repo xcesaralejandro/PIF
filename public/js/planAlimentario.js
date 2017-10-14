@@ -33,6 +33,7 @@ headSearch.on('click',function(e){
 			bodySearch.css('display','block');
 		});
 
+
 		// Mostramos el icono de font Awesome por minimizar
 		iconSearch.fadeOut('fast',function(){
 			iconSearch.removeClass();

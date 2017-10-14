@@ -9,264 +9,363 @@
 	<span class="display-4">Crear plan alimentario</span>
 </div>
 <hr>
-<div class="requisitosNutricionales primaryPalet textoBlanco m-2 p-1 pl-3 text-center">
+{{-- SECCION REQUISITOS PARA EL PLAN ///////////////////////////////////////////////////////////////// --}}
+<div class="requisitosNutricionales primaryPalet textoBlanco m-2 p-1 pl-3 pr-3 text-center">
 	
-	<div class="requisitosVal">
-		IMC: <span><strong>00,00</strong></span>
-	</div>
+	<div class="row text-left">
+		<div class="col-6 col-sm-4 col-lg-2 offset-lg-1">
+			<div class="row">
+				<div class="col-6">
+					IMC	
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>00,00</strong></span>
+				</div>
+			</div>
+		</div>
 
-	<div class="requisitosVal">
-		VCT: <span><strong>0000</strong></span>
-	</div>
+		<div class="col-6 col-sm-4 col-lg-2">
+			<div class="row">
+				<div class="col-6">
+					VCT
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>0000</strong></span>
+				</div>
+			</div>
+		</div>
 
-	<div class="requisitosVal">
-		Proteina: <span><strong>00,0</strong>%</span>
-	</div>
+		<div class="col-6 col-sm-4 col-lg-2">
+			<div class="row">
+				<div class="col-6">
+					PROT	
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>00</strong>%</span>
+				</div>
+			</div>
+		</div>
 
-	<div class="requisitosVal">
-		Lípidos: <span><strong>00,0</strong>%</span>
-	</div>
+		<div class="col-6 col-sm-4 col-lg-2">
+			<div class="row">
+				<div class="col-6">
+					LIP
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>00</strong>%</span>
+				</div>
+			</div>
+		</div>
 
-	<div class="requisitosVal">
-		Carbohidratos: <span><strong>00,0</strong>%</span>
+		<div class="col-6 col-sm-4 col-lg-2">
+			<div class="row">
+				<div class="col-6">
+					CH	
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>00</strong>%</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+</div>
+
+{{-- SECCION COMIDAS ////////////////////////////////////////////////////////////////////////////////// --}}
+<div class="requisitosNutricionales bk_teal textoBlanco m-2 p-1 pl-3 text-center">
+	
+	<div class="row text-left">
+
+		<div class="col-6 col-sm-4 col-lg-2">
+			<div class="row">
+				<div class="col-6">
+					Desayuno	
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>00</strong>%</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-lg-2">
+			<div class="row">
+				<div class="col-6">
+					Colación
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>00</strong>%</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-lg-2">
+			<div class="row">
+				<div class="col-6">
+					Almuerzo	
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>00</strong>%</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-lg-2">
+			<div class="row">
+				<div class="col-6">
+					Colación
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>00</strong>%</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-lg-2">
+			<div class="row">
+				<div class="col-6">
+					Once	
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>00</strong>%</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-sm-4 col-lg-2">
+			<div class="row">
+				<div class="col-6">
+					Cena	
+				</div>
+				<div class="col-6 text-left">
+					<span><strong>00</strong>%</span>
+				</div>
+			</div>
+		</div>
+
 	</div>
 </div>
-<div class="p-2 mb-5">
-<section id="buscarAlimento" class="bk_blanco text-center">
-	<a id="displayHeadSearch" href="#">
-	<div class="headSearch fullDiv fullSolid p-1 pl-3 pr-3">
-		<div class="row">
-			<div class="col-10 text-left">
-				<strong>Buscar alimentos</strong>
+{{-- DIV CONETENEDOR PARA EL STICKY --}}
+<div id="containerSticky" class="p-2 mb-5">
+	{{-- SECCION BUSCAR UN ALIMENTO //////////////////////////////////////////////////////////////////////////// --}}
+	<section id="buscarAlimento" class="bk_blanco text-center">
+		<a id="displayHeadSearch" href="#">
+			<div class="headSearch fullDiv textoBlanco fullSolid pl-3 pr-3 bk_azul">
+				<div class="row">
+					<div class="col-10 text-left">
+						Buscar alimentos
+					</div>
+					<div class="col-2 text-right">
+						<i id="iconDisplay" class="fa fa-window-minimize" aria-hidden="true"></i>
+					</div>
+				</div>
 			</div>
-			<div class="col-2 text-right">
-				<i id="iconDisplay" class="fa fa-window-minimize" aria-hidden="true"></i>
+		</a>
+		<div id="bodySearch" class="p-3 rblSolid">
+			<div class="row">
+				<div class="col-md-4 mb-2">
+					<select class="chosen-select">
+						<option>grupo1</option>
+						<option>grupo2</option>
+						<option>grupo3</option>
+					</select>
+				</div>
+
+				<div class="col-md-4 mb-2">
+					<select class="chosen-select">
+						<option>categoria1</option>
+						<option>categoria2</option>
+						<option>categoria3</option>
+					</select>
+				</div>
+
+				<div class="col-md-4 mb-2">
+					<select class="chosen-select">
+						<option>alimento1</option>
+						<option>alimento2</option>
+						<option>alimento3</option>
+					</select>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-6 col-md-3">
+					<div class="form-group">
+						<label for="al_gramos">100 Gramos</label>
+						<input id="al_gramos" type="number" class="form-control" readonly="">
+					</div>	
+				</div>
+
+				<div class="col-6 col-md-3">
+					<div class="form-group">
+						<label for="al_proteina">Proteinas</label>
+						<input id="al_proteina" type="number" class="form-control" readonly="" value="123.8">
+					</div>	
+				</div>
+
+				<div class="col-6 col-md-3">
+					<div class="form-group">
+						<label for="al_lipidos">Lipidos</label>
+						<input id="al_lipidos" type="number" class="form-control" readonly="">
+					</div>	
+				</div>
+
+				<div class="col-6 col-md-3">
+					<div class="form-group">
+						<label for="al_carbohidratos">Carbohidratos</label>
+						<input id="al_carbohidratos" type="number" class="form-control" readonly="">
+					</div>	
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 offset-md-4">
+					<button class="btn btn-primary fullDiv">Agregar alimento</button>
+				</div>
 			</div>
 		</div>
-	</div>
-	</a>
-	<div id="bodySearch" class="p-3 rblSolid">
-		<div class="row">
-		<div class="col-md-4 mb-2">
-			<select class="form-control">
-				<option>grupo1</option>
-				<option>grupo2</option>
-				<option>grupo3</option>
-			</select>
-		</div>
+	</section>
 
-		<div class="col-md-4 mb-2">
-			<select class="form-control">
-				<option>categoria1</option>
-				<option>categoria2</option>
-				<option>categoria3</option>
-			</select>
+{{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
+	<div class="fullDiv fullComida bk_blanco mt-5">
+{{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
+		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2 tituloComida">
+			<div class="row">
+				<div class="col-10">
+					Desayuno
+				</div>
+				<div class="col-2">
+					25%
+				</div>
+			</div>
 		</div>
-
-		<div class="col-md-4 mb-2">
-			<select class="form-control">
-				<option>alimento1</option>
-				<option>alimento2</option>
-				<option>alimento3</option>
-			</select>
-		</div>
-	</div>
-	<hr>
-	<div class="row">
-		<div class="col-6 col-md-3">
-			<div class="form-group">
-				<label for="al_gramos">100 Gramos</label>
-				<input id="al_gramos" type="number" class="form-control" readonly="">
-			</div>	
-		</div>
-
-		<div class="col-6 col-md-3">
-			<div class="form-group">
-				<label for="al_proteina">Proteinas</label>
-				<input id="al_proteina" type="number" class="form-control" readonly="" value="1238">
-			</div>	
-		</div>
-
-		<div class="col-6 col-md-3">
-			<div class="form-group">
-				<label for="al_lipidos">Lipidos</label>
-				<input id="al_lipidos" type="number" class="form-control" readonly="">
-			</div>	
-		</div>
-
-		<div class="col-6 col-md-3">
-			<div class="form-group">
-				<label for="al_carbohidratos">Carbohidratos</label>
-				<input id="al_carbohidratos" type="number" class="form-control" readonly="">
-			</div>	
-		</div>
-	</div>
-	<div class="row mt-3">
-		<div class="col-md-4 offset-md-4">
-			<button class="btn btn-primary fullDiv">Agregar alimento</button>
-		</div>
-	</div>
-	</div>
-</section>
-
-
-<div class="fullDiv fullComida bk_blanco mt-5">
-	{{-- TITULO COMIDA --}}
-	<div class="fullDiv primaryPalet textoBlanco pl-2 tituloComida">
-		titulo estructuraComida
-	</div>
+<div class="listadoComida bk_blanco p-1">
 	{{-- ALIMENTOS DEL PLAN --}}
-	<div class="listadoComida bk_blanco">
-		<div class="p-3">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<div id="alimento" class="fullAlimento m-2">
+				{{-- HEAD ALIMENTO --}}
+				<div class="headAlimento pl-3 pr-3">
+					<div class="row mb-1">
+						<div class="col-10">
+							nombre del alimento
+						</div>
+						<div class="col-2 text-right">
+							<a href="#">
+								<i class="fa fa-times" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				{{-- CUERPO DEL ALIMENTO --}}
+				<div class="bodyAlimento pr-3 pl-3">
+					<div class="row">
+						<div class="col-6 col-lg-2 offset-lg-1">
+							<div class="row">
+								<div class="col-4">
+									Gramos
+								</div>
+								<div class="col-8">
+									<input style="text-align: center;" type="number" value="100" name="" class="form-control max60">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									Kcal
+								</div>
+								<div class="col-8">
+									<input class="form-control" type="number" value="12.34" name="" readonly="">
+								</div>
+							</div>
+						</div>
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									PROT
+								</div>
+								<div class="col-8">
+									<input class="form-control" type="number" value="12.34" name="" readonly="">
+								</div>
+							</div>
+						</div>
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									LIP
+								</div>
+								<div class="col-8">
+									<input class="form-control" type="number" value="12.34" name="" readonly="">
+								</div>
+							</div>
+						</div>
+						<div class="col-6 col-lg-2">
+							<div class="row">
+								<div class="col-4">
+									CH
+								</div>
+								<div class="col-8">
+									<input class="form-control" type="number" value="12.34" name="" readonly="">
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+</div>{{-- LISTADO DE COMIDAS --}}
+
+{{-- TOTAL DE LA COMIDA ////////////////////////////////////////////////////////////////////////////// --}}
+		<div class="primaryPalet textoBlanco totalComida">
+			<div class="row pl-2 pr-2">
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							Kcal
+						</div>
+						<div class="col-6">
+							<span class="total">0000</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							PROT
+						</div>
+						<div class="col-6">
+							00,00
+						</div>
+					</div>
+				</div>
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							LIP
+						</div>
+						<div class="col-6">
+							00,00
+						</div>
+					</div>
+				</div>
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							CH
+						</div>
+						<div class="col-6">
+							00,00
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	{{-- TOTALES DEL PLAN --}}
-	<div class="row">
-		<div class="col-sm-4">
-			
-		</div>
-		<div class="col-sm-4">
-			
-		</div>
-		<div class="col-sm-4">
-			
-		</div>
-	</div>
-</div>
-
-
-
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 </div>
 @endsection
 @section('js')
-	<script src="{{ asset('js/planAlimentario.js') }}"></script>
+<script src="{{ asset('js/planAlimentario.js') }}"></script>
 @endsection 
 
