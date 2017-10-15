@@ -23,7 +23,7 @@ headSearch.on('click',function(e){
 		});
 
 		// Cambiamos el icono de font Awesome por maximizar
-			iconSearch.removeClass().addClass('fa fa-window-maximize');
+		iconSearch.removeClass().addClass('fa fa-window-maximize');
 	}else{
 		// Mostramos el cuerpo de buscar alimentos
 		bodySearch.show('fast',function(){
@@ -32,9 +32,7 @@ headSearch.on('click',function(e){
 		// Cambiamos el icono de font Awesome por minimizar
 		iconSearch.removeClass().addClass('fa fa-window-minimize');
 	}
-
 	headSearch = undefined;
-	iconSearch = undefined;
 });
 
 //------------------- AGREGAR ALIMENTO -------------------//
@@ -42,6 +40,7 @@ headSearch.on('click',function(e){
 	var divComida          = $('.fullComida');
 	var alimentoEncontrado = $('div.alimentoEncontrado');
 	var divComidaSeleccionado;
+	
 	divComida.on('click',function(){
 		divComidaSeleccionado = $(this);
 		if (divComidaSeleccionado.css('opacity') != 1) {
@@ -50,9 +49,12 @@ headSearch.on('click',function(e){
 			divComidaSeleccionado.css('opacity','1');
 		}
 	});
-
+	// Esta funcion mete el alimento dentro del container
 	btnAgregar.on('click',function(){
 		if (divComidaSeleccionado){
+
+			// var codigosAlimentos = divComidaSeleccionado.find('input.codigoAlimento').val();
+			// console.log(codigosAlimentos);
 			// Clonamos el elemento y activamos el input para los gramos
 			var nAlimento  = $('.alim option:selected').text();
 			var clonAlmEnc = alimentoEncontrado.clone();
@@ -96,20 +98,14 @@ headSearch.on('click',function(e){
 		e.preventDefault();
 		var deleteTrigger         = $(this);
 		var nombreAlimentoBorrado = deleteTrigger.parents('.headAlimento').find('.nombreAlimento').text();
-		
-		alertify.confirm('¿Está seguro de borrar ' + nombreAlimentoBorrado + ' ?',function(){
-			var deleteAlimentox   = deleteTrigger.parents('.fullAlimento').remove();
-			if (deleteAlimentox) {
-				alertify.success('Ha eliminado: ' + nombreAlimentoBorrado)
-			}else{
-				alertify.error('Error al eliminar: ' + nombreAlimentoBorrado);
-			}
-		}).set('labels', {ok:'Eliminar', cancel:'Salir'}).show();
-		
-		// Limpiamos las variables
-		deleteTrigger         = undefined;
-		deleteAlimentox       = undefined;
-		nombreAlimentoBorrado = undefined;
+		alertify
+		.okBtn("Aceptar")
+		.cancelBtn("Salir")
+		.confirm("¿Está seguro de eliminar" + nombreAlimentoBorrado + " ?", function (ev) {
+    		if (ev) {
+    			deleteTrigger.parents('.fullAlimento').remove();
+    		}
+		});
 	});
 
 //------------------- AJUSTAR VALORES SEGUN GRAMOS -------------------//
@@ -141,8 +137,7 @@ headSearch.on('click',function(e){
 		oprot  = undefined;
 		olip   = undefined;
 		och    = undefined;
-		nt.off();
 	});
 
-
 });// JQuery on load
+
