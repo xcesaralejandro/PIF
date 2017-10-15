@@ -10,7 +10,7 @@
 </div>
 <hr>
 {{-- SECCION REQUISITOS PARA EL PLAN ///////////////////////////////////////////////////////////////// --}}
-<div class="requisitosNutricionales primaryPalet textoBlanco m-2 p-1 pl-3 pr-3 text-center">
+<div class="requisitosNutricionales bk_teal textoBlanco m-2 p-1 pl-3 pr-3 text-center">
 	
 	<div class="row text-left">
 		<div class="col-6 col-sm-4 col-lg-2 offset-lg-1">
@@ -210,7 +210,7 @@
 									Cod
 								</div>
 								<div class="col-8 codigoAlimento">
-									{{ Form::number('al_id',0,['class'=>'form-control','readonly']) }}
+									{{ Form::number('al_id',1,['class'=>'form-control','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -220,8 +220,8 @@
 								<div class="col-4">
 									Gramos
 								</div>
-								<div class="col-8 g">
-									{{ Form::number('gramos_ingeridos',0,['class'=>'form-control gramos_ingeridos','readonly']) }}
+								<div id="test" class="col-8 g">
+									{{ Form::number('gramos_ingeridos',100,['class'=>'form-control gramos_ingeridos','style'=>'text-align: center;','min'=>'0','step'=>'25','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -233,7 +233,7 @@
 									Kcal
 								</div>
 								<div class="col-8">
-									{{ Form::number('kcalAlimento',0,['class'=>'form-control kcalAlimento','readonly']) }}
+									{{ Form::number('kcalAlimento',450,['class'=>'form-control kcalAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -243,7 +243,7 @@
 									PROT
 								</div>
 								<div class="col-8">
-									{{ Form::number('protAlimento',0,['class'=>'form-control protAlimento','readonly']) }}
+									{{ Form::number('protAlimento',11.4,['class'=>'form-control protAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -253,7 +253,7 @@
 									LIP
 								</div>
 								<div class="col-8">
-									{{ Form::number('lipAlimento',0,['class'=>'form-control lipAlimento','readonly']) }}
+									{{ Form::number('lipAlimento',12,['class'=>'form-control lipAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -263,7 +263,7 @@
 									CH
 								</div>
 								<div class="col-8 total CH">
-									{{ Form::number('al_id',0,['class'=>'form-control','readonly']) }}
+									{{ Form::number('chAlimento',10,['class'=>'form-control chAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -273,8 +273,10 @@
 			</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4 offset-md-4 mt-2">
-					<button class="btn btn-primary fullDiv" id="agregarAlimento">Agregar alimento</button>
+				<div class="col-sm-4 offset-sm-8 col-lg-3 offset-lg-9 col-xl-2 offset-xl-10 mt-2">
+					<button class="btn btn-primary fullDiv" id="agregarAlimento">
+						<i class="fa fa-plus" aria-hidden="true"></i> Agregar alimento
+					</button>
 				</div>
 			</div>
 		</div>
@@ -283,7 +285,7 @@
 {{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
 	<div class="fullDiv fullComida bk_blanco mt-3">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
-		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
+		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
 				<div class="col-10 tituloComida">
 					Desayuno
@@ -348,7 +350,7 @@
 	{{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
 	<div class="fullDiv fullComida bk_blanco mt-3">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
-		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
+		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
 				<div class="col-10 tituloComida">
 					Colación 1
@@ -411,7 +413,7 @@
 	{{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
 	<div class="fullDiv fullComida bk_blanco mt-3">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
-		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
+		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
 				<div class="col-10 tituloComida">
 					Almuerzo
@@ -474,7 +476,7 @@
 	{{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
 	<div class="fullDiv fullComida bk_blanco mt-3">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
-		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
+		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
 				<div class="col-10 tituloComida">
 					Colación 2
@@ -536,7 +538,7 @@
 
 	<div class="fullDiv fullComida bk_blanco mt-3">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
-		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
+		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
 				<div class="col-10 tituloComida">
 					Once
@@ -598,7 +600,7 @@
 
 		<div class="fullDiv fullComida bk_blanco mt-3">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
-		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
+		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
 				<div class="col-10 tituloComida">
 					Cena

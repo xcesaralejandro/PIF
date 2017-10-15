@@ -290,7 +290,6 @@ body{
 }
 
 .fullComida{
-	border: 2px solid #842F86;
 	opacity: 0.7;
 }
 
@@ -316,13 +315,13 @@ body{
 }
 
 .fullSolid{
-	border: 2px solid #1E86D9;
+	border: 2px solid #B92E34;
 }
 
 .rblSolid{
-	border-left: 2px solid #1E86D9;
-	border-right: 2px solid #1E86D9;
-	border-bottom: 2px solid #1E86D9;
+	border-left: 2px solid #B92E34;
+	border-right: 2px solid #B92E34;
+	border-bottom: 2px solid #B92E34;
 }
 
 #bodySearch{
@@ -330,23 +329,23 @@ body{
 }
 
 #bodySearch .btn-primary, #bodySearch .btn-primary:active , #bodySearch .btn-primary:focus{
-    background-color: #1E86D9 !important;
-    border-color: #1E86D9 !important;
+    background-color: #B92E34 !important;
+    border-color: #B92E34 !important;
     webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
 
 #bodySearch .btn-primary:hover{
-	background-color: #2196F3 !important;
-    border-color: #2196F3 !important;
+	background-color: #E53941 !important;
+    border-color: #E53941 !important;
 }
 
 .bk_azul{
-	background-color: #1E86D9 !important;
+	background-color: #B92E34 !important;
 }
 
 .bk_teal{
-	background-color: #25796A !important;
+	background-color: #b92e34 !important;
 }
 
 .bk_dark_gray{
@@ -358,11 +357,11 @@ body{
 }
 
 .alimentoStyle1{
-	border-bottom: 1px solid #1E86D9;
+	border-bottom: 1px solid #b92e34;
 }
 
 #alimento a{
-	color: #1e86d9;
+	color: #f44336;
 	text-decoration: none;
 	transition: all .3s ease;
 }
@@ -391,7 +390,7 @@ body{
 }
 
 #containerSticky .form-control:hover{
-	border-bottom: 1px solid #1e86d9;
+	border-bottom: 1px solid #b92e34;
 }
 
 .fullAlimento{
@@ -406,4 +405,8 @@ body{
 }
 .hideHeadAlimento{
 	display: none !important;
+}
+
+.borderBottomPrimary{
+	border-bottom: 1px solid #842F86;
 }

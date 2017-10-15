@@ -1,5 +1,5 @@
 $(function(){
-//--------------------- CONTAINER PARA LOS EVENTOS ---------------------//
+//--------------------- VARIABLES GLOBALES  ---------------------//
 var containerEventos = $('.listadoComida');
 //---------------- INICIALIZAMOS CHOSEN PARA LOS SELECT ----------------//
 	$(".chosen-select").chosen({
@@ -49,16 +49,26 @@ headSearch.on('click',function(e){
 
 	btnAgregar.on('click',function(){
 		if (divComidaSeleccionado){
-			var nAlimento = $('.alim option:selected').text();
+			// Clonamos el elemento y activamos el input para los gramos
+			var nAlimento  = $('.alim option:selected').text();
 			var clonAlmEnc = alimentoEncontrado.clone();
-			var xd = clonAlmEnc.find('div.nombreAlimento')
-							   .html(nAlimento)
-							   .parents('div.headAlimento')
-							   .removeClass('hideHeadAlimento')
-							   .parents('.fullAlimento');
+			var xd         = clonAlmEnc.find('div.nombreAlimento')
+							   		   .html(nAlimento)
+							   		   .parents('div.headAlimento')
+							   		   .removeClass('hideHeadAlimento')
+							   		   .parents('.fullAlimento')
+							   		   .find('input.gramos_ingeridos')
+							   		   .removeAttr('readonly')
+							   		   .parents('.fullAlimento');
 			
-			// divComidaSeleccionado.find('div.listadoComida').append(xd);
+			// Traimos los valores de 100g y los pasamos a atributos data-	
+			xd.find('div.bodyAlimento').data( "valoresAlimento", { 'kcal' : xd.find('.kcalAlimento').val(),
+																    'prot': xd.find('.protAlimento').val(),
+																    'lip' : xd.find('.lipAlimento').val(),
+																    'ch'  : xd.find('.chAlimento').val()});
+			// Agregamos el alimento
 			var booleanAction = divComidaSeleccionado.find('div.listadoComida').append(xd);
+			
 			if (booleanAction) {
 				alertify.success("Ha agregado: " + nAlimento);
 			}else{
@@ -74,14 +84,50 @@ headSearch.on('click',function(e){
 //------------------- ELIMINAR ALIMENTO -------------------//
 	containerEventos.on('click','a.deleteAlimento',function(e){
 		e.preventDefault();
-		var deleteTrigger = $(this);
+		var deleteTrigger         = $(this);
 		var nombreAlimentoBorrado = deleteTrigger.parents('.headAlimento').find('.nombreAlimento').text();
-		var deleteAlimentox = deleteTrigger.parents('.fullAlimento').remove();
+		var deleteAlimentox       = deleteTrigger.parents('.fullAlimento').remove();
 		if (deleteAlimentox) {
 			alertify.success('Se ha eliminado: ' + nombreAlimentoBorrado);
 		}else{
 			alertify.error('Error al eliminar: ' + nombreAlimentoBorrado);
 		}
+
+		// Limpiamos las variables
+		deleteTrigger         = undefined;
+		deleteAlimentox       = undefined;
+		nombreAlimentoBorrado = undefined;
 	});
+
+//------------------- AJUSTAR VALORES SEGUN GRAMOS -------------------//
+	containerEventos.on('change','input.gramos_ingeridos',function(){
+		// Traemos los gramos nuevos
+		var nt 	   = $(this);
+		var gramos = nt.val();
+
+		// Traemos sus datos originales por 100g
+		var obj   = $(this).parents('div.bodyAlimento').data("valoresAlimento");
+		var okcal = obj.kcal;
+		var oprot = obj.prot;
+		var olip  = obj.lip;
+		var och   = obj.ch;
+		// Calculamos nuevos valores t seteamos
+		nt.parents('div.bodyAlimento').find('.kcalAlimento').val(gramos*okcal/100);
+		nt.parents('div.bodyAlimento').find('.protAlimento').val(gramos*oprot/100);
+		nt.parents('div.bodyAlimento').find('.lipAlimento').val(gramos*olip/100);
+		nt.parents('div.bodyAlimento').find('.chAlimento').val(gramos*och/100);
+		// Vaciamos las variables
+		nt     = undefined;
+		gramos = undefined;
+		kcal   = undefined;
+		prot   = undefined;
+		lip    = undefined;
+		ch     = undefined;
+		okcal  = undefined;
+		oprot  = undefined;
+		olip   = undefined;
+		och    = undefined;
+	});
+
 
 });// JQuery on load
