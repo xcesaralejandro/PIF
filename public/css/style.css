@@ -291,7 +291,7 @@ body{
 
 .fullComida{
 	border: 2px solid #842F86;
-	opacity: 0.4;
+	opacity: 0.7;
 }
 
 .tituloComida{
@@ -304,8 +304,10 @@ body{
 }
 
 #buscarAlimento{
-	position: sticky !important;
+	position: absolute;
+	position: fixed;
 	top: 0;
+	left: 0;
 }
 
 #buscarAlimento a{
@@ -321,6 +323,10 @@ body{
 	border-left: 2px solid #1E86D9;
 	border-right: 2px solid #1E86D9;
 	border-bottom: 2px solid #1E86D9;
+}
+
+#bodySearch{
+	display: none;
 }
 
 #bodySearch .btn-primary, #bodySearch .btn-primary:active , #bodySearch .btn-primary:focus{

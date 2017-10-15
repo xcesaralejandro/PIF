@@ -1,4 +1,6 @@
 $(function(){
+//--------------------- CONTAINER PARA LOS EVENTOS ---------------------//
+var containerEventos = $('.listadoComida');
 //---------------- INICIALIZAMOS CHOSEN PARA LOS SELECT ----------------//
 	$(".chosen-select").chosen({
                 disable_search_threshold: 1,
@@ -15,32 +17,19 @@ headSearch.on('click',function(e){
 
 	if (bodySearch.css('display') === 'block'){
 		// Ocultamos el cuerpo de buscar alimentos
-		bodySearch.fadeOut('slow',function(){
+		bodySearch.hide('fast',function(){
 			bodySearch.css('display','none');
 		});
 
 		// Cambiamos el icono de font Awesome por maximizar
-		iconSearch.fadeOut('fast',function(){
-			iconSearch.removeClass();
-		});
-		iconSearch.fadeIn('fast',function(){
-			iconSearch.addClass('fa fa-window-maximize');
-		});
-
+			iconSearch.removeClass().addClass('fa fa-window-maximize');
 	}else{
 		// Mostramos el cuerpo de buscar alimentos
-		bodySearch.fadeIn('slow',function(){
+		bodySearch.show('fast',function(){
 			bodySearch.css('display','block');
 		});
-
-
-		// Mostramos el icono de font Awesome por minimizar
-		iconSearch.fadeOut('fast',function(){
-			iconSearch.removeClass();
-		});
-		iconSearch.fadeIn('fast',function(){
-			iconSearch.addClass('fa fa-window-minimize');
-		});
+		// Cambiamos el icono de font Awesome por minimizar
+		iconSearch.removeClass().addClass('fa fa-window-minimize');
 	}
 });
 
@@ -53,16 +42,29 @@ headSearch.on('click',function(e){
 		divComidaSeleccionado = $(this);
 		if (divComidaSeleccionado.css('opacity') != 1) {
 			alertify.success('Ha seleccionado: ' + divComidaSeleccionado.find('.tituloComida').text());
-			divComida.css('opacity','0.4');
+			divComida.css('opacity','0.7');
 			divComidaSeleccionado.css('opacity','1');
 		}
 	});
 
 	btnAgregar.on('click',function(){
 		if (divComidaSeleccionado){
+			var nAlimento = $('.alim option:selected').text();
 			var clonAlmEnc = alimentoEncontrado.clone();
-			var xd = clonAlmEnc.find('div.headAlimento').removeClass('hideHeadAlimento').parents('.fullAlimento');
-			divComidaSeleccionado.find('div.listadoComida').append(xd);
+			var xd = clonAlmEnc.find('div.nombreAlimento')
+							   .html(nAlimento)
+							   .parents('div.headAlimento')
+							   .removeClass('hideHeadAlimento')
+							   .parents('.fullAlimento');
+			
+			// divComidaSeleccionado.find('div.listadoComida').append(xd);
+			var booleanAction = divComidaSeleccionado.find('div.listadoComida').append(xd);
+			if (booleanAction) {
+				alertify.success("Ha agregado: " + nAlimento);
+			}else{
+				alertify.error("Error al agregar: " + nAlimento);
+			}
+
 			// Acá hay que llamar a las funciones que sumarán todo
 		}else{
 			alertify.error('Debe seleccionar una comida previamente');
@@ -70,7 +72,7 @@ headSearch.on('click',function(e){
 	});
 
 //------------------- ELIMINAR ALIMENTO -------------------//
-	$('.deleteAlimento').on('click', function(e){
+	containerEventos.on('click','a.deleteAlimento',function(e){
 		e.preventDefault();
 		var deleteTrigger = $(this);
 		var nombreAlimentoBorrado = deleteTrigger.parents('.headAlimento').find('.nombreAlimento').text();

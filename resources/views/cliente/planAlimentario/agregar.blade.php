@@ -150,13 +150,13 @@
 	{{-- SECCION BUSCAR UN ALIMENTO //////////////////////////////////////////////////////////////////////////// --}}
 	<section id="buscarAlimento" class="bk_blanco text-center">
 		<a id="displayHeadSearch" href="#">
-			<div class="headSearch fullDiv textoBlanco fullSolid pl-3 pr-3 bk_azul">
+			<div class="headSearch fullDiv textoBlanco fullSolid pl-3 pr-4 bk_azul">
 				<div class="row">
 					<div class="col-10 text-left">
-						Buscar alimentos
+						Agregar alimentos
 					</div>
 					<div class="col-2 text-right">
-						<i id="iconDisplay" class="fa fa-window-minimize" aria-hidden="true"></i>
+						<i id="iconDisplay" class="fa fa-window-maximize" aria-hidden="true"></i>
 					</div>
 				</div>
 			</div>
@@ -281,7 +281,7 @@
 	</section>
 
 {{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
-	<div class="fullDiv fullComida bk_blanco mt-5">
+	<div class="fullDiv fullComida bk_blanco mt-3">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
 			<div class="row">
@@ -689,7 +689,7 @@
 
 
 	{{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
-	<div class="fullDiv fullComida bk_blanco mt-5">
+	<div class="fullDiv fullComida bk_blanco mt-3">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
 			<div class="row">
@@ -1096,7 +1096,7 @@
 	</div>{{-- DIV SECCION COMIDA ENTERA --}}
 
 	{{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
-	<div class="fullDiv fullComida bk_blanco mt-5">
+	<div class="fullDiv fullComida bk_blanco mt-3">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
 			<div class="row">
@@ -1503,7 +1503,7 @@
 	</div>{{-- DIV SECCION COMIDA ENTERA --}}
 
 	{{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
-	<div class="fullDiv fullComida bk_blanco mt-5">
+	<div class="fullDiv fullComida bk_blanco mt-3">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
 			<div class="row">
