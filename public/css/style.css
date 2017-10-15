@@ -398,10 +398,12 @@ body{
 	padding-bottom: .5rem;
 }
 
-.bodyAlimento .fullAlimento{
+.fullAlimento{
 	border-bottom: 1px solid #b3b3b3;
 }
-
+#searchAlim div.fullAlimento{
+	border: none !important;
+}
 .hideHeadAlimento{
 	display: none !important;
 }

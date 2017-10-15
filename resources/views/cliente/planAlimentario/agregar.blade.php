@@ -185,7 +185,7 @@
 				</div>
 			</div>
 			<hr>
-			<div class="alimentoEncontrado">
+			<div id="searchAlim" class="alimentoEncontrado">
 				{{-- 1 ALIMENTO--}}
 			<div id="alimento" class="fullAlimento m-2">
 				{{-- HEAD ALIMENTO --}}
@@ -294,349 +294,6 @@
 			</div>
 		</div>
 <div class="listadoComida bk_blanco p-1">
-	{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							Pan integral blanco
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							pan integral negro
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							Leche semidescremada
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							Fideos
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
 
 </div>{{-- LISTADO DE COMIDAS --}}
 
@@ -702,350 +359,6 @@
 			</div>
 		</div>
 <div class="listadoComida bk_blanco p-1">
-	{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							Arroz
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							nombre del alimento
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							nombre del alimento
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							nombre del alimento
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
 </div>{{-- LISTADO DE COMIDAS --}}
 
 {{-- TOTAL DE LA COMIDA ////////////////////////////////////////////////////////////////////////////// --}}
@@ -1109,350 +422,6 @@
 			</div>
 		</div>
 <div class="listadoComida bk_blanco p-1">
-	{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							nombre del alimento
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							nombre del alimento
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							nombre del alimento
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							nombre del alimento
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
 </div>{{-- LISTADO DE COMIDAS --}}
 
 {{-- TOTAL DE LA COMIDA ////////////////////////////////////////////////////////////////////////////// --}}
@@ -1508,6 +477,68 @@
 		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
 			<div class="row">
 				<div class="col-10 tituloComida">
+					Colación 2
+				</div>
+				<div class="col-2 porcentajeComida">
+					20%
+				</div>
+			</div>
+		</div>
+<div class="listadoComida bk_blanco p-1">
+</div>{{-- LISTADO DE COMIDAS --}}
+
+{{-- TOTAL DE LA COMIDA ////////////////////////////////////////////////////////////////////////////// --}}
+		<div class="primaryPalet textoBlanco totalComida">
+			<div class="row pl-2 pr-2">
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							Kcal
+						</div>
+						<div class="col-6">
+							<strong class="total Kcal">0000</strong>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							PROT
+						</div>
+						<div class="col-6">
+							<strong class="total PROT">00,00</strong>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							LIP
+						</div>
+						<div class="col-6">
+							<strong class="total LIP">00,00</strong>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							CH
+						</div>
+						<div class="col-6">
+							<strong class="total CH">00,00</strong>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>{{-- DIV SECCION COMIDA ENTERA --}}
+
+	<div class="fullDiv fullComida bk_blanco mt-3">
+{{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
+		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
+			<div class="row">
+				<div class="col-10 tituloComida">
 					Once
 				</div>
 				<div class="col-2 porcentajeComida">
@@ -1516,350 +547,68 @@
 			</div>
 		</div>
 <div class="listadoComida bk_blanco p-1">
-	{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							nombre del alimento
+</div>{{-- LISTADO DE COMIDAS --}}
+
+{{-- TOTAL DE LA COMIDA ////////////////////////////////////////////////////////////////////////////// --}}
+		<div class="primaryPalet textoBlanco totalComida">
+			<div class="row pl-2 pr-2">
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							Kcal
 						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
+						<div class="col-6">
+							<strong class="total Kcal">0000</strong>
 						</div>
 					</div>
 				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
+				<div class="col-6 col-lg-3">
 					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
+						<div class="col-6">
+							PROT
 						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
+						<div class="col-6">
+							<strong class="total PROT">00,00</strong>
 						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
+					</div>
+				</div>
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							LIP
 						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
+						<div class="col-6">
+							<strong class="total LIP">00,00</strong>
 						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
+					</div>
+				</div>
+				<div class="col-6 col-lg-3">
+					<div class="row">
+						<div class="col-6">
+							CH
 						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
+						<div class="col-6">
+							<strong class="total CH">00,00</strong>
 						</div>
-
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>{{-- DIV SECCION COMIDA ENTERA --}}
 
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							nombre del alimento
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
+		<div class="fullDiv fullComida bk_blanco mt-3">
+{{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
+		<div class="fullDiv primaryPalet textoBlanco p-1 pl-2">
+			<div class="row">
+				<div class="col-10 tituloComida">
+					Cena
 				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
+				<div class="col-2 porcentajeComida">
+					20%
 				</div>
 			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							Narana
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			{{-- 1 ALIMENTO--}}
-			<div id="alimento" class="fullAlimento m-2">
-				{{-- HEAD ALIMENTO --}}
-				<div class="headAlimento pl-3 pr-3">
-					<div class="row mb-1">
-						<div class="col-10 nombreAlimento">
-							Almendras
-						</div>
-						<div class="col-2 text-right">
-							<a class="deleteAlimento" href="#">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				{{-- CUERPO DEL ALIMENTO --}}
-				<div class="bodyAlimento pr-3 pl-3">
-					<div class="row">
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Cod
-								</div>
-								<div class="col-8 codigoAlimento">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control" readonly="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Gramos
-								</div>
-								<div class="col-8 g">
-									<input style="text-align: center;" type="number" value="0" name="" class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									Kcal
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									PROT
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									LIP
-								</div>
-								<div class="col-8">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-lg-2">
-							<div class="row">
-								<div class="col-4">
-									CH
-								</div>
-								<div class="col-8 total CH">
-									<input class="form-control" type="number" value="12.34" name="" readonly="">
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
+		</div>
+<div class="listadoComida bk_blanco p-1">
 </div>{{-- LISTADO DE COMIDAS --}}
 
 {{-- TOTAL DE LA COMIDA ////////////////////////////////////////////////////////////////////////////// --}}
