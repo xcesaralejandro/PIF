@@ -221,7 +221,7 @@
 									Gramos
 								</div>
 								<div id="test" class="col-8 g">
-									{{ Form::number('gramos_ingeridos',100,['class'=>'form-control gramos_ingeridos','style'=>'text-align: center;','min'=>'0','step'=>'100','readonly']) }}
+									{{ Form::number('gramos_ingeridos',100,['class'=>'form-control gramos_ingeridos','style'=>'text-align: center;','min'=>'0','step'=>'5','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -287,11 +287,11 @@
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
-				<div class="col-10 tituloComida">
+				<div class="col-6 tituloComida">
 					Desayuno
 				</div>
-				<div class="col-2 porcentajeComida">
-					25%
+				<div class="col-6 porcentajeComida text-right pr-4">
+					<strong>999 kcal</strong>
 				</div>
 			</div>
 		</div>
@@ -352,11 +352,11 @@
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
-				<div class="col-10 tituloComida">
+				<div class="col-6 tituloComida">
 					Colación 1
 				</div>
-				<div class="col-2 porcentajeComida">
-					10%
+				<div class="col-6 porcentajeComida text-right pr-4">
+					<strong>999 kcal</strong>
 				</div>
 			</div>
 		</div>
@@ -415,11 +415,11 @@
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
-				<div class="col-10 tituloComida">
+				<div class="col-6 tituloComida">
 					Almuerzo
 				</div>
-				<div class="col-2 porcentajeComida">
-					35%
+				<div class="col-6 porcentajeComida text-right pr-4">
+					<strong>999 kcal</strong>
 				</div>
 			</div>
 		</div>
@@ -478,11 +478,11 @@
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
-				<div class="col-10 tituloComida">
+				<div class="col-6 tituloComida">
 					Colación 2
 				</div>
-				<div class="col-2 porcentajeComida">
-					20%
+				<div class="col-6 porcentajeComida text-right pr-4">
+					<strong>999 kcal</strong>
 				</div>
 			</div>
 		</div>
@@ -540,11 +540,11 @@
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
-				<div class="col-10 tituloComida">
+				<div class="col-6 tituloComida">
 					Once
 				</div>
-				<div class="col-2 porcentajeComida">
-					20%
+				<div class="col-6 porcentajeComida text-right pr-4">
+					<strong>999 kcal</strong>
 				</div>
 			</div>
 		</div>
@@ -602,11 +602,11 @@
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
-				<div class="col-10 tituloComida">
+				<div class="col-6 tituloComida">
 					Cena
 				</div>
-				<div class="col-2 porcentajeComida">
-					20%
+				<div class="col-6 porcentajeComida text-right pr-4">
+					<strong>999 kcal</strong>
 				</div>
 			</div>
 		</div>

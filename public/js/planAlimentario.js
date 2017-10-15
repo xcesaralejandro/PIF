@@ -96,13 +96,16 @@ headSearch.on('click',function(e){
 		e.preventDefault();
 		var deleteTrigger         = $(this);
 		var nombreAlimentoBorrado = deleteTrigger.parents('.headAlimento').find('.nombreAlimento').text();
-		var deleteAlimentox       = deleteTrigger.parents('.fullAlimento').remove();
-		if (deleteAlimentox) {
-			alertify.success('Se ha eliminado: ' + nombreAlimentoBorrado);
-		}else{
-			alertify.error('Error al eliminar: ' + nombreAlimentoBorrado);
-		}
-
+		
+		alertify.confirm('¿Está seguro de borrar ' + nombreAlimentoBorrado + ' ?',function(){
+			var deleteAlimentox   = deleteTrigger.parents('.fullAlimento').remove();
+			if (deleteAlimentox) {
+				alertify.success('Ha eliminado: ' + nombreAlimentoBorrado)
+			}else{
+				alertify.error('Error al eliminar: ' + nombreAlimentoBorrado);
+			}
+		}).set('labels', {ok:'Eliminar', cancel:'Salir'}).show();
+		
 		// Limpiamos las variables
 		deleteTrigger         = undefined;
 		deleteAlimentox       = undefined;
@@ -112,7 +115,7 @@ headSearch.on('click',function(e){
 //------------------- AJUSTAR VALORES SEGUN GRAMOS -------------------//
 	var div = $('div.g');
 	containerEventos.on('keyup mouseup','input.gramos_ingeridos',function(){
-		// Traemos los gramos nuevos
+		// Traemos los nuevos gramos
 		var nt 	   = $(this);
 		var gramos = nt.val();
 
