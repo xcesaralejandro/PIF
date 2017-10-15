@@ -221,7 +221,7 @@
 									Gramos
 								</div>
 								<div id="test" class="col-8 g">
-									{{ Form::number('gramos_ingeridos',100,['class'=>'form-control gramos_ingeridos','style'=>'text-align: center;','min'=>'0','step'=>'25','readonly']) }}
+									{{ Form::number('gramos_ingeridos',100,['class'=>'form-control gramos_ingeridos','style'=>'text-align: center;','min'=>'0','step'=>'100','readonly']) }}
 								</div>
 							</div>
 						</div>

@@ -7,6 +7,7 @@ var containerEventos = $('.listadoComida');
                 no_results_text: "No hay resultados",
                 width: "100%"
             });
+
 //------------------- DISPLAY - HIDE BUSCAR ALIMENTO -------------------//
 var headSearch = $('#displayHeadSearch');
 var bodySearch = $('#bodySearch');
@@ -31,6 +32,9 @@ headSearch.on('click',function(e){
 		// Cambiamos el icono de font Awesome por minimizar
 		iconSearch.removeClass().addClass('fa fa-window-minimize');
 	}
+
+	headSearch = undefined;
+	iconSearch = undefined;
 });
 
 //------------------- AGREGAR ALIMENTO -------------------//
@@ -62,7 +66,7 @@ headSearch.on('click',function(e){
 							   		   .parents('.fullAlimento');
 			
 			// Traimos los valores de 100g y los pasamos a atributos data-	
-			xd.find('div.bodyAlimento').data( "valoresAlimento", { 'kcal' : xd.find('.kcalAlimento').val(),
+			xd.find('div.bodyAlimento').data( "valoresAlimento", {  'kcal' : xd.find('.kcalAlimento').val(),
 																    'prot': xd.find('.protAlimento').val(),
 																    'lip' : xd.find('.lipAlimento').val(),
 																    'ch'  : xd.find('.chAlimento').val()});
@@ -79,6 +83,12 @@ headSearch.on('click',function(e){
 		}else{
 			alertify.error('Debe seleccionar una comida previamente');
 		}
+
+		// Limpiamos las variables
+		nAlimento             = undefined;
+		clonAlmEnc            = undefined;
+		xd                    = undefined;
+		booleanAction         = undefined;
 	});
 
 //------------------- ELIMINAR ALIMENTO -------------------//
