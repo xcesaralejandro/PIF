@@ -110,7 +110,8 @@ headSearch.on('click',function(e){
 	});
 
 //------------------- AJUSTAR VALORES SEGUN GRAMOS -------------------//
-	containerEventos.on('change','input.gramos_ingeridos',function(){
+	var div = $('div.g');
+	containerEventos.on('keyup mouseup','input.gramos_ingeridos',function(){
 		// Traemos los gramos nuevos
 		var nt 	   = $(this);
 		var gramos = nt.val();
@@ -137,6 +138,7 @@ headSearch.on('click',function(e){
 		oprot  = undefined;
 		olip   = undefined;
 		och    = undefined;
+		nt.off();
 	});
 
 
