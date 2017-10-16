@@ -53,50 +53,43 @@ headSearch.on('click',function(e){
 	btnAgregar.on('click',function(){
 		if (divComidaSeleccionado){
 
-// ACA VAMI NUEVO CODE ///////////////////////////////////////////////////////////////////////////////////
-	
+	// Comprobamos que el elemento no esté agregado en el divcomida seleccionado
 	var codigoNuevo = alimentoEncontrado.find('input.codigoAlimento').val();
-
 	var padreItems = divComidaSeleccionado.find('.listadoComida'); 
 	console.log('CODIGO NUEVO ALIMENTO: '+codigoNuevo);
 	if (searchElement(padreItems.find('input.codigoAlimento'),codigoNuevo)) {
-		console.log('LA FUNCION LO HA ENCONTRADO');
+		alertify.error($('.alim option:selected').text() +' ya se encuentra en ' + divComidaSeleccionado.find('.tituloComida').text());
 	}else{
-		console.log('LA FUNCION NO ENCONTRO EL NUMERO');
-	}
-// FIN ACA VAMI NUEVO CODE ///////////////////////////////////////////////////////////////////////////////////
-			// var codigosAlimentos = divComidaSeleccionado.find('input.codigoAlimento').val();
-			// console.log(codigosAlimentos);
-			// Clonamos el elemento y activamos el input para los gramos
-			var nAlimento  = $('.alim option:selected').text();
-			var clonAlmEnc = alimentoEncontrado.clone();
-			var xd         = clonAlmEnc.find('div.nombreAlimento')
-							   		   .html(nAlimento)
-							   		   .parents('div.headAlimento')
-							   		   .removeClass('hideHeadAlimento')
-							   		   .parents('.fullAlimento')
-							   		   .find('input.gramos_ingeridos')
-							   		   .removeAttr('readonly')
-							   		   .parents('.fullAlimento');
-			
-			// Traimos los valores de 100g y los pasamos a atributos data-	
-			xd.find('div.bodyAlimento').data( "valoresAlimento", {  'kcal' : xd.find('.kcalAlimento').val(),
-																    'prot': xd.find('.protAlimento').val(),
-																    'lip' : xd.find('.lipAlimento').val(),
-																    'ch'  : xd.find('.chAlimento').val()});
-			// Agregamos el alimento
-			var booleanAction = divComidaSeleccionado.find('div.listadoComida').append(xd);
-			
-			if (booleanAction) {
-				alertify.success("Ha agregado: " + nAlimento);
-			}else{
-				alertify.error("Error al agregar: " + nAlimento);
-			}
-
-			// Acá hay que llamar a las funciones que sumarán todo
+		// Clonamos el elemento y activamos el input para los gramos
+		var nAlimento  = $('.alim option:selected').text();
+		var clonAlmEnc = alimentoEncontrado.clone();
+		var xd         = clonAlmEnc.find('div.nombreAlimento')
+						   		   .html(nAlimento)
+						   		   .parents('div.headAlimento')
+						   		   .removeClass('hideHeadAlimento')
+						   		   .parents('.fullAlimento')
+						   		   .find('input.gramos_ingeridos')
+						   		   .removeAttr('readonly')
+						   		   .parents('.fullAlimento');
+		
+		// Traimos los valores de 100g y los pasamos a atributos data-	
+		xd.find('div.bodyAlimento').data( "valoresAlimento", {  'kcal': xd.find('.kcalAlimento').val(),
+															    'prot': xd.find('.protAlimento').val(),
+															    'lip' : xd.find('.lipAlimento').val(),
+															    'ch'  : xd.find('.chAlimento').val()});
+		// Agregamos el alimento
+		var booleanAction = divComidaSeleccionado.find('div.listadoComida').append(xd);
+		
+		if (booleanAction) {
+			alertify.success("Ha agregado: " + nAlimento);
 		}else{
-			alertify.error('Debe seleccionar una comida previamente');
+			alertify.error("Error al agregar: " + nAlimento);
 		}
+	}
+		// Acá hay que llamar a las funciones que sumarán todo
+}else{
+	alertify.error('Debe seleccionar una comida previamente');
+}
 
 		// Limpiamos las variables
 		nAlimento             = undefined;
