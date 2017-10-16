@@ -209,8 +209,8 @@
 								<div class="col-4">
 									Cod
 								</div>
-								<div class="col-8 codigoAlimento">
-									{{ Form::number('al_id',1,['class'=>'form-control','readonly']) }}
+								<div class="col-8">
+									{{ Form::number('al_id',1,['class'=>'form-control codigoAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>

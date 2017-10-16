@@ -53,6 +53,18 @@ headSearch.on('click',function(e){
 	btnAgregar.on('click',function(){
 		if (divComidaSeleccionado){
 
+// ACA VAMI NUEVO CODE ///////////////////////////////////////////////////////////////////////////////////
+	
+	var codigoNuevo = alimentoEncontrado.find('input.codigoAlimento').val();
+
+	var padreItems = divComidaSeleccionado.find('.listadoComida'); 
+	console.log('CODIGO NUEVO ALIMENTO: '+codigoNuevo);
+	if (searchElement(padreItems.find('input.codigoAlimento'),codigoNuevo)) {
+		console.log('LA FUNCION LO HA ENCONTRADO');
+	}else{
+		console.log('LA FUNCION NO ENCONTRO EL NUMERO');
+	}
+// FIN ACA VAMI NUEVO CODE ///////////////////////////////////////////////////////////////////////////////////
 			// var codigosAlimentos = divComidaSeleccionado.find('input.codigoAlimento').val();
 			// console.log(codigosAlimentos);
 			// Clonamos el elemento y activamos el input para los gramos
@@ -103,7 +115,12 @@ headSearch.on('click',function(e){
 		.cancelBtn("Salir")
 		.confirm("¿Está seguro de eliminar" + nombreAlimentoBorrado + " ?", function (ev) {
     		if (ev) {
-    			deleteTrigger.parents('.fullAlimento').remove();
+    			var loborrotest = deleteTrigger.parents('.fullAlimento').remove();
+    			if (loborrotest) {
+    				alertify.success('Ha eliminado: ' + nombreAlimentoBorrado);
+    			}else{
+    				alertify.error('Error al eliminar: ' + nombreAlimentoBorrado);
+    			}
     		}
 		});
 	});
@@ -139,5 +156,30 @@ headSearch.on('click',function(e){
 		och    = undefined;
 	});
 
-});// JQuery on load
+// Mis funciones
+function getElement(objJQuery){
+	var elementos = [];
+	$.each(objJQuery, function(index, item){
+		if ($(item).val()) {
+			elementos.push($(item).val());
+		}
+	});
+	return elementos;
+}
 
+function searchElement(objJQuery,valor){
+	var isEquals = 0;
+	$.each(objJQuery, function(index, item){
+		if ($(item).val().toString() === valor.toString()) {
+			isEquals = 1;
+			return;
+		}
+	});
+	if (isEquals === 1) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+});// JQuery on load
