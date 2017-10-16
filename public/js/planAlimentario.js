@@ -40,7 +40,7 @@ headSearch.on('click',function(e){
 	var divComida          = $('.fullComida');
 	var alimentoEncontrado = $('div.alimentoEncontrado');
 	var divComidaSeleccionado;
-	
+	// Seleccionar un div de comida
 	divComida.on('click',function(){
 		divComidaSeleccionado = $(this);
 		if (divComidaSeleccionado.css('opacity') != 1) {
@@ -49,14 +49,14 @@ headSearch.on('click',function(e){
 			divComidaSeleccionado.css('opacity','1');
 		}
 	});
-	// Esta funcion mete el alimento dentro del container
+	// Metemos el alimento dentro del container
 	btnAgregar.on('click',function(){
 		if (divComidaSeleccionado){
 
 	// Comprobamos que el elemento no esté agregado en el divcomida seleccionado
 	var codigoNuevo = alimentoEncontrado.find('input.codigoAlimento').val();
 	var padreItems = divComidaSeleccionado.find('.listadoComida'); 
-	console.log('CODIGO NUEVO ALIMENTO: '+codigoNuevo);
+
 	if (searchElement(padreItems.find('input.codigoAlimento'),codigoNuevo)) {
 		alertify.error($('.alim option:selected').text() +' ya se encuentra en ' + divComidaSeleccionado.find('.tituloComida').text());
 	}else{
@@ -82,6 +82,13 @@ headSearch.on('click',function(e){
 		
 		if (booleanAction) {
 			alertify.success("Ha agregado: " + nAlimento);
+
+			// FUNCION PARA SUMAR ELEMENTOS DENTRO DEL DOM /////////////////////////////////////////////////////////
+			var obtenerAlimentos = divComidaSeleccionado.find('input.codigoAlimento');
+			console.log(getElement(obtenerAlimentos));
+			console.log(sumElement(obtenerAlimentos));
+
+			///////////////////////////////////////////////////////////////////////////////////////////////////////
 		}else{
 			alertify.error("Error al agregar: " + nAlimento);
 		}
@@ -106,7 +113,7 @@ headSearch.on('click',function(e){
 		alertify
 		.okBtn("Aceptar")
 		.cancelBtn("Salir")
-		.confirm("¿Está seguro de eliminar" + nombreAlimentoBorrado + " ?", function (ev) {
+		.confirm("¿Está seguro de eliminar " + nombreAlimentoBorrado + " ?", function (ev) {
     		if (ev) {
     			var loborrotest = deleteTrigger.parents('.fullAlimento').remove();
     			if (loborrotest) {
@@ -149,7 +156,10 @@ headSearch.on('click',function(e){
 		och    = undefined;
 	});
 
-// Mis funciones
+// MIS FUNCIONES ///////////////////////////////////////////////////////////////////////////////////////////
+
+// Esta función recibe una seleccion que podria tener varios objetos jquery y trae los valores
+// correspondientes a todas sus selecciones, la devolución es un array con los elementos.
 function getElement(objJQuery){
 	var elementos = [];
 	$.each(objJQuery, function(index, item){
@@ -160,6 +170,22 @@ function getElement(objJQuery){
 	return elementos;
 }
 
+
+// Esta función recibe una seleccion que podria tener varios objetos jquery y trae los valores
+// correspondientes a todas sus selecciones, la devolución es la suma de todos los elementos encontrados.
+function sumElement(objJQuery){
+	var sumaTemp = 0;
+	$.each(objJQuery, function(index, item){
+		if ($(item).val()) {
+			sumaTemp += parseInt($(item).val());
+		}
+	});
+	return sumaTemp;
+}
+
+// Esta función recibe un objeto jquery con los elementos previamente seleccionados y un valor,
+// posteriormente busca en todos los items seleccionados del objeto jquery el valor indicado.
+// Si el valor es encontrado devuelve true
 function searchElement(objJQuery,valor){
 	var isEquals = 0;
 	$.each(objJQuery, function(index, item){
