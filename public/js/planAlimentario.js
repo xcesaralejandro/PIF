@@ -250,6 +250,7 @@ function funcionMagica(divSeleccionado){
 	finalComidas();
 	kcalComida();
 	pintandoTotal(divSeleccionado);
+	habilitaGuardar();
 }
 
 // Esta hermosa función suma el total de todas las comidas, PROT, LIP y CH para el total
@@ -335,7 +336,7 @@ function kcalComida(){
 	pCena      = undefined;
 }
 
-
+// Esta funcion solo cambia el color del total del plan para que el user lo pille más facil
 function pintandoTotal(divComidaSeleccionado){
 	var finalKcal    = parseInt($('div.totalPlan .finalKcal').text()); 
 	var finalPROT    = parseFloat($('.finalPROT').text()).toFixed(2);
@@ -401,7 +402,23 @@ function pintandoTotal(divComidaSeleccionado){
 	if (Number(finalCH) >= (Number(requerimCH)) - 1 && Number(finalCH) < Number(requerimCH) + 1 ) {
 		$('div.totalPlan .finalCH').css('color','#28B921');
 	}
-
 }
 
+function habilitaGuardar(){
+	var kcalColor = $('div.totalPlan .finalKcal').css('color');
+	var protColor = $('div.totalPlan .finalPROT').css('color');
+	var lipColor  = $('div.totalPlan .finalLIP').css('color');
+	var chColor   = $('div.totalPlan .finalCH').css('color');
+
+	if (kcalColor.toString() === 'rgb(40, 185, 33)' &&
+		protColor.toString() === 'rgb(40, 185, 33)' &&
+		lipColor.toString() === 'rgb(40, 185, 33)' &&
+		chColor.toString() === 'rgb(40, 185, 33)') {
+
+		alertify.okBtn('Genial !').alert('El plan alimentario ya cumple con tus requisitos! Asignale un nombre y guardalo para utilizarlo más tarde.');
+		$('#btnGuardar').css('display','block');
+	}else{
+		$('#btnGuardar').css('display','none');
+	}
+}
 });// JQuery on load

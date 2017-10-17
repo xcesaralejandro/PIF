@@ -1,4 +1,5 @@
 *:active,*:focus {outline:0 !important;}
+body{color: #444;}
 /* ///////////////////  PALETA DE COLORES  ////////////////////////////*/
 .darkPalet{background-color: #321233 !important;}
 .lightDarkPalet{background-color: #521E53 !important;}
@@ -251,6 +252,19 @@ body{
     color: #a09c9c;
 }
 
+.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button), .alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button){
+	text-transform: initial !important;
+	border: 1px solid #e5e5e6 !important;
+	color: #444 !important;
+}
+
+.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button), .alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button) {
+    font-size: .95rem;
+}
+
+.alertify .dialog .msg, .alertify .alert .msg {
+    text-align: center;
+}
 /* /////////////////////////////////////////////////////////////////////*/
 /* //////////////////////  VISTAS INFORMATIVAS //////////////////////////*/
 
@@ -418,4 +432,8 @@ body{
 
 .bordeBottomRojo{
 	border-bottom: 1px solid #b92e34 !important;
+}
+
+#btnGuardar{
+	display: none;
 }

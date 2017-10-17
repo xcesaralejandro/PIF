@@ -233,7 +233,7 @@
 									Kcal
 								</div>
 								<div class="col-8">
-									{{ Form::number('kcalAlimento',150,['class'=>'form-control kcalAlimento','readonly']) }}
+									{{ Form::number('kcalAlimento',1950,['class'=>'form-control kcalAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -776,7 +776,7 @@
 	<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
 		{{ Form::label('pa_apodo','Nombre del plan',['class'=>'mt-3']) }}
 		{{ Form::text('pa_apodo',null,['class'=>'form-control mb-2','placeholder'=>'Plan dia de gym','style'=>'padding: .6rem;']) }}
-		{{ Form::submit('Guardar',['class'=>'btn btn-primary fullDiv mb-5']) }}
+		{{ Form::submit('Guardar',['class'=>'btn btn-primary fullDiv mb-5','id' => 'btnGuardar']) }}
 
 	</div>
 </div>
