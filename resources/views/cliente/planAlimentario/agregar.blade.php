@@ -10,7 +10,7 @@
 </div>
 <hr>
 {{-- SECCION REQUISITOS PARA EL PLAN ///////////////////////////////////////////////////////////////// --}}
-<div class="requisitosNutricionales bk_teal textoBlanco m-2 p-1 pl-3 pr-3 text-center">
+<div class="requisitosNutricionales bordeBottomRojo bk_blanco textoGris m-2 p-1 pl-3 pr-3 text-center">
 	
 	<div class="row text-left">
 		<div class="col-6 col-sm-4 col-lg-2 offset-lg-1">
@@ -19,7 +19,7 @@
 					IMC	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>00,00</strong></span>
+					<span><strong class="imc">23,40</strong></span>
 				</div>
 			</div>
 		</div>
@@ -30,7 +30,7 @@
 					VCT
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>000</strong></span>
+					<span><strong class="vct">2500</strong></span>
 				</div>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 					PROT	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>00</strong>%</span>
+					<span><strong class="pjPROT">20</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -52,7 +52,7 @@
 					LIP
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>00</strong>%</span>
+					<span><strong class="pjLIP">25</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 					CH	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>00</strong>%</span>
+					<span><strong class="pjCH">55</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -73,7 +73,7 @@
 </div>
 
 {{-- SECCION COMIDAS ////////////////////////////////////////////////////////////////////////////////// --}}
-<div class="requisitosNutricionales bk_teal textoBlanco m-2 p-1 pl-3 text-center">
+<div class="requisitosNutricionales bordeBottomRojo bk_blanco textoGris m-2 p-1 pl-3 text-center">
 	
 	<div class="row text-left">
 
@@ -315,7 +315,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							PROT
+							PROT (g)
 						</div>
 						<div class="col-6">
 							<strong class="total PROT">00,00</strong>
@@ -325,7 +325,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							LIP
+							LIP (g)
 						</div>
 						<div class="col-6">
 							<strong class="total LIP">00,00</strong>
@@ -335,7 +335,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							CH
+							CH (g)
 						</div>
 						<div class="col-6">
 							<strong class="total CH">00,00</strong>
@@ -379,7 +379,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							PROT
+							PROT (g)
 						</div>
 						<div class="col-6">
 							<strong class="total PROT">00,00</strong>
@@ -389,7 +389,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							LIP
+							LIP (g)
 						</div>
 						<div class="col-6">
 							<strong class="total LIP">00,00</strong>
@@ -399,7 +399,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							CH
+							CH (g)
 						</div>
 						<div class="col-6">
 							<strong class="total CH">00,00</strong>
@@ -442,7 +442,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							PROT
+							PROT (g)
 						</div>
 						<div class="col-6">
 							<strong class="total PROT">00,00</strong>
@@ -452,7 +452,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							LIP
+							LIP (g)
 						</div>
 						<div class="col-6">
 							<strong class="total LIP">00,00</strong>
@@ -462,7 +462,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							CH
+							CH (g)
 						</div>
 						<div class="col-6">
 							<strong class="total CH">00,00</strong>
@@ -505,7 +505,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							PROT
+							PROT (g)
 						</div>
 						<div class="col-6">
 							<strong class="total PROT">00,00</strong>
@@ -515,7 +515,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							LIP
+							LIP (g)
 						</div>
 						<div class="col-6">
 							<strong class="total LIP">00,00</strong>
@@ -525,7 +525,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							CH
+							CH (g)
 						</div>
 						<div class="col-6">
 							<strong class="total CH">00,00</strong>
@@ -567,7 +567,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							PROT
+							PROT (g)
 						</div>
 						<div class="col-6">
 							<strong class="total PROT">00,00</strong>
@@ -577,7 +577,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							LIP
+							LIP (g)
 						</div>
 						<div class="col-6">
 							<strong class="total LIP">00,00</strong>
@@ -587,7 +587,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							CH
+							CH (g)
 						</div>
 						<div class="col-6">
 							<strong class="total CH">00,00</strong>
@@ -629,7 +629,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							PROT
+							PROT (g)
 						</div>
 						<div class="col-6">
 							<strong class="total PROT">00,00</strong>
@@ -639,7 +639,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							LIP
+							LIP (g)
 						</div>
 						<div class="col-6">
 							<strong class="total LIP">00,00</strong>
@@ -649,7 +649,7 @@
 				<div class="col-6 col-lg-3">
 					<div class="row">
 						<div class="col-6">
-							CH
+							CH (g)
 						</div>
 						<div class="col-6">
 							<strong class="total CH">00,00</strong>
@@ -663,10 +663,63 @@
 </div>
 
 <div class="fullDiv text-center">
-	<span class="display-4">Total del plan alimentario</span>
+	<span class="display-4">Total de tu plan alimentario</span>
 </div>
 {{-- TOTAL DEL PLAN --}}
-<div class="totalPlan alimentario bk_teal textoBlanco m-2 p-1 pl-3 pr-3 text-center">
+<div class="totalPlan alimentario bordeBottomRojo bk_blanco textoGris m-2 p-1 pl-3 pr-3 text-center">
+	
+	<div class="row text-left">
+
+		<div class="col-6 col-lg-3">
+			<div class="row">
+				<div class="col-6">
+					Kcal
+				</div>
+				<div class="col-6 text-left">
+					<span><strong class="finalKcal">0000</strong></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-lg-3">
+			<div class="row">
+				<div class="col-6">
+					PROT (g)
+				</div>
+				<div class="col-6 text-left">
+					<span><strong class="finalPROT">00,00</strong></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-lg-3">
+			<div class="row">
+				<div class="col-6">
+					LIP (g)
+				</div>
+				<div class="col-6 text-left">
+					<span><strong class="finalLIP">00,00</strong></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-lg-3">
+			<div class="row">
+				<div class="col-6">
+					CH (g)	
+				</div>
+				<div class="col-6 text-left">
+					<span><strong class="finalCH">00,00</strong></span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+</div>
+
+{{-- TOTAL DE LOS REQUERIMIENTOS --}}
+<div class="totalRequerimientos bordeBottomRojo alimentario bk_blanco textoGris m-2 p-1 pl-3 pr-3 mt-4 text-center">
 	
 	<div class="row text-left">
 
@@ -684,7 +737,7 @@
 		<div class="col-6 col-lg-3">
 			<div class="row">
 				<div class="col-6">
-					PROT	
+					PROT (g)	
 				</div>
 				<div class="col-6 text-left">
 					<span><strong class="finalPROT">00,00</strong></span>
@@ -695,7 +748,7 @@
 		<div class="col-6 col-lg-3">
 			<div class="row">
 				<div class="col-6">
-					LIP
+					LIP (g)
 				</div>
 				<div class="col-6 text-left">
 					<span><strong class="finalLIP">00,00</strong></span>
@@ -706,7 +759,7 @@
 		<div class="col-6 col-lg-3">
 			<div class="row">
 				<div class="col-6">
-					CH	
+					CH (g)	
 				</div>
 				<div class="col-6 text-left">
 					<span><strong class="finalCH">00,00</strong></span>
@@ -721,7 +774,7 @@
 <div class="row">
 	<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
 		{{ Form::label('pa_apodo','Nombre del plan',['class'=>'mt-3']) }}
-		{{ Form::text('pa_apodo',null,['class'=>'form-control mb-2','placeholder'=>'Plan dia de gym']) }}
+		{{ Form::text('pa_apodo',null,['class'=>'form-control mb-2','placeholder'=>'Plan dia de gym','style'=>'padding: .6rem;']) }}
 		{{ Form::submit('Guardar',['class'=>'btn btn-primary fullDiv mb-5']) }}
 
 	</div>

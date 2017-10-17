@@ -8,7 +8,10 @@ var containerEventos = $('.listadoComida');
                 width: "100%"
             });
 
+//---------------- FUNCIONES QUE CARGAN DATOS EN LA UI -----------------//
+cuantosGramos();
 //------------------- DISPLAY - HIDE BUSCAR ALIMENTO -------------------//
+
 var headSearch = $('#displayHeadSearch');
 var bodySearch = $('#bodySearch');
 var iconSearch = $('#iconDisplay');
@@ -45,8 +48,10 @@ headSearch.on('click',function(e){
 		divComidaSeleccionado = $(this);
 		if (divComidaSeleccionado.css('opacity') != 1) {
 			alertify.success('Ha seleccionado: ' + divComidaSeleccionado.find('.tituloComida').text());
-			divComida.css('opacity','0.7');
-			divComidaSeleccionado.css('opacity','1');
+			divComida.css({'opacity':'0.7',
+						   'box-shadow':'none'});
+			divComidaSeleccionado.css({'opacity':'1',
+									   'box-shadow':'0px 4px 20px 0px #b9b9b9'});
 		}
 	});
 	// Metemos el alimento dentro del container
@@ -260,6 +265,33 @@ function finalComidas(){
 	barraTotal.find('.finalPROT').text(finalProt.toFixed(2));
 	barraTotal.find('.finalLIP').text(finalLip.toFixed(2));
 	barraTotal.find('.finalCH').text(finalCh.toFixed(2));
+}
+
+// Esta funcion calcula y setea los gramos que necesitará el plan, además de pasar el VCT al final
+function cuantosGramos(){
+	var barraReq = $('.totalRequerimientos');
+	var kcalNec  = parseInt($('.vct').text());
+	barraReq.find('.finalKcal').text(kcalNec);
+
+	// Traemos los % 
+	var pjProt = parseInt($('.pjPROT').text())
+	var pjLip  = parseInt($('.pjLIP').text());
+	var pjCh   = parseInt($('.pjCH').text());
+
+	// Proteinas
+	var gProt = pjProt * kcalNec / 100;
+	gProt = gProt / 4;
+	barraReq.find('.finalPROT').text(gProt.toFixed(2));
+
+	// Lipidos
+	var gLip = pjLip * kcalNec / 100;
+	gLip = gLip / 9;
+	barraReq.find('.finalLIP').text(gLip.toFixed(2));
+
+	// Carbohidratos
+	var gCh = pjCh * kcalNec / 100;
+	gCh = gCh / 4;
+	barraReq.find('.finalCH').text(gCh.toFixed(2));
 }
 
 });// JQuery on load
