@@ -30,7 +30,7 @@
 					VCT
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>0000</strong></span>
+					<span><strong>000</strong></span>
 				</div>
 			</div>
 		</div>
@@ -308,7 +308,7 @@
 							Kcal
 						</div>
 						<div class="col-6">
-							<strong class="total Kcal">0000</strong>
+							<strong class="total Kcal">000</strong>
 						</div>
 					</div>
 				</div>
@@ -372,7 +372,7 @@
 							Kcal
 						</div>
 						<div class="col-6">
-							<strong class="total Kcal">0000</strong>
+							<strong class="total Kcal">000</strong>
 						</div>
 					</div>
 				</div>
@@ -435,7 +435,7 @@
 							Kcal
 						</div>
 						<div class="col-6">
-							<strong class="total Kcal">0000</strong>
+							<strong class="total Kcal">000</strong>
 						</div>
 					</div>
 				</div>
@@ -498,7 +498,7 @@
 							Kcal
 						</div>
 						<div class="col-6">
-							<strong class="total Kcal">0000</strong>
+							<strong class="total Kcal">000</strong>
 						</div>
 					</div>
 				</div>
@@ -560,7 +560,7 @@
 							Kcal
 						</div>
 						<div class="col-6">
-							<strong class="total Kcal">0000</strong>
+							<strong class="total Kcal">000</strong>
 						</div>
 					</div>
 				</div>
@@ -622,7 +622,7 @@
 							Kcal
 						</div>
 						<div class="col-6">
-							<strong class="total Kcal">0000</strong>
+							<strong class="total Kcal">000</strong>
 						</div>
 					</div>
 				</div>
@@ -660,10 +660,71 @@
 		</div>
 	</div>{{-- DIV SECCION COMIDA ENTERA --}}
 
+</div>
 
+<div class="fullDiv text-center">
+	<span class="display-4">Total del plan alimentario</span>
+</div>
+{{-- TOTAL DEL PLAN --}}
+<div class="totalPlan alimentario bk_teal textoBlanco m-2 p-1 pl-3 pr-3 text-center">
+	
+	<div class="row text-left">
 
+		<div class="col-6 col-lg-3">
+			<div class="row">
+				<div class="col-6">
+					Kcal
+				</div>
+				<div class="col-6 text-left">
+					<span><strong class="finalKcal">000</strong></span>
+				</div>
+			</div>
+		</div>
 
+		<div class="col-6 col-lg-3">
+			<div class="row">
+				<div class="col-6">
+					PROT	
+				</div>
+				<div class="col-6 text-left">
+					<span><strong class="finalPROT">00,00</strong></span>
+				</div>
+			</div>
+		</div>
 
+		<div class="col-6 col-lg-3">
+			<div class="row">
+				<div class="col-6">
+					LIP
+				</div>
+				<div class="col-6 text-left">
+					<span><strong class="finalLIP">00,00</strong></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6 col-lg-3">
+			<div class="row">
+				<div class="col-6">
+					CH	
+				</div>
+				<div class="col-6 text-left">
+					<span><strong class="finalCH">00,00</strong></span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+</div>
+
+<div class="row">
+	<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+		{{ Form::label('pa_apodo','Nombre del plan',['class'=>'mt-3']) }}
+		{{ Form::text('pa_apodo',null,['class'=>'form-control mb-2','placeholder'=>'Plan dia de gym']) }}
+		{{ Form::submit('Guardar',['class'=>'btn btn-primary fullDiv mb-5']) }}
+
+	</div>
 </div>
 @endsection
 @section('js')

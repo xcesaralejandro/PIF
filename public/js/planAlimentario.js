@@ -225,20 +225,41 @@ function funcionMagica(divSeleccionado){
 									       + ' Kcal o no podras registrar el plan alimentario.');
 	}
 	// Sumamos y seteamos las proteinas
-	var allProt = divSeleccionado.find('input.protAlimento');
+	var allProt  = divSeleccionado.find('input.protAlimento');
 	var sumaProt = 	sumElement(allProt);
 	divSeleccionado.find('strong.PROT').text(parseFloat(sumaProt).toFixed(2));
-
+	
 	//Sumamos y seteamos los lípidos
-	var allLip = divSeleccionado.find('input.lipAlimento');
-	var sumaLip = 	sumElement(allLip);
+	var allLip   = divSeleccionado.find('input.lipAlimento');
+	var sumaLip  = 	sumElement(allLip);
 	divSeleccionado.find('strong.LIP').text(parseFloat(sumaLip).toFixed(2));
 	
 	//Sumamos y seteamos los carbohidratos
-	var allCh  = divSeleccionado.find('input.chAlimento');
-	var sumaCh = 	sumElement(allCh);
+	var allCh    = divSeleccionado.find('input.chAlimento');
+	var sumaCh   = 	sumElement(allCh);
 	divSeleccionado.find('strong.CH').text(parseFloat(sumaCh).toFixed(2));
+
+	finalComidas();
+}
+
+// Esta hermosa función suma el total de todas las comidas, PROT, LIP y CH para el total
+function finalComidas(){
+	var finalKcal = 0;
+	var finalProt = 0;
+	var finalLip  = 0;
+	var finalCh   = 0;
+
+	$.each($('.fullComida'), function(index,value){
+		finalKcal += parseFloat($(value).find('strong.Kcal').text());
+		finalProt += parseFloat($(value).find('strong.PROT').text());
+		finalLip  += parseFloat($(value).find('strong.LIP').text());
+		finalCh   += parseFloat($(value).find('strong.CH').text());
+	});
+	var barraTotal = $('.totalPlan');
+	barraTotal.find('.finalKcal').text(finalKcal);
+	barraTotal.find('.finalPROT').text(finalProt.toFixed(2));
+	barraTotal.find('.finalLIP').text(finalLip.toFixed(2));
+	barraTotal.find('.finalCH').text(finalCh.toFixed(2));
 }
 
 });// JQuery on load
-
