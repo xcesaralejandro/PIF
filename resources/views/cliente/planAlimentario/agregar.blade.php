@@ -30,7 +30,7 @@
 					VCT
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="vct">2500</strong></span>
+					<span><strong class="vct">1950</strong></span>
 				</div>
 			</div>
 		</div>
@@ -83,7 +83,7 @@
 					Desayuno	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>00</strong>%</span>
+					<span><strong class="pDesayuno">20</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -94,7 +94,7 @@
 					Colación
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>00</strong>%</span>
+					<span><strong class="pColacion1">10</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -105,7 +105,7 @@
 					Almuerzo	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>00</strong>%</span>
+					<span><strong class="pAlmuerzo">25</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -116,7 +116,7 @@
 					Colación
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>00</strong>%</span>
+					<span><strong class="pColacion2">10</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -127,7 +127,7 @@
 					Once	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>00</strong>%</span>
+					<span><strong class="pOnce">15</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -138,7 +138,7 @@
 					Cena	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong>00</strong>%</span>
+					<span><strong class="pCena">20</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -291,7 +291,7 @@
 					Desayuno
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalComida">999</strong> kcal
+					<strong class="kcalDesayuno">000</strong> kcal
 				</div>
 			</div>
 		</div>
@@ -356,7 +356,7 @@
 					Colación 1
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalComida">999</strong> kcal
+					<strong class="kcalColacion1">000</strong> kcal
 				</div>
 			</div>
 		</div>
@@ -419,7 +419,7 @@
 					Almuerzo
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalComida">999</strong> kcal
+					<strong class="kcalAlmuerzo">000</strong> kcal
 				</div>
 			</div>
 		</div>
@@ -482,7 +482,7 @@
 					Colación 2
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalComida">999</strong> kcal
+					<strong class="kcalColacion2">000</strong> kcal
 				</div>
 			</div>
 		</div>
@@ -544,7 +544,7 @@
 					Once
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalComida">999</strong> kcal
+					<strong class="kcalOnce">000</strong> kcal
 				</div>
 			</div>
 		</div>
@@ -606,7 +606,7 @@
 					Cena
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalComida">999</strong> kcal
+					<strong class="kcalCena">000</strong> kcal
 				</div>
 			</div>
 		</div>

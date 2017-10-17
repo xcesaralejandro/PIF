@@ -1,4 +1,5 @@
 $(function(){
+onStart();
 //--------------------- VARIABLES GLOBALES  ---------------------//
 var containerEventos = $('.listadoComida');
 //---------------- INICIALIZAMOS CHOSEN PARA LOS SELECT ----------------//
@@ -8,8 +9,7 @@ var containerEventos = $('.listadoComida');
                 width: "100%"
             });
 
-//---------------- FUNCIONES QUE CARGAN DATOS EN LA UI -----------------//
-cuantosGramos();
+
 //------------------- DISPLAY - HIDE BUSCAR ALIMENTO -------------------//
 
 var headSearch = $('#displayHeadSearch');
@@ -163,6 +163,11 @@ headSearch.on('click',function(e){
 	});
 
 // MIS FUNCIONES ///////////////////////////////////////////////////////////////////////////////////////////
+//Acá agregamos todas las funciones que queremos lanzar cuando recien se cargue la pagina
+function onStart(){
+	cuantosGramos();
+	kcalComida();
+}
 
 // Esta función recibe una seleccion que podria tener varios objetos jquery y trae los valores
 // correspondientes a todas sus selecciones, la devolución es un array con los elementos.
@@ -245,6 +250,7 @@ function funcionMagica(divSeleccionado){
 	divSeleccionado.find('strong.CH').text(parseFloat(sumaCh).toFixed(2));
 
 	finalComidas();
+	kcalComida();
 }
 
 // Esta hermosa función suma el total de todas las comidas, PROT, LIP y CH para el total
@@ -274,7 +280,7 @@ function cuantosGramos(){
 	barraReq.find('.finalKcal').text(kcalNec);
 
 	// Traemos los % 
-	var pjProt = parseInt($('.pjPROT').text())
+	var pjProt = parseInt($('.pjPROT').text());
 	var pjLip  = parseInt($('.pjLIP').text());
 	var pjCh   = parseInt($('.pjCH').text());
 
@@ -292,6 +298,43 @@ function cuantosGramos(){
 	var gCh = pjCh * kcalNec / 100;
 	gCh = gCh / 4;
 	barraReq.find('.finalCH').text(gCh.toFixed(2));
+
+	//Limpiamos las variables
+	barraReq = undefined;
+	kcalNec  = undefined;
+	pjProt   = undefined;
+	pjLip    = undefined;
+	pjCh     = undefined;
+
+}
+
+// Esta funcion carga las kcal que se necesitan comer para cada comida
+function kcalComida(){
+	var vct        = parseInt($('.vct').text());
+	var pDesayuno  = parseInt($('.pDesayuno').text()); 
+	var pColacion1 = parseInt($('.pColacion1').text()); 
+	var pAlmuerzo  = parseInt($('.pAlmuerzo').text()); 
+	var pColacion2 = parseInt($('.pColacion2').text()); 
+	var pOnce      = parseInt($('.pOnce').text()); 
+	var pCena      = parseInt($('.pCena').text()); 
+
+	console.log(pAlmuerzo);
+	// Seteamos los valores
+	$('.kcalDesayuno').text(parseInt(pDesayuno * vct / 100));
+	$('.kcalColacion1').text(parseInt(pColacion1 * vct / 100));
+	$('.kcalAlmuerzo').text(parseInt(pAlmuerzo * vct / 100));
+	$('.kcalColacion2').text(parseInt(pColacion2 * vct / 100));
+	$('.kcalOnce').text(parseInt(pOnce * vct / 100));
+	$('.kcalCena').text(parseInt(pCena * vct / 100)); 
+
+	//Limpiamos la basurita
+	vct        = undefined;
+	pDesayuno  = undefined;
+	pColacion1 = undefined;
+	pAlmuerzo  = undefined;
+	pColacion2 = undefined;
+	pOnce      = undefined;
+	pCena      = undefined;
 }
 
 });// JQuery on load
