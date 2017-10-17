@@ -82,13 +82,8 @@ headSearch.on('click',function(e){
 		
 		if (booleanAction) {
 			alertify.success("Ha agregado: " + nAlimento);
-
-			// FUNCION PARA SUMAR ELEMENTOS DENTRO DEL DOM /////////////////////////////////////////////////////////
 			var obtenerAlimentos = divComidaSeleccionado.find('input.codigoAlimento');
-			console.log(getElement(obtenerAlimentos));
-			console.log(sumElement(obtenerAlimentos));
-
-			///////////////////////////////////////////////////////////////////////////////////////////////////////
+			funcionMagica(divComidaSeleccionado);
 		}else{
 			alertify.error("Error al agregar: " + nAlimento);
 		}
@@ -118,6 +113,8 @@ headSearch.on('click',function(e){
     			var loborrotest = deleteTrigger.parents('.fullAlimento').remove();
     			if (loborrotest) {
     				alertify.success('Ha eliminado: ' + nombreAlimentoBorrado);
+					//Llamamos a la función que ajusta los totales del div seleccionado
+    				funcionMagica(divComidaSeleccionado);
     			}else{
     				alertify.error('Error al eliminar: ' + nombreAlimentoBorrado);
     			}
@@ -143,6 +140,10 @@ headSearch.on('click',function(e){
 		nt.parents('div.bodyAlimento').find('.protAlimento').val(gramos*oprot/100);
 		nt.parents('div.bodyAlimento').find('.lipAlimento').val(gramos*olip/100);
 		nt.parents('div.bodyAlimento').find('.chAlimento').val(gramos*och/100);
+
+		//Llamamos a la función que ajusta los totales del div seleccionado
+    	funcionMagica(divComidaSeleccionado);
+
 		// Vaciamos las variables
 		nt     = undefined;
 		gramos = undefined;
@@ -201,4 +202,40 @@ function searchElement(objJQuery,valor){
 	}
 }
 
+
+//Esta es la función suprema que setea los totales de LIP PROT CH Kcal y además descuenta las kcal
+function funcionMagica(divSeleccionado){
+	// sumamos y seteamos las calorias en el respectivo div
+	var totalARestar   = divSeleccionado.find('strong.kcalComida');
+	var allKcal        = divSeleccionado.find('input.kcalAlimento');
+	var sumaKcal       = sumElement(allKcal);
+	var textoTotalKcal = divSeleccionado.find('strong.Kcal');
+	textoTotalKcal.text(sumaKcal);
+	var kcalRestantes  = parseInt(totalARestar.text()) - sumaKcal; 
+	totalARestar.text( kcalRestantes + ' Kcal');
+	if (kcalRestantes < 0) {
+		alertify.okBtn("Entendido !").alert('Haz excedido las kcal para ' 
+									       + divSeleccionado.find('.tituloComida').text()
+									       + ', reduce la cantidad en '
+									       + kcalRestantes * -1
+									       + 'kcal o no podras registrar el plan alimentario.');
+	}
+	// Sumamos y seteamos las proteinas
+	var allProt = divSeleccionado.find('input.protAlimento');
+	var sumaProt = 	sumElement(allProt);
+	divSeleccionado.find('strong.PROT').text(sumaProt);
+
+	//Sumamos y seteamos los lípidos
+	var allLip = divSeleccionado.find('input.lipAlimento');
+	var sumaLip = 	sumElement(allLip);
+	divSeleccionado.find('strong.LIP').text(sumaLip);
+	
+	//Sumamos y seteamos los carbohidratos
+	var allCh  = divSeleccionado.find('input.chAlimento');
+	var sumaCh = 	sumElement(allCh);
+	console.log(sumaCh);
+	divSeleccionado.find('strong.CH').text(sumaCh);
+}
+
 });// JQuery on load
+

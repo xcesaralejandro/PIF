@@ -291,7 +291,7 @@
 					Desayuno
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong>999 kcal</strong>
+					<strong class="kcalComida">999 kcal</strong>
 				</div>
 			</div>
 		</div>
@@ -356,7 +356,7 @@
 					Colación 1
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong>999 kcal</strong>
+					<strong class="kcalComida">999 kcal</strong>
 				</div>
 			</div>
 		</div>
@@ -419,7 +419,7 @@
 					Almuerzo
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong>999 kcal</strong>
+					<strong class="kcalComida">999 kcal</strong>
 				</div>
 			</div>
 		</div>
@@ -482,7 +482,7 @@
 					Colación 2
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong>999 kcal</strong>
+					<strong class="kcalComida">999 kcal</strong>
 				</div>
 			</div>
 		</div>
@@ -544,7 +544,7 @@
 					Once
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong>999 kcal</strong>
+					<strong class="kcalComida">999 kcal</strong>
 				</div>
 			</div>
 		</div>
@@ -606,7 +606,7 @@
 					Cena
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong>999 kcal</strong>
+					<strong class="kcalComida">999 kcal</strong>
 				</div>
 			</div>
 		</div>
