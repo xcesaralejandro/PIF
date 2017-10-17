@@ -178,7 +178,7 @@ function sumElement(objJQuery){
 	var sumaTemp = 0;
 	$.each(objJQuery, function(index, item){
 		if ($(item).val()) {
-			sumaTemp += parseInt($(item).val());
+			sumaTemp += parseFloat($(item).val());
 		}
 	});
 	return sumaTemp;
@@ -202,39 +202,42 @@ function searchElement(objJQuery,valor){
 	}
 }
 
-
 //Esta es la función suprema que setea los totales de LIP PROT CH Kcal y además descuenta las kcal
 function funcionMagica(divSeleccionado){
 	// sumamos y seteamos las calorias en el respectivo div
 	var totalARestar   = divSeleccionado.find('strong.kcalComida');
 	var allKcal        = divSeleccionado.find('input.kcalAlimento');
-	var sumaKcal       = sumElement(allKcal);
+	var sumaKcal       = parseInt(sumElement(allKcal));
 	var textoTotalKcal = divSeleccionado.find('strong.Kcal');
+	var kcalRestantes = 1; // esta wea despues se quita
+	// if (parseInt(totalARestar.text()) > 0) {
+	// 	var kcalRestantes  = parseInt(totalARestar.text()) - sumaKcal;
+	// }else{
+	// 	var kcalRestantes  = parseInt(totalARestar.text()) + sumaKcal;
+	// }
+	// totalARestar.text( kcalRestantes);
 	textoTotalKcal.text(sumaKcal);
-	var kcalRestantes  = parseInt(totalARestar.text()) - sumaKcal; 
-	totalARestar.text( kcalRestantes + ' Kcal');
 	if (kcalRestantes < 0) {
 		alertify.okBtn("Entendido !").alert('Haz excedido las kcal para ' 
 									       + divSeleccionado.find('.tituloComida').text()
 									       + ', reduce la cantidad en '
 									       + kcalRestantes * -1
-									       + 'kcal o no podras registrar el plan alimentario.');
+									       + ' Kcal o no podras registrar el plan alimentario.');
 	}
 	// Sumamos y seteamos las proteinas
 	var allProt = divSeleccionado.find('input.protAlimento');
 	var sumaProt = 	sumElement(allProt);
-	divSeleccionado.find('strong.PROT').text(sumaProt);
+	divSeleccionado.find('strong.PROT').text(parseFloat(sumaProt).toFixed(2));
 
 	//Sumamos y seteamos los lípidos
 	var allLip = divSeleccionado.find('input.lipAlimento');
 	var sumaLip = 	sumElement(allLip);
-	divSeleccionado.find('strong.LIP').text(sumaLip);
+	divSeleccionado.find('strong.LIP').text(parseFloat(sumaLip).toFixed(2));
 	
 	//Sumamos y seteamos los carbohidratos
 	var allCh  = divSeleccionado.find('input.chAlimento');
 	var sumaCh = 	sumElement(allCh);
-	console.log(sumaCh);
-	divSeleccionado.find('strong.CH').text(sumaCh);
+	divSeleccionado.find('strong.CH').text(parseFloat(sumaCh).toFixed(2));
 }
 
 });// JQuery on load
