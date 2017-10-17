@@ -221,7 +221,7 @@
 									Gramos
 								</div>
 								<div id="test" class="col-8 g">
-									{{ Form::number('gramos_ingeridos',100,['class'=>'form-control gramos_ingeridos','style'=>'text-align: center;','min'=>'0','step'=>'5','readonly']) }}
+									{{ Form::number('gramos_ingeridos',100,['class'=>'form-control gramos_ingeridos','style'=>'text-align: center;','min'=>'0','step'=>'1','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -233,7 +233,7 @@
 									Kcal
 								</div>
 								<div class="col-8">
-									{{ Form::number('kcalAlimento',450,['class'=>'form-control kcalAlimento','readonly']) }}
+									{{ Form::number('kcalAlimento',150,['class'=>'form-control kcalAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -243,7 +243,7 @@
 									PROT
 								</div>
 								<div class="col-8">
-									{{ Form::number('protAlimento',11.4,['class'=>'form-control protAlimento','readonly']) }}
+									{{ Form::number('protAlimento',97.5,['class'=>'form-control protAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -253,7 +253,7 @@
 									LIP
 								</div>
 								<div class="col-8">
-									{{ Form::number('lipAlimento',12,['class'=>'form-control lipAlimento','readonly']) }}
+									{{ Form::number('lipAlimento',54,['class'=>'form-control lipAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -263,7 +263,7 @@
 									CH
 								</div>
 								<div class="col-8 total CH">
-									{{ Form::number('chAlimento',10,['class'=>'form-control chAlimento','readonly']) }}
+									{{ Form::number('chAlimento',268,['class'=>'form-control chAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -271,6 +271,7 @@
 					</div>
 				</div>
 			</div>
+
 			</div>
 			<div class="row">
 				<div class="col-sm-4 offset-sm-8 col-lg-3 offset-lg-9 col-xl-2 offset-xl-10 mt-2">
@@ -291,7 +292,7 @@
 					Desayuno
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalDesayuno">000</strong> kcal
+					<strong class="kcalComida kcalDesayuno">000</strong> kcal
 				</div>
 			</div>
 		</div>
@@ -356,7 +357,7 @@
 					Colación 1
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalColacion1">000</strong> kcal
+					<strong class="kcalComida kcalColacion1">000</strong> kcal
 				</div>
 			</div>
 		</div>
@@ -419,7 +420,7 @@
 					Almuerzo
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalAlmuerzo">000</strong> kcal
+					<strong class="kcalComida kcalAlmuerzo">000</strong> kcal
 				</div>
 			</div>
 		</div>
@@ -482,7 +483,7 @@
 					Colación 2
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalColacion2">000</strong> kcal
+					<strong class="kcalComida kcalColacion2">000</strong> kcal
 				</div>
 			</div>
 		</div>
@@ -544,7 +545,7 @@
 					Once
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalOnce">000</strong> kcal
+					<strong class="kcalComida kcalOnce">000</strong> kcal
 				</div>
 			</div>
 		</div>
@@ -606,7 +607,7 @@
 					Cena
 				</div>
 				<div class="col-6 porcentajeComida text-right pr-4">
-					<strong class="kcalCena">000</strong> kcal
+					<strong class="kcalComida kcalCena">000</strong> kcal
 				</div>
 			</div>
 		</div>

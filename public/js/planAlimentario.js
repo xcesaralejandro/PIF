@@ -141,10 +141,10 @@ headSearch.on('click',function(e){
 		var olip  = obj.lip;
 		var och   = obj.ch;
 		// Calculamos nuevos valores t seteamos
-		nt.parents('div.bodyAlimento').find('.kcalAlimento').val(gramos*okcal/100);
-		nt.parents('div.bodyAlimento').find('.protAlimento').val(gramos*oprot/100);
-		nt.parents('div.bodyAlimento').find('.lipAlimento').val(gramos*olip/100);
-		nt.parents('div.bodyAlimento').find('.chAlimento').val(gramos*och/100);
+		nt.parents('div.bodyAlimento').find('.kcalAlimento').val(parseFloat(gramos*okcal/100).toFixed(2));
+		nt.parents('div.bodyAlimento').find('.protAlimento').val(parseFloat(gramos*oprot/100).toFixed(2));
+		nt.parents('div.bodyAlimento').find('.lipAlimento').val(parseFloat(gramos*olip/100).toFixed(2));
+		nt.parents('div.bodyAlimento').find('.chAlimento').val(parseFloat(gramos*och/100).toFixed(2));
 
 		//Llamamos a la función que ajusta los totales del div seleccionado
     	funcionMagica(divComidaSeleccionado);
@@ -215,23 +215,21 @@ function searchElement(objJQuery,valor){
 //Esta es la función suprema que setea los totales de LIP PROT CH Kcal y además descuenta las kcal
 function funcionMagica(divSeleccionado){
 	// sumamos y seteamos las calorias en el respectivo div
-	var totalARestar   = divSeleccionado.find('strong.kcalComida');
+	var totalKcalCom   = parseInt(divSeleccionado.find('strong.kcalComida').text());
 	var allKcal        = divSeleccionado.find('input.kcalAlimento');
 	var sumaKcal       = parseInt(sumElement(allKcal));
 	var textoTotalKcal = divSeleccionado.find('strong.Kcal');
-	var kcalRestantes = 1; // esta wea despues se quita
-	// if (parseInt(totalARestar.text()) > 0) {
-	// 	var kcalRestantes  = parseInt(totalARestar.text()) - sumaKcal;
-	// }else{
-	// 	var kcalRestantes  = parseInt(totalARestar.text()) + sumaKcal;
-	// }
-	// totalARestar.text( kcalRestantes);
+	
+	var diffKcal = totalKcalCom - sumaKcal;
+
 	textoTotalKcal.text(sumaKcal);
-	if (kcalRestantes < 0) {
-		alertify.okBtn("Entendido !").alert('Haz excedido las kcal para ' 
+	if (totalKcalCom < sumaKcal) {
+		alertify.okBtn("Entendido !").alert('Haz excedido las ' 
+										   + totalKcalCom
+										   +' Kcal para ' 
 									       + divSeleccionado.find('.tituloComida').text()
-									       + ', reduce la cantidad en '
-									       + kcalRestantes * -1
+									       + ', reduce la cantidad de gramos a ingerir para disminuir '
+									       + diffKcal * -1
 									       + ' Kcal o no podras registrar el plan alimentario.');
 	}
 	// Sumamos y seteamos las proteinas
@@ -251,6 +249,7 @@ function funcionMagica(divSeleccionado){
 
 	finalComidas();
 	kcalComida();
+	pintandoTotal(divSeleccionado);
 }
 
 // Esta hermosa función suma el total de todas las comidas, PROT, LIP y CH para el total
@@ -318,7 +317,6 @@ function kcalComida(){
 	var pOnce      = parseInt($('.pOnce').text()); 
 	var pCena      = parseInt($('.pCena').text()); 
 
-	console.log(pAlmuerzo);
 	// Seteamos los valores
 	$('.kcalDesayuno').text(parseInt(pDesayuno * vct / 100));
 	$('.kcalColacion1').text(parseInt(pColacion1 * vct / 100));
@@ -335,6 +333,75 @@ function kcalComida(){
 	pColacion2 = undefined;
 	pOnce      = undefined;
 	pCena      = undefined;
+}
+
+
+function pintandoTotal(divComidaSeleccionado){
+	var finalKcal    = parseInt($('div.totalPlan .finalKcal').text()); 
+	var finalPROT    = parseFloat($('.finalPROT').text()).toFixed(2);
+	var finalLIP     = parseFloat($('.finalLIP').text()).toFixed(2);
+	var finalCH      = parseFloat($('.finalCH').text()).toFixed(2);
+	var requerimKcal = parseInt($('div.totalRequerimientos .finalKcal').text()); 
+	var requerimPROT = parseFloat($('div.totalRequerimientos .finalPROT').text()).toFixed(2);
+	var requerimLIP  = parseFloat($('div.totalRequerimientos .finalLIP').text()).toFixed(2);
+	var requerimCH   = parseFloat($('div.totalRequerimientos .finalCH').text()).toFixed(2);
+
+	// Pintan2 las kcal 
+	if (finalKcal > requerimKcal + 100 || finalKcal < requerimKcal - 100) {
+		$('div.totalPlan .finalKcal').css('color','#F6171D');
+	}
+
+	if (finalKcal > requerimKcal && finalKcal < requerimKcal + 100 || 
+		finalKcal > requerimKcal - 100 && finalKcal < requerimKcal - 20) {
+		$('div.totalPlan .finalKcal').css('color','#FF7509');
+	}
+
+	if (finalKcal>= requerimKcal - 10 && finalKcal <= requerimKcal) {
+		$('div.totalPlan .finalKcal').css('color','#28B921');
+	}
+
+	// Pintan2 las proteinas
+	if (finalPROT > (Number(requerimPROT) + Number(15)) || finalPROT < requerimPROT - 15) {
+		$('div.totalPlan .finalPROT').css('color','#F6171D');
+	}
+
+	if (Number(finalPROT) > Number(requerimPROT) && Number(finalPROT) < (Number(requerimPROT) + Number(15)) || 
+		Number(finalPROT) > (Number(requerimPROT) - 15) && Number(finalPROT) <= (Number(requerimPROT) - 1)) {
+		$('div.totalPlan .finalPROT').css('color','#FF7509');
+	}
+
+	if (Number(finalPROT) >= (Number(requerimPROT)) - 1 && Number(finalPROT) < Number(requerimPROT) + 1 ) {
+		$('div.totalPlan .finalPROT').css('color','#28B921');
+	}
+
+	//Pintan2 lipidos
+	if (finalLIP > (Number(requerimLIP) + Number(15)) || finalLIP < requerimLIP - 15) {
+		$('div.totalPlan .finalLIP').css('color','#F6171D');
+	}
+
+	if (Number(finalLIP) > Number(requerimLIP) && Number(finalLIP) < (Number(requerimLIP) + Number(15)) || 
+		Number(finalLIP) > (Number(requerimLIP) - 15) && Number(finalLIP) <= (Number(requerimLIP) - 1)) {
+		$('div.totalPlan .finalLIP').css('color','#FF7509');
+	}
+
+	if (Number(finalLIP) >= (Number(requerimLIP)) - 1 && Number(finalLIP) < Number(requerimLIP) + 1 ) {
+		$('div.totalPlan .finalLIP').css('color','#28B921');
+	}
+
+	//Pintan2 carbohidratos
+	if (finalCH > (Number(requerimCH) + Number(15)) || finalCH < requerimCH - 15) {
+		$('div.totalPlan .finalCH').css('color','#F6171D');
+	}
+
+	if (Number(finalCH) > Number(requerimCH) && Number(finalCH) < (Number(requerimCH) + Number(15)) || 
+		Number(finalCH) > (Number(requerimCH) - 15) && Number(finalCH) <= (Number(requerimCH) - 1)) {
+		$('div.totalPlan .finalCH').css('color','#FF7509');
+	}
+
+	if (Number(finalCH) >= (Number(requerimCH)) - 1 && Number(finalCH) < Number(requerimCH) + 1 ) {
+		$('div.totalPlan .finalCH').css('color','#28B921');
+	}
+
 }
 
 });// JQuery on load
