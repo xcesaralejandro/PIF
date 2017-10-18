@@ -10,7 +10,7 @@
       @guest
       <li class="nav-item">
         <!-- Trigger modal iniciar sesion -->
-{{-- El modal está en partials, ya que al llamarlo desde el menú daba problema con el z-index --}}
+        {{-- El modal está en partials, ya que al llamarlo desde el menú daba problema con el z-index --}}
         <a class="nav-link cursorPointer" data-toggle="modal" data-target="#loginModal">
           Iniciar sesión
         </a>
@@ -20,7 +20,7 @@
       <li class="nav-item">
         <div class="dropup nav-item">
           <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ Auth::user()->name }}
+             {{ Auth::user()->us_nombres }}  
           </button>
           <div class="dropdown-menu" aria-labelledby="about-us">
             <a class="dropdown-item" href="#">Mis datos personales</a>
@@ -36,25 +36,72 @@
         </div>
       </div>
     </li>
-    @endguest
-    {{-- Fin menu loguin --}}
 
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+    {{-- Fin menu loguin --}}
+    @if(Auth::user()->us_tipo_usuario =='administrador' )
+    <li>
+      <div class="dropup nav-item">
+      <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Zona informativa
+      </button>
+      <div class="dropdown-menu" aria-labelledby="about-us">
+        <a class="dropdown-item" href="{{ route('enfermedades.index') }}">
+        Enfermedades</a>
+         <a class="dropdown-item" href="{{ route('etiquetanutricional.index') }}">
+        Etiqueta nutricional</a>
+        <a class="dropdown-item" href="{{ route('sellosnegros.index') }}">
+        Sellos negros</a>
+    </div>
+  </div>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+    <li>
+    <div class="dropup nav-item">
+      <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Alimentos
+      </button>
+      <div class="dropdown-menu" aria-labelledby="about-us">
+        <a class="dropdown-item" href="{{ route('alimentos.index') }}">Alimento</a>
+         <a class="dropdown-item" href="{{ route('categoriasalimentarias.index') }}">Categoria</a>
+        <a class="dropdown-item" href="{{ route('gruposalimentarios.index') }}">Grupo</a>
+
+    </div>
+  </div>
+<li>
+  <li>
+      <div class="dropup nav-item">
+      <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Localizacion
+      </button>
+      <div class="dropdown-menu" aria-labelledby="about-us">
+        <a class="dropdown-item" href="">
+        Comunas</a>
+         <a class="dropdown-item" href="">
+        Regiones</a>
+    </div>
+  </div>
     </li>
+  @elseif(Auth::user()->us_tipo_usuario =='nutricionista' )
+  <li class="nav-item">
+<a class="  nav-link" href="{{ route('factores.index') }}">Factores</a>
+  </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-  </ul>
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="text" placeholder="Buscar persona">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-  </form>
+<a class="  nav-link" href="{{ route('comidas.index') }}">Comidas</a>
+  </li>    
+    
+
+  @elseif(Auth::user()->us_tipo_usuario =='cliente' )
+  <li class="nav-item">
+    <a class="nav-link cursorPointer">
+      cliente
+    </a>
+  </li>
+  @endif
+  @endguest
+
+</ul>
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="text" placeholder="Buscar persona">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+</form>
 </div>
 </nav>

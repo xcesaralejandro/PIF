@@ -18,9 +18,9 @@ class CreateAlimentosTable extends Migration
             $table->integer('ct_id')->unsigned();
             $table->string('al_nombre',150);
             $table->integer('al_gramos');
-            $table->float('al_proteina',5,5);
-            $table->float('al_lipidos',5,5);
-            $table->float('al_carbohidratos',5,5);
+            $table->float('al_proteina');
+            $table->float('al_lipidos');
+            $table->float('al_carbohidratos');
             $table->timestamps();
 
             // FOREIGN KEY 

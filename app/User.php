@@ -4,7 +4,7 @@ namespace frust;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use frust\regione;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -17,8 +17,9 @@ class User extends Authenticatable
     protected $fillable = [
         'id',
         'co_id',
+        'rg_id',
         'us_email',
-        'us_contrasenia',
+        'password',
         'us_nombres',
         'us_apellido_paterno',
         'us_apellido_materno',
@@ -68,9 +69,19 @@ class User extends Authenticatable
     public function consumosDiarios(){
         return $this->hasMany('frust\consumosDiario');
     }
+    public function comidas(){
+        return $this->hasMany('frust\Comida');
+    }
+    public function factores(){
+        return $this->hasMany('frust\Factore');
+    }
 
     // SUS PADRES
     public function comuna(){
         return $this->belongsTo('frust\comuna','co_id','id');
     }
+        public function regione(){
+        return $this->belongsTo('frust\regione','rg_id','id');
+    }
+
 }

@@ -10,9 +10,7 @@ class gruposAlimento extends Model
 
     protected $fillable = [
     	'id',
-    	'ga_nombre',
-    	'created_at',
-    	'updated_at'
+    	'ga_nombre'
     ];
 
     // SUS HIJOS

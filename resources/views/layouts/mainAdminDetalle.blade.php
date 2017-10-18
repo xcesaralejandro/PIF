@@ -43,17 +43,12 @@
           <hr>
           <div class="upToHr">
             <div class="row">
-              <div class="col-4 col-sm-4  col-md-3 offset-md-3 col-lg-2 offset-lg-6">
+              <div class="col-6 col-sm-4 offset-sm-4  col-md-3 offset-md-6 col-lg-2 offset-lg-8">
                 <a href="@yield('urlEditar')" class="btn btn-primary fullDiv">
                   <i class="fa fa-wrench" aria-hidden="true"></i>
                 </a>
               </div>
-              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
-                <a href="@yield('urlEliminar')" class="btn btn-primary fullDiv">
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </a>
-              </div>
-              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                 <a href="@yield('urlEliminar')" class="btn btn-primary fullDiv">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </a>

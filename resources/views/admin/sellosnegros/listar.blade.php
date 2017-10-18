@@ -1,5 +1,5 @@
 @extends('layouts.mainAdmin') 
-
+@section('title-nav','Administrador')
 @section('title','Administrar sellos negros') 
 
 @section('nav')
@@ -21,23 +21,24 @@
         </tr>
     </thead>
     <tbody>
+        @foreach($sellos as $sello)
         <tr>
-            <td>Alto en amor</td>
+            <td>{{ $sello->sn_nombre }}</td>
             <td class="fit">
                  <div class="container-fluid"> 
                     <div class="row ">
                         <div class="col-xs-4">
-                            <a href="#">
+                            <a href="{{ route ('sellosnegros.detalle', $sello -> id)}}">
                                 <img class="imgAction mr-1 mb-1" src="{{ asset('images/eye.svg') }}" width="25px">
                             </a>
                         </div>
                         <div class="col-xs-4">
-                            <a href="#">
+                            <a href="{{ route ('sellosnegros.edit', $sello -> id)}}">
                                 <img class="imgAction mr-1 mb-1" src="{{ asset('images/settings.svg') }}" width="25px">
                             </a>
                         </div>
                         <div class="col-xs-4">
-                            <a href="#">
+                            <a href="{{ route ('sellosnegros.destroy', $sello -> id)}}">
                                 <img class="imgAction mb-1" src="{{ asset('images/cancel.svg') }}" width="25px">
                             </a>
                         </div>
@@ -45,6 +46,7 @@
                 </div>
             </td>
         </tr>
+        @endforeach
     </tbody>
 </table>
 @endsection

@@ -1,5 +1,5 @@
 @extends('layouts.mainAdmin') 
-
+@section('title-nav','Administrador')
 @section('title','Administrar enfermedades') 
 
 @section('nav')
@@ -23,10 +23,11 @@
         </tr>
     </thead>
     <tbody>
+        @foreach($enfermedades as $enfermedad)
         <tr>
-            <td> Nombre de la enfermedad va acá  </td>
+            <td> {{ $enfermedad->ef_nombre }} </td>
             <td class="fit">
-                <a href="#">
+                <a href="{{ $enfermedad->ef_url }}">
                     <i aria-hidden="true" class="fa fa-link"></i>                      
                     Visitar sitio
                 </a>
@@ -35,17 +36,17 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-4">
-                            <a href="#">
+                            <a  href="{{ route('enfermedades.detalle',$enfermedad -> id) }}">
                                 <img class="imgAction mr-1 mb-1" src="{{ asset('images/eye.svg') }}" width="25px">
                             </a>
                         </div>
                         <div class="col-xs-4">
-                            <a href="#">
+                            <a href="{{ route ('enfermedades.edit', $enfermedad -> id)}}">
                                 <img class="imgAction mr-1 mb-1" src="{{ asset('images/settings.svg') }}" width="25px">
                             </a>
                         </div>
                         <div class="col-xs-4">
-                            <a href="#">
+                            <a href="{{ route ('enfermedades.destroy', $enfermedad -> id)}}">
                                 <img class="imgAction mb-1" src="{{ asset('images/cancel.svg') }}" width="25px">
                             </a>
                         </div>
@@ -53,6 +54,7 @@
                 </div>
             </td>
         </tr>
+        @endforeach
     </tbody>
 </table>
 @endsection

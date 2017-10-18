@@ -18,9 +18,6 @@ class CreateFactoresTable extends Migration
             $table->integer('ft_proteinas');
             $table->integer('ft_lipidos');
             $table->integer('ft_carbohidratos');
-            $table->float('ft_g_proteinas',5,5);
-            $table->float('ft_g_lipidos',5,5);
-            $table->float('ft_g_carbohidratos',5,5);
             $table->timestamps();
         });
     }

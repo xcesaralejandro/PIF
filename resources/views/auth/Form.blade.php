@@ -43,10 +43,9 @@
 
 		{{-- Aca luego ponemos traemos la lista de la tabla y gg --}}
 		<div class="form-group">
-			{{ Form::label('co_id','Comuna') }}
-			{{ Form::select('co_id',['1'=>'CONCE',
-									 '2'=>'SAN PEDRO',
-									 '3'=>'SANTA JUANA'],null,['class'=>'chosen-select']) }}
+			{{ Form::label('rg_id','Region') }}
+			{{ Form::select('rg_id',$region,null,['class'=>'chosen-select','id'=>'region']) }}
+
 		</div>
 
 </div>{{-- .COL --}}
@@ -61,16 +60,16 @@
 		</div>
 
 		<div class="form-group">
-			{{ Form::label('us_contrasenia','Contraseña') }}
-			{{ Form::password('us_contrasenia',['class'   =>'form-control',
+			{{ Form::label('password','Contraseña') }}
+			{{ Form::password('password',['class'   =>'form-control',
 											 'placeholder'=>'********',
 										     'minlength'  =>'5',
-										     'required']) }}
+										     'required',]) }}
 		</div>
 
 		<div class="form-group">
-			{{ Form::label('cf_contrasenia','Confirmar contraseña') }}
-			{{ Form::password('cf_contrasenia',['class'   =>'form-control',
+			{{ Form::label('cf_password','Confirmar contraseña') }}
+			{{ Form::password('cf_password',['class'   =>'form-control',
 											 'placeholder'=>'********',
 										     'minlength'  =>'5',
 										     'required']) }}
@@ -94,6 +93,11 @@
 										    'max'        =>'250',
 										    'step'       =>'1',
 										    'required']) }}
+		</div>
+						<div class="form-group">
+			{{ Form::label('co_id','Comuna') }}
+			{{ Form::select('co_id',$comuna ,null,['class'=>'chosen-select','id'=>'comuna']) }}
+		
 		</div>
 
 	</div>{{-- .COL SM 6 --}}

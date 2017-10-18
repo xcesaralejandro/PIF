@@ -221,6 +221,9 @@ body{
 .igrande{
 	font-size: 3rem !important;
 }
+.max200{
+	max-height: 200px;
+}
 
 .max400{
 	max-height: 400px;
@@ -302,6 +305,12 @@ body{
 }
 
 /* /////////////////////////////////////////////////////////////////////*/
+
+/*esconder agregar grupo*/
+.esconder-agregar{
+	display: none;
+}
+
 /* //////////////////////  VISTAS DE PLAN ALIMENTARIO //////////////////*/
 .contenedorSecciones .display-4{
 	color: #4c4c4c;

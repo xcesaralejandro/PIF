@@ -39,4 +39,10 @@ class informacionController extends Controller
     {
         return view('admin.etiquetanutricional.detalle');
     }
+
+    //GRUPOSALIMENTOS
+    public function agregarGruposAimentarios()
+    {
+        return view('admin.gruposalimentarios.agregar');
+    }
 }

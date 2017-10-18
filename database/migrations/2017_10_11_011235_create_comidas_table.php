@@ -15,9 +15,13 @@ class CreateComidasTable extends Migration
     {
         Schema::create('comidas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('us_id')->unsigned();
             $table->string('cm_nombre',30);
-            $table->integer('cm_porcentaje');
+            $table->enum('cm_estado',[0,1])->default(1);
             $table->timestamps();
+
+            // FOREIGN KEY
+            $table->foreign('us_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -3,7 +3,7 @@
 		<div class="form-group">
 			{{ Form::label('cen_nombre','Nombre') }}
 			{{ Form::text('cen_nombre',null,['class'       =>'form-control',
-											'placeholder' =>'Diabetes',
+											'placeholder' =>'Grasa',
 											'required']) }}
 		</div>
 	</div>
