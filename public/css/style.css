@@ -400,7 +400,7 @@ body{
 	cursor: pointer;
 }
 
-#containerSticky .form-control, #pa_apodo{
+#containerSticky .form-control, #pa_apodo, .formNuevoAvance .form-control{
 	padding: 0px;
 	border: none;
 	border-radius: 0px;
@@ -408,7 +408,7 @@ body{
 	transition: all .3s ease;
 }
 
-#containerSticky .form-control:hover,#pa_apodo:hover{
+#containerSticky .form-control:hover,#pa_apodo:hover, .formNuevoAvance .form-control:hover{
 	border-bottom: 1px solid #b92e34;
 }
 
@@ -465,4 +465,30 @@ article a{
 
 .separadorGris{
 	border-bottom: 1px solid #999;
+}
+
+/* /////////////////////////////////////////////////////////////////////*/
+/* //////////////////////  VISTAS DE NUEVO AVANCE  /////////////////////*/
+
+.formNuevoAvance .form-control{
+	text-align: center !important;
+}
+
+.formNuevoAvance{
+	border: 2px dashed #444;
+}
+
+.registroNuevoAvance{
+	border: 1px dashed #842F86;
+	border-bottom: .2rem solid #842F86;
+	transition: all .2s ease;
+}
+
+.registroNuevoAvance a{
+	text-decoration: none;
+	color: #842F86;
+}
+
+.registroNuevoAvance a:hover{
+	opacity: 0.7;
 }
