@@ -1,9 +1,13 @@
 @extends('layouts.mainAdminDetalle') 
-
-@section('title','Sellos negros') 
+@section('title-nav','Administrador')
+@section('title')
+<div class="text-center mb-4 mt-3">
+	<span class="display-3">Detalle de etiqueta nutricional <i class="fa fa-tag" aria-hidden="true"></i></span>
+</div>
+@endsection 
 
 @section('nav')
-@include('admin.enfermedades.nav')
+@include('admin.etiquetanutricional.nav')
 @endsection 
 
 @section('urlEditar','#')
@@ -11,24 +15,21 @@
 
 @section('placeholderBuscar','Buscar Enfermedades') 
 @section('content')
-
-<div class="row ">
-	
-	<div class="col-sm-6 col-lg-4 mb-4  offset-sm-3  offset-md-4">
-
-		<div class="card-header primaryPalet textoBlanco text-center">
-			Kilocalorias (KCAL)
-		</div>
-		<div class="card-block">
-			<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat.</p>
-		</div>
-
+<div class="row">
+	<div class="col-md-6 offset-md-3 p-3">
+			<img class="card-img-top max400" src="{{ asset('images/img_etiqueta/'. $etiqueta->en_url_imagen) }}">
 	</div>
 </div>
-
+<div class="borderPrimary mt-4 mb-5">
+	<div class="fullDiv">
+	<span class="tituloPersonalizado primaryPalet textoBlanco">
+		{{$etiqueta->en_titulo}}
+	</span>
+</div>
+<div class="fullDiv p-4 text-justify mb-4">
+{!! $etiqueta->en_descripcion !!}
+</div>
+</div>
 
 </div>{{-- .ROW --}}
 @endsection

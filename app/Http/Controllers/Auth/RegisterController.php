@@ -6,7 +6,7 @@ use frust\User;
 use frust\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Carbon\Carbon;
 class RegisterController extends Controller
 {
     /*
@@ -48,9 +48,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password'=> 'min:4|required',
+            'cf_password' => 'min:4|same:password',
+            'us_email'=>'email|unique:Users'
         ]);
     }
 
@@ -62,10 +62,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        date_default_timezone_set('America/Argentina/Salta');
+        $fecha = Carbon::now();
+        $fecha->toDateTimeString();
+        $fecha->addMonth();
+    
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'us_email' => $data['us_email'],
             'password' => bcrypt($data['password']),
+            'us_nombres' => $data['us_nombres'],
+            'us_apellido_paterno' => $data['us_apellido_paterno'],
+            'us_apellido_materno' => $data['us_apellido_materno'],
+            'us_sexo' => $data['us_sexo'],
+            'us_fecha_nacimiento' => $data['us_fecha_nacimiento'],
+            'us_peso' => $data['us_peso'],
+            'us_estatura' => $data['us_estatura'],
+            'co_id' => $data['co_id'],
+            'rg_id' => $data['rg_id'],
+            'us_fecha_caducacion'=>$fecha
         ]);
     }
 }

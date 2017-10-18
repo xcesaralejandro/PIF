@@ -15,7 +15,7 @@ class CreateGruposAlimentosTable extends Migration
     {
         Schema::create('gruposAlimentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ga_nombre',100);
+            $table->string('ga_nombre');
             $table->timestamps();
         });
     }

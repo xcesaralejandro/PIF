@@ -10,14 +10,20 @@ class comuna extends Model
 
     protected $fillable = [
     	'id',
+        'rg_id',
     	'co_nombre',
     	'created_at',
     	'updated_at'
     ];
 
-    // SUS PADRES
+
     // SUS HIJOS
     public function Users(){
         return $this->hasMany('frust\User');
     }
+        // SUS PADRES
+    public function regione(){
+        return $this->belongsTo('frust\Regione','rg_id','id');
+    }
+
 }

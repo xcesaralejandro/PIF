@@ -5,7 +5,7 @@
     <span class="display-4"><strong>Crear cuenta</strong> de usuario</span>
 </div>
 <hr>
-{!! Form::Open() !!}
+{!! Form::open(['route' => 'register', 'method' => 'POST']) !!}
     @include('auth.Form')
     
     <div class="row">

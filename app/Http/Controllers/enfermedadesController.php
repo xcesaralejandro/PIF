@@ -4,6 +4,7 @@ namespace frust\Http\Controllers;
 
 use Illuminate\Http\Request;
 use frust\Http\Requests\enfermedadesRequest;
+use frust\enfermedade;
 
 class enfermedadesController extends Controller
 {
@@ -14,7 +15,8 @@ class enfermedadesController extends Controller
      */
     public function index()
     {
-        return View('admin.enfermedades.listar');
+        $enfermedades = enfermedade::orderBy('id','DESC')->paginate(10);
+        return View('admin.enfermedades.listar')->with('enfermedades',$enfermedades);
     }
 
     /**
@@ -26,7 +28,17 @@ class enfermedadesController extends Controller
     {
         return View('admin.enfermedades.agregar');
     }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function detalle($id)
+    {
+        $enfermedad = enfermedade::find($id);
+        return View('admin.enfermedades.detalle')->with('enfermedad',$enfermedad);
 
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -35,10 +47,21 @@ class enfermedadesController extends Controller
      */
     public function store(enfermedadesRequest $request)
     {
-        alertify()->success('Updated record successfully')->persistent()->clickToClose();
-        // You can also add multiple alerts!
-        alertify('You are awesome!')->persistent()->clickToClose();
-        return redirect()->back();
+
+        $enfermedad = new enfermedade();   
+        $enfermedad->ef_nombre =ucfirst($request->ef_nombre); 
+        $enfermedad->us_id = \Auth::user()->id;
+        $enfermedad->ef_descripcion = $request->ef_descripcion; 
+        $enfermedad->ef_url = $request->ef_url;       
+        $file = $request->file('ef_url_imagen');
+        $nombre = 'img_enfermedades' . time() . '.' . $file->getClientOriginalExtension();
+        $lugar = public_path() . '/images/img_enfermedades/';
+        $file->move($lugar, $nombre);
+        $enfermedad->ef_url_imagen = $nombre;
+        $enfermedad->save();
+
+        alertify()->success('Registrado exitosamente')->persistent()->clickToClose();
+        return redirect()->route('enfermedades.index');
     }
 
     /**
@@ -49,7 +72,7 @@ class enfermedadesController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -60,7 +83,9 @@ class enfermedadesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $enfermedad = enfermedade::find($id);
+        return view('admin.enfermedades.modificar')->with('enfermedad',$enfermedad);
+
     }
 
     /**
@@ -70,10 +95,22 @@ class enfermedadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(enfermedadesRequest $request, $id)
     {
-        //
-    }
+     $enfermedad =enfermedade::find($id);  
+     $enfermedad->ef_nombre =ucfirst($request->ef_nombre); 
+     $enfermedad->us_id = \Auth::user()->id;
+     $enfermedad->ef_descripcion = $request->ef_descripcion; 
+     $enfermedad->ef_url = $request->ef_url;       
+     $file = $request->file('ef_url_imagen');
+     $nombre = 'img_enfermedades' . time() . '.' . $file->getClientOriginalExtension();
+     $lugar = public_path() . '/images/img_enfermedades/';
+     $file->move($lugar, $nombre);
+     $enfermedad->ef_url_imagen = $nombre;
+     $enfermedad->save();
+    alertify()->success('Modificado exitosamente')->persistent()->clickToClose();
+    return redirect()->route('enfermedades.index');
+ }
 
     /**
      * Remove the specified resource from storage.
@@ -83,6 +120,10 @@ class enfermedadesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $enfermedad = enfermedade::find($id);
+        $enfermedad->delete();
+        alertify()->error('Se elimino correctamente ')->persistent()->clickToClose();
+        return redirect()->back();
     }
+    
 }

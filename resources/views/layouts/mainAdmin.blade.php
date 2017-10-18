@@ -21,12 +21,13 @@
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#nabvarAdmin" aria-controls="nabvarAdmin" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""><i class="fa fa-bars iconMenu" aria-hidden="true"></i></span>
           </button>
-          <a class="navbar-brand"> <img src="{{ asset('images/logo_frust.svg') }}" width="30px" height="30px"> Administrador</a>
+          <a class="navbar-brand"> <img src="{{ asset('images/logo_frust.svg') }}" width="30px" height="30px"> 
+          @yield('title-nav')</a>
           <div class="collapse navbar-collapse" id="nabvarAdmin">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
               @yield('nav')
             </ul>
-            <form class="form-inline my-2 my-lg-0" >
+            <form class="form-inline my-2 my-lg-0"  >  {{--action="@yield()" method="GET" --}}
               <input class="form-control mr-sm-2" type="text" placeholder="@yield('placeholderBuscar')">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>

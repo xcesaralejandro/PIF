@@ -10,20 +10,17 @@ class factore extends Model
 
     protected $fillable = [
     	'id',
+        'us_id',
     	'ft_proteinas',
     	'ft_lipidos',
     	'ft_carbohidratos',
-    	'ft_g_proteinas',
-    	'ft_g_lipidos',
-    	'ft_g_carbohidratos',
     	'created_at',
     	'updated_at'
     ];
 
     // SUS HIJOS
-    public function factores(){
-        return $this->hasMany('frust\factore');
-    }
     // SUS PADRES
-     
+         public function User(){
+        return $this->belongsTo('frust\User','us_id','id');
+    }
 }
