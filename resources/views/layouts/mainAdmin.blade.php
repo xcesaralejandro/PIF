@@ -27,6 +27,7 @@
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
               @yield('nav')
             </ul>
+
             <form class="form-inline my-2 my-lg-0"  >  {{--action="@yield()" method="GET" --}}
               <input class="form-control mr-sm-2" type="text" placeholder="@yield('placeholderBuscar')">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>

@@ -1,4 +1,5 @@
-*:active,*:focus {outline: none !important;}
+*:active,*:focus {outline:0 !important;}
+body{color: #444;}
 /* ///////////////////  PALETA DE COLORES  ////////////////////////////*/
 .darkPalet{background-color: #321233 !important;}
 .lightDarkPalet{background-color: #521E53 !important;}
@@ -181,6 +182,10 @@ body{
 	color: #000 !important;
 }
 
+.textoGris{
+	color: #444 !important;
+}
+
 .dropdown-item.active, .dropdown-item:active, .dropdown-item:hover {
 	color: #fff;
     background-color: #521E53;
@@ -242,6 +247,27 @@ body{
     white-space: nowrap;
     width: 15%;
 }
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: transparent;
+    opacity: 1;
+    text-align: center;
+    color: #a09c9c;
+}
+
+.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button), .alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button){
+	text-transform: initial !important;
+	border: 1px solid #e5e5e6 !important;
+	color: #444 !important;
+}
+
+.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button), .alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button) {
+    font-size: .95rem;
+}
+
+.alertify .dialog .msg, .alertify .alert .msg {
+    text-align: center;
+}
 /* /////////////////////////////////////////////////////////////////////*/
 /* //////////////////////  VISTAS INFORMATIVAS //////////////////////////*/
 
@@ -279,7 +305,174 @@ body{
 }
 
 /* /////////////////////////////////////////////////////////////////////*/
+
 /*esconder agregar grupo*/
 .esconder-agregar{
 	display: none;
 }
+
+/* //////////////////////  VISTAS DE PLAN ALIMENTARIO //////////////////*/
+.contenedorSecciones .display-4{
+	color: #4c4c4c;
+}
+
+.fullComida{
+	opacity: 0.7;
+}
+
+.tituloComida{
+	font-size: 1.1rem;
+}
+
+.requisitosVal{
+	display: inline-block;
+	margin-right: 1rem;
+}
+
+#buscarAlimento{
+	position: absolute;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+#buscarAlimento a{
+	text-decoration: none;
+	color: #292b2c;
+}
+
+.fullSolid{
+	border: 2px solid #B92E34;
+	padding: .15rem;
+}
+
+.rblSolid{
+	border-left: 2px solid #B92E34;
+	border-right: 2px solid #B92E34;
+	border-bottom: 2px solid #B92E34;
+}
+
+#bodySearch{
+	display: none;
+}
+
+#bodySearch .btn-primary, #bodySearch .btn-primary:active , #bodySearch .btn-primary:focus{
+    background-color: #B92E34 !important;
+    border-color: #B92E34 !important;
+    webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+#bodySearch .btn-primary:hover{
+	background-color: #E53941 !important;
+    border-color: #E53941 !important;
+}
+
+.bk_azul{
+	background-color: #B92E34 !important;
+}
+
+.bk_teal{
+	background-color: #b92e34 !important;
+}
+
+.bk_dark_gray{
+	background-color: #444 !important;
+}
+
+#buscarAlimento{
+	z-index: 150 !important;
+}
+
+.alimentoStyle1{
+	border-bottom: 1px solid #b92e34;
+}
+
+#alimento a{
+	color: #f44336;
+	text-decoration: none;
+	transition: all .3s ease;
+}
+
+#alimento a:hover{
+	opacity: 0.7;
+}
+
+#containerSticky .chosen-container-single, #containerSticky .chosen-single{
+	border: none;
+	border-radius: 0px;
+	border-bottom: .1px solid #842f86;
+	transition: all .3s ease;
+	text-align: left;
+	-webkit-box-shadow: 0px;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+#containerSticky .form-control, #pa_apodo{
+	padding: 0px;
+	border: none;
+	border-radius: 0px;
+	border-bottom: 1px solid #842f86;
+	transition: all .3s ease;
+}
+
+#containerSticky .form-control:hover,#pa_apodo:hover{
+	border-bottom: 1px solid #b92e34;
+}
+
+.fullAlimento{
+	padding-bottom: .5rem;
+}
+
+.fullAlimento{
+	border-bottom: 1px solid #b3b3b3;
+}
+#searchAlim div.fullAlimento{
+	border: none !important;
+}
+.hideHeadAlimento{
+	display: none !important;
+}
+
+.borderBottomPrimary{
+	border-bottom: 1px solid #842F86;
+}
+
+.bordeBottomRojo{
+	border-bottom: 1px solid #b92e34 !important;
+}
+
+#btnGuardar{
+	display: none;
+}
+
+article.articlePlanes div span{
+	font-size: 1.7rem;
+}
+
+article footer div{
+	background-color: #9D2F6B;
+}
+
+article header{
+	border-bottom: 1px solid #9D2F6B;
+}
+
+article a{
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+.disponible{
+	color:  #28b921;
+}
+
+.noDisponible{
+	color:  #E81300;
+}
+
+.separadorGris{
+	border-bottom: 1px solid #999;
+}
+

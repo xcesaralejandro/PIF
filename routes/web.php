@@ -74,3 +74,11 @@ Route::group(['prefix'=>'nutricionista','middleware'=>'auth','nutricionista'],fu
 
 
 });
+
+
+// Rutas cliente
+Route::group(['prefix'=>'cliente'],function(){
+	// Plan alimentario
+	Route::resource('planAlimentario','planesAlimentariosController');
+	Route::get('planes','planesAlimentariosController@listar');
+});

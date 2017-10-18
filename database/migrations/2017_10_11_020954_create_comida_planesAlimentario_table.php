@@ -17,6 +17,7 @@ class CreateComidaPlanesAlimentarioTable extends Migration
             $table->increments('id');
             $table->integer('pa_id')->unsigned();
             $table->integer('cm_id')->unsigned();
+            $table->integer('gramos_ingeridos')->unsigned();
             $table->timestamps();
 
             // FOREIGN KEY
