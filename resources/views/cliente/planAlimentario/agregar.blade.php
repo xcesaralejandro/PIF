@@ -145,7 +145,6 @@
 
 	</div>
 </div>
-{{-- DIV CONETENEDOR PARA EL STICKY --}}
 <div id="containerSticky" class="p-2 mb-5">
 	{{-- SECCION BUSCAR UN ALIMENTO //////////////////////////////////////////////////////////////////////////// --}}
 	<section id="buscarAlimento" class="bk_blanco text-center">

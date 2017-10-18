@@ -34,4 +34,5 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix'=>'cliente'],function(){
 	// Plan alimentario
 	Route::resource('planAlimentario','planesAlimentariosController');
+	Route::get('planes','planesAlimentariosController@listar');
 });

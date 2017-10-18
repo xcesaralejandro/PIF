@@ -44,7 +44,7 @@ class planesAlimentariosController extends Controller
      */
     public function show($id)
     {
-        //
+        return View('cliente.planAlimentario.detalle');
     }
 
     /**
@@ -79,5 +79,9 @@ class planesAlimentariosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function listar(){
+        return View('cliente.planAlimentario.listar');
     }
 }

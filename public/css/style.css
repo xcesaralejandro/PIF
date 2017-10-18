@@ -437,3 +437,32 @@ body{
 #btnGuardar{
 	display: none;
 }
+
+article.articlePlanes div span{
+	font-size: 1.7rem;
+}
+
+article footer div{
+	background-color: #9D2F6B;
+}
+
+article header{
+	border-bottom: 1px solid #9D2F6B;
+}
+
+article a{
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+.disponible{
+	color:  #28b921;
+}
+
+.noDisponible{
+	color:  #E81300;
+}
+
+.separadorGris{
+	border-bottom: 1px solid #999;
+}
