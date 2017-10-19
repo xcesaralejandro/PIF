@@ -5,6 +5,7 @@ namespace frust\Http\Controllers;
 use Illuminate\Http\Request;
 use frust\comida;
 use frust\subComida;
+use frust\User;
 class comidasController extends Controller
 {
     /**
@@ -14,11 +15,10 @@ class comidasController extends Controller
      */
     public function index()
     {
-        $comidas = comida::orderBy('id','DESC')->paginate(10);
-        $subComidas = subComida::orderBy('id','ASC')->pluck('sbc_porcentaje', 'id');
+        $comidas = comida::with(['subComida'])->paginate(5);        
+        dd($comidas);
         return view('nutricionista.comidas.listar')
-        ->with('comidas',$comidas)
-        ->with('subComidas',$subComidas);
+        ->with('comidas',$comidas);
     }
 
     /**

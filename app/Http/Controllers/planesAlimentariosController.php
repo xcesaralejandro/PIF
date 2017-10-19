@@ -13,6 +13,8 @@ class planesAlimentariosController extends Controller
      */
     public function index()
     {
+        return View('cliente.planAlimentario.listar');
+
     }
 
     /**

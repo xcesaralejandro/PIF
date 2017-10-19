@@ -33,10 +33,6 @@
                 <tr>
             <td> {{ $comida ->cm_nombre }} </td>
 
-            @foreach($subComidas as $subComida)
-            <td> {{$subComida}}% </td>
-            @endforeach 
-
             <td class="fit">
                 <div class="container-fluid">
                     <div class="row">

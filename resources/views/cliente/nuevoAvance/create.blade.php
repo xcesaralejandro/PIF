@@ -147,13 +147,13 @@
 	
 	@section('js')
 	
-	<script src="{{ asset('recursos/Chart/Chartbundle.js') }}"></script>
+{{-- 	<script src="{{ asset('recursos/Chart/Chartbundle.js') }}"></script>
 	
-	<script src="{{ asset('recursos/Chart/Chart.js') }}"></script>
+	<script src="{{ asset('recursos/Chart/Chart.js') }}"></script> --}}
 	
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 
 <script>
 	
@@ -199,7 +199,7 @@
 					
 					label: '# of Votes',
 					
-					data: [12, 19, 3, 5, 2, 3],
+					data: [1, 3, 1, 2, 2, 3],
 					
 					backgroundColor: [
 					
@@ -240,6 +240,7 @@
 			},
 			
 			options: {
+				responsive: true,
 				
 				scales: {
 					
