@@ -1,5 +1,4 @@
 <?php
-
 namespace frust\Http\Controllers\Auth;
 
 use frust\User;

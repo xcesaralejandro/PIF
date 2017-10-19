@@ -11,7 +11,7 @@
 
 <div class="formNuevoAvance fullDiv p-3">
 	
-	{{ Form::open() }}
+	{{ Form::open(['route'=>'nuevoAvance.store', 'method'=>'POST']) }}
 	
 	@include('cliente.nuevoAvance.form')
 	

@@ -17,14 +17,14 @@
 	<div class="col-sm-6 col-lg-4 offset-lg-2">
 		<div class="form-group">
 			{{ Form::label('na_imc', 'Indice de masa corporal (IMC)') }}
-			{{ Form::number('na_imc',0,['class'=>'form-control imc','disabled']) }}
+			{{ Form::number('na_imc',0,['class'=>'form-control imc','readonly']) }}
 		</div>
 	</div>
 
 	<div class="col-sm-6 col-lg-4">
 		<div class="form-group">
 			{{ Form::label('na_vct', 'Kcal a consumir (VCT)') }}
-			{{ Form::number('na_vct',0,['class'=>'form-control vct','disabled']) }}
+			{{ Form::number('na_vct',0,['class'=>'form-control vct','readonly']) }}
 		</div>
 	</div>
 </div>

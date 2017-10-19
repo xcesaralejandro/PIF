@@ -19,7 +19,7 @@ class CreateNuevosAvancesTable extends Migration
             $table->integer('na_peso');
             $table->integer('na_altura');
             $table->date('na_fecha');
-            $table->float('na_imc',5,5);
+            $table->float('na_imc');
             $table->integer('na_vct');
             $table->timestamps();
             // FOREIGN KEY 
