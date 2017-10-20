@@ -59,9 +59,11 @@
 </div>
 	@endforeach
 @endif
-
+<span class="lastPeso">
+	
+</span>
 <div class="text-center fullDiv mt-5 mb-4 ">
-	<span class="display-4 ">Ultimos registros</span>
+	<span class="display-4 ">Ultimos <strong>5</strong> registros</span>
 </div>
 <hr>
 <canvas id="myChart " width="800" height="200px"></canvas>
@@ -83,28 +85,168 @@
 	// TEST CHAR JS
 	var ctx = document.getElementById("myChart ").getContext('2d');
 	var myChart = new Chart(ctx, {
-		type: 'bar',
+		type: 'line',
 		data: {
-			labels: ["Red ", "Blue ", "Yellow ", "Green ", "Purple ", "Orange "],
+			labels: [
+				@if(array_key_exists(4,$lastFecha))
+					'{{ $lastFecha[4] }}'
+				@else
+					'0000/00/00'
+				@endif,
+
+				@if(array_key_exists(3,$lastFecha))
+					'{{ $lastFecha[3] }}'
+				@else
+					'0000/00/00'
+				@endif,
+
+				@if(array_key_exists(2,$lastFecha))
+					'{{ $lastFecha[2] }}'
+				@else
+					'0000/00/00'
+				@endif,
+
+				@if(array_key_exists(1,$lastFecha))
+					'{{ $lastFecha[1] }}'
+				@else
+					'0000/00/00'
+				@endif,
+
+				@if(array_key_exists(0,$lastFecha))
+					'{{ $lastFecha[0] }}'
+				@else
+					'0000/00/00'
+				@endif,
+
+
+
+			],
 			datasets: [{
-				label: '# of Votes',
-				data: [1, 3, 1, 2, 2, 3],
+				label: 'Peso',
+				data: [
+					@if(array_key_exists(4,$lastPeso))
+						{{ $lastPeso[4] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(3,$lastPeso))
+						{{ $lastPeso[3] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(2,$lastPeso))
+						{{ $lastPeso[2] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(1,$lastPeso))
+						{{ $lastPeso[1] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(0,$lastPeso))
+						{{ $lastPeso[0] }}
+					@else
+						0
+					@endif
+
+					],
 				backgroundColor: [
-				'rgba(255, 99, 132, 0.2)',
-				'rgba(54, 162, 235, 0.2)',
-				'rgba(255, 206, 86, 0.2)',
-				'rgba(75, 192, 192, 0.2)',
-				'rgba(153, 102, 255, 0.2)',
-				'rgba(255, 159, 64, 0.2)'
+				'rgba(54, 162, 235, 0.2)'
 				],
 
 				borderColor: [
-				'rgba(255,99,132,1)',
-				'rgba(54, 162, 235, 1)',
-				'rgba(255, 206, 86, 1)',
-				'rgba(75, 192, 192, 1)',
-				'rgba(153, 102, 255, 1)',
-				'rgba(255, 159, 64, 1)'
+				'rgba(54, 162, 235, 1)'
+				],
+				borderWidth: 1
+			},
+			{
+				label: 'Altura',
+				data: [
+					@if(array_key_exists(4,$lastAltura))
+						{{ $lastAltura[4] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(3,$lastAltura))
+						{{ $lastAltura[3] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(2,$lastAltura))
+						{{ $lastAltura[2] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(1,$lastAltura))
+						{{ $lastAltura[1] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(0,$lastAltura))
+						{{ $lastAltura[0] }}
+					@else
+						0
+					@endif
+
+					],
+				backgroundColor: [
+				'rgba(255, 99, 132, 0.2)'
+				],
+
+				borderColor: [
+				'rgba(255,99,132,1)'
+				],
+				borderWidth: 1
+			},
+			{
+				label: 'Imc',
+				data: [
+					@if(array_key_exists(4,$lastImc))
+						{{ $lastImc[4] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(3,$lastImc))
+						{{ $lastImc[3] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(2,$lastImc))
+						{{ $lastImc[2] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(1,$lastImc))
+						{{ $lastImc[1] }}
+					@else
+						0
+					@endif,
+
+					@if(array_key_exists(0,$lastImc))
+						{{ $lastImc[0] }}
+					@else
+						0
+					@endif
+
+					],
+				backgroundColor: [
+				'rgba(76, 175, 80, 0.2)'
+				],
+
+				borderColor: [
+				'rgba(76, 175, 80, 1)'
 				],
 				borderWidth: 1
 			}]

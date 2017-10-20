@@ -18,9 +18,25 @@ class nuevoAvanceController extends Controller
                          ->where('us_id',\Auth::user()->id)
                          ->get();
 
+        //Traemos los ultimos 5 registros para el grafico
+        $paraGraficar = nuevosAvance::orderBy('id','desc')
+                         ->where('us_id',\Auth::user()->id)
+                         ->take(5)
+                         ->get();
+
+        foreach ($paraGraficar as $value) {
+            $lastPeso[]   = $value->na_peso;
+            $lastFecha[]  = $value->na_fecha;
+            $lastAltura[] = $value->na_altura;
+            $lastImc[] = $value->na_imc;
+        }
 
         return  View('cliente.nuevoAvance.create')
-                ->with('avances',$nuevosAvance);
+                ->with('lastPeso', $lastPeso)
+                ->with('lastFecha',$lastFecha)
+                ->with('lastAltura',$lastAltura)
+                ->with('lastImc',$lastImc)
+                ->with('avances',  $nuevosAvance);
     }
 
     /**
@@ -30,14 +46,7 @@ class nuevoAvanceController extends Controller
      */
     public function create()
     {
-         $nuevosAvance = nuevosAvance::orderBy('id','desc')
-                         ->where('na_fecha',date('Y-m-d'))
-                         ->where('us_id',\Auth::user()->id)
-                         ->get();
 
-
-        return  View('cliente.nuevoAvance.create')
-                ->with('avances',$nuevosAvance);
     }
 
     /**
