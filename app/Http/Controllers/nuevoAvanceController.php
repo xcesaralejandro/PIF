@@ -13,7 +13,14 @@ class nuevoAvanceController extends Controller
      */
     public function index()
     {
-        return View('cliente.nuevoAvance.create');
+        $nuevosAvance = nuevosAvance::orderBy('id','desc')
+                         ->where('na_fecha',date('Y-m-d'))
+                         ->where('us_id',\Auth::user()->id)
+                         ->get();
+
+
+        return  View('cliente.nuevoAvance.create')
+                ->with('avances',$nuevosAvance);
     }
 
     /**
@@ -23,7 +30,14 @@ class nuevoAvanceController extends Controller
      */
     public function create()
     {
-        //
+         $nuevosAvance = nuevosAvance::orderBy('id','desc')
+                         ->where('na_fecha',date('Y-m-d'))
+                         ->where('us_id',\Auth::user()->id)
+                         ->get();
+
+
+        return  View('cliente.nuevoAvance.create')
+                ->with('avances',$nuevosAvance);
     }
 
     /**
@@ -36,7 +50,7 @@ class nuevoAvanceController extends Controller
     {
 
         //Comprobamos que el usuario sea cliente
-        if (\Auth::user()->us_tipo_usuario == 'cliente') {
+        if (!\Auth::guest() && \Auth::user()->us_tipo_usuario == 'cliente') {
            if ($request->na_imc > 0 && $request->na_vct >0) {
                 $nuevoAvance           = new nuevosAvance();
                 $nuevoAvance->us_id    = \Auth::user()->id;
@@ -54,7 +68,10 @@ class nuevoAvanceController extends Controller
                 alertify()->error('Debe cambiar los valores iniciales.')->delay(10000)->clickToClose()->position('bottom left');
                 return redirect()->back();
            }
-        }
+        }else{
+                alertify()->error('No posee permisos para realizar esta acción.')->delay(10000)->clickToClose()->position('bottom left');
+                return redirect()->back();
+           }
     }
 
     /**
@@ -99,6 +116,19 @@ class nuevoAvanceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $na = nuevosAvance::find($id);
+
+        if ($na->us_id === \Auth::user()->id) {
+            if ($na->delete()) {
+                alertify()->success('El registro se ha eliminado con éxito.')->delay(10000)->clickToClose()->position('bottom left');
+                return redirect()->back();
+            }else{
+                alertify()->error('No se puede eliminar el registro ya que está siendo utilizado.')->delay(10000)->clickToClose()->position('bottom left');
+                return redirect()->back();
+            }
+        }else{
+            alertify()->error('No posee permisos para realizar esta acción.')->delay(10000)->clickToClose()->position('bottom left');
+                return redirect()->back();
+        }
     }
 }

@@ -83,5 +83,6 @@ Route::group(['prefix'=>'cliente'],function(){
 	Route::get('planes','planesAlimentariosController@listar');
 
 	//Nuevo Avance
-	Route::resource('nuevoAvance','nuevoAvanceController');
+    Route::resource('nuevoAvance','nuevoAvanceController');
+	Route::get('nuevoAvance/eliminar/{id}','nuevoAvanceController@destroy')->name('nuevoAvance.destroy');
 });
