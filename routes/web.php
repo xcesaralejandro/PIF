@@ -80,7 +80,10 @@ Route::group(['prefix'=>'nutricionista','middleware'=>'auth','nutricionista'],fu
 Route::group(['prefix'=>'cliente'],function(){
 	// Plan alimentario
 	Route::resource('planAlimentario','planesAlimentariosController');
-	Route::get('planes','planesAlimentariosController@listar');
+    Route::get('planes','planesAlimentariosController@listar');
+    Route::get('planes/grupos','planesAlimentariosController@grupos')->name('planes.grupos');
+    Route::get('planes/categorias/{id}','planesAlimentariosController@categorias')->name('planes.categorias');
+	Route::get('planes/alimentos/{id}','planesAlimentariosController@alimentos')->name('planes.alimentos');
 
 	//Nuevo Avance
     Route::resource('nuevoAvance','nuevoAvanceController');

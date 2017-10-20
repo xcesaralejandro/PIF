@@ -3,6 +3,9 @@
 namespace frust\Http\Controllers;
 
 use Illuminate\Http\Request;
+use frust\gruposAlimento;
+use frust\categoriasAlimento;
+use frust\alimento;
 
 class planesAlimentariosController extends Controller
 {
@@ -85,5 +88,38 @@ class planesAlimentariosController extends Controller
 
     public function listar(){
         return View('cliente.planAlimentario.listar');
+    }
+
+    public function grupos(){
+
+        if (!\Auth::guest()) {
+            $grupos = gruposAlimento::orderBy('ga_nombre','asc')->pluck('id','ga_nombre');
+        }else{
+            $grupos = "Lo lamentamos, no compartimos la información de nuestra APP con terceros.";
+        }
+        return response()->json($grupos);
+    }
+
+    public function categorias($gpoId){
+        
+        if (!\Auth::guest()) {
+            $cat = categoriasAlimento::orderBy('ct_nombre','asc')
+                                       ->where('ga_id',$gpoId)
+                                       ->pluck('id','ct_nombre');
+        }else{
+            $cat = "Lo lamentamos, no compartimos la información de nuestra APP con terceros.";
+        }
+        return response()->json($cat);
+    }
+
+    public function alimentos($catId){
+        if (!\Auth::guest()) {
+            $alm = alimento::orderBy('al_nombre','asc')
+                            ->where('ct_id',$catId)
+                            ->pluck('id','al_nombre');
+        }else{
+            $alm = "Lo lamentamos, no compartimos la información de nuestra APP con terceros.";
+        }
+        return response()->json($alm);
     }
 }

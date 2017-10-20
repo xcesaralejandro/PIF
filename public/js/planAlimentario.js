@@ -1,5 +1,6 @@
 $(function(){
 onStart();
+//--------------------- SELECT ON CHANGE  ---------------------//
 //--------------------- VARIABLES GLOBALES  ---------------------//
 var containerEventos = $('.listadoComida');
 //---------------- INICIALIZAMOS CHOSEN PARA LOS SELECT ----------------//
