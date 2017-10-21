@@ -49,12 +49,23 @@ function setAlimentos(){
 			for (var i = 0; i <= data.length - 1; i++) {
 				var temp = data[i];
 				sAli.append('<option value="' + temp['id'] +'">' + temp['al_nombre'] +'</option>');
+				$('#alim option:last').data("alimento", {
+					'cod'             : temp['id'],
+					'kcal'            : 100,
+					'al_gramos'       : temp['al_gramos'],
+					'al_proteina'     : temp['al_proteina'],
+					'al_lipidos'      : temp['al_lipidos'],
+					'al_carbohidratos': temp['al_carbohidratos']
+				});
 			}
 		
 		sAli.trigger("chosen:updated");
 		},
 		error:function(jqXHR, estado, error){
 			alertify.error('Ha ocurrido un error, revise su conexión a internet.');
+		},
+		complete:function(){
+			llenarCampos();
 		},
 		timeout:15000
 	});
@@ -65,15 +76,31 @@ function limpiaSelect(obj){
 	obj.find('option').remove().end();
 }
 
+// Esta funcion rellena la info del alimento seleccionado en los input correspondientes desde los atributos data
+
+function llenarCampos(){
+	var alimento = $('#alim option:selected').data("alimento");
+
+	$('#searchAlim .codigoAlimento').val(alimento.cod);
+	$('#searchAlim .gramos_ingeridos').val(alimento.kcal);
+	$('#searchAlim .kcalAlimento').val(alimento.al_gramos);
+	$('#searchAlim .protAlimento').val(alimento.al_proteina);
+	$('#searchAlim .lipAlimento').val(alimento.al_lipidos);
+	$('#searchAlim .chAlimento').val(alimento.al_carbohidratos);
+}
+
 // ....................  Llamamos a funcione cuando cambien de valor .............................
 
 sGpo.on('change',function(){
 	setCategoria();
-	setAlimentos();
 });
 
 sCat.on('change',function(){
 	setAlimentos();
+});
+
+sAli.on('change',function(){
+	llenarCampos();
 });
 //--------------------- VARIABLES GLOBALES  ---------------------//
 var containerEventos = $('.listadoComida');
