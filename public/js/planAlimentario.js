@@ -39,7 +39,6 @@ function setAlimentos(){
 	var cat = $('#catSelect');
 	var uri    = "/cliente/planes/alimentos/" + parseInt(cat.val());
 	var method = "GET";
-	console.log('URL ALIMENTOS: ' + uri);
 	$.ajax({
 		url: uri,
 		type: method, 

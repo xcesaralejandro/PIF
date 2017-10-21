@@ -92,16 +92,6 @@ class planesAlimentariosController extends Controller
         return View('cliente.planAlimentario.listar');
     }
 
-    public function grupos(){
-
-        if (!\Auth::guest()) {
-            $grupos = gruposAlimento::orderBy('ga_nombre','asc')->pluck('id','ga_nombre');
-        }else{
-            $grupos = "Lo lamentamos, no compartimos la información de nuestra APP con terceros.";
-        }
-        return response()->json($grupos);
-    }
-
     public function categorias($gpoId){
         
         if (!\Auth::guest()) {
