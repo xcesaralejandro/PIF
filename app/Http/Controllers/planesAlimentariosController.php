@@ -27,7 +27,9 @@ class planesAlimentariosController extends Controller
      */
     public function create()
     {
-        return View('cliente.planAlimentario.agregar');
+        $grupos = gruposAlimento::orderBy('ga_nombre','asc')->pluck('ga_nombre','id');
+        return View('cliente.planAlimentario.agregar')
+        ->with('grupos',$grupos);
     }
 
     /**
@@ -116,10 +118,13 @@ class planesAlimentariosController extends Controller
         if (!\Auth::guest()) {
             $alm = alimento::orderBy('al_nombre','asc')
                             ->where('ct_id',$catId)
-                            ->pluck('id','al_nombre');
+                            ->select('id','al_nombre','al_gramos','al_proteina','al_lipidos','al_carbohidratos')
+                            ->get()
+                            ->toArray();
         }else{
             $alm = "Lo lamentamos, no compartimos la información de nuestra APP con terceros.";
         }
+
         return response()->json($alm);
     }
 }

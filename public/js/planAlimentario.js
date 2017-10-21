@@ -1,10 +1,85 @@
 $(function(){
 onStart();
 //--------------------- SELECT ON CHANGE  ---------------------//
+var sCat   = $('#catSelect');
+var sAli   = $('#alim');
+// Funcion que llena el grupo de select
+var sGpo   = $('#gpoSelect');
+
+function setCategoria(){
+	var ssGpo   = $('#gpoSelect option:selected');
+	var ssCat   = $('#catSelect');
+	var ssAli   = $('#alim');
+	var uri    = "/cliente/planes/categorias/" + ssGpo.val();
+	var method = "GET";
+	
+	$.ajax({
+		url: uri,
+		type: method, 
+		success:function(data){
+			limpiaSelect(ssCat);
+			limpiaSelect(ssAli);
+
+			$.each(data,function(index,value){
+				ssCat.append('<option value="' + value +'">' + index +'</option>');
+			});
+			sCat.trigger("chosen:updated");
+		},
+		error:function(jqXHR, estado, error){
+			alertify.error('Ha ocurrido un error, revise su conexión a internet.');
+		},
+		complete:function(){
+			setAlimentos();
+		},
+		timeout:15000
+	});
+}
+
+function setAlimentos(){
+	var cat = $('#catSelect');
+	var uri    = "/cliente/planes/alimentos/" + parseInt(cat.val());
+	var method = "GET";
+	console.log('URL ALIMENTOS: ' + uri);
+	$.ajax({
+		url: uri,
+		type: method, 
+		success:function(data){
+			limpiaSelect(sAli);
+			
+			for (var i = 0; i <= data.length - 1; i++) {
+				var temp = data[i];
+				sAli.append('<option value="' + temp['id'] +'">' + temp['al_nombre'] +'</option>');
+			}
+		
+		sAli.trigger("chosen:updated");
+		},
+		error:function(jqXHR, estado, error){
+			alertify.error('Ha ocurrido un error, revise su conexión a internet.');
+		},
+		timeout:15000
+	});
+} 
+
+// Funcion que limpia un select de option
+function limpiaSelect(obj){
+	obj.find('option').remove().end();
+}
+
+// ....................  Llamamos a funcione cuando cambien de valor .............................
+
+sGpo.on('change',function(){
+	setCategoria();
+	setAlimentos();
+});
+
+sCat.on('change',function(){
+	setAlimentos();
+});
 //--------------------- VARIABLES GLOBALES  ---------------------//
 var containerEventos = $('.listadoComida');
 //---------------- INICIALIZAMOS CHOSEN PARA LOS SELECT ----------------//
 	$(".chosen-select").chosen({
+                placeholder_text_single: "Esperando selección...",
                 disable_search_threshold: 1,
                 no_results_text: "No hay resultados",
                 width: "100%"
@@ -168,6 +243,8 @@ headSearch.on('click',function(e){
 function onStart(){
 	cuantosGramos();
 	kcalComida();
+	setCategoria();
+	setAlimentos();
 }
 
 // Esta función recibe una seleccion que podria tener varios objetos jquery y trae los valores
@@ -422,4 +499,5 @@ function habilitaGuardar(){
 		$('#btnGuardar').css('display','none');
 	}
 }
+
 });// JQuery on load
