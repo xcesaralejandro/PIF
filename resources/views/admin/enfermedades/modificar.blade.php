@@ -22,7 +22,7 @@
 	    					<i class="fa fa-plus" aria-hidden="true"></i>	
 	    				</div>
 	    				<div class="col-10 text-center">
-	    					Agregar enfermedad						
+	    					Modificar						
 	    				</div>
 	    			</div>
 	    		</button>

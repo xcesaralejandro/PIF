@@ -87,4 +87,7 @@
     </tbody>
 </table>
 @endif
+    <div class=" pagination  justify-content-center">
+{!! $campos->links() !!}
+</div>
 @endsection

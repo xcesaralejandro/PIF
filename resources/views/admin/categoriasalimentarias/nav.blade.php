@@ -15,7 +15,7 @@
 
 $('.btn').on('click',function(){
 	$('.esconder-agregar').slideToggle();
- 	$(".chosen-select").chosen({no_results_text: "Oops, no taa :'(!"});
+ 	$(".chosen-select").chosen({no_results_text: "No se ha podido localizar!",placeholder_text_single: "Seleccione un grupo"}); 
 });
 </script>
 

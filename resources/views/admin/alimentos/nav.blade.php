@@ -7,9 +7,9 @@
 @section('js')
 <script >
 
-    $(".chosen-select").chosen({no_results_text: "No se pudo encontrar:'(!",
+    $(".chosen-select").chosen({no_results_text: "No se ha podido localizar",
 								placeholder_text_single: "Seleccione Grupo"}); 
-        $(".chosen-select-cat").chosen({no_results_text: "Oops, no taa :'(!",
+        $(".chosen-select-cat").chosen({no_results_text: "No se ha podido localizar",
 								placeholder_text_single: "Seleccione categoria"}); 
 </script>
 

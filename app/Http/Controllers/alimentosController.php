@@ -66,7 +66,13 @@ class alimentosController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.alimentos.modificar');
+        $alimento =  alimento::find($id);
+        $grupos = gruposAlimento::orderBy('ga_nombre', 'ASC')->pluck('ga_nombre', 'id');
+        $categorias = categoriasAlimento::orderBy('ct_nombre', 'ASC')->pluck('ct_nombre', 'id');
+        return view('admin.alimentos.modificar')
+        ->with('alimento',$alimento)
+        ->with('grupos',$grupos)
+        ->with('categorias',$categorias);
     }
 
     /**

@@ -53,8 +53,8 @@
     @endforeach 
 </tbody>
 </table>
-<div class="text-center">
-    {!! $grupos->render() !!}
+    <div class=" pagination  justify-content-center">
+{!! $grupos->links() !!}
 </div>
 @endsection
 </hr>

@@ -12,6 +12,7 @@ class alimento extends Model
     	'id',
     	'ct_id',
     	'al_nombre',
+        'al_kcal',
     	'al_gramos',
     	'al_proteina',
     	'al_lipidos',

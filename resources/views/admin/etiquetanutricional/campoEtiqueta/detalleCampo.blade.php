@@ -1,10 +1,7 @@
 @extends('layouts.mainAdminDetalle') 
 @section('title-nav','Administrador')
-@section('title')
-<div class="text-center mb-4 mt-3">
-	<span class="display-3">Detalle de campo <i class="fa fa-tag" aria-hidden="true"></i></span>
-</div>
-@endsection 
+@section('title','Campo de etiqueta nutricional')
+
 
 @section('nav')
 @include('admin.etiquetanutricional.nav')

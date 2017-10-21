@@ -41,7 +41,7 @@
 
 <script>
     $(function(){
-        $('#descEnfermedad').trumbowyg();
+        $('.descEtiqueta').trumbowyg();
     });
 </script>
 @endsection

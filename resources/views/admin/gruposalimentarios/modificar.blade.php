@@ -18,7 +18,7 @@
 <div class="p-3">
    {{ Form::model($grupo,['route' => ['gruposalimentarios.update',$grupo->id], 'method'=>'PUT']) }}
 <div class="text-center mb-4 mt-3">
-    <span class="display-4">Modificar<strong> grupos alimentarios</strong>
+    <span class="display-4">Modificar<strong> grupo</strong>
     </span>
 </div>
 <hr>
