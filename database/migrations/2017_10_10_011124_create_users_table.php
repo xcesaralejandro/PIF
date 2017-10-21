@@ -28,6 +28,12 @@ class CreateUsersTable extends Migration
             $table->integer('us_estatura');
             $table->enum('us_tipo_usuario',['cliente','administrador','nutricionista'])->default('cliente');
             $table->date('us_fecha_caducacion');
+            $table->string('us_rut',10);
+            $table->string('us_img_titulo',256)->nullable();
+            $table->string('us_img_carnet_f',256)->nullable();
+            $table->string('us_img_carnet_p',256)->nullable();
+            $table->string('us_registro_profesion',256)->nullable();
+            $table->integer('us_id_nutricionista')->default(1);
             $table->enum('us_estado',[0,1])->default(1);
             $table->rememberToken();
             $table->timestamps();

@@ -20,6 +20,9 @@ class subComida extends Model
     protected $primaryKey = 'id';
     
     // SUS HIJOS
+    public function(){
+        return $this->hasMany('frust\detalleAlimento','sbc_id','id');
+    }
     // SUS PADRES
         public function Comida(){
             return $this->belongsTo('frust\Comida','cm_id','id');

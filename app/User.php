@@ -30,6 +30,12 @@ class User extends Authenticatable
         'us_tipo_usuario',
         'us_fecha_caducacion',
         'us_estado',
+        'us_rut',
+        'us_img_titulo',
+        'us_img_carnet_f',
+        'us_img_carnet_p',
+        'us_registro_profesion',
+        'us_id_nutricionista',
         'remember_token',
         'created_at',
         'updated_at'

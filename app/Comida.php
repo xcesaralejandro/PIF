@@ -19,14 +19,6 @@ class comida extends Model
     
 
     // SUS HIJOS
-    public function planesAlimentarios(){
-    	return $this->belongsToMany('frust\planesAlimentario');
-    }
-
-    public function alimentos(){
-      return $this->belongsToMany('frust\alimento');
-    }
-
     public function subComida(){
         return $this->hasMany('frust\subComida','cm_id','id');
     }

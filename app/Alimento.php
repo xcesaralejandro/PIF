@@ -15,15 +15,13 @@ class alimento extends Model
     	'al_gramos',
     	'al_proteina',
     	'al_lipidos',
+        'al_kcal',
     	'al_carbohidratos',
     	'created_at',
     	'updated_at'
     ];
 
     // SUS HIJOS
-    public function comidas(){
-        return $this->belongsToMany('frust\comida');
-    }
 
     // SUS PADRES
     public function categoriasAlimento(){

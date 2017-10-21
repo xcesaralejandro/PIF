@@ -17,6 +17,7 @@ class CreateAlimentosTable extends Migration
             $table->increments('id');
             $table->integer('ct_id')->unsigned();
             $table->string('al_nombre',150);
+            $table->integer('al_kcal');
             $table->integer('al_gramos');
             $table->float('al_proteina');
             $table->float('al_lipidos');
