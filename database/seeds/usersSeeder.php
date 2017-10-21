@@ -48,6 +48,24 @@ class usersSeeder extends Seeder
 			'us_rut'				=>'00000000-0',
         ]);
 
+        DB::table('users')->insert([
+			'rg_id'                 => 1,
+			'co_id'                 => 1,
+			'us_email'              => 'cesar.mcid@gmail.com',
+			'password'              => bcrypt('waskjasxd123'),
+			'us_nombres'            => 'César Alejandro',
+			'us_apellido_paterno'   => 'Mora',
+			'us_apellido_materno'   => 'Cid',
+			'us_sexo'               => 'M',
+			'us_fecha_nacimiento'   => '1995-12-20',
+			'us_peso'               => 75,
+			'us_estatura'           => 180,
+			'us_tipo_usuario'       => 'cliente',
+			'us_fecha_caducacion'   => '2999-12-12',
+			'us_estado'             => 1,
+			'us_rut'				=>'19121367-0',
+        ]);
+
        
     }
 }

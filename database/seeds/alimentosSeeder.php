@@ -42,5 +42,25 @@ class alimentosSeeder extends Seeder
 			'al_lipidos'       => 3.1,
 			'al_carbohidratos' => 0.7,
         ]);
+
+        DB::table('alimentos')->insert([
+            'ct_id'            => '1',
+            'al_nombre'        => 'Alimento uno',
+            'al_gramos'        => 100,
+            'al_kcal'          => 162.5,
+            'al_proteina'      => 8.1,
+            'al_lipidos'       => 4.5,
+            'al_carbohidratos' => 22.3,
+        ]);
+
+        DB::table('alimentos')->insert([
+            'ct_id'            => '1',
+            'al_nombre'        => 'Alimento dos',
+            'al_gramos'        => 100,
+            'al_kcal'          => 162.5,
+            'al_proteina'      => 8.1,
+            'al_lipidos'       => 4.5,
+            'al_carbohidratos' => 22.3,
+        ]);
     }
 }

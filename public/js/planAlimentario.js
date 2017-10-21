@@ -50,7 +50,7 @@ function setAlimentos(){
 				sAli.append('<option value="' + temp['id'] +'">' + temp['al_nombre'] +'</option>');
 				$('#alim option:last').data("alimento", {
 					'cod'             : temp['id'],
-					'kcal'            : 325,
+					'kcal'            : temp['al_kcal'],
 					'al_gramos'       : temp['al_gramos'],
 					'al_proteina'     : temp['al_proteina'],
 					'al_lipidos'      : temp['al_lipidos'],
@@ -461,7 +461,7 @@ function pintandoTotal(divComidaSeleccionado){
 		$('div.totalPlan .finalKcal').css('color','#FF7509');
 	}
 
-	if (finalKcal>= requerimKcal - 10 && finalKcal <= requerimKcal) {
+	if (finalKcal>= requerimKcal - 10 && finalKcal <= requerimKcal + 10) {
 		$('div.totalPlan .finalKcal').css('color','#28B921');
 	}
 
@@ -530,8 +530,19 @@ function habilitaGuardar(){
 $('#formPlan').on('submit', function(e){
 	e.preventDefault();
 
-	var desayuno = $('#formPlan .comidaDesayuno .fullAlimento');
-	arrayName(desayuno,'desayuno');
+	var desayuno  = $('#formPlan .comidaDesayuno  .fullAlimento');
+	var colacion1 = $('#formPlan .comidaColacion1 .fullAlimento');
+	var almuerzo  = $('#formPlan .comidaAlmuerzo  .fullAlimento');
+	var colacion2 = $('#formPlan .comidaColacion2 .fullAlimento');
+	var once      = $('#formPlan .comidaOnce      .fullAlimento');
+	var cena      = $('#formPlan .comidaCena      .fullAlimento');
+	
+	arrayName(desayuno  , 'desayuno');
+	arrayName(colacion1 , 'colacion1');
+	arrayName(almuerzo  , 'almuerzo');
+	arrayName(colacion2 , 'colacion2');
+	arrayName(once      , 'once');
+	arrayName(cena      , 'cena');
 	
 	$(this).unbind('submit').submit();
 
@@ -539,9 +550,12 @@ $('#formPlan').on('submit', function(e){
 
 function arrayName(obj,nombreComida){
 	$.each(obj, function(index,val){
-		
-		$(val).find('.codigoAlimento').attr('name', nombreComida + '_codigos[]');
-		$(val).find('.gramos_ingeridos').attr('name', nombreComida + '_gramos_ingeridos[]');
+		$(val).find('.codigoAlimento')  .attr('name', nombreComida + '_codigos[]');
+		$(val).find('.gramos_ingeridos').attr('name', nombreComida + '_gramos[]');
+		$(val).find('.kcalAlimento')    .attr('name', nombreComida + '_kcal[]');
+		$(val).find('.protAlimento')    .attr('name', nombreComida + '_prot[]');
+		$(val).find('.lipAlimento')     .attr('name', nombreComida + '_lip[]');
+		$(val).find('.chAlimento')      .attr('name', nombreComida + '_ch[]');
 	});
 }
 });// JQuery on load

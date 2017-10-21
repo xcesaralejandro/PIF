@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use frust\gruposAlimento;
 use frust\categoriasAlimento;
 use frust\alimento;
+use frust\detalleAlimento;
+use frust\subComida;
+use frust\comida;
 
 class planesAlimentariosController extends Controller
 {
@@ -40,7 +43,7 @@ class planesAlimentariosController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        
     }
 
     /**
@@ -108,7 +111,7 @@ class planesAlimentariosController extends Controller
         if (!\Auth::guest()) {
             $alm = alimento::orderBy('al_nombre','asc')
                             ->where('ct_id',$catId)
-                            ->select('id','al_nombre','al_gramos','al_proteina','al_lipidos','al_carbohidratos')
+                            ->select('id','al_nombre','al_gramos','al_kcal','al_proteina','al_lipidos','al_carbohidratos')
                             ->get()
                             ->toArray();
         }else{
