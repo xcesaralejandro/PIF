@@ -50,7 +50,7 @@ function setAlimentos(){
 				sAli.append('<option value="' + temp['id'] +'">' + temp['al_nombre'] +'</option>');
 				$('#alim option:last').data("alimento", {
 					'cod'             : temp['id'],
-					'kcal'            : 100,
+					'kcal'            : 325,
 					'al_gramos'       : temp['al_gramos'],
 					'al_proteina'     : temp['al_proteina'],
 					'al_lipidos'      : temp['al_lipidos'],
@@ -81,8 +81,8 @@ function llenarCampos(){
 	var alimento = $('#alim option:selected').data("alimento");
 
 	$('#searchAlim .codigoAlimento').val(alimento.cod);
-	$('#searchAlim .gramos_ingeridos').val(alimento.kcal);
-	$('#searchAlim .kcalAlimento').val(alimento.al_gramos);
+	$('#searchAlim .gramos_ingeridos').val(alimento.al_gramos);
+	$('#searchAlim .kcalAlimento').val(alimento.kcal);
 	$('#searchAlim .protAlimento').val(alimento.al_proteina);
 	$('#searchAlim .lipAlimento').val(alimento.al_lipidos);
 	$('#searchAlim .chAlimento').val(alimento.al_carbohidratos);
@@ -525,5 +525,23 @@ function habilitaGuardar(){
 		$('#btnGuardar').css('display','none');
 	}
 }
+// ON SUBMIT ------------------------------------------------------------------------------------------------
 
+$('#formPlan').on('submit', function(e){
+	e.preventDefault();
+
+	var desayuno = $('#formPlan .comidaDesayuno .fullAlimento');
+	arrayName(desayuno,'desayuno');
+	
+	$(this).unbind('submit').submit();
+
+});
+
+function arrayName(obj,nombreComida){
+	$.each(obj, function(index,val){
+		
+		$(val).find('.codigoAlimento').attr('name', nombreComida + '_codigos[]');
+		$(val).find('.gramos_ingeridos').attr('name', nombreComida + '_gramos_ingeridos[]');
+	});
+}
 });// JQuery on load

@@ -232,7 +232,7 @@
 									Kcal
 								</div>
 								<div class="col-8">
-									{{ Form::number('kcalAlimento',1950,['class'=>'form-control kcalAlimento','readonly']) }}
+									{{ Form::number('kcalAlimento',350,['class'=>'form-control kcalAlimento','readonly']) }}
 								</div>
 							</div>
 						</div>
@@ -281,9 +281,10 @@
 			</div>
 		</div>
 	</section>
+{{ Form::open(['route'=>'planAlimentario.store', 'method'=>'POST','id'=>'formPlan']) }}
 
 {{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
-	<div class="fullDiv fullComida bk_blanco mt-3">
+	<div class="fullDiv fullComida bk_blanco mt-3 comidaDesayuno">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
@@ -779,6 +780,7 @@
 
 	</div>
 </div>
+{{ Form::close() }}
 @endsection
 @section('js')
 <script src="{{ asset('js/planAlimentario.js') }}"></script>
