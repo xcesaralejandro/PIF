@@ -23,20 +23,38 @@ class nuevoAvanceController extends Controller
                          ->where('us_id',\Auth::user()->id)
                          ->take(5)
                          ->get();
+        
 
-        foreach ($paraGraficar as $value) {
-            $lastPeso[]   = $value->na_peso;
-            $lastFecha[]  = $value->na_fecha;
-            $lastAltura[] = $value->na_altura;
-            $lastImc[] = $value->na_imc;
-        }
+        if(count($paraGraficar) != 0){
+            foreach ($paraGraficar as $value) {
+                $lastPeso[]   = $value->na_peso;
+                $lastFecha[]  = $value->na_fecha;
+                $lastAltura[] = $value->na_altura;
+                $lastImc[] = $value->na_imc;
+            }
 
         return  View('cliente.nuevoAvance.create')
-                ->with('lastPeso', $lastPeso)
-                ->with('lastFecha',$lastFecha)
+                ->with('lastPeso'  , $lastPeso)
+                ->with('lastFecha' ,$lastFecha)
                 ->with('lastAltura',$lastAltura)
-                ->with('lastImc',$lastImc)
-                ->with('avances',  $nuevosAvance);
+                ->with('lastImc'   ,$lastImc)
+                ->with('avances'   ,  $nuevosAvance);
+        }else{
+            
+            $lastPeso[]   = 0;
+            $lastFecha[]  = 0;
+            $lastAltura[] = 0;
+            $lastImc[]    = 0;
+
+            return  View('cliente.nuevoAvance.create')
+                ->with('lastPeso'  , $lastPeso)
+                ->with('lastFecha' , $lastFecha)
+                ->with('lastAltura', $lastAltura)
+                ->with('lastImc'   , $lastImc)
+                ->with('avances'   ,  $nuevosAvance);
+
+        }
+
     }
 
     /**
