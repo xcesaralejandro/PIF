@@ -15,8 +15,7 @@ class comidasController extends Controller
      */
     public function index()
     {
-        $comidas = comida::with(['subComida'])->paginate(5);        
-        dd($comidas);
+        $comidas = comida::with(['subComidas'])->paginate(5);        
         return view('nutricionista.comidas.listar')
         ->with('comidas',$comidas);
     }

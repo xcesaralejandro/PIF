@@ -12,7 +12,7 @@ class detalleAlimento extends Model
     	'id',
     	'sbc_id',
     	'pa_id',
-    	'rga_nombre',
+        'al_id',
     	'rga_gramos',
     	'rga_kcal',
     	'rga_proteina',
@@ -29,5 +29,9 @@ class detalleAlimento extends Model
 
     public function planesAlimentario(){
     	return $this->belongsTo('frust\planesAlimentario','pa_id','id');
+    }
+
+    public function Alimento(){
+        return $this->belongsTo('frust\Alimento','al_id','id');
     }
 }

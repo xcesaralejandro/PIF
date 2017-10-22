@@ -43,7 +43,57 @@ class planesAlimentariosController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // Traemos la comida
+        $comida =   comida::with(['subComidas'])
+                            ->where('us_id',\Auth::user()->us_id_nutricionista)
+                            ->where('cm_estado','1')
+                            ->take(1)
+                            ->get();
+        foreach ($comida->all() as $sbComidas) {
+          foreach ($sbComidas->subComidas as $unaSubcomida) {
+
+            switch (strtoupper($unaSubcomida->sbc_nombre)) {
+                case 'DESAYUNO':
+                    for ($i=0; $i < count($request->desayuno_codigos); $i++) { 
+                        // Traigo el alimento de la bd para luego asociarlo al detalle alimento.
+                        $alimento = alimento::find($request->desayuno_codigos[$i]);
+                        // Instancio un nuevo detalle alimento
+                        $da = new detalleAlimento();
+                        $da->rga_gramos        = $request->desayuno_gramos[$i];
+                        $da->rga_kcal          = $request->desayuno_kcal[$i];
+                        $da->rga_proteina      = $request->desayuno_prot[$i];
+                        $da->rga_lipidos       = $request->desayuno_lip[$i];
+                        $da->rga_carbohidratos = $request->desayuno_ch[$i];
+                        $da->subComida()->associate($unaSubcomida);
+                        dd($da);
+                    }
+                    break;
+
+                case 'PRIMERA COLACION':
+                    dd('PRIMERA COLACION');
+                    break;
+
+                case 'ALMUERZO':
+                    dd('ALMUERZO');
+                    break;
+                case 'SEGUNDA COLACION':
+                    dd('SEGUNDA COLACION');
+                    break;
+                case 'ONCE':
+                    dd('ONCE');
+                    break;
+                case 'CENA':
+                    dd('CENA');
+                    break;
+                
+                default:
+                    // return redirect()->back();
+                    break;
+            }
+
+          }
+        }
+
     }
 
     /**
