@@ -21,8 +21,18 @@ class planesAlimentariosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return View('cliente.planAlimentario.listar');
+    {   
+        if (!\Auth::guest()) {
+            $planes = planesAlimentario::orderBy('id','desc')
+                                    ->with(['nuevosAvance'])
+                                    ->where('us_id',\Auth::user()->id)
+                                    ->get();
+
+            return View('cliente.planAlimentario.listar')
+            ->with('planes',$planes);
+        }else{
+            return abort(503);
+        }
 
     }
 
@@ -203,8 +213,7 @@ class planesAlimentariosController extends Controller
                             break;
 
                             default:
-                            alertify()->error('No se ha podido guardar el plan alimentario.')->delay(10000)->clickToClose()->position('bottom left');
-                            return redirect()->back();
+                                return abort(503);
                             break;
                         }
                     }
@@ -213,9 +222,7 @@ class planesAlimentariosController extends Controller
                     alertify()->success('El plan alimentario ha sido guardado con éxito.')->delay(10000)->clickToClose()->position('bottom left');
                     return redirect()->back();
                 }else{
-                   alertify()->error('Ha ocurrido un error al registrar los alimentos, el plan alimentario se ha dañado pero ha sido eliminado con éxito.')->delay(90000)->clickToClose()->position('bottom left');
-                   $plan->delete();
-                   return redirect()->back();
+                    return abort(503);
                }
 
     }// Else - comprueba que hayan comidas disponibles
@@ -239,7 +246,20 @@ class planesAlimentariosController extends Controller
      */
     public function show($id)
     {
-        return View('cliente.planAlimentario.detalle');
+        $plan = planesAlimentario::with(['nuevosAvance','factore','detalleAlimentos'])->find($id);
+        if ($plan->us_id == \Auth::user()->id) {
+            $alimentos = detalleAlimento::with(['subComida','Alimento'])
+                                        ->where('pa_id',$id)
+                                        ->get();
+
+        return View('cliente.planAlimentario.detalle')
+        ->with ('plan',$plan)
+        ->with ('alimentos',$alimentos);
+        
+        }else{
+            alertify()->error('No se ha encontrado el plan alimentario.')->delay(10000)->clickToClose()->position('bottom left');
+            return redirect()->back(); 
+        }
     }
 
     /**
@@ -250,7 +270,7 @@ class planesAlimentariosController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**

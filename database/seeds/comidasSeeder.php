@@ -14,7 +14,6 @@ class comidasSeeder extends Seeder
         DB::table('comidas')->insert([
             'us_id'      => 1,
             'cm_nombre'  => 'Comida inicial',
-            'cm_estado'  => 1,
             'created_at' =>Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' =>Carbon::now()->format('Y-m-d H:i:s'),
         ]);
