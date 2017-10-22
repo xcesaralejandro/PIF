@@ -5,3 +5,4 @@
 <link rel="stylesheet" type="text/css" href="{{asset('recursos/alertify/css/alertify.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{asset('recursos/alertifyLaravel/css/alertify.css') }}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('recursos/fileinput/css/fileinput.css') }}">

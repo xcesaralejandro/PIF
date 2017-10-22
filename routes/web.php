@@ -25,7 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Rutas administrador
 
 Route::group(['prefix' => 'admin','middleware'=>'auth','administrador'], function () {
-
+//ZONA AÑADIR NUTRICIONISTA
+    Route::resource('agregarNutricionistas','agregarNutricionistasController');
+    Route::get('agregarNutricionistas/{id}/destroy','agregarNutricionistasController@destroy')->name('agregarNutricionistas.destroy');
+        Route::get('agregarNutricionistas/{id}/detalle','agregarNutricionistasController@detalle')->name('agregarNutricionistas.detalle');
 //ZONA INFORMATIVA
 
     // ENFERMEDADES
@@ -56,6 +59,7 @@ Route::group(['prefix' => 'admin','middleware'=>'auth','administrador'], functio
     //ALIMENTOS
     Route::resource('alimentos','alimentosController');
     Route::get('alimentos/{id}/destroy','alimentosController@destroy')->name('alimentos.destroy');
+    Route::get('alimentos/categorias/{id}','alimentosController@categorias')->name('alimentos.categorias');
 
 //REGION 
     Route::resource('regiones','regionesController');

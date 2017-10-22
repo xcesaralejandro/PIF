@@ -57,5 +57,8 @@
         @endforeach
     </tbody>
 </table>
+<div class=" pagination  justify-content-center">
+{!! $enfermedades->links() !!}
+</div>
 @endsection
 </hr>

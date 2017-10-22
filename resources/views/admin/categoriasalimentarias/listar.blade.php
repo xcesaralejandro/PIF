@@ -6,16 +6,13 @@
 @section('nav')
 @include('admin.categoriasalimentarias.nav')
 @endsection
-
-
 @section('placeholderBuscar','Buscar grupo') 
-
 @section('content')
 <div class="esconder-agregar">
     @include('admin.categoriasalimentarias.agregar')
 </div>
 <div class="text-center mb-4 mt-3">
-    <span class="display-4">Listado de<strong> grupos alimentarios</strong>
+    <span class="display-4">Listado de<strong> categorias de alimentos</strong>
     </span>
 </div>
 <hr>
@@ -52,6 +49,10 @@
         </tr>
     </tbody>
     @endforeach
+
 </table>
+    <div class=" pagination  justify-content-center">
+{!! $categorias->links() !!}
+</div>
 @endsection
 </hr>

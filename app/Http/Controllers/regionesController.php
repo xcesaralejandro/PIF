@@ -13,7 +13,7 @@ class regionesController extends Controller
      */
     public function index()
     {
-        $regiones = regione::orderBy('id', 'DESC')->paginate(10);
+        $regiones = regione::orderBy('id', 'DESC')->paginate(15);
         return view('admin.regiones.listar')->with('regiones',$regiones);
     }
 
@@ -78,7 +78,7 @@ class regionesController extends Controller
        $region = Regione::find($id);
        $region->fill($request->all());
        $region->save();
-       alertify()->success('En hora buena se a Modificado su region')->persistent()->clickToClose();
+       alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();
        return redirect()->route('regiones.index');
    }
 
@@ -92,7 +92,7 @@ class regionesController extends Controller
     {
         $region = Regione::find($id);
         $region->delete();
-        alertify()->error('Se elimino correctamente ')->persistent()->clickToClose();
+        alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
         return redirect()->back();
     }
 }

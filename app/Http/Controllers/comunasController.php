@@ -14,7 +14,7 @@ class comunasController extends Controller
      */
     public function index() 
     {
-        $comunas = comuna::orderBy('rg_id', 'DESC')->paginate(10);
+        $comunas = comuna::orderBy('rg_id', 'DESC')->paginate(15);
         $regiones = Regione::orderBy('id', 'DESC')->pluck('rg_nombre', 'id');
         return view('admin.comunas.listar')->with('comunas',$comunas)->with('regiones',$regiones);
     }
@@ -82,7 +82,7 @@ class comunasController extends Controller
      $comuna = comuna::find($id);
      $comuna->fill($request->all());
      $comuna->save();
-     alertify()->success('Enhorabuena se a Modificado su comuna')->persistent()->clickToClose();
+     alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();
      return redirect()->route('comunas.index');
     }
 
@@ -96,7 +96,7 @@ class comunasController extends Controller
     {
         $comuna = comuna::find($id);
         $comuna->delete();
-        alertify()->error('Se elimino correctamente ')->persistent()->clickToClose();
+        alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
         return redirect()->back();
     }
 }

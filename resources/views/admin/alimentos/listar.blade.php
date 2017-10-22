@@ -18,10 +18,11 @@
     <thead class="thead-inverse">
         <tr>
             <th> Alimento </th>
-            <th>gramos</th>
-            <th>pro</th>
-            <th>Lip</th>
-            <th>Car</th>
+            <th>Gramos</th>
+            <th>Calorias(kcal)</th>
+            <th>proteinas</th>
+            <th>Lipidos</th>
+            <th>Carbohidratos</th>
             <th>Grupo</th>
             <th>Categoria</th>
             <th> Acción  </th>
@@ -32,6 +33,7 @@
         <tr>
             <td> {{ $alimento ->al_nombre }}  </td>
             <td>{{ $alimento->al_gramos }}</td>
+            <td>{{ $alimento->al_kcal }}</td>
             <td>{{ $alimento->al_proteina }}</td>
             <td>{{ $alimento->al_lipidos }}</td>
             <td>{{ $alimento->al_carbohidratos }}</td>
@@ -41,7 +43,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-4">
-                          <a href="{{--{{ route ('alimentos.modificar',$alimento -> id)}}--}}"> 
+                          <a href="{{ route ('alimentos.edit',$alimento -> id)}}"> 
                                 <img class="imgAction mr-1 mb-1" src="{{ asset('images/settings.svg') }}" width="25px">
                             </a>
                         </div>
@@ -56,6 +58,10 @@
         </tr>
     </tbody>
     @endforeach
+
 </table>
+<div class=" pagination  justify-content-center">
+{!! $alimentos->links() !!}
+</div>
 @endsection
 </hr>

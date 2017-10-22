@@ -15,7 +15,7 @@
 											'placeholder' =>'Breve descripción',
 											'minlength'   =>'10',
 											'rows'		  =>'1',
-											'id'  	      =>'descEnfermedad',
+											'id'  	      =>'descEtiqueta',
 											'required']) }}
 		</div>
 	</div>

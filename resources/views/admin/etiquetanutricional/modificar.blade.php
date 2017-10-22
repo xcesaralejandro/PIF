@@ -41,7 +41,14 @@
 
 <script>
     $(function(){
-        $('#descEnfermedad').trumbowyg();
+        $('#descEtiqueta').trumbowyg();
     });
+</script>
+    <script>
+    $(".imagen").fileinput({ 
+    uploadAsync: false,
+    showUpload: false, 
+    showRemove: false,
+    showPreview:false});
 </script>
 @endsection

@@ -8,7 +8,7 @@
 
 @section('placeholderBuscar','Buscar Enfermedades') @section('content')
 <div class="text-center mb-4 mt-3">
-    <span class="display-4">Agregar <strong>enfermedades</strong></span>
+    <span class="display-4">Agregar <strong>enfermedad</strong></span>
 </div>
 <hr>
 <div class="p-3">
@@ -38,5 +38,12 @@
     $(function(){
         $('#descEnfermedad').trumbowyg();
     });
+</script>
+    <script>
+    $(".imagen").fileinput({ 
+    uploadAsync: false,
+    showUpload: false, 
+    showRemove: false,
+    showPreview:false});
 </script>
 @endsection

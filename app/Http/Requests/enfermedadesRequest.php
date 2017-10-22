@@ -24,7 +24,7 @@ class enfermedadesRequest extends FormRequest
     public function rules()
     {
         return [
-            'ef_nombre'      =>'required|min:5|max:50',
+            'ef_nombre'      =>'required|min:5|max:50|unique:enfermedades',
             'ef_descripcion' =>'required|min:5|max:256',
             'ef_url'         =>'required|min:5|max:256',
             'ef_url_imagen'  =>'required|image'

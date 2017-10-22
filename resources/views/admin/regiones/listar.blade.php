@@ -53,5 +53,8 @@
  @endforeach
 </tbody>
 </table>
+    <div class=" pagination  justify-content-center">
+{!! $regiones->links() !!}
+</div>
 @endsection
 </hr>

@@ -12,7 +12,7 @@
 </div>
 <hr>
 <div class="p-3">
-{{  Form::model($id, ['route' => ['alimentos.update', $id, 'method'=>'PUT']]) }}
+{{  Form::model($alimento, ['route' => ['alimentos.update', $alimento-> id],'method'=>'PUT']) }}
 
         @include('admin.alimentos.form')
 
@@ -24,7 +24,7 @@
                             <i class="fa fa-plus" aria-hidden="true"></i>   
                         </div>
                         <div class="col-10 text-center">
-                            Modificar alimento                      
+                            Modificar                    
                         </div>
                     </div>
                 </button>
@@ -33,5 +33,3 @@
     {{ Form::Close() }}
 </div>
 @endsection
-
-{{ Form::Close() }} 

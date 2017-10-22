@@ -11,7 +11,7 @@
 <div class="col-sm-6 col-lg-4">
 		<div class="form-group">
 			{{ Form::label('sn_url_imagen','Añadir imagen') }}<br>
-			{{ Form::file('sn_url_imagen') }}
+			{{ Form::file('sn_url_imagen',['required','class'=>'imagen']) }}
 		</div>
 	</div>
 

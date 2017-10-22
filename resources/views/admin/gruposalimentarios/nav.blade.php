@@ -15,9 +15,7 @@
 
 $('.btn').on('click',function(){
 	$('.esconder-agregar').slideToggle();
-
-})
-	
+});
 </script>
 
 @endsection

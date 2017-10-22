@@ -1,17 +1,18 @@
 @extends('layouts.mainAdminDetalle') 
 @section('title-nav','Administrador')
-@section('title')
-<div class="text-center mb-4 mt-3">
-	<span class="display-3">Detalle de sello <i class="fa fa-tag" aria-hidden="true"></i></span>
-</div>
-@endsection 
+@section('title','Sellos negros')
+
 
 @section('nav')
 	@include('admin.sellosnegros.nav')
 @endsection 
 
-@section('urlEditar','#')
-@section('urlEliminar','#')
+@section('urlEditar')
+{{ route ('sellosnegros.edit', $sello -> id)}}
+@endsection
+@section('urlEliminar')
+{{ route ('sellosnegros.destroy', $sello -> id)}}
+@endsection
 
 @section('placeholderBuscar','Buscar Enfermedades') 
 @section('content')

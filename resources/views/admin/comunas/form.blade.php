@@ -8,7 +8,7 @@
 </div>
 <div class="col-lg-3 ">
 	<div class="form-group text-left">
-		{{ Form::label('rg_id','Seleccione un grupo ') }}
-		{{ Form::select('rg_id',$regiones,null,['class' => 'chosen-select']) }}
+		{{ Form::label('rg_id','Seleccionar region') }}
+		{{ Form::select('rg_id',$regiones,null,['class' => 'chosen-select', 'placeholder'=> ' ']) }}
 	</div>
 </div>

@@ -6,6 +6,7 @@ use frust\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Carbon\Carbon;
+use Freshwork\ChileanBundle\Rut;
 class RegisterController extends Controller
 {
     /*
@@ -49,7 +50,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'password'=> 'min:4|required',
             'cf_password' => 'min:4|same:password',
-            'us_email'=>'email|unique:Users'
+            'us_email'=>'email|unique:Users',
+            'us_rut'=>'required|cl_rut|unique:Users'
+
         ]);
     }
 
@@ -65,10 +68,10 @@ class RegisterController extends Controller
         $fecha = Carbon::now();
         $fecha->toDateTimeString();
         $fecha->addMonth();
-    
         return User::create([
             'us_email' => $data['us_email'],
             'password' => bcrypt($data['password']),
+            'us_rut'=>$data['us_rut'],
             'us_nombres' => $data['us_nombres'],
             'us_apellido_paterno' => $data['us_apellido_paterno'],
             'us_apellido_materno' => $data['us_apellido_materno'],

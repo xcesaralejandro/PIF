@@ -15,7 +15,7 @@ class enfermedadesController extends Controller
      */
     public function index()
     {
-        $enfermedades = enfermedade::orderBy('id','DESC')->paginate(10);
+        $enfermedades = enfermedade::orderBy('id','DESC')->paginate(15);
         return View('admin.enfermedades.listar')->with('enfermedades',$enfermedades);
     }
 
@@ -60,7 +60,7 @@ class enfermedadesController extends Controller
         $enfermedad->ef_url_imagen = $nombre;
         $enfermedad->save();
 
-        alertify()->success('Registrado exitosamente')->persistent()->clickToClose();
+        alertify()->success('Enhorabuena se a agregado su enfermedad')->persistent()->clickToClose();
         return redirect()->route('enfermedades.index');
     }
 
@@ -97,20 +97,20 @@ class enfermedadesController extends Controller
      */
     public function update(enfermedadesRequest $request, $id)
     {
-     $enfermedad =enfermedade::find($id);  
-     $enfermedad->ef_nombre =ucfirst($request->ef_nombre); 
-     $enfermedad->us_id = \Auth::user()->id;
-     $enfermedad->ef_descripcion = $request->ef_descripcion; 
-     $enfermedad->ef_url = $request->ef_url;       
-     $file = $request->file('ef_url_imagen');
-     $nombre = 'img_enfermedades' . time() . '.' . $file->getClientOriginalExtension();
-     $lugar = public_path() . '/images/img_enfermedades/';
-     $file->move($lugar, $nombre);
-     $enfermedad->ef_url_imagen = $nombre;
-     $enfermedad->save();
-    alertify()->success('Modificado exitosamente')->persistent()->clickToClose();
-    return redirect()->route('enfermedades.index');
- }
+       $enfermedad =enfermedade::find($id);  
+       $enfermedad->ef_nombre =ucfirst($request->ef_nombre); 
+       $enfermedad->us_id = \Auth::user()->id;
+       $enfermedad->ef_descripcion = $request->ef_descripcion; 
+       $enfermedad->ef_url = $request->ef_url;       
+       $file = $request->file('ef_url_imagen');
+       $nombre = 'img_enfermedades' . time() . '.' . $file->getClientOriginalExtension();
+       $lugar = public_path() . '/images/img_enfermedades/';
+       $file->move($lugar, $nombre);
+       $enfermedad->ef_url_imagen = $nombre;
+       $enfermedad->save();
+       alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();
+       return redirect()->route('enfermedades.index');
+   }
 
     /**
      * Remove the specified resource from storage.
@@ -121,9 +121,12 @@ class enfermedadesController extends Controller
     public function destroy($id)
     {
         $enfermedad = enfermedade::find($id);
+        $dir = public_path() . '/images/img_enfermedades/';
+        $imagen =$enfermedad->ef_url_imagen;
+        unlink($dir.$imagen);       
         $enfermedad->delete();
-        alertify()->error('Se elimino correctamente ')->persistent()->clickToClose();
-        return redirect()->back();
+        alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
+        return redirect()->route('enfermedades.index');
     }
     
 }

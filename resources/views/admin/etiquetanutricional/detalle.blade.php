@@ -1,17 +1,18 @@
 @extends('layouts.mainAdminDetalle') 
 @section('title-nav','Administrador')
-@section('title')
-<div class="text-center mb-4 mt-3">
-	<span class="display-3">Detalle de etiqueta nutricional <i class="fa fa-tag" aria-hidden="true"></i></span>
-</div>
-@endsection 
+@section('title','Etiqueta nutricional')
+
 
 @section('nav')
 @include('admin.etiquetanutricional.nav')
 @endsection 
 
-@section('urlEditar','#')
-@section('urlEliminar','#')
+@section('urlEditar')
+{{ route ('etiquetanutricional.edit', $etiqueta -> id)}}
+@endsection
+@section('urlEliminar')
+{{ route ('etiquetanutricional.destroy', $etiqueta -> id)}}
+@endsection
 
 @section('placeholderBuscar','Buscar Enfermedades') 
 @section('content')

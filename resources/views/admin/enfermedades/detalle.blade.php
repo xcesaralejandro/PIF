@@ -1,16 +1,17 @@
 @extends('layouts.mainAdminDetalle') 
 @section('title-nav','Administrador')
-@section('title')
-<div class="text-center mb-4 mt-3">
-	<span class="display-3">Detalle de enfermedad <i class="fa fa-tag" aria-hidden="true"></i></span>
-</div>
-@endsection  
+@section('title','enfermedad')
+
 
 @section('nav')
 @include('admin.enfermedades.nav')
 @endsection 
-@section('urlEditar','#')
-@section('urlEliminar','#')
+@section('urlEditar')
+{{ route ('enfermedades.edit', $enfermedad -> id)}}
+@endsection
+@section('urlEliminar')
+{{ route ('enfermedades.destroy', $enfermedad -> id)}}
+@endsection
 
 @section('placeholderBuscar','Buscar Enfermedades') 
 @section('content')

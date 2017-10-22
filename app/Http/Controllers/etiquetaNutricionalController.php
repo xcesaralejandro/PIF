@@ -14,8 +14,8 @@ class etiquetaNutricionalController extends Controller
      */
     public function index()
     {
-        $campos = camposEtiquetasNutricionale::orderBy('id','DESC')->paginate(10);
-        $etiquetas = etiquetasNutricionale::orderBy('id','DESC')->paginate(10);
+        $campos = camposEtiquetasNutricionale::orderBy('id','DESC')->paginate(1);
+        $etiquetas = etiquetasNutricionale::orderBy('id','DESC')->paginate(15);
         $en_cont = etiquetasNutricionale::pluck('id','id');
         $en_cont = count($en_cont);
         return view('admin.etiquetanutricional.listar')
@@ -68,7 +68,7 @@ class etiquetaNutricionalController extends Controller
         $etiqueta->en_url_imagen = $nombre;
         $etiqueta->save();
 
-        alertify()->success('Registrado exitosamente')->persistent()->clickToClose();
+        alertify()->success('Enhorabuena se a agregado su etiqueta nutricional')->persistent()->clickToClose();
         return redirect()->route('etiquetanutricional.index');
     }
 
@@ -119,7 +119,7 @@ class etiquetaNutricionalController extends Controller
         $etiqueta->en_url_imagen = $nombre;
         $etiqueta->save();
 
-        alertify()->success('Registrado exitosamente')->persistent()->clickToClose();
+        alertify()->success('Se ha modificado existosamente')->persistent()->clickToClose();
         return redirect()->route('etiquetanutricional.index');
     }
 
@@ -132,8 +132,11 @@ class etiquetaNutricionalController extends Controller
     public function destroy($id)
     {
         $etiqueta = etiquetasNutricionale::find($id);
+       $dir = public_path() . '/images/img_etiqueta/';
+       $imagen =$etiqueta->en_url_imagen;
+       unlink($dir.$imagen);
         $etiqueta->delete();
-        alertify()->error('Se elimino correctamente ')->persistent()->clickToClose();
-        return redirect()->back();
+        alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
+        return redirect()->route('etiquetanutricional.index');
     }
 }

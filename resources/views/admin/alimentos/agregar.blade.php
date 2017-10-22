@@ -33,13 +33,6 @@
     {{ Form::Close() }}
 </div>
 @endsection
-
-{{ Form::Close() }} 
 @section('js')
-<script >
-
-    $(".chosen-select").chosen({no_results_text: "Oops, no taa :'(!"}); 
-
-</script>
-
+<script src="{{ asset('js/planAlimentario.js') }}"></script>
 @endsection

@@ -52,9 +52,10 @@
         </tr>
     </tbody>
 @endforeach
+
 </table>
-<div class="text-center">
-    {!! $comunas->render() !!}
+<div class=" pagination  justify-content-center">
+{!! $comunas->links() !!}
 </div>
 @endsection
 </hr>

@@ -39,6 +39,10 @@
 
     {{-- Fin menu loguin --}}
     @if(Auth::user()->us_tipo_usuario =='administrador' )
+    <li class="nav-item">
+      <a class=" nav-link" href="{{ route('agregarNutricionistas.index') }}">Nutricionistas</a>
+  </li>
+    </li>
     <li>
       <div class="dropup nav-item">
       <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,9 +77,9 @@
         Localizacion
       </button>
       <div class="dropdown-menu" aria-labelledby="about-us">
-        <a class="dropdown-item" href="">
+        <a class="dropdown-item" href="{{ route('comunas.index') }}">
         Comunas</a>
-         <a class="dropdown-item" href="">
+         <a class="dropdown-item" href="{{ route('regiones.index') }}">
         Regiones</a>
     </div>
   </div>
