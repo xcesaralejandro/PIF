@@ -15,10 +15,14 @@ class CreateFactoresTable extends Migration
     {
         Schema::create('factores', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('us_id')->unsigned();
             $table->integer('ft_proteinas');
             $table->integer('ft_lipidos');
             $table->integer('ft_carbohidratos');
             $table->timestamps();
+
+            // Foreign
+            $table->foreign('us_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

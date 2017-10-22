@@ -9,6 +9,9 @@ use frust\alimento;
 use frust\detalleAlimento;
 use frust\subComida;
 use frust\comida;
+use frust\planesAlimentario;
+use frust\nuevosAvance;
+use frust\factore;
 
 class planesAlimentariosController extends Controller
 {
@@ -43,8 +46,21 @@ class planesAlimentariosController extends Controller
      */
     public function store(Request $request)
     {
+        // Traemos el ultimo avanced
+        $nAvance = nuevosAvance::orderBy('id','DESC')
+                                    ->where('us_id',\Auth::user()->id)
+                                    ->take(1)
+                                    ->get();
+        $fac = factore::orderBy('id','DESC')
+                        ->where('us_Id',\Auth::user()->us_id_nutricionista)
+                        ->take(1)
+                        ->get();
+        dd($fac);
+        // $plan = new planesAlimentario();
+        // $plan->
         // Traemos la comida
-        $comida =   comida::with(['subComidas'])
+        $comida =   comida::orderBy('id','DESC')
+                            ->with(['subComidas'])
                             ->where('us_id',\Auth::user()->us_id_nutricionista)
                             ->where('cm_estado','1')
                             ->take(1)
@@ -65,6 +81,8 @@ class planesAlimentariosController extends Controller
                         $da->rga_lipidos       = $request->desayuno_lip[$i];
                         $da->rga_carbohidratos = $request->desayuno_ch[$i];
                         $da->subComida()->associate($unaSubcomida);
+                        $da->planesAlimentario()->associate($plan);
+                        $da->Alimento()->associate($alimento);
                         dd($da);
                     }
                     break;
