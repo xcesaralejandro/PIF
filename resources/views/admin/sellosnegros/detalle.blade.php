@@ -7,8 +7,12 @@
 	@include('admin.sellosnegros.nav')
 @endsection 
 
-@section('urlEditar','#')
-@section('urlEliminar','#')
+@section('urlEditar')
+{{ route ('sellosnegros.edit', $sello -> id)}}
+@endsection
+@section('urlEliminar')
+{{ route ('sellosnegros.destroy', $sello -> id)}}
+@endsection
 
 @section('placeholderBuscar','Buscar Enfermedades') 
 @section('content')

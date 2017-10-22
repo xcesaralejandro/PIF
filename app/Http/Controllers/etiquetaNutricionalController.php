@@ -137,6 +137,6 @@ class etiquetaNutricionalController extends Controller
        unlink($dir.$imagen);
         $etiqueta->delete();
         alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
-        return redirect()->back();
+        return redirect()->route('etiquetanutricional.index');
     }
 }

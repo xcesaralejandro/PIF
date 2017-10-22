@@ -6,8 +6,12 @@
 @section('nav')
 @include('admin.enfermedades.nav')
 @endsection 
-@section('urlEditar','#')
-@section('urlEliminar','#')
+@section('urlEditar')
+{{ route ('enfermedades.edit', $enfermedad -> id)}}
+@endsection
+@section('urlEliminar')
+{{ route ('enfermedades.destroy', $enfermedad -> id)}}
+@endsection
 
 @section('placeholderBuscar','Buscar Enfermedades') 
 @section('content')

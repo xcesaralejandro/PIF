@@ -19,7 +19,7 @@ class comida extends Model
     
 
     // SUS HIJOS
-    public function subComida(){
+    public function subComidas(){
         return $this->hasMany('frust\subComida','cm_id','id');
     }
 

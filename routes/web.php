@@ -59,6 +59,7 @@ Route::group(['prefix' => 'admin','middleware'=>'auth','administrador'], functio
     //ALIMENTOS
     Route::resource('alimentos','alimentosController');
     Route::get('alimentos/{id}/destroy','alimentosController@destroy')->name('alimentos.destroy');
+    Route::get('alimentos/categorias/{id}','alimentosController@categorias')->name('alimentos.categorias');
 
 //REGION 
     Route::resource('regiones','regionesController');

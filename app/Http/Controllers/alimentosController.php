@@ -64,7 +64,17 @@ class alimentosController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
+     */   
+    public function categorias($gpoId){
+        if (!\Auth::guest()) {
+            $cat = categoriasAlimento::orderBy('ct_nombre','asc')
+            ->where('ga_id',$gpoId)
+            ->pluck('id','ct_nombre');
+        }else{
+            $cat = "Lo lamentamos, no compartimos la información de nuestra APP con terceros.";
+        }
+        return response()->json($cat);
+    }
     public function edit($id)
     {
         $alimento =  alimento::find($id);
@@ -85,7 +95,7 @@ class alimentosController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $alimento = alimento::find($id);
+        $alimento = alimento::find($id);
         $alimento -> fill($request->all());
         $alimento ->save();
         alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();

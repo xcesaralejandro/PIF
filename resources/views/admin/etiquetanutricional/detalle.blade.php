@@ -7,8 +7,12 @@
 @include('admin.etiquetanutricional.nav')
 @endsection 
 
-@section('urlEditar','#')
-@section('urlEliminar','#')
+@section('urlEditar')
+{{ route ('etiquetanutricional.edit', $etiqueta -> id)}}
+@endsection
+@section('urlEliminar')
+{{ route ('etiquetanutricional.destroy', $etiqueta -> id)}}
+@endsection
 
 @section('placeholderBuscar','Buscar Enfermedades') 
 @section('content')

@@ -116,6 +116,6 @@ class sellosNegrosController extends Controller
         $sello = sellosNegro::find($id);
         $sello->delete();
         alertify()->error('Se elimino correctamente ')->persistent()->clickToClose();
-        return redirect()->back();
+        return redirect()->route('sellosnegros.index');
     }
 }

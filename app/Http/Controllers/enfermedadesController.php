@@ -126,7 +126,7 @@ class enfermedadesController extends Controller
         unlink($dir.$imagen);       
         $enfermedad->delete();
         alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
-        return redirect()->back();
+        return redirect()->route('enfermedades.index');
     }
     
 }

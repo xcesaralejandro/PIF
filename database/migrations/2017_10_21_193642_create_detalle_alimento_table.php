@@ -17,7 +17,7 @@ class CreateDetalleAlimentoTable extends Migration
             $table->increments('id');
             $table->integer('sbc_id')->unsigned();
             $table->integer('pa_id')->unsigned();
-            $table->string('rga_nombre',150);
+            $table->integer('al_id')->unsigned();
             $table->integer('rga_gramos');
             $table->integer('rga_kcal');
             $table->float('rga_proteina');
@@ -28,6 +28,7 @@ class CreateDetalleAlimentoTable extends Migration
             // FOREIGN KEY
             $table->foreign('sbc_id')->references('id')->on('subcomidas')->onDelete('cascade');
             $table->foreign('pa_id')->references('id')->on('planesalimentarios')->onDelete('cascade');
+            $table->foreign('al_id')->references('id')->on('alimentos')->onDelete('cascade');
         });
     }
 

@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(regionessSeeder::class);
         $this->call(usersSeeder::class);
         $this->call(alimentosSeeder::class);
+        $this->call(factoresSeeder::class);
+        $this->call(comidasSeeder::class);
     }
 }

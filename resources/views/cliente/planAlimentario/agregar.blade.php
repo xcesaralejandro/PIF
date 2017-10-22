@@ -349,7 +349,7 @@
 
 
 	{{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
-	<div class="fullDiv fullComida bk_blanco mt-3">
+	<div class="fullDiv fullComida bk_blanco mt-3 comidaColacion1">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
@@ -412,7 +412,7 @@
 	</div>{{-- DIV SECCION COMIDA ENTERA --}}
 
 	{{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
-	<div class="fullDiv fullComida bk_blanco mt-3">
+	<div class="fullDiv fullComida bk_blanco mt-3 comidaAlmuerzo">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
@@ -475,7 +475,7 @@
 	</div>{{-- DIV SECCION COMIDA ENTERA --}}
 
 	{{-- DIV COMIDA //////////////////////////////////////////////////////////////////////////////////////// --}}
-	<div class="fullDiv fullComida bk_blanco mt-3">
+	<div class="fullDiv fullComida bk_blanco mt-3 comidaColacion2">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
@@ -537,7 +537,7 @@
 		</div>
 	</div>{{-- DIV SECCION COMIDA ENTERA --}}
 
-	<div class="fullDiv fullComida bk_blanco mt-3">
+	<div class="fullDiv fullComida bk_blanco mt-3 comidaOnce">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
@@ -599,7 +599,7 @@
 		</div>
 	</div>{{-- DIV SECCION COMIDA ENTERA --}}
 
-		<div class="fullDiv fullComida bk_blanco mt-3">
+		<div class="fullDiv fullComida bk_blanco mt-3 comidaCena">
 {{-- TITULO COMIDA //////////////////////////////////////////////////////////////////////////////////////--}}
 		<div class="fullDiv borderBottomPrimary p-1 pl-2">
 			<div class="row">
@@ -775,7 +775,7 @@
 <div class="row">
 	<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
 		{{ Form::label('pa_apodo','Nombre del plan',['class'=>'mt-3']) }}
-		{{ Form::text('pa_apodo',null,['class'=>'form-control mb-2','placeholder'=>'Plan dia de gym','style'=>'padding: .6rem;']) }}
+		{{ Form::text('pa_apodo',null,['class'=>'form-control mb-2','placeholder'=>'Plan dia de gym','style'=>'padding: .6rem;','required']) }}
 		{{ Form::submit('Guardar',['class'=>'btn btn-primary fullDiv mb-5','id' => 'btnGuardar']) }}
 
 	</div>

@@ -79,7 +79,7 @@ class User extends Authenticatable
         return $this->hasMany('frust\Comida');
     }
     public function factores(){
-        return $this->hasMany('frust\Factore');
+        return $this->hasMany('frust\Factore','ft_id','id');
     }
 
     // SUS PADRES

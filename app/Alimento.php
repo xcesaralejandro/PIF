@@ -24,6 +24,10 @@ class alimento extends Model
 
     // SUS HIJOS
 
+    public function detalleAlimentos(){
+        return $this->hasMany('frust\detalleAlimento','al_id','id');
+    }
+
     // SUS PADRES
     public function categoriasAlimento(){
         return $this->belongsTo('frust\categoriasAlimento','ct_id','id');

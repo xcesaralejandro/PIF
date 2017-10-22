@@ -108,6 +108,6 @@ class campEtiquetaNutricionalController extends Controller
         $campo = camposEtiquetasNutricionale::find($id);
         $campo->delete();
         alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
-        return redirect()->back();
+        return redirect()->route('etiquetanutricional.index');
     }
 }

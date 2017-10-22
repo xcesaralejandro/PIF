@@ -33,3 +33,6 @@
     {{ Form::Close() }}
 </div>
 @endsection
+@section('js')
+<script src="{{ asset('js/planAlimentario.js') }}"></script>
+@endsection

@@ -19,6 +19,7 @@ class CreatePlanesAlimentariosTable extends Migration
             $table->integer('na_id')->unsigned();
             $table->integer('us_id')->unsigned();
             $table->string('pa_apodo',50);
+            $table->date('pa_fecha_creacion');
             $table->date('pa_fecha_caducacion');
             $table->enum('pa_estado',[0,1])->default(1);
             $table->timestamps();
