@@ -26,7 +26,7 @@ class planesAlimentario extends Model
     }
 
     public function detalleAlimentos(){
-        return $this->belongsTo('frust\detalleAlimento','pa_id','id');
+        return $this->hasMany('frust\detalleAlimento','pa_id','id');
     }
 
     // SUS PADRES
@@ -36,5 +36,9 @@ class planesAlimentario extends Model
 
     public function factore(){
         return $this->belongsTo('frust\factore','ft_id','id');
+    }
+
+    public function nuevosAvance(){
+        return $this->belongsTo('frust\nuevosAvance','na_id','id');
     }
 }

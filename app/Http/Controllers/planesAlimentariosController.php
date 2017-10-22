@@ -50,14 +50,28 @@ class planesAlimentariosController extends Controller
         $nAvance = nuevosAvance::orderBy('id','DESC')
                                     ->where('us_id',\Auth::user()->id)
                                     ->take(1)
-                                    ->get();
+                                    ->first();
+        // Traemos los factores
         $fac = factore::orderBy('id','DESC')
                         ->where('us_Id',\Auth::user()->us_id_nutricionista)
                         ->take(1)
-                        ->get();
-        dd($fac);
-        // $plan = new planesAlimentario();
-        // $plan->
+                        ->first();
+
+        // Empezamos a llenar el plan alimentario
+        $plan = new planesAlimentario();
+        $plan->factore()->associate($nAvance);
+        $plan->nuevosAvance()->associate($fac);
+        // $plan->na_id = 1;
+        // $plan->ft_id = 1;
+        $plan->us_id = \Auth::user()->id;
+        if($request->pa_apodo != null){
+            $plan->pa_apodo = $request->pa_apodo;
+        }else{
+            $plan->pa_apodo = 'Plan Alimentario';
+        }
+        $plan->pa_fecha_caducacion = date('Y-m-d',strtotime('+6 week'));
+        
+        if ($plan->save()) {
         // Traemos la comida
         $comida =   comida::orderBy('id','DESC')
                             ->with(['subComidas'])
@@ -65,14 +79,15 @@ class planesAlimentariosController extends Controller
                             ->where('cm_estado','1')
                             ->take(1)
                             ->get();
+
         foreach ($comida->all() as $sbComidas) {
           foreach ($sbComidas->subComidas as $unaSubcomida) {
-
             switch (strtoupper($unaSubcomida->sbc_nombre)) {
                 case 'DESAYUNO':
                     for ($i=0; $i < count($request->desayuno_codigos); $i++) { 
                         // Traigo el alimento de la bd para luego asociarlo al detalle alimento.
                         $alimento = alimento::find($request->desayuno_codigos[$i]);
+                        
                         // Instancio un nuevo detalle alimento
                         $da = new detalleAlimento();
                         $da->rga_gramos        = $request->desayuno_gramos[$i];
@@ -83,7 +98,7 @@ class planesAlimentariosController extends Controller
                         $da->subComida()->associate($unaSubcomida);
                         $da->planesAlimentario()->associate($plan);
                         $da->Alimento()->associate($alimento);
-                        dd($da);
+                        $da->save();
                     }
                     break;
 
@@ -111,7 +126,12 @@ class planesAlimentariosController extends Controller
 
           }
         }
-
+            
+        }else{
+            alertify()->error('No se ha podido guardar el plan alimentario.')->delay(10000)->clickToClose()->position('bottom left');
+            return redirect()->back();
+        }
+        
     }
 
     /**

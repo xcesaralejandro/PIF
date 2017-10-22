@@ -22,7 +22,7 @@ class nuevosAvance extends Model
 
     // SUS HIJOS
     public function planesAlimentarios(){
-        return $this->hasMany('planesAlimentario');
+        return $this->hasMany('planesAlimentario','na_id','id');
     }
     // SUS PADRES
     public function User(){

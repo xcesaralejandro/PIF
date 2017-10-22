@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Carbon\Carbon;
 class usersSeeder extends Seeder
 {
     /**
@@ -27,6 +27,8 @@ class usersSeeder extends Seeder
 			'us_fecha_caducacion'   => '2999-12-12',
 			'us_estado'             => 1,
 			'us_rut'				=>'00000000-0',
+			'created_at' =>Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' =>Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         DB::table('users')->insert([
@@ -45,6 +47,8 @@ class usersSeeder extends Seeder
 			'us_fecha_caducacion'   => '2999-12-12',
 			'us_estado'             => 1,
 			'us_rut'				=>'00000000-0',
+			'created_at' =>Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' =>Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('users')->insert([
@@ -63,6 +67,8 @@ class usersSeeder extends Seeder
 			'us_fecha_caducacion'   => '2999-12-12',
 			'us_estado'             => 1,
 			'us_rut'				=>'19121367-0',
+			'created_at' =>Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' =>Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
        
