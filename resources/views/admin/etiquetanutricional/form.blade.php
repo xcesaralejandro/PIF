@@ -23,7 +23,7 @@
 			<div class="col-lg-4">
 				<div class="form-group">
 					{{ Form::label('en_url_imagen','Añadir imagen') }}<br>
-					{{ Form::file('en_url_imagen',['class'=>'file-loading','id'=>'ef_url_imagen']) }}
+					{{ Form::file('en_url_imagen',['class'=>'file-loading imagen','required']) }}
 				</div>
 			</div>
 

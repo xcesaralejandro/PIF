@@ -180,6 +180,8 @@ return [
         // NUESTROS PROVIDERS
         Collective\Html\HtmlServiceProvider::class,
         odannyc\Alertify\AlertifyServiceProvider::class,
+        // para validar rut
+        Freshwork\ChileanBundle\Laravel\ChileanBundleServiceProvider::class
     ],
 
     /*
@@ -234,6 +236,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Alertify' => odannyc\Alertify\Alertify::class,
+        'Rut'   => Freshwork\ChileanBundle\Laravel\Facades\Rut::class
     ],
 
 ];

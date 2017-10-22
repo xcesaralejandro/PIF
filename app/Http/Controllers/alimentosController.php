@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use frust\categoriasAlimento;
 use frust\gruposAlimento;
 use Carbon\Carbon;
+use frust\Http\Requests\alimentoRequest;
 class alimentosController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class alimentosController extends Controller
      */
     public function index()
     {
-        $alimentos = alimento::orderBy('id','DESC')->paginate(10);
+        $alimentos = alimento::orderBy('id','DESC')->paginate(15);
         return view('admin.alimentos.listar')->with('alimentos',$alimentos);
     }
 
@@ -37,7 +38,7 @@ class alimentosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(alimentoRequest $request)
     {
         $alimento = new alimento($request->all());
 
@@ -84,7 +85,12 @@ class alimentosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+            $alimento = alimento::find($id);
+        $alimento -> fill($request->all());
+        $alimento ->save();
+        alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();
+
+        return redirect()->route('alimentos.index');
     }
 
     /**
@@ -97,7 +103,7 @@ class alimentosController extends Controller
     {
         $alimento = alimento::find($id);
         $alimento->delete();
-        alertify()->error('Se elimino correctamente ')->persistent()->clickToClose();
+        alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
         return redirect()->back();
     }
 }

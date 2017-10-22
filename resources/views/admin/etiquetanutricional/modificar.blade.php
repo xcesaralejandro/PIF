@@ -41,7 +41,7 @@
 
 <script>
     $(function(){
-        $('.descEtiqueta').trumbowyg();
+        $('#descEtiqueta').trumbowyg();
     });
 </script>
 @endsection

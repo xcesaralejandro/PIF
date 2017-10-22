@@ -15,10 +15,13 @@
             </button>
         </div>
     </div>
+
 {!! Form::Close() !!}
 @endsection
 
 @section('js')
+    <script src="{{ asset('js/validacionUsuario.js') }}"></script>
+
     <script>
         $(function(){
            $(".chosen-select").chosen({
@@ -28,4 +31,5 @@
             });
         });
     </script>
+
 @endsection

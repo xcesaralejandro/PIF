@@ -1,6 +1,12 @@
 <div class="row">
 	<div class="col-sm-6 col-lg-4 offset-lg-2">
-
+		<div class="form-group">
+			{{ Form::label('us_email','E-mail') }}
+			{{ Form::email('us_email',null,['class'      =>'form-control',
+										    'placeholder'=>'cesar.espinoza@gmail.com',
+										    'minlength'  =>'5',
+										    'required']) }}
+		</div>
 		<div class="form-group">
 			{{ Form::label('us_nombres','Nombres') }}
 			{{ Form::text('us_nombres',null,['class'      =>'form-control',
@@ -52,17 +58,17 @@
 
 	<div class="col-sm-6 col-lg-4">
 		<div class="form-group">
-			{{ Form::label('us_email','E-mail') }}
-			{{ Form::email('us_email',null,['class'      =>'form-control',
-										    'placeholder'=>'cesar.espinoza@gmail.com',
-										    'minlength'  =>'5',
-										    'required']) }}
+			{{ Form::label('us_rut','Rut') }}
+			{{ Form::text('us_rut',null,['class'      =>'form-control RUT',
+										    'placeholder'=>'12.345.678-9',
+										    'required',
+										    'id'=>'rut']) }}
 		</div>
-
 		<div class="form-group">
 			{{ Form::label('password','Contraseña') }}
 			{{ Form::password('password',['class'   =>'form-control',
 											 'placeholder'=>'********',
+											 'id'	=>'password1',
 										     'minlength'  =>'5',
 										     'required',]) }}
 		</div>
@@ -71,6 +77,7 @@
 			{{ Form::label('cf_password','Confirmar contraseña') }}
 			{{ Form::password('cf_password',['class'   =>'form-control',
 											 'placeholder'=>'********',
+											 'id'	=>'password2',
 										     'minlength'  =>'5',
 										     'required']) }}
 		</div>

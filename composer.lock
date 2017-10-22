@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9918d99ce0f400fe8914351e02eca5f5",
+    "content-hash": "c25aff62136bc82b7eac4c42439bcaa6",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -315,6 +315,68 @@
                 "trusted proxy"
             ],
             "time": "2017-06-15T17:19:42+00:00"
+        },
+        {
+            "name": "freshwork/chilean-bundle",
+            "version": "2.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/freshworkstudio/ChileanBundle.git",
+                "reference": "336e0bc449c177d32c97d0d23848fdf8fafe115e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/freshworkstudio/ChileanBundle/zipball/336e0bc449c177d32c97d0d23848fdf8fafe115e",
+                "reference": "336e0bc449c177d32c97d0d23848fdf8fafe115e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.1",
+                "codeception/specify": "^0.4.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Freshwork\\ChileanBundle\\Laravel\\ChileanBundleServiceProvider"
+                    ],
+                    "aliases": {
+                        "Rut": "Freshwork\\ChileanBundle\\Facades\\Rut"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Freshwork\\ChileanBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gonzalo De Spirito | Freshwork Studio Chile",
+                    "email": "gonzalo@freshworkstudio.com"
+                },
+                {
+                    "name": "Eduardo Aguad",
+                    "email": "eduaguad@gmail.com"
+                }
+            ],
+            "description": "A PHP composer package with Chilean validations, common variables, etc. (RUT, IVA, ETC). Ready for Laravel 4. Grande chile ctm :)",
+            "keywords": [
+                "chile",
+                "freshwork",
+                "laravel",
+                "rut",
+                "tools",
+                "validation"
+            ],
+            "time": "2017-10-11T21:24:05+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",

@@ -2,7 +2,6 @@
 @section('title-nav','Administrador')
 @section('title','enfermedad')
 
-@endsection  
 
 @section('nav')
 @include('admin.enfermedades.nav')

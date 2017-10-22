@@ -13,7 +13,7 @@ class factoresController extends Controller
      */
     public function index()
     {
-        $factores = factore::orderBy('id','DESC')->paginate(10);
+        $factores = factore::orderBy('id','DESC')->paginate(15);
         return view('nutricionista.factores.listar')->with('factores',$factores);
     }
 
@@ -43,7 +43,7 @@ class factoresController extends Controller
     }else{
         $factor = new factore($request->all());
         $factor->save();
-        alertify()->success('Agregado')->persistent()->clickToClose();
+        alertify()->success('Enhorabuena se a agregado su factor')->persistent()->clickToClose();
         return redirect()->back();    
     }
 

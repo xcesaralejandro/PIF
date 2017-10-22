@@ -15,8 +15,7 @@ class comidasController extends Controller
      */
     public function index()
     {
-        $comidas = comida::with(['subComida'])->paginate(5);        
-        dd($comidas);
+        $comidas = comida::with(['subComida'])->paginate(15);        
         return view('nutricionista.comidas.listar')
         ->with('comidas',$comidas);
     }
@@ -50,7 +49,7 @@ class comidasController extends Controller
         $total = array_sum($request->porcentaje);
 
         if($total != 100){
-            alertify()->error('mal')->persistent()->clickToClose();
+            alertify()->error('La suma de los campos debe ser 100')->persistent()->clickToClose();
             return redirect()->back();
         }else{
             $comida = new comida;
@@ -64,7 +63,7 @@ class comidasController extends Controller
                     $subComida->comida()->associate($comida);
                     $subComida->save();
                 }
-                alertify()->success('Agregado')->persistent()->clickToClose();
+                alertify()->success('Enhorabuena se a agregado su nueva comida')->persistent()->clickToClose();
                 return redirect()->route('comidas.index');              
             }
         }  
@@ -107,7 +106,7 @@ class comidasController extends Controller
         $comida = comida::find($id);
         $comida->cm_nombre =$request->cm_nombre;
         $comida->save();
-        alertify()->success('Modificado')->persistent()->clickToClose();
+        alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();
         return redirect()->route('comidas.index');  
     }
 

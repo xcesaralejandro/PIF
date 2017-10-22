@@ -5,6 +5,7 @@ namespace frust\Http\Controllers;
 use Illuminate\Http\Request;
 use frust\etiquetasNutricionale;
 use frust\camposEtiquetasNutricionale;
+use frust\Http\Requests\campEtiquetaNutricionalRequest;
 class campEtiquetaNutricionalController extends Controller
 {
     /**
@@ -34,7 +35,7 @@ class campEtiquetaNutricionalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(campEtiquetaNutricionalRequest $request)
     {
         $etiqueta = etiquetasNutricionale::orderBy('id','DESC')->first();
         $campo = new camposEtiquetasNutricionale($request->all());
@@ -91,7 +92,7 @@ class campEtiquetaNutricionalController extends Controller
         $campo = camposEtiquetasNutricionale::find($id);
         $campo -> fill($request->all());
         $campo ->save();
-        alertify()->success('Enhorabuena se a agregado un nuevo campo')->persistent()->clickToClose();
+        alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();
 
         return redirect()->route('etiquetanutricional.index');
     }
@@ -106,7 +107,7 @@ class campEtiquetaNutricionalController extends Controller
     {
         $campo = camposEtiquetasNutricionale::find($id);
         $campo->delete();
-        alertify()->error('Se elimino correctamente ')->persistent()->clickToClose();
+        alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
         return redirect()->back();
     }
 }

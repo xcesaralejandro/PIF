@@ -20,7 +20,7 @@ class subComida extends Model
     protected $primaryKey = 'id';
     
     // SUS HIJOS
-    public function(){
+    public function detalles(){
         return $this->hasMany('frust\detalleAlimento','sbc_id','id');
     }
     // SUS PADRES

@@ -15,7 +15,7 @@ class gruposAlimentosController extends Controller
     public function index()
     {
 
-        $grupos = gruposAlimento::orderBy('id', 'DESC')->paginate(10);
+        $grupos = gruposAlimento::orderBy('id', 'DESC')->paginate(15);
         return View('admin.gruposalimentarios.listar')->with('grupos',$grupos);
     }
 
@@ -80,7 +80,7 @@ class gruposAlimentosController extends Controller
      $grupo = gruposAlimento::find($id);
      $grupo->fill($request->all());
      $grupo->save();
-     alertify()->success('En hora buena se a Modificado su grupo')->persistent()->clickToClose();
+     alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();
      return redirect()->route('gruposalimentarios.index');
      
  }
@@ -95,7 +95,7 @@ class gruposAlimentosController extends Controller
     {
         $grupo = gruposAlimento::find($id);
         $grupo->delete();
-        alertify()->error('Se elimino correctamente ')->persistent()->clickToClose();
+        alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
         return redirect()->back();
     }
 }

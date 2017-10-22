@@ -14,7 +14,7 @@ class categoriasAlimentariasController extends Controller
      */
     public function index()
     {
-        $categorias = categoriasAlimento::orderBy('id', 'DESC')->paginate(10);
+        $categorias = categoriasAlimento::orderBy('ct_nombre', 'DESC')->paginate(15);
         $grupos = gruposAlimento::orderBy('id', 'DESC')->pluck('ga_nombre', 'id');
 
         return view('admin.categoriasalimentarias.listar')->with('categorias',$categorias)->with('grupos',$grupos);
@@ -84,7 +84,7 @@ class categoriasAlimentariasController extends Controller
      $categoria = categoriasAlimento::find($id);
      $categoria->fill($request->all());
      $categoria->save();
-     alertify()->success('En hora buena se a Modificado su grupo')->persistent()->clickToClose();
+     alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();
      return redirect()->route('categoriasalimentarias.index');
  }
 
@@ -98,7 +98,7 @@ class categoriasAlimentariasController extends Controller
     {
         $categoria = categoriasAlimento::find($id);
         $categoria->delete();
-        alertify()->error('Se elimino correctamente ')->persistent()->clickToClose();
+        alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
         return redirect()->back();
     }
 }

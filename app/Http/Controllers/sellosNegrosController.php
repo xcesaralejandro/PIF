@@ -4,6 +4,7 @@ namespace frust\Http\Controllers;
 
 use Illuminate\Http\Request;
 use frust\sellosNegro;
+use frust\Http\Requests\sellosNegrosRequest;
 class sellosNegrosController extends Controller
 {
     /**
@@ -39,7 +40,7 @@ class sellosNegrosController extends Controller
         return view('admin.sellosnegros.detalle')->with('sello',$sello);
 
     }
-    public function store(Request $request)
+    public function store(sellosNegrosRequest $request)
     {
 
         $sello = new sellosNegro();   
