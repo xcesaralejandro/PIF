@@ -87,7 +87,6 @@ class planesAlimentariosController extends Controller
                     for ($i=0; $i < count($request->desayuno_codigos); $i++) { 
                         // Traigo el alimento de la bd para luego asociarlo al detalle alimento.
                         $alimento = alimento::find($request->desayuno_codigos[$i]);
-                        
                         // Instancio un nuevo detalle alimento
                         $da = new detalleAlimento();
                         $da->rga_gramos        = $request->desayuno_gramos[$i];
@@ -103,20 +102,90 @@ class planesAlimentariosController extends Controller
                     break;
 
                 case 'PRIMERA COLACION':
-                    dd('PRIMERA COLACION');
+                    for ($i=0; $i < count($request->colacion1_codigos); $i++) { 
+                        // Traigo el alimento de la bd para luego asociarlo al detalle alimento.
+                        $alimento = alimento::find($request->desayuno_codigos[$i]);
+                        // Instancio un nuevo detalle alimento
+                        $da = new detalleAlimento();
+                        $da->rga_gramos        = $request->colacion1_gramos[$i];
+                        $da->rga_kcal          = $request->colacion1_kcal[$i];
+                        $da->rga_proteina      = $request->colacion1_prot[$i];
+                        $da->rga_lipidos       = $request->colacion1_lip[$i];
+                        $da->rga_carbohidratos = $request->colacion1_ch[$i];
+                        $da->subComida()->associate($unaSubcomida);
+                        $da->planesAlimentario()->associate($plan);
+                        $da->Alimento()->associate($alimento);
+                        $da->save();
+                    }
                     break;
 
                 case 'ALMUERZO':
-                    dd('ALMUERZO');
+                    for ($i=0; $i < count($request->almuerzo_codigos); $i++) { 
+                        // Traigo el alimento de la bd para luego asociarlo al detalle alimento.
+                        $alimento = alimento::find($request->desayuno_codigos[$i]);
+                        // Instancio un nuevo detalle alimento
+                        $da = new detalleAlimento();
+                        $da->rga_gramos        = $request->almuerzo_gramos[$i];
+                        $da->rga_kcal          = $request->almuerzo_kcal[$i];
+                        $da->rga_proteina      = $request->almuerzo_prot[$i];
+                        $da->rga_lipidos       = $request->almuerzo_lip[$i];
+                        $da->rga_carbohidratos = $request->almuerzo_ch[$i];
+                        $da->subComida()->associate($unaSubcomida);
+                        $da->planesAlimentario()->associate($plan);
+                        $da->Alimento()->associate($alimento);
+                        $da->save();
+                    }
                     break;
                 case 'SEGUNDA COLACION':
-                    dd('SEGUNDA COLACION');
+                    for ($i=0; $i < count($request->colacion2_codigos); $i++) { 
+                        // Traigo el alimento de la bd para luego asociarlo al detalle alimento.
+                        $alimento = alimento::find($request->desayuno_codigos[$i]);
+                        // Instancio un nuevo detalle alimento
+                        $da = new detalleAlimento();
+                        $da->rga_gramos        = $request->colacion2_gramos[$i];
+                        $da->rga_kcal          = $request->colacion2_kcal[$i];
+                        $da->rga_proteina      = $request->colacion2_prot[$i];
+                        $da->rga_lipidos       = $request->colacion2_lip[$i];
+                        $da->rga_carbohidratos = $request->colacion2_ch[$i];
+                        $da->subComida()->associate($unaSubcomida);
+                        $da->planesAlimentario()->associate($plan);
+                        $da->Alimento()->associate($alimento);
+                        $da->save();
+                    }
                     break;
                 case 'ONCE':
-                    dd('ONCE');
+                    for ($i=0; $i < count($request->once_codigos); $i++) { 
+                        // Traigo el alimento de la bd para luego asociarlo al detalle alimento.
+                        $alimento = alimento::find($request->desayuno_codigos[$i]);
+                        // Instancio un nuevo detalle alimento
+                        $da = new detalleAlimento();
+                        $da->rga_gramos        = $request->once_gramos[$i];
+                        $da->rga_kcal          = $request->once_kcal[$i];
+                        $da->rga_proteina      = $request->once_prot[$i];
+                        $da->rga_lipidos       = $request->once_lip[$i];
+                        $da->rga_carbohidratos = $request->once_ch[$i];
+                        $da->subComida()->associate($unaSubcomida);
+                        $da->planesAlimentario()->associate($plan);
+                        $da->Alimento()->associate($alimento);
+                        $da->save();
+                    }
                     break;
                 case 'CENA':
-                    dd('CENA');
+                    for ($i=0; $i < count($request->cena_codigos); $i++) { 
+                        // Traigo el alimento de la bd para luego asociarlo al detalle alimento.
+                        $alimento = alimento::find($request->desayuno_codigos[$i]);
+                        // Instancio un nuevo detalle alimento
+                        $da = new detalleAlimento();
+                        $da->rga_gramos        = $request->cena_gramos[$i];
+                        $da->rga_kcal          = $request->cena_kcal[$i];
+                        $da->rga_proteina      = $request->cena_prot[$i];
+                        $da->rga_lipidos       = $request->cena_lip[$i];
+                        $da->rga_carbohidratos = $request->cena_ch[$i];
+                        $da->subComida()->associate($unaSubcomida);
+                        $da->planesAlimentario()->associate($plan);
+                        $da->Alimento()->associate($alimento);
+                        $da->save();
+                    }
                     break;
                 
                 default:
@@ -131,7 +200,8 @@ class planesAlimentariosController extends Controller
             alertify()->error('No se ha podido guardar el plan alimentario.')->delay(10000)->clickToClose()->position('bottom left');
             return redirect()->back();
         }
-        
+       alertify()->success('El plan alimentario ha sido guardado con éxito.')->delay(10000)->clickToClose()->position('bottom left');
+            return redirect()->back();
     }
 
     /**
