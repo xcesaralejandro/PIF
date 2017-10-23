@@ -22,24 +22,31 @@
             <th> Proteinas %</th>
             <th>Lipidos %</th>
             <th>Carbohidratos %</th>
-            <th> Acción  </th>
+            <th> Activo  </th>
         </tr>
     </thead>
     <tbody>
     @foreach($factores as $factor)
-        <tr>
+        <tr >
             <td> {{ $factor->ft_proteinas }} </td>
             <td>{{ $factor->ft_lipidos }}</td>
             <td>{{ $factor->ft_carbohidratos }}</td>
-            <td class="fit">
-                <div class="container-fluid">
+            <td class="fit ">
+                <div class="container-fluid ">
                     <div class="row">
-
+                        @if($factor->ft_estado == 1)
                         <div class="col-xs-4">
-                            <a href="#">
-                                <img class="imgAction mb-1" src="{{ asset('images/cancel.svg') }}" width="25px">
-                            </a>
+                         {{--  <a href="{{ route ('factores.activar',$factor -> id)}}"> --}} 
+                                <img class="imgAction mr-1 mb-1" src="{{ asset('images/activado.svg') }}" width="25px">
+                           {{--  </a> --}}
                         </div>
+                        @else
+                        <div class="col-xs-4 ">
+                           {{--  <a href="{{ route ('factores.activar',$factor -> id)}}"> --}}
+                                <img class="imgAction mb-1" src="{{ asset('images/desactivado.svg') }}" width="25px">
+                           {{--  </a> --}}
+                        </div>
+                        @endif
                     </div>
                 </div>
             </td>

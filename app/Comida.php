@@ -10,6 +10,7 @@ class comida extends Model
     protected $fillable = [
         'id',
         'cm_nombre',
+        'cm_estado',
         'created_at',
         'us_id',
         'updated_at'

@@ -16,10 +16,10 @@ class comidasController extends Controller
     public function index()
     {
 
-        $comidas = comida::with(['subComidas'])->paginate(5);        
-
+        $comidas = comida::with(['subComidas'])->orderBy('id','DESC')->paginate(5);        
         return view('nutricionista.comidas.listar')
         ->with('comidas',$comidas);
+
     }
 
     /**
@@ -40,6 +40,7 @@ class comidasController extends Controller
      */
     public function store(Request $request)
     {        
+        $desactivado = '0';
         $comidaDiaria= array(
             'Desayuno',
             'Primera colacion',
@@ -50,26 +51,38 @@ class comidasController extends Controller
 
         $total = array_sum($request->porcentaje);
 
-        if($total != 100){
-            alertify()->error('La suma de los campos debe ser 100')->persistent()->clickToClose();
-            return redirect()->back();
+        if($total < 100){
+            alertify()->error('No ha llegado al 100%')->persistent()->clickToClose();
+            return redirect()->back()->withInput();
+        }elseif($total > 100){
+            alertify()->error('Se ha excedido del 100%')->persistent()->clickToClose();
+            return redirect()->back()->withInput();
+
         }else{
-            $comida = new comida;
-            $comida->cm_nombre = $request->cm_nombre;
-            $comida->us_id = \Auth::user()->id;
-            if ($comida->save()) {
-                for ($i=0; $i < sizeof($request->porcentaje) ; $i++) { 
-                    $subComida = new subComida;
-                    $subComida->sbc_nombre =$comidaDiaria[$i];
-                    $subComida->sbc_porcentaje = $request->porcentaje[$i];
-                    $subComida->comida()->associate($comida);
-                    $subComida->save();
-                }
-                alertify()->success('Enhorabuena se a agregado su nueva comida')->persistent()->clickToClose();
-                return redirect()->route('comidas.index');              
+            $total = comida::all();
+            foreach ($total as $value) {
+             $value->cm_estado = $desactivado;
+             $value->save();
+         }
+         $comida = new comida;
+         $comida->cm_nombre = $request->cm_nombre;
+         $comida->us_id = \Auth::user()->id;
+         if ($comida->save()) {
+            for ($i=0; $i < sizeof($request->porcentaje) ; $i++) { 
+                $subComida = new subComida;
+                $subComida->sbc_nombre =$comidaDiaria[$i];
+                $subComida->sbc_porcentaje = $request->porcentaje[$i];
+                $subComida->comida()->associate($comida);
+                $subComida->save();
             }
-        }  
-    }
+            alertify()->success('Enhorabuena se a agregado su nueva comida')->persistent()->clickToClose();
+            return redirect()->route('comidas.index');              
+        }else{
+            alertify()->error('Ha ocurrido algo inesperado, intente nuevamente')->persistent()->clickToClose();
+            return redirect()->route('comidas.index');      
+        }
+    }  
+}
 
 
 

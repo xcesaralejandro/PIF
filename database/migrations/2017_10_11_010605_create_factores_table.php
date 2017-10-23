@@ -19,6 +19,7 @@ class CreateFactoresTable extends Migration
             $table->integer('ft_proteinas');
             $table->integer('ft_lipidos');
             $table->integer('ft_carbohidratos');
+            $table->enum('ft_estado',[0,1])->default(1);
             $table->timestamps();
 
             // Foreign
