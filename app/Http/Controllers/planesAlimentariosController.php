@@ -44,7 +44,27 @@ class planesAlimentariosController extends Controller
     public function create()
     {
         $grupos = gruposAlimento::orderBy('ga_nombre','asc')->pluck('ga_nombre','id');
+
+        $na = nuevosAvance::orderBy('id','desc')
+                            ->where('us_id',\Auth::user()->id)
+                            ->take(1)
+                            ->get();
+        $comida = comida::orderBy('id','desc')
+                        ->with(['subComidas'])
+                        ->where('cm_estado','1')
+                        ->where('us_id',\Auth::user()->us_id_nutricionista)
+                        ->take(1)
+                        ->get();
+
+        $factores = factore::orderBy('id','desc')
+                        ->where('us_id',\Auth::user()->us_id_nutricionista)
+                        ->take(1)
+                        ->get();
+
         return View('cliente.planAlimentario.agregar')
+        ->with('na',$na)
+        ->with('comida', $comida)
+        ->with('fac',$factores)
         ->with('grupos',$grupos);
     }
 

@@ -19,7 +19,7 @@
 					IMC	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="imc">23,40</strong></span>
+					<span><strong class="imc">{{ $na[0]->na_imc }}</strong></span>
 				</div>
 			</div>
 		</div>
@@ -30,7 +30,7 @@
 					VCT
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="vct">1950</strong></span>
+					<span><strong class="vct">{{ $na[0]->na_vct }}</strong></span>
 				</div>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 					PROT	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="pjPROT">20</strong>%</span>
+					<span><strong class="pjPROT">{{ $fac[0]->ft_proteinas }}</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -52,7 +52,7 @@
 					LIP
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="pjLIP">25</strong>%</span>
+					<span><strong class="pjLIP">{{ $fac[0]->ft_lipidos }}</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 					CH	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="pjCH">55</strong>%</span>
+					<span><strong class="pjCH">{{ $fac[0]->ft_carbohidratos }}</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -83,7 +83,14 @@
 					Desayuno	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="pDesayuno">20</strong>%</span>
+					<span><strong class="pDesayuno">
+						@foreach($comida[0]->subComidas as $sc)
+							@if(strtoupper($sc->sbc_nombre) == 'DESAYUNO')
+								{{ $sc->sbc_porcentaje }}
+							@break
+							@endif
+						@endforeach
+					</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -94,7 +101,14 @@
 					Colación
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="pColacion1">10</strong>%</span>
+					<span><strong class="pColacion1">
+						@foreach($comida[0]->subComidas as $sc)
+							@if(strtoupper($sc->sbc_nombre) == 'PRIMERA COLACION')
+								{{ $sc->sbc_porcentaje }}
+							@break
+							@endif
+						@endforeach
+					</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -105,7 +119,14 @@
 					Almuerzo	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="pAlmuerzo">25</strong>%</span>
+					<span><strong class="pAlmuerzo">
+						@foreach($comida[0]->subComidas as $sc)
+							@if(strtoupper($sc->sbc_nombre) == 'ALMUERZO')
+								{{ $sc->sbc_porcentaje }}
+							@break
+							@endif
+						@endforeach
+					</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -116,7 +137,14 @@
 					Colación
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="pColacion2">10</strong>%</span>
+					<span><strong class="pColacion2">
+						@foreach($comida[0]->subComidas as $sc)
+							@if(strtoupper($sc->sbc_nombre) == 'SEGUNDA COLACION')
+								{{ $sc->sbc_porcentaje }}
+							@break
+							@endif
+						@endforeach
+					</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -127,7 +155,14 @@
 					Once	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="pOnce">15</strong>%</span>
+					<span><strong class="pOnce">
+						@foreach($comida[0]->subComidas as $sc)
+							@if(strtoupper($sc->sbc_nombre) == 'ONCE')
+								{{ $sc->sbc_porcentaje }}
+							@break
+							@endif
+						@endforeach
+					</strong>%</span>
 				</div>
 			</div>
 		</div>
@@ -138,7 +173,14 @@
 					Cena	
 				</div>
 				<div class="col-6 text-left">
-					<span><strong class="pCena">20</strong>%</span>
+					<span><strong class="pCena">
+						@foreach($comida[0]->subComidas as $sc)
+							@if(strtoupper($sc->sbc_nombre) == 'CENA')
+								{{ $sc->sbc_porcentaje }}
+							@break
+							@endif
+						@endforeach
+					</strong>%</span>
 				</div>
 			</div>
 		</div>
