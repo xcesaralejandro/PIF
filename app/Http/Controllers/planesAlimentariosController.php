@@ -85,14 +85,13 @@ class planesAlimentariosController extends Controller
             ->first();
         // Traemos los factores
             $fac = factore::orderBy('id','DESC')
-            ->where('us_Id',\Auth::user()->us_id_nutricionista)
+            ->where('us_id',\Auth::user()->us_id_nutricionista)
             ->take(1)
             ->first();
-
         // Empezamos a llenar el plan alimentario
             $plan = new planesAlimentario();
-            $plan->factore()->associate($nAvance);
-            $plan->nuevosAvance()->associate($fac);
+            $plan->factore()->associate($fac);
+            $plan->nuevosAvance()->associate($nAvance);
             $plan->us_id = \Auth::user()->id;
 
             if($request->pa_apodo != null){
