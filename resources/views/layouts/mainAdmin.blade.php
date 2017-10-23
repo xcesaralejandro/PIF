@@ -21,7 +21,7 @@
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#nabvarAdmin" aria-controls="nabvarAdmin" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""><i class="fa fa-bars iconMenu" aria-hidden="true"></i></span>
           </button>
-          <a class="navbar-brand"> <img src="{{ asset('images/logo_frust.svg') }}" width="30px" height="30px"> 
+          <a class="navbar-brand"> <img src="{{ asset('images/logo_frust.svg') }}" width="30px" height="30px">
           @yield('title-nav')</a>
           <div class="collapse navbar-collapse" id="nabvarAdmin">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
@@ -42,8 +42,8 @@
         {{-- Cargamos el contenido --}}
         @yield('content')
         @include('partials.desplegarErrors')
-      </div> 
-    </div> 
+      </div>
+    </div>
   </div>
   <!-- carga de archivos js para todos los main -->
   @include('partials.mainJS')

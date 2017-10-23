@@ -59,7 +59,7 @@
              @yield('content')
              @include('partials.desplegarErrors')
         </div> {{-- .CUERPOPAGINA --}}
-      </div> 
+      </div>
     </div>
     <!-- carga de archivos js para todos los main -->
     @include('partials.mainJS')

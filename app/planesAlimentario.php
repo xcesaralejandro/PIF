@@ -14,7 +14,7 @@ class planesAlimentario extends Model
     	'na_id',
     	'us_id',
     	'pa_apodo',
-        'pa_fecha_creacion',
+      'pa_fecha_creacion',
     	'pa_fecha_caducacion',
     	'pa_estado',
     	'created_at',

@@ -23,7 +23,7 @@ class nuevoAvanceController extends Controller
                          ->where('us_id',\Auth::user()->id)
                          ->take(5)
                          ->get();
-        
+
 
         if(count($paraGraficar) != 0){
             foreach ($paraGraficar as $value) {
@@ -40,7 +40,7 @@ class nuevoAvanceController extends Controller
                 ->with('lastImc'   ,$lastImc)
                 ->with('avances'   ,  $nuevosAvance);
         }else{
-            
+
             $lastPeso[]   = 0;
             $lastFecha[]  = 0;
             $lastAltura[] = 0;
@@ -76,8 +76,8 @@ class nuevoAvanceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'na_altura' => 'min:60|max:220|required', 
-            'na_peso'   => 'min:30|max:150|required'
+            'na_altura' => 'min:60|max:220|numeric|required',
+            'na_peso'   => 'min:30|max:150|numeric|required'
         ]);
 
         //Comprobamos que el usuario sea cliente
@@ -87,10 +87,10 @@ class nuevoAvanceController extends Controller
                 $nuevoAvance->us_id    = \Auth::user()->id;
                 $nuevoAvance->na_fecha = date('Y-m-d');
                 $nuevoAvance->fill($request->all());
-                
+
                 if ($nuevoAvance->save()) {
                    alertify()->success('Ha registrado un nuevo avance con éxito.')->delay(10000)->clickToClose()->position('bottom left');
-                    return redirect()->back(); 
+                    return redirect()->back();
                 }else{
                     alertify()->error('Ha ocurrido un error al guardar el nuevo avance, intentelo más tarde.')->delay(10000)->clickToClose()->position('bottom left');
                 return redirect()->back();

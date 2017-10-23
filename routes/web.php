@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin','middleware'=>'auth','administrador'], functio
 //ZONA INFORMATIVA
 
     // ENFERMEDADES
-    Route::resource('enfermedades','enfermedadesController'); 
+    Route::resource('enfermedades','enfermedadesController');
     Route::get('enfermedades/{id}/detalle','enfermedadesController@detalle')->name('enfermedades.detalle');
     Route::get('enfermedades/{id}/destroy','enfermedadesController@destroy')->name('enfermedades.destroy');
     //SELLOS NEGROS
@@ -61,13 +61,13 @@ Route::group(['prefix' => 'admin','middleware'=>'auth','administrador'], functio
     Route::get('alimentos/{id}/destroy','alimentosController@destroy')->name('alimentos.destroy');
     Route::get('alimentos/categorias/{id}','alimentosController@categorias')->name('alimentos.categorias');
 
-//REGION 
+//REGION
     Route::resource('regiones','regionesController');
     Route::get('regiones/{id}/destroy','regionesController@destroy')->name('regiones.destroy');
 
 //COMUNA
     Route::resource('comunas','comunasController');
-    Route::get('comunas/{id}/destroy','comunasController@destroy')->name('comunas.destroy'); 
+    Route::get('comunas/{id}/destroy','comunasController@destroy')->name('comunas.destroy');
 });
 //RUTAS DEL NUTRICIONISTA
 Route::group(['prefix'=>'nutricionista','middleware'=>'auth','nutricionista'],function(){
@@ -81,7 +81,7 @@ Route::group(['prefix'=>'nutricionista','middleware'=>'auth','nutricionista'],fu
 
 
 // Rutas cliente
-Route::group(['prefix'=>'cliente'],function(){
+Route::group(['prefix'=>'cliente','middleware'=>['auth','cliente']],function(){
 	// Plan alimentario
 	Route::resource('planAlimentario','planesAlimentariosController');
     Route::get('planes','planesAlimentariosController@listar');

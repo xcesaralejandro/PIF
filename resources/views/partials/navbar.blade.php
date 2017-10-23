@@ -20,7 +20,7 @@
       <li class="nav-item">
         <div class="dropup nav-item">
           <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             {{ Auth::user()->us_nombres }}  
+             {{ Auth::user()->us_nombres }}
           </button>
           <div class="dropdown-menu" aria-labelledby="about-us">
             <a class="dropdown-item" href="#">Mis datos personales</a>
@@ -90,8 +90,8 @@
   </li>
     <li class="nav-item">
 <a class="  nav-link" href="{{ route('comidas.index') }}">Comidas</a>
-  </li>    
-    
+  </li>
+
 
   @elseif(Auth::user()->us_tipo_usuario =='cliente' )
   <li class="nav-item">
