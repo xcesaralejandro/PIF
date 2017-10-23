@@ -14,6 +14,7 @@ class factore extends Model
     	'ft_proteinas',
     	'ft_lipidos',
     	'ft_carbohidratos',
+        'ft_estado',
     	'created_at',
     	'updated_at'
     ];

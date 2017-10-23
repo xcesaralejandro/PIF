@@ -24,36 +24,53 @@
             <th>S. colacion %</th>
             <th>Once %</th>
             <th>Cena %</th>
-
+            <th>Activo</th>
             <th>Accion</th>
         </tr>
     </thead>
     <tbody>
         @foreach($comidas as $comida)
-                <tr>
-            <td> {{ $comida ->cm_nombre }} </td>
+        <tr>
+          <td > {{ $comida ->cm_nombre }} </td>
+          @foreach($comida->subComidas as $porcentaje)    
+          <td>{{ $porcentaje->sbc_porcentaje }} %</td>
+          @endforeach
+          <td >
+            <div class="container-fluid">
+                <div class="row">
 
-            <td class="fit">
-                <div class="container-fluid">
-                    <div class="row">
-                    <div class="col-xs-4">
-                        <a href="{{ route ('comidas.edit',$comida -> id)}}">
-                            <img class="imgAction mr-1 mb-1 "  src="{{ asset('images/settings.svg') }}" width="25px">
-                        </a>
-                    </div>
-                        <div class="col-xs-4">
-                            <a href="{{ route ('comidas.destroy',$comida -> id) }}">
-                                <img class="imgAction mb-1" src="{{ asset('images/cancel.svg') }}" width="25px">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </td>
+                 @if($comida->cm_estado == 1)
+                 <div class="col-xs-4">
+                   {{--  <a href="{{ route ('factores.activar',$factor -> id)}}"> --}} 
+                    <img class="imgAction mr-1 mb-1" src="{{ asset('images/activado.svg') }}" width="25px">
+                {{--  </a> --}}
+            </div>
+            @else
+            <div class="col-xs-4 ">
+             {{--  <a href="{{ route ('factores.activar',$factor -> id)}}"> --}}
+                <img class="imgAction mb-1" src="{{ asset('images/desactivado.svg') }}" width="25px">
+            {{--  </a> --}}
+        </div>
+        @endif
+    </div>
+</div>
+</td>
+<td class="fit">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="{{ route ('comidas.edit',$comida -> id)}}">
+                    <img class="imgAction mr-1 mb-1 "  src="{{ asset('images/settings.svg') }}" width="25px">
+                </a>
+            </div>
 
-        </tr>
+        </div>
+    </div>
+</td>
+</tr>
 
-        @endforeach
-    </tbody>
+@endforeach
+</tbody>
 </table>
 @endsection
 </hr>

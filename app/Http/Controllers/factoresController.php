@@ -35,18 +35,39 @@ class factoresController extends Controller
      */
     public function store(Request $request)
     {
+        $desactivado = '0';
 
-       $total = $request->ft_proteinas+$request->ft_lipidos + $request->ft_carbohidratos;
-       if($total != 100){
-        alertify()->error('mal')->persistent()->clickToClose();
-        return redirect()->back();
-    }else{
+        if($request->ft_proteinas <15){
+            alertify()->error('La ingesta de proteinas es muy baja')->persistent()->clickToClose();
+            return redirect()->back();
+        }elseif($request->ft_proteinas >20){
+           alertify()->error('Se ha excedido en la ingesta de proteina')->persistent()->clickToClose();
+           return redirect()->back();    
+       }elseif($request->ft_lipidos<20){
+           alertify()->error('La ingesta de lipidos es muy baja')->persistent()->clickToClose();
+           return redirect()->back();  
+       }elseif($request->ft_lipidos >25){
+           alertify()->error('Se ha excedido en la ingesta de lipidos')->persistent()->clickToClose();
+           return redirect()->back();  
+       }elseif($request->ft_carbohidratos < 50){
+           alertify()->error('La ingesta de carbohidratos es muy baja')->persistent()->clickToClose();
+           return redirect()->back();  
+       }elseif($request->ft_carbohidratos >60){
+           alertify()->error('Se ha excedido en la ingesta de carbohidratos')->persistent()->clickToClose();
+           return redirect()->back();  
+
+       }else{
         $factor = new factore($request->all());
+        $factor->us_id = \Auth::user()->id;
+        $todos = factore::all();
+        foreach ($todos as $value) {
+            $value->ft_estado = $desactivado;
+            $value->save();
+        }
         $factor->save();
         alertify()->success('Enhorabuena se a agregado su factor')->persistent()->clickToClose();
-        return redirect()->back();    
+        return redirect()->back();  
     }
-
 
 }
 
@@ -79,9 +100,10 @@ class factoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -94,4 +116,21 @@ class factoresController extends Controller
     {
         //
     }
+
+// //En caso de que se quiera activar esta opcion 
+//     public function Activar($id)
+//     {
+//         $activar = '1';
+//         $desactivar = '0';
+//         $factor = factore::find($id);
+//         $todos = factore::all();
+//         foreach ($todos as $value) {
+//             $value->ft_estado = $desactivar;
+//             $value->save();
+//         }
+//         $factor->ft_estado = $activar;
+//         $factor->save();
+//         alertify()->success('Se a activado un nuevo factor')->persistent()->clickToClose();
+//         return redirect()->back(); 
+//     }
 }

@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->integer('us_estatura');
             $table->enum('us_tipo_usuario',['cliente','administrador','nutricionista'])->default('cliente');
             $table->date('us_fecha_caducacion');
-            $table->string('us_rut',10);
+            $table->string('us_rut',15);
             $table->string('us_img_titulo',256)->nullable();
             $table->string('us_img_carnet_f',256)->nullable();
             $table->string('us_img_carnet_p',256)->nullable();

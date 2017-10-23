@@ -73,6 +73,7 @@ Route::group(['prefix' => 'admin','middleware'=>'auth','administrador'], functio
 Route::group(['prefix'=>'nutricionista','middleware'=>'auth','nutricionista'],function(){
     //FACTORES
     Route::resource('factores','factoresController');
+     Route::get('factores/{id}/activar','factoresController@activar')->name('factores.activar'); 
     //COMIDAD
     Route::resource('comidas','comidasController');
 
