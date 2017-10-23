@@ -75,10 +75,14 @@ class nuevoAvanceController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'na_altura' => 'min:60|max:220|required', 
+            'na_peso'   => 'min:30|max:150|required'
+        ]);
 
         //Comprobamos que el usuario sea cliente
         if (!\Auth::guest() && \Auth::user()->us_tipo_usuario == 'cliente') {
-           if ($request->na_imc > 0 && $request->na_vct >0) {
+           if ($request->na_imc > 0 && $request->na_vct > 0) {
                 $nuevoAvance           = new nuevosAvance();
                 $nuevoAvance->us_id    = \Auth::user()->id;
                 $nuevoAvance->na_fecha = date('Y-m-d');

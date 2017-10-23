@@ -3,14 +3,14 @@
 	<div class="col-sm-6 col-lg-4 offset-lg-2">
 		<div class="form-group">
 			{{ Form::label('na_altura', 'Altura (cm)') }}
-			{{ Form::number('na_altura',60,['class'=>'form-control altura estoCambia','required','min'=>'60']) }}
+			{{ Form::number('na_altura',60,['class'=>'form-control altura estoCambia','required','min'=>'60','max'=>'220']) }}
 		</div>
 	</div>
 
 	<div class="col-sm-6 col-lg-4">
 		<div class="form-group">
 			{{ Form::label('na_peso', 'Peso (kg)') }}
-			{{ Form::number('na_peso',30,['class'=>'form-control peso estoCambia','required','min'=>'30']) }}
+			{{ Form::number('na_peso',30,['class'=>'form-control peso estoCambia','required','min'=>'30','max'=>'150']) }}
 		</div>
 	</div>
 
