@@ -90,6 +90,9 @@ Route::group(['prefix'=>'cliente','middleware'=>['auth','cliente']],function(){
 	Route::get('planes/alimentos/{id}','planesAlimentariosController@alimentos')->name('planes.alimentos');
 
 	//Nuevo Avance
-    Route::resource('nuevoAvance','nuevoAvanceController');
+  Route::resource('nuevoAvance','nuevoAvanceController');
 	Route::get('nuevoAvance/eliminar/{id}','nuevoAvanceController@destroy')->name('nuevoAvance.destroy');
+
+  // Inicio
+  Route::get('inicio','inicioClienteController@index');
 });
