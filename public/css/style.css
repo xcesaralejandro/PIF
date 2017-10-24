@@ -575,3 +575,8 @@ article a {
   font-size: 1.15rem;
   font-weight: bold;
 }
+
+div.dropup button{
+    font-size: .965rem !important;
+    padding-top: .57rem !important;
+}

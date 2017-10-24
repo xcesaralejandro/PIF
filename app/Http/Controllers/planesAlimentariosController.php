@@ -312,12 +312,7 @@ class planesAlimentariosController extends Controller
   */
   public function destroy($id)
   {
-    
-  }
 
-  public function listar()
-  {
-    return View('cliente.planAlimentario.listar');
   }
 
   public function categorias($gpoId)

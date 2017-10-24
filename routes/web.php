@@ -22,78 +22,68 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Rutas administrador
-
-Route::group(['prefix' => 'admin','middleware'=>'auth','administrador'], function () {
-//ZONA AÑADIR NUTRICIONISTA
+// ADMINISTRADOR
+Route::group(['prefix' => 'admin','middleware'=>['auth','administrador']], function () {
+    // Añadir nutricionista
     Route::resource('agregarNutricionistas','agregarNutricionistasController');
     Route::get('agregarNutricionistas/{id}/destroy','agregarNutricionistasController@destroy')->name('agregarNutricionistas.destroy');
-        Route::get('agregarNutricionistas/{id}/detalle','agregarNutricionistasController@detalle')->name('agregarNutricionistas.detalle');
-//ZONA INFORMATIVA
-
-    // ENFERMEDADES
+    Route::get('agregarNutricionistas/{id}/detalle','agregarNutricionistasController@detalle')->name('agregarNutricionistas.detalle');
+    // Enfermedades
     Route::resource('enfermedades','enfermedadesController');
     Route::get('enfermedades/{id}/detalle','enfermedadesController@detalle')->name('enfermedades.detalle');
     Route::get('enfermedades/{id}/destroy','enfermedadesController@destroy')->name('enfermedades.destroy');
-    //SELLOS NEGROS
+    // Sellos negros
     Route::resource('sellosnegros','sellosNegrosController');
-        Route::get('sellosnegros/{id}/detalle','sellosNegrosController@detalle')->name('sellosnegros.detalle');
+    Route::get('sellosnegros/{id}/detalle','sellosNegrosController@detalle')->name('sellosnegros.detalle');
     Route::get('sellosnegros/{id}/destroy','sellosNegrosController@destroy')->name('sellosnegros.destroy');
-    //ETIQUETA NUTRICIONAL
+    // Etiqueta nutricional
     Route::resource('etiquetanutricional','etiquetaNutricionalController');
     Route::get('etiquetanutricional/{id}/destroy','etiquetaNutricionalController@destroy')->name('etiquetanutricional.destroy');
     Route::get('etiquetanutricional/{id}/detalle','etiquetaNutricionalController@detalle')->name('etiquetanutricional.detalle');
-    //CAMPOS DE LA ETIQUETA
+    // Campos etiqueta nutricional
     Route::resource('campoetiquetanutricional','campEtiquetaNutricionalController');
     Route::get('campoetiquetanutricional/{id}/destroy','campEtiquetaNutricionalController@destroy')->name('campoetiquetanutricional.destroy');
     Route::get('campoetiquetanutricional/{id}/detalle','campEtiquetaNutricionalController@detalle')->name('campoetiquetanutricional.detalle');
-
- //ZONA ALIMENTOS
-
-   //GRUPOS ALIMENTARIOS
+    // Grupos de alimentos
     Route::resource('gruposalimentarios','gruposAlimentosController');
     Route::get('gruposalimentarios/{id}/destroy','gruposAlimentosController@destroy')->name('gruposalimentarios.destroy');
-    //CATEGORIAS ALIMENTARIAS
+    // Categorias de alimentos
     Route::resource('categoriasalimentarias','categoriasAlimentariasController');
     Route::get('categoriasalimentarias/{id}/destroy','categoriasAlimentariasController@destroy')->name('categoriasalimentarias.destroy');
-    //ALIMENTOS
+    // Alimentos
     Route::resource('alimentos','alimentosController');
-    Route::get('alimentos/{id}/destroy','alimentosController@destroy')->name('alimentos.destroy');
+    Route::get('alimentos/{id}/destroy','alimentosController@destroy')      ->name('alimentos.destroy');
     Route::get('alimentos/categorias/{id}','alimentosController@categorias')->name('alimentos.categorias');
-
-//REGION
+    // Regiones
     Route::resource('regiones','regionesController');
     Route::get('regiones/{id}/destroy','regionesController@destroy')->name('regiones.destroy');
-
-//COMUNA
+    // Comunas
     Route::resource('comunas','comunasController');
     Route::get('comunas/{id}/destroy','comunasController@destroy')->name('comunas.destroy');
 });
-//RUTAS DEL NUTRICIONISTA
-Route::group(['prefix'=>'nutricionista','middleware'=>'auth','nutricionista'],function(){
-    //FACTORES
-    Route::resource('factores','factoresController');
-     Route::get('factores/{id}/activar','factoresController@activar')->name('factores.activar'); 
-    //COMIDAD
-    Route::resource('comidas','comidasController');
 
 
+// NUTRICIONISTA
+Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista']],function(){
+  // Factores
+  Route::resource('factores','factoresController');
+  Route::get('factores/{id}/activar','factoresController@activar')->name('factores.activar');
+  // Porcentaje de comidas
+  Route::resource('comidas','comidasController');
 });
 
 
-// Rutas cliente
-Route::group(['prefix'=>'cliente','middleware'=>['auth','cliente']],function(){
-	// Plan alimentario
-	Route::resource('planAlimentario','planesAlimentariosController');
-    Route::get('planes','planesAlimentariosController@listar');
-    Route::get('planes/grupos','planesAlimentariosController@grupos')->name('planes.grupos');
-    Route::get('planes/categorias/{id}','planesAlimentariosController@categorias')->name('planes.categorias');
-	Route::get('planes/alimentos/{id}','planesAlimentariosController@alimentos')->name('planes.alimentos');
-
-	//Nuevo Avance
-  Route::resource('nuevoAvance','nuevoAvanceController');
-	Route::get('nuevoAvance/eliminar/{id}','nuevoAvanceController@destroy')->name('nuevoAvance.destroy');
-
-  // Inicio
-  Route::get('inicio','inicioClienteController@index');
+// CLIENTE
+  Route::group(['prefix'=>'cliente','middleware'=>['auth','cliente']],function(){
+    // Dashboard
+    Route::get('inicio','inicioClienteController@index')->name('cliente.inicio');
+    // Plan alimentario
+  	Route ::resource('planAlimentario','planesAlimentariosController');
+    Route ::get('planes','planesAlimentariosController@index')                      ->name('planesAlimentarios.Listar');
+    Route ::get('planes/grupos','planesAlimentariosController@grupos')              ->name('planes.grupos');
+    Route ::get('planes/categorias/{id}','planesAlimentariosController@categorias') ->name('planes.categorias');
+  	Route ::get('planes/alimentos/{id}','planesAlimentariosController@alimentos')   ->name('planes.alimentos');
+  	//Nuevo Avance
+    Route::resource('nuevoAvance','nuevoAvanceController');
+  	Route::get('nuevoAvance/eliminar/{id}','nuevoAvanceController@destroy')->name('nuevoAvance.destroy');
 });

@@ -2,7 +2,7 @@
 @section('title','Planes alimentarios disponibles')
 
 @section('content')
-	@if(count($planes) !=0)
+	@if(count($planes) > 0)
 	<div class="row">
 		@foreach($planes as $plan)
 			<div class="col-sm-6 col-lg-4">
@@ -36,7 +36,7 @@
 			</div>
 		@endforeach
 	</div>{{-- .ROW --}}
-	
+
 	@else
 	<div class="fullDiv text-center pb-4">
 		<div style="font-size: 17rem;">
