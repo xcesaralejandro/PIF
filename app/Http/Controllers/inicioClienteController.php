@@ -3,7 +3,8 @@
 namespace frust\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use frust\planesAlimentario;
+use frust\nuevosAvance;
 class inicioClienteController extends Controller
 {
     /**
@@ -13,7 +14,33 @@ class inicioClienteController extends Controller
      */
     public function index()
     {
-        return View('cliente.Inicio');
+        $pa = planesAlimentario::all()
+                                 ->where('us_id', \Auth::user()->id)
+                                 ->count();
+        $na = nuevosAvance::all()
+                            ->where('us_id', \Auth::user()->id)
+                            ->count();
+
+        $lastna = nuevosAvance::orderBy('id','desc')
+                                ->where('us_id', \Auth::user()->id)
+                                ->take(1)
+                                ->get();
+
+        $agua = number_format($lastna[0]->na_vct * 1.1 / 1000,1);
+
+        if (strtoupper(\Auth::user()->us_sexo) === 'M') {
+          $pesoIdeal = (($lastna[0]->na_altura / 100) * 2) * 21;
+        }elseif (strtoupper(\Auth::user()->us_sexo) === 'F') {
+          $pesoIdeal = (($lastna[0]->na_altura / 100) * 2) * 22;
+        }else{
+          $pesoIdeal = 0;
+        }
+
+        return View('cliente.Inicio')
+        ->with('pa',$pa)
+        ->with('agua',$agua)
+        ->with('na',$na)
+        ->with('pideal',$pesoIdeal);
     }
 
     /**
