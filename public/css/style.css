@@ -563,9 +563,15 @@ article a {
 .flat4{background-color: #2196F3;}
 .flat5{background-color: #4CAF50;}
 .flat6{background-color: #FFC107;}
-.flat7{background-color: #3F51B5;}
-.flat8{background-color: #009688;}
+.flat7{background-color: #9E9D24;}
+.flat8{background-color: #5D4037;}
+.flat9{background-color: #E64A19;}
 
 .numberDashboardCliente{
   font-size: 1.8rem;
+}
+
+.textImcDashboard{
+  font-size: 1.15rem;
+  font-weight: bold;
 }
