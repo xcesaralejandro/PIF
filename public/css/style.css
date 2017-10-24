@@ -552,3 +552,20 @@ article a {
 .registroNuevoAvance a:hover {
   opacity: 0.7;
 }
+
+/* /////////////////////////////////////////////////////////////////////*/
+
+/* /////////////////  VISTAS DE DASHBOARD CLIENTE  /////////////////////*/
+
+.flat1{background-color: #F44336;}
+.flat2{background-color: #E91E63;}
+.flat3{background-color: #9C27B0;}
+.flat4{background-color: #2196F3;}
+.flat5{background-color: #4CAF50;}
+.flat6{background-color: #FFC107;}
+.flat7{background-color: #3F51B5;}
+.flat8{background-color: #009688;}
+
+.numberDashboardCliente{
+  font-size: 1.8rem;
+}
