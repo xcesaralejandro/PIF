@@ -5,8 +5,11 @@ namespace frust\Http\Controllers;
 use Illuminate\Http\Request;
 use frust\planesAlimentario;
 use frust\nuevosAvance;
+use frust\Traits\formulas;
+
 class inicioClienteController extends Controller
 {
+  use formulas;
     /**
      * Display a listing of the resource.
      *
@@ -27,19 +30,18 @@ class inicioClienteController extends Controller
                                 ->get();
 
         $agua = number_format($lastna[0]->na_vct * 1.1 / 1000,1);
-
-        if (strtoupper(\Auth::user()->us_sexo) === 'M') {
-          $pesoIdeal = (($lastna[0]->na_altura / 100) * 2) * 21;
-        }elseif (strtoupper(\Auth::user()->us_sexo) === 'F') {
-          $pesoIdeal = (($lastna[0]->na_altura / 100) * 2) * 22;
-        }else{
-          $pesoIdeal = 0;
-        }
+        $pesoIdeal  = self::pesoIdeal($lastna[0]->na_altura,\Auth::user()->us_sexo);
+        $imcInicial = self::imc(\Auth::user()->us_peso,\Auth::user()->us_estatura);
+        $imcActual  = self::imc($lastna[0]->na_peso, $lastna[0]->na_altura);
+        $pesotalla  = self::indicePesoTalla($lastna[0]->na_peso,self::minimoAceptable($lastna[0]->na_altura));
 
         return View('cliente.Inicio')
         ->with('pa',$pa)
         ->with('agua',$agua)
         ->with('na',$na)
+        ->with('pt',$pesotalla)
+        ->with('imcInicial', $imcInicial)
+        ->with('imcActual', $imcActual)
         ->with('pideal',$pesoIdeal);
     }
 
