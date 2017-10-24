@@ -11,10 +11,10 @@
 		<button type="submit" class="btn btn-primary">
 			<div class="row">
 				<div class="col-2 text-left" ">
-					<i class="fa fa-plus " aria-hidden="true "></i>	
+					<i class="fa fa-plus " aria-hidden="true "></i>
 				</div>
 				<div class="col-10 text-center ">
-					Registrar avance						
+					Registrar avance
 				</div>
 			</div>
 		</button>
@@ -60,7 +60,7 @@
 	@endforeach
 @endif
 <span class="lastPeso">
-	
+
 </span>
 <div class="text-center fullDiv mt-5 mb-4 ">
 	<span class="display-4 ">Ultimos <strong>5</strong> registros</span>
@@ -71,18 +71,17 @@
 
 @section('js')
 <script src="{{ asset( 'recursos/Chart/Chartbundle.js') }} "></script>
-<script src="{{ asset( 'recursos/Chart/Chart.js') }} "></script> 
+<script src="{{ asset( 'recursos/Chart/Chart.js') }} "></script>
 <script>
 	$(function(){
 		var trigger = $('input.estoCambia');
 		trigger.on('keyup mouseup', function(){
 			var peso    = parseInt($('.peso').val());
 			var altura  = parseInt($('.altura').val());
-			$('.vct').val(peso * 26);	
+			$('.vct').val(peso * 26);
 			$('.imc').val((peso / (altura/100 * altura/100)).toFixed(2));
 		});
 
-	// TEST CHAR JS
 	var ctx = document.getElementById("myChart ").getContext('2d');
 	var myChart = new Chart(ctx, {
 		type: 'line',
@@ -117,12 +116,11 @@
 				@else
 					'0000/00/00'
 				@endif,
-
-
-
 			],
 			datasets: [{
 				label: 'Peso',
+				pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+				pointBorderColor: 'rgba(54, 162, 235, 1)',
 				data: [
 					@if(array_key_exists(4,$lastPeso))
 						{{ $lastPeso[4] }}
@@ -166,6 +164,8 @@
 			},
 			{
 				label: 'Altura',
+				pointBackgroundColor: 'rgba(255,99,132,1)',
+				pointBorderColor: 'rgba(255,99,132,1)',
 				data: [
 					@if(array_key_exists(4,$lastAltura))
 						{{ $lastAltura[4] }}
@@ -209,6 +209,8 @@
 			},
 			{
 				label: 'Imc',
+				pointBackgroundColor: 'rgba(76, 175, 80, 1)',
+				pointBorderColor: 'rgba(76, 175, 80, 1)',
 				data: [
 					@if(array_key_exists(4,$lastImc))
 						{{ $lastImc[4] }}
