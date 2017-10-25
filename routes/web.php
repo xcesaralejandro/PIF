@@ -17,6 +17,12 @@ Route::get('etiqueta', function () {
     return view('informacion/etiquetanutricional');
 });
 
+
+route::group(['middleware'=>'auth'],function(){
+  Route::get('datosUsuario','updateUserController@index')      ->name('cuenta.index');
+  Route::put('datosUsuario/{id}','updateUserController@update')->name('cuenta.update');
+});
+
 Route::get('cuentaExpirada',function(){ return View('cuentaExpirada'); })->name('cuenta.expirada');
 
 Route::get('getComunas/{id}','regionesController@getComunas');

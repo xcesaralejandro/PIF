@@ -36,9 +36,9 @@
 				{{ Form::label('us_sexo','Sexo') }}
 			</div>
 			{{ Form::label('us_sexo','Masculino') }}
-			{{ Form::radio('us_sexo', 'masculino') }}
+			{{ Form::radio('us_sexo', 'M') }}
 			{{ Form::label('us_sexo','Femenino') }}
-			{{ Form::radio('us_sexo', 'femenino') }}
+			{{ Form::radio('us_sexo', 'F') }}
 		</div>
 
 		<div class="form-group">
@@ -104,7 +104,7 @@
 						<div class="form-group">
 			{{ Form::label('co_id','Comuna') }}
 			{{ Form::select('co_id',$comuna ,null,['class'=>'chosen-select','id'=>'comuna']) }}
-		
+
 		</div>
 
 	</div>{{-- .COL SM 6 --}}
