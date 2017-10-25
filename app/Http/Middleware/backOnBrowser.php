@@ -4,7 +4,7 @@ namespace frust\Http\Middleware;
 
 use Closure;
 
-class cambiaFechas
+class backOnBrowser
 {
     /**
      * Handle an incoming request.
@@ -15,6 +15,10 @@ class cambiaFechas
      */
     public function handle($request, Closure $next)
     {
+      header('Last-Modified:'.gmdate('D, d M Y H:i:s').'GMT');
+      header('Cache-Control: no-store, no-cache, must-revalidate');
+      header('Cache-Control: post-check=0, pre-check=0',false);
+      header('Pragma: no-cache');
       return $next($request);
     }
 }

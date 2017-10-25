@@ -11,7 +11,7 @@
   @include('partials.mainCSS')
   @yield('css')
 </head>
-<body>
+<body onload="deshabilitaRetroceso()">
   @include('partials.navbar')
   <div class="container">
     <div class="full_container">

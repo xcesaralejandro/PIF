@@ -60,6 +60,6 @@ class Kernel extends HttpKernel
         'cliente'       => \frust\Http\Middleware\cliente                       ::class,
         'administrador' => \frust\Http\Middleware\administrador                 ::class,
         'nutricionista' => \frust\Http\Middleware\nutricionista                 ::class,
-        'cambiaFechas'  => \frust\Http\Middleware\cambiaFechas                  ::class,
+        'backOnBrowser'  => \frust\Http\Middleware\backOnBrowser                ::class,
     ];
 }

@@ -12,7 +12,7 @@
  */
 Route::get('/', function () {
     return view('Inicio');
-});
+})->name('slash.inicio');
 Route::get('etiqueta', function () {
     return view('informacion/etiquetanutricional');
 });
@@ -26,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 // ADMINISTRADOR
-Route::group(['prefix' => 'admin','middleware'=>['auth','administrador']], function () {
+Route::group(['prefix' => 'admin','middleware'=>['auth','administrador','backOnBrowser']], function () {
     // Añadir nutricionista
     Route::resource('agregarNutricionistas','agregarNutricionistasController');
     Route::get('agregarNutricionistas/{id}/destroy','agregarNutricionistasController@destroy')->name('agregarNutricionistas.destroy');
@@ -67,7 +67,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','administrador']], funct
 
 
 // NUTRICIONISTA
-Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista']],function(){
+Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista','backOnBrowser']],function(){
   // Factores
   Route::resource('factores','factoresController');
   Route::get('factores/{id}/activar','factoresController@activar')->name('factores.activar');
@@ -77,7 +77,7 @@ Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista']],
 
 
 // CLIENTE
-  Route::group(['prefix'=>'cliente','middleware'=>['auth','cliente']],function(){
+  Route::group(['prefix'=>'cliente','middleware'=>['auth','cliente','backOnBrowser']],function(){
     // Dashboard
     Route::get('inicio','inicioClienteController@index')->name('cliente.inicio');
     // Plan alimentario
