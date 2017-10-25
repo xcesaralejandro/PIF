@@ -17,6 +17,8 @@ Route::get('etiqueta', function () {
     return view('informacion/etiquetanutricional');
 });
 
+Route::get('getComunas/{id}','regionesController@getComunas');
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');

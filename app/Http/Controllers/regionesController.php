@@ -3,6 +3,7 @@
 namespace frust\Http\Controllers;
 
 use Illuminate\Http\Request;
+use frust\comuna;
 use frust\Regione;
 class regionesController extends Controller
 {
@@ -74,7 +75,7 @@ class regionesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    { 
+    {
        $region = Regione::find($id);
        $region->fill($request->all());
        $region->save();
@@ -94,5 +95,13 @@ class regionesController extends Controller
         $region->delete();
         alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
         return redirect()->back();
+    }
+
+    public function getComunas($regionId = 1){
+      $comunas = comuna::where('rg_id',$regionId)
+                        ->select('id','co_nombre')
+                        ->get();
+
+      return response()->json($comunas);
     }
 }
