@@ -58,7 +58,8 @@ class Kernel extends HttpKernel
         'guest'         => \frust\Http\Middleware\RedirectIfAuthenticated       ::class,
         'throttle'      => \Illuminate\Routing\Middleware\ThrottleRequests      ::class,
         'cliente'       => \frust\Http\Middleware\cliente                       ::class,
-        'administrador' => \frust\Http\Middleware\cliente                       ::class,
-        'nutricionista' => \frust\Http\Middleware\cliente                       ::class,
+        'administrador' => \frust\Http\Middleware\administrador                 ::class,
+        'nutricionista' => \frust\Http\Middleware\nutricionista                 ::class,
+        'cambiaFechas'  => \frust\Http\Middleware\cambiaFechas                  ::class,
     ];
 }

@@ -17,6 +17,8 @@ Route::get('etiqueta', function () {
     return view('informacion/etiquetanutricional');
 });
 
+Route::get('cuentaExpirada',function(){ return View('cuentaExpirada'); })->name('cuenta.expirada');
+
 Route::get('getComunas/{id}','regionesController@getComunas');
 
 Auth::routes();
@@ -75,7 +77,7 @@ Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista']],
 
 
 // CLIENTE
-  Route::group(['prefix'=>'cliente','middleware'=>['auth','cliente']],function(){
+  Route::group(['prefix'=>'cliente','middleware'=>['auth','cliente','cambiaFechas']],function(){
     // Dashboard
     Route::get('inicio','inicioClienteController@index')->name('cliente.inicio');
     // Plan alimentario

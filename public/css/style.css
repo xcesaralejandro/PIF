@@ -580,3 +580,7 @@ div.dropup button{
     font-size: .965rem !important;
     padding-top: .57rem !important;
 }
+
+a:not([href]):not([tabindex]) {
+    font-size: 1rem;
+}
