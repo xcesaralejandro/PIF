@@ -1,5 +1,5 @@
 <div class="row">
-	
+
 	<div class="col-sm-6 col-lg-4 offset-lg-2">
 		<div class="form-group">
 			{{ Form::label('na_altura', 'Altura (cm)') }}

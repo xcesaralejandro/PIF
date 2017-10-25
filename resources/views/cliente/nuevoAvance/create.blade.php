@@ -5,15 +5,15 @@
 </div>
 <hr>
 <div class="formNuevoAvance fullDiv p-3">
-{{ Form::open(['route'=>'nuevoAvance.store', 'method'=>'POST']) }} @include('cliente.nuevoAvance.form')
+{{ Form::open(['route'=>'nuevoAvance.store', 'method'=>'POST','id'=>'formEnviar']) }} @include('cliente.nuevoAvance.form')
 <div class="row text-center">
 	<div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 mt-4 mb-1 pl-5 pr-5">
 		<button type="submit" class="btn btn-primary">
 			<div class="row">
-				<div class="col-2 text-left" ">
+				<div class="col-2 text-left">
 					<i class="fa fa-plus " aria-hidden="true "></i>
 				</div>
-				<div class="col-10 text-center ">
+				<div class="col-10 text-center">
 					Registrar avance
 				</div>
 			</div>
@@ -74,6 +74,16 @@
 <script src="{{ asset( 'recursos/Chart/Chart.js') }} "></script>
 <script>
 	$(function(){
+
+		$('#formEnviar').on('submit',function(e){
+			e.preventDefault();
+			if (parseInt($('.vct').val()) == 0 || parseInt($('.imc').val()) == 0) {
+				alertify.alert('Debe ingresar su peso y estatura real.');
+			}else{
+				$(this).unbind().submit();
+			}
+		});
+
 		var trigger = $('input.estoCambia');
 		trigger.on('keyup mouseup', function(){
 			var peso    = parseInt($('.peso').val());

@@ -4,6 +4,7 @@ namespace frust\Http\Controllers;
 
 use Illuminate\Http\Request;
 use frust\nuevosAvance;
+use frust\planesAlimentario;
 class nuevoAvanceController extends Controller
 {
     /**
@@ -77,7 +78,9 @@ class nuevoAvanceController extends Controller
     {
         $this->validate($request,[
             'na_altura' => 'min:60|max:220|numeric|required',
-            'na_peso'   => 'min:30|max:150|numeric|required'
+            'na_peso'   => 'min:30|max:150|numeric|required',
+            'na_vct'    => 'min:30|numeric|required',
+            'na_imc'    => 'min:10|numeric|required'
         ]);
 
         //Comprobamos que el usuario sea cliente
@@ -89,11 +92,23 @@ class nuevoAvanceController extends Controller
                 $nuevoAvance->fill($request->all());
 
                 if ($nuevoAvance->save()) {
+                  //  Ahora desactivamos sus planes
+                  $pa = planesAlimentario::with(['nuevosAvance'])
+                                          ->where('us_id',\Auth::user()->id)
+                                          ->get();
+                  foreach ($pa as $p) {
+                    $p->pa_estado = '0';
+                    $p->save();
+                    if ($p->nuevosAvance->na_vct == $nuevoAvance->na_vct) {
+                      $p->pa_estado = '1';
+                      $p->save();
+                    }
+                  }
                    alertify()->success('Ha registrado un nuevo avance con éxito.')->delay(10000)->clickToClose()->position('bottom left');
                     return redirect()->back();
                 }else{
                     alertify()->error('Ha ocurrido un error al guardar el nuevo avance, intentelo más tarde.')->delay(10000)->clickToClose()->position('bottom left');
-                return redirect()->back();
+                    return redirect()->back();
                 }
            }else{
                 alertify()->error('Debe cambiar los valores iniciales.')->delay(10000)->clickToClose()->position('bottom left');

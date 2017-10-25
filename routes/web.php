@@ -77,7 +77,7 @@ Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista']],
 
 
 // CLIENTE
-  Route::group(['prefix'=>'cliente','middleware'=>['auth','cliente','cambiaFechas']],function(){
+  Route::group(['prefix'=>'cliente','middleware'=>['auth','cliente']],function(){
     // Dashboard
     Route::get('inicio','inicioClienteController@index')->name('cliente.inicio');
     // Plan alimentario
