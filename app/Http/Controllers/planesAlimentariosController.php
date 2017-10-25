@@ -23,7 +23,8 @@ class planesAlimentariosController extends Controller
   public function index()
   {
     if (!\Auth::guest()) {
-      $planes = planesAlimentario::orderBy('id', 'desc')
+      $planes = planesAlimentario::orderBy('pa_estado', 'desc')
+      ->orderBy('id','desc')
       ->with(['nuevosAvance'])
       ->where('us_id', \Auth::user()->id)
       ->get();
