@@ -1,0 +1,31 @@
+body{
+  background-image: none;
+  background-color: #fff;
+}
+
+section#titulofc{
+  background-color: #013243;
+  padding: 3rem;
+  padding-top: 4rem;
+  padding-bottom: 7rem;
+  background-image: url(../images/vistas_publicas/triangulo.svg);
+  background-position: bottom;
+  background-size: 3rem;
+  background-repeat: repeat-x;
+}
+
+.bajoUnPoco{
+  position: relative;
+  top: -7rem;
+}
+
+#formFormulasComunes .form-control{
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #842f86;
+  transition: all .3s ease;
+}
+
+#formFormulasComunes .form-control:hover{
+  border-bottom: 1px solid #b92e34;
+}

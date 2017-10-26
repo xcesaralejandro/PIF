@@ -10,20 +10,16 @@
   <!-- carga de todos los archivos css para todos los main -->
   @include('partials.mainCSS')
   @yield('css')
+  <link rel="stylesheet" href="{{ asset('css/noClientes.css') }}">
 </head>
 <body>
   @include('partials.navbar')
+  @yield('sobreContainer')
   <div class="container">
-    <div class="full_container">
-      <div class="cabeceraPagina lightDarkPalet textoBlanco">@yield('title') <strong> | FRUST</strong></div>
-      <div class="cuerpoPagina">
         {{-- Traemos el modal del loguin --}}
         @include('partials.modalLogin')
         {{-- Cargamos el contenido --}}
         @yield('content')
-        @include('partials.desplegarErrors')
-      </div>
-    </div>
   </div>
   <!-- carga de archivos js para todos los main -->
   @include('partials.mainJS')

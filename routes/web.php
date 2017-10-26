@@ -17,6 +17,10 @@ Route::get('etiqueta', function () {
     return view('informacion/etiquetanutricional');
 });
 
+// VISTAS GENERALES PARA TODOS
+// Formulas comunes
+Route::resource('formulasComunes','formulasComunesController');
+
 
 route::group(['middleware'=>'auth'],function(){
   Route::get('datosUsuario','updateUserController@index')      ->name('cuenta.index');
