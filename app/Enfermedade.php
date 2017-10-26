@@ -18,7 +18,9 @@ class enfermedade extends Model
     	'created_at',
     	'updated_at'
     ];
-
+    public function scopeSearch($query, $ef_nombre){
+        return $query->where('ef_nombre', 'LIKE', "%$ef_nombre%");
+    }
     // SUS HIJOS
     // SUS PADRES
     public function User(){

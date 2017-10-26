@@ -12,9 +12,9 @@ class categoriasAlimentariasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categorias = categoriasAlimento::orderBy('ct_nombre', 'DESC')->paginate(15);
+        $categorias = categoriasAlimento::Search($request->nombre)->orderBy('ct_nombre', 'DESC')->paginate(15);
         $grupos = gruposAlimento::orderBy('id', 'DESC')->pluck('ga_nombre', 'id');
 
         return view('admin.categoriasalimentarias.listar')->with('categorias',$categorias)->with('grupos',$grupos);

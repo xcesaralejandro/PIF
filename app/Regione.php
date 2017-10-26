@@ -14,6 +14,9 @@ class Regione extends Model
     	'created_at',
     	'updated_at'
     ];
+    public function scopeSearch($query, $rg_nombre){
+        return $query->where('rg_nombre', 'LIKE', "%$rg_nombre%");
+    }    
     // SUS HIJOS
     public function comunas(){
     	return $this->hasmany('frust\comuna');

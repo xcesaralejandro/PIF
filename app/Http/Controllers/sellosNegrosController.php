@@ -12,9 +12,9 @@ class sellosNegrosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $sellos = sellosNegro::orderBy('id','DESC')->paginate(10);
+        $sellos = sellosNegro::Search($request->nombre)->orderBy('id','DESC')->paginate(10);
         return view('admin.sellosnegros.listar')->with('sellos',$sellos);
     }
 

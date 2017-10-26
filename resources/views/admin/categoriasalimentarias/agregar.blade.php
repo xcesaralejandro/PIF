@@ -1,6 +1,6 @@
 {{ Form::Open(['route' => 'categoriasalimentarias.store', 'method'=>'POST']) }}
 <div class="text-center  mb-4 mt-3">
-    <span class="display-4">Agregar una<strong> categoria</strong>
+    <span class="display-5">Agregar una<strong> categoria</strong>
     </span>
 </div>
 <hr>

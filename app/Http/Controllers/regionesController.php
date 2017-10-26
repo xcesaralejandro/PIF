@@ -12,9 +12,9 @@ class regionesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $regiones = regione::orderBy('id', 'DESC')->paginate(15);
+        $regiones = regione::Search($request->nombre)->orderBy('id', 'DESC')->paginate(15);
         return view('admin.regiones.listar')->with('regiones',$regiones);
     }
 

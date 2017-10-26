@@ -38,7 +38,12 @@
       </li>
 
       {{-- Fin menu loguin --}}
-      @if(Auth::user()->us_tipo_usuario =='administrador' )
+      @if(strtoupper(Auth::user()->us_tipo_usuario) =='ADMINISTRADOR' )
+      <li class="nav-item">
+        <a class="nav-link cursorPointer" href="{{route('admin.inicio')}}">
+          Inicio
+        </a>
+      </li>      
         <li class="nav-item">
           <a class=" nav-link" href="{{ route('agregarNutricionistas.index') }}">Nutricionistas</a>
         </li>
@@ -86,7 +91,12 @@
                     </li>
 
                     {{-- ITEMS DE MENÚ PARA EL NUTRICIONISTA --}}
-                  @elseif(Auth::user()->us_tipo_usuario =='nutricionista' )
+                  @elseif(strtoupper(Auth::user()->us_tipo_usuario) =='NUTRICIONISTA' )
+                    <li class="nav-item">
+                      <a class="nav-link cursorPointer" href="{{route('nutricionista.inicio')}}">
+                        Inicio
+                      </a>
+                    </li>                  
                     <li class="nav-item">
                       <a class="  nav-link" href="{{ route('factores.index') }}">Factores</a>
                     </li>
