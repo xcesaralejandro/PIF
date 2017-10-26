@@ -3,9 +3,11 @@
 namespace frust\Http\Controllers;
 
 use Illuminate\Http\Request;
+use frust\Traits\formulas;
 
 class formulasComunesController extends Controller
 {
+    use formulas;
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +18,32 @@ class formulasComunesController extends Controller
         return view('formulasComunes');
     }
 
+    public function calcular(Request $request)
+    {
+      $this->validate($request,[
+        'altura' => 'numeric|required',
+        'peso'   => 'numeric|required',
+        'sexo'   => 'required'
+      ]);
+
+
+      $imc          = self::imc($request->peso, $request->altura);
+      $pesoIdeal    = self::pesoIdeal($request->altura, $request->sexo);
+      $minAceptable = self::minimoAceptable($request->altura);
+      $maxAceptable = self::maxAceptable($request->altura);
+      $indicePT     = self::indicePesoTalla($request->peso, $minAceptable);
+      $pesoAjustado = self::pesoAjustado($request->peso,$pesoIdeal);
+
+
+      return view('resultadoFormulas')
+      ->with('imc',$imc)
+      ->with('minAceptable',$minAceptable)
+      ->with('maxAceptable',$maxAceptable)
+      ->with('indicePT',$indicePT)
+      ->with('pesoAjustado',$pesoAjustado)
+      ->with('pesoIdeal',$pesoIdeal);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -23,7 +51,8 @@ class formulasComunesController extends Controller
      */
     public function create()
     {
-        //
+      return view('resultadoFormulas');
+
     }
 
     /**

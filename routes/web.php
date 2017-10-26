@@ -19,6 +19,7 @@ Route::get('etiqueta', function () {
 
 // VISTAS GENERALES PARA TODOS
 // Formulas comunes
+Route::post('formulasComunes/resultados','formulasComunesController@calcular')->name('resultados.formulas');
 Route::resource('formulasComunes','formulasComunesController');
 
 

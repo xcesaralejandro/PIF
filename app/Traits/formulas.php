@@ -86,5 +86,15 @@ public function indicePesoTalla($peso, $minAceptable){
   }
 }
 
+// Peso ajustado
+public function pesoAjustado($peso,$pesoIdeal){
+  return ((($peso - $pesoIdeal) * 0.25) + $pesoIdeal);
+}
+
+// Peso maximo aceptable
+public function maxAceptable($altura){
+  return (24.9 * (($altura/100)*2));
+}
+
 
 }

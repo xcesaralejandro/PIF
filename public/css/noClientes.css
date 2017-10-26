@@ -29,3 +29,27 @@ section#titulofc{
 #formFormulasComunes .form-control:hover{
   border-bottom: 1px solid #b92e34;
 }
+
+.flatColorFC1{
+  background-color: #1abc9c !important;
+}
+
+.flatColorFC2{
+  background-color: #2ecc71 !important;
+}
+
+.flatColorFC3{
+  background-color: #3498db !important;
+}
+
+.flatColorFC4{
+  background-color: #f1c40f !important;
+}
+
+.flatColorFC5{
+  background-color: #e67e22 !important;
+}
+
+.flatColorFC6{
+  background-color: #e74c3c !important;
+}
