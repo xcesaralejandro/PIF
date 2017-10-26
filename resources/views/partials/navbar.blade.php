@@ -23,7 +23,7 @@
               {{ Auth::user()->us_nombres }}
             </button>
             <div class="dropdown-menu" aria-labelledby="about-us">
-              <a class="dropdown-item" href="#">Mis datos personales</a>
+              <a class="dropdown-item" href="{{ route('cuenta.index') }}">Mis datos personales</a>
               <a class="divider"></a>
               <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
