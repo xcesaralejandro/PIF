@@ -47,7 +47,7 @@
     </div>
     <div class="form-group">
       {{ Form::label('co_id','Comuna') }}
-      {{ Form::select('co_id',$comuna ,null,['class'=>'chosen-select','id'=>'comuna']) }}
+      {{ Form::select('co_id',$cactual ,$codcactual,['class'=>'chosen-select','id'=>'comuna']) }}
     </div>
 
 </div>{{-- .COL --}}
@@ -97,10 +97,6 @@
 
   </div>{{-- .COL SM 6 --}}
 </div>{{-- .ROW --}}
-
-<div id="coSelected" style="display: none !important;">
-  {{$user->co_id}}
-</div>
 
     <div class="row">
         <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 mt-4 mb-5 pl-5 pr-5">

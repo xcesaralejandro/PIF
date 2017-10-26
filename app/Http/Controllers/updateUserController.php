@@ -16,10 +16,13 @@ class updateUserController extends Controller
     public function index()
     {
       $user   = User::find(\Auth::user()->id);
-      $region = Regione::orderBy('rg_nombre','ASD')->pluck('rg_nombre','id');
-      $comuna = Comuna::orderBy('co_nombre','ASD')->pluck('co_nombre','id');
+      $region = Regione::orderBy('rg_nombre','ASC')->pluck('rg_nombre','id');
+      $comuna = Comuna::orderBy('co_nombre','ASC')->pluck('co_nombre','id');
 
+      $cActual = Comuna::orderBy('co_nombre','ASC')->where('rg_id',\Auth::user()->rg_id)->pluck('co_nombre','id');
       return view('auth.update')
+                  ->with('codcactual', \Auth::user()->co_id)
+                  ->with('cactual',$cActual)
                   ->with('region',$region)
                   ->with('user',$user)
                   ->with('comuna',$comuna);

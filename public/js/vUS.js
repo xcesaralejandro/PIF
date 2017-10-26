@@ -1,12 +1,5 @@
 $(function(){
-
-comunaseleccionadainicial();
-	function comunaseleccionadainicial(){
-		console.log($('#coSelected').text());
-		var obj =
-		$('select option[value=""]').attr("selected", true);
-	}
-
+var tkm = 0;
 // Cargamos choosen
 $(".chosen-select").chosen({
 		 placeholder_text_single: "Esperando selección...",
@@ -54,33 +47,37 @@ $('#password1').keyup(function(){
 	});
 
 // Cargamos los select
-llenarComunas($('#region').val());
 $('#region').on('change',function(){
+	console.log(tkm);
+	tkm += 1;
 	llenarComunas($(this).val());
 });
 
 function llenarComunas(id){
-	var method = 'GET';
-	var action = '/getComunas/' + id;
-	var co = $('select#comuna');
+if (tkm > 0) {
 
-	$.ajax({
-		'url': action,
-		'type': method,
-		'success':function(data){
-			co.find('option').remove().end();
-			$.each(data,function(index,value){
-				co.append('<option value="' + value['id'] +'">' + value['co_nombre'] +'</option>');
-			});
-			co.trigger("chosen:updated");
-		},
-		'error':function(jqXHR,mensaje,error){
-			alertify.error('Error al cargar las comunas, verifique su conexión a internet.');
-		},
-		'complete':function(jqXHR,mensaje){
-		},
-		'timeout':15000
-	});
+		var method = 'GET';
+		var action = '/getComunas/' + id;
+		var co = $('select#comuna');
+
+		$.ajax({
+			'url': action,
+			'type': method,
+			'success':function(data){
+				co.find('option').remove().end();
+				$.each(data,function(index,value){
+					co.append('<option value="' + value['id'] +'">' + value['co_nombre'] +'</option>');
+				});
+				co.trigger("chosen:updated");
+			},
+			'error':function(jqXHR,mensaje,error){
+				alertify.error('Error al cargar las comunas, verifique su conexión a internet.');
+			},
+			'complete':function(jqXHR,mensaje){
+			},
+			'timeout':15000
+		});
+}
 }
 
 
