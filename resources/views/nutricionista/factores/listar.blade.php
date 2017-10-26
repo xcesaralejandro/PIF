@@ -8,6 +8,12 @@
 @section('placeholderBuscar','Buscar factor') 
 
 @section('content')
+<style type="text/css">
+    form.form-inline{
+        display: none;
+    }
+
+</style>
 <div class="esconder-agregar">
     @include('nutricionista.factores.agregar')
 </div>

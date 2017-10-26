@@ -28,8 +28,8 @@
               @yield('nav')
             </ul>
 
-            <form class="form-inline my-2 my-lg-0"  >  {{--action="@yield()" method="GET" --}}
-              <input class="form-control mr-sm-2" type="text" placeholder="@yield('placeholderBuscar')">
+            <form class="form-inline my-2 my-lg-0" action="@yield('action')" method="GET" >
+              <input class="form-control mr-sm-2" type="text" name="@yield('name')" placeholder="@yield('placeholderBuscar')">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
           </div>

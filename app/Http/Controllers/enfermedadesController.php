@@ -13,9 +13,9 @@ class enfermedadesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $enfermedades = enfermedade::orderBy('id','DESC')->paginate(15);
+        $enfermedades = enfermedade::Search($request->nombre)->orderBy('id','DESC')->paginate(15);
         return View('admin.enfermedades.listar')->with('enfermedades',$enfermedades);
     }
 

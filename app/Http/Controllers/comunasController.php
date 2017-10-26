@@ -12,9 +12,9 @@ class comunasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() 
+    public function index(Request $request) 
     {
-        $comunas = comuna::orderBy('rg_id', 'DESC')->paginate(15);
+        $comunas = comuna::Search($request->nombre)->orderBy('rg_id', 'DESC')->paginate(15);
         $regiones = Regione::orderBy('id', 'DESC')->pluck('rg_nombre', 'id');
         return view('admin.comunas.listar')->with('comunas',$comunas)->with('regiones',$regiones);
     }

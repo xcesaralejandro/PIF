@@ -1,21 +1,10 @@
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('gruposalimentarios.index') }}">
+	<a class="nav-link" href="{{ route('gruposalimentarios.index') }}">
 		Listado
-    </a>
+	</a>
 </li>
 
-<li class="nav-item">
-    <a class="btn  nav-link text-left">
-		Agregar
-    </a>
-</li>
-
-@section('js')
-<script >
-
-$('.btn').on('click',function(){
-	$('.esconder-agregar').slideToggle();
-});
-</script>
-
+@section('action')
+{{ route('gruposalimentarios.index') }}
 @endsection
+@section('name','nombre')

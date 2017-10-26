@@ -49,6 +49,9 @@ class User extends Authenticatable
     protected $hidden = [
         'us_contrasenia', 'remember_token',
     ];
+    public function scopeSearch($query, $us_nombres){
+        return $query->where('us_nombres', 'LIKE', "%$us_nombres%");
+    }
 
     // SUS HIJOS
 

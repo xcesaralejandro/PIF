@@ -11,9 +11,7 @@
 @section('placeholderBuscar','Buscar grupo') 
 
 @section('content')
-<div class="esconder-agregar">
-    @include('admin.gruposalimentarios.agregar')
-</div>
+@include('admin.gruposalimentarios.agregar')
 
 <div class="text-center mb-4 mt-3">
     <span class="display-4">Listado de<strong> grupos alimentarios</strong>

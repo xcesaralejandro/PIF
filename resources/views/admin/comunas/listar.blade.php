@@ -11,9 +11,7 @@
 @section('placeholderBuscar','Buscar comuna') 
 
 @section('content')
-<div class="esconder-agregar">
     @include('admin.comunas.agregar')
-</div>
 <div class="text-center mb-4 mt-3">
     <span class="display-4"><strong> comunas </strong>
     </span>
