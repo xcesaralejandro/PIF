@@ -79,17 +79,31 @@ class updateUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $this->validate($request, [
-        'us_email' => 'required'
-      ]);
-
-      if ((int)\Auth::user()->id === (int) $id) {
-        $user   = User::find(\Auth::user()->id);
-        $user->fill($request->all());
-        $user->password = bcrypt($request->password);
-        if ($user->save()) {
-          alertify()->success('Datos actualizados correctamente.')->delay(10000)->clickToClose()->position('bottom left');
+      if ((string)$request->us_email != (string)\Auth::user()->us_email) {
+        $u = User::where('us_email',(string)$request->us_email)->get();
+        if (count($u)>0) {
+          $temp = 0;
+          alertify()->error('El E-mail ya se encuentra registrado.')->delay(10000)->clickToClose()->position('bottom left');
           return redirect()->back();
+        }else{
+          $temp = 100;
+        }
+      }else{
+        $temp = 100;
+      }
+
+      if ($temp > 0) {
+        if ((int)\Auth::user()->id === (int) $id) {
+          $user   = User::find(\Auth::user()->id);
+          $user->fill($request->all());
+          $user->password = bcrypt($request->password);
+          if ($user->save()) {
+            alertify()->success('Datos actualizados correctamente.')->delay(10000)->clickToClose()->position('bottom left');
+            return redirect()->back();
+          }else{
+            alertify()->error('No se han podido actualizar los datos de la cuenta.')->delay(10000)->clickToClose()->position('bottom left');
+            return redirect()->back();
+          }
         }else{
           alertify()->error('No se han podido actualizar los datos de la cuenta.')->delay(10000)->clickToClose()->position('bottom left');
           return redirect()->back();
@@ -98,6 +112,7 @@ class updateUserController extends Controller
         alertify()->error('No se han podido actualizar los datos de la cuenta.')->delay(10000)->clickToClose()->position('bottom left');
         return redirect()->back();
       }
+
     }
 
     /**
