@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use frust\Regione;
 use frust\comuna;
 use frust\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 class updateUserController extends Controller
 {
     /**
@@ -16,13 +19,10 @@ class updateUserController extends Controller
     public function index()
     {
       $user   = User::find(\Auth::user()->id);
-      $region = Regione::orderBy('rg_nombre','ASC')->pluck('rg_nombre','id');
-      $comuna = Comuna::orderBy('co_nombre','ASC')->pluck('co_nombre','id');
+      $region = Regione::orderBy('rg_nombre','ASD')->pluck('rg_nombre','id');
+      $comuna = Comuna::orderBy('co_nombre','ASD')->pluck('co_nombre','id');
 
-      $cActual = Comuna::orderBy('co_nombre','ASC')->where('rg_id',\Auth::user()->rg_id)->pluck('co_nombre','id');
       return view('auth.update')
-                  ->with('codcactual', \Auth::user()->co_id)
-                  ->with('cactual',$cActual)
                   ->with('region',$region)
                   ->with('user',$user)
                   ->with('comuna',$comuna);
@@ -79,40 +79,32 @@ class updateUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-      if ((string)$request->us_email != (string)\Auth::user()->us_email) {
-        $u = User::where('us_email',(string)$request->us_email)->get();
-        if (count($u)>0) {
-          $temp = 0;
-          alertify()->error('El E-mail ya se encuentra registrado.')->delay(10000)->clickToClose()->position('bottom left');
-          return redirect()->back();
-        }else{
-          $temp = 100;
-        }
-      }else{
-        $temp = 100;
-      }
+      $this->validate($request, [
+        'us_email' => 'required',
+        'cf_password' => 'min:4|same:password',
+        'us_rut'=>'cl_rut'
+      ]);
 
-      if ($temp > 0) {
-        if ((int)\Auth::user()->id === (int) $id) {
-          $user   = User::find(\Auth::user()->id);
-          $user->fill($request->all());
-          $user->password = bcrypt($request->password);
-          if ($user->save()) {
-            alertify()->success('Datos actualizados correctamente.')->delay(10000)->clickToClose()->position('bottom left');
-            return redirect()->back();
-          }else{
-            alertify()->error('No se han podido actualizar los datos de la cuenta.')->delay(10000)->clickToClose()->position('bottom left');
-            return redirect()->back();
-          }
+      if ((int)\Auth::user()->id === (int) $id) {
+        $user   = User::find(\Auth::user()->id);
+        $user->fill($request->all());
+        $user->password = bcrypt($request->password);
+       if (Hash::check(Input::get('password_old'), Auth::user()->password)){
+        if ($user->save()) {
+          alertify()->success('Datos actualizados correctamente.')->delay(10000)->clickToClose()->position('bottom left');
+          return redirect()->back();
         }else{
           alertify()->error('No se han podido actualizar los datos de la cuenta.')->delay(10000)->clickToClose()->position('bottom left');
           return redirect()->back();
         }
+        }else{
+        alertify()->error('La contraseña actual no es valida.')->delay(10000)->clickToClose()->position('bottom left');
+        return redirect()->back();
+       }  
       }else{
         alertify()->error('No se han podido actualizar los datos de la cuenta.')->delay(10000)->clickToClose()->position('bottom left');
         return redirect()->back();
       }
-
     }
 
     /**
