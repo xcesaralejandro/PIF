@@ -11,10 +11,7 @@
 @section('placeholderBuscar','Buscar region') 
 
 @section('content')
-<div class="esconder-agregar">
     @include('admin.regiones.agregar')
-</div>
-
 <div class="text-center mb-4 mt-3">
     <span class="display-4"><strong>Regiones</strong>
     </span>

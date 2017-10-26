@@ -4,20 +4,7 @@
     </a>
 </li>
 
-<li class="nav-item">
-    <a class="btn  nav-link text-left">
-		Agregar
-    </a>
-</li>
-
-@section('js')
-<script >
-
-$('.btn').on('click',function(){
-	$('.esconder-agregar').slideToggle();
-
-})
-	
-</script>
-
+    @section('action')
+{{ route('regiones.index') }}
 @endsection
+@section('name','nombre')

@@ -1,6 +1,6 @@
 {{ Form::Open(['route' => 'comunas.store', 'method'=>'POST']) }}
 <div class="text-center  mb-4 mt-3">
-    <span class="display-4">Agregar <strong> comuna</strong>
+    <span class="display-5">Agregar <strong> comuna</strong>
     </span>
 </div>
 <hr>

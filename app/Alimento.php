@@ -21,7 +21,9 @@ class alimento extends Model
     	'created_at',
     	'updated_at'
     ];
-
+    public function scopeSearch($query, $al_nombre){
+        return $query->where('al_nombre', 'LIKE', "%$al_nombre%");
+    }
     // SUS HIJOS
 
     public function detalleAlimentos(){

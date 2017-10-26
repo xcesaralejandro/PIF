@@ -17,6 +17,9 @@ class sellosNegro extends Model
     	'created_at',
     	'updated_at'
     ];
+    public function scopeSearch($query, $sn_nombre){
+        return $query->where('sn_nombre', 'LIKE', "%$sn_nombre%");
+    }
 
     // SUS HIJOS
     // SUS PADRES

@@ -33,6 +33,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // ADMINISTRADOR
 Route::group(['prefix' => 'admin','middleware'=>['auth','administrador','backOnBrowser']], function () {
+   Route::get('inicio','inicioAdminController@index')->name('admin.inicio');
     // Añadir nutricionista
     Route::resource('agregarNutricionistas','agregarNutricionistasController');
     Route::get('agregarNutricionistas/{id}/destroy','agregarNutricionistasController@destroy')->name('agregarNutricionistas.destroy');
@@ -74,9 +75,10 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','administrador','backOnB
 
 // NUTRICIONISTA
 Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista','backOnBrowser']],function(){
+  Route::get('inicio','inicioNutricionistaController@index')->name('nutricionista.inicio');
   // Factores
   Route::resource('factores','factoresController');
-  Route::get('factores/{id}/activar','factoresController@activar')->name('factores.activar');
+  // Route::get('factores/{id}/activar','factoresController@activar')->name('factores.activar');
   // Porcentaje de comidas
   Route::resource('comidas','comidasController');
 });

@@ -12,9 +12,9 @@ class etiquetaNutricionalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $campos = camposEtiquetasNutricionale::orderBy('id','DESC')->paginate(1);
+        $campos = camposEtiquetasNutricionale::Search($request->nombre)->orderBy('id','DESC')->paginate(1);
         $etiquetas = etiquetasNutricionale::orderBy('id','DESC')->paginate(15);
         $en_cont = etiquetasNutricionale::pluck('id','id');
         $en_cont = count($en_cont);
