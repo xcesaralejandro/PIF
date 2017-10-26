@@ -15,7 +15,9 @@ class categoriasAlimento extends Model
     	'created_at',
     	'updated_at'
     ];
-
+    public function scopeSearch($query, $ct_nombre){
+        return $query->where('ct_nombre', 'LIKE', "%$ct_nombre%");
+    }
     // SUS HIJOS
     public function alimentos(){
     	return $this->hasMany('frust\alimento');

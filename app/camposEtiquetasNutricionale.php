@@ -16,7 +16,9 @@ class camposEtiquetasNutricionale extends Model
     	'created_at',
     	'updated_at'
     ];
-
+    public function scopeSearch($query, $cen_nombre){
+        return $query->where('cen_nombre', 'LIKE', "%$cen_nombre%");
+    }
     // SUS HIJOS
 
     // SUS PADRES

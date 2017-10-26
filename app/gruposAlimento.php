@@ -12,7 +12,9 @@ class gruposAlimento extends Model
     	'id',
     	'ga_nombre'
     ];
-
+    public function scopeSearch($query, $ga_nombre){
+        return $query->where('ga_nombre', 'LIKE', "%$ga_nombre%");
+    }
     // SUS HIJOS
     public function categoriasAlimentos(){
 		return $this->hasMany('frust\categoriasAlimento');

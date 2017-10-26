@@ -15,9 +15,9 @@ class agregarNutricionistasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $nutricionistas = User::where('us_tipo_usuario','nutricionista')
+        $nutricionistas = User::Search($request->nombre)->where('us_tipo_usuario','nutricionista')
         ->orderBy('us_nombres','DESC')->paginate(20);
         return view('admin.agregarNutricionistas.listar')
         ->with('nutricionistas',$nutricionistas);

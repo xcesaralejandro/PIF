@@ -1,6 +1,6 @@
 {{ Form::Open(['route' => 'regiones.store', 'method'=>'POST']) }}
 <div class="text-center  mb-4 mt-3">
-    <span class="display-4">Agregar un<strong> region</strong>
+    <span class="display-5">Agregar un<strong> region</strong>
     </span>
 </div>
 <hr >

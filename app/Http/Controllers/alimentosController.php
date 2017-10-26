@@ -14,9 +14,9 @@ class alimentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $alimentos = alimento::orderBy('id','DESC')->paginate(15);
+        $alimentos = alimento::Search($request->nombre)->orderBy('id','DESC')->paginate(15);
         return view('admin.alimentos.listar')->with('alimentos',$alimentos);
     }
 

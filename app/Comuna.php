@@ -15,7 +15,9 @@ class comuna extends Model
     	'created_at',
     	'updated_at'
     ];
-
+    public function scopeSearch($query, $co_nombre){
+        return $query->where('co_nombre', 'LIKE', "%$co_nombre%");
+    }
 
     // SUS HIJOS
     public function Users(){

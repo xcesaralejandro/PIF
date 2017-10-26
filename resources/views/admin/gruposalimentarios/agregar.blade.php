@@ -1,6 +1,6 @@
 {{ Form::Open(['route' => 'gruposalimentarios.store', 'method'=>'POST']) }}
 <div class="text-center  mb-4 mt-3">
-    <span class="display-4">Agregar un<strong> grupo</strong>
+    <span class="display-5">Agregar un<strong> grupo</strong>
     </span>
 </div>
 <hr >

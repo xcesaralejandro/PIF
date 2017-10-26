@@ -1,6 +1,6 @@
 <li class="nav-item">
     <a class="btn btn-agregar">
-		agregar
+		Agregar
     </a>
 </li>
 

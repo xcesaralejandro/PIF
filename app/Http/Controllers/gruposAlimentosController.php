@@ -12,10 +12,10 @@ class gruposAlimentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $grupos = gruposAlimento::orderBy('id', 'DESC')->paginate(15);
+        $grupos = gruposAlimento::Search($request->nombre)->orderBy('id', 'DESC')->paginate(15);
         return View('admin.gruposalimentarios.listar')->with('grupos',$grupos);
     }
 

@@ -8,9 +8,9 @@
 @endsection
 @section('placeholderBuscar','Buscar grupo') 
 @section('content')
-<div class="esconder-agregar">
+
     @include('admin.categoriasalimentarias.agregar')
-</div>
+
 <div class="text-center mb-4 mt-3">
     <span class="display-4">Listado de<strong> categorias de alimentos</strong>
     </span>
