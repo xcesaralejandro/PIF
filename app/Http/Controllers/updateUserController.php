@@ -76,6 +76,10 @@ class updateUserController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $this->validate($request, [
+        'us_email' => 'required'
+      ]);
+
       if ((int)\Auth::user()->id === (int) $id) {
         $user   = User::find(\Auth::user()->id);
         $user->fill($request->all());

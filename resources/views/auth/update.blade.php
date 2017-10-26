@@ -98,6 +98,9 @@
   </div>{{-- .COL SM 6 --}}
 </div>{{-- .ROW --}}
 
+<div id="coSelected" style="display: none !important;">
+  {{$user->co_id}}
+</div>
 
     <div class="row">
         <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 mt-4 mb-5 pl-5 pr-5">
@@ -111,5 +114,5 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('js/validacionUsuario.js') }}"></script>
+    <script src="{{ asset('js/vUS.js') }}"></script>
 @endsection
