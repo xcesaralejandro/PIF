@@ -43,7 +43,7 @@
         <a class="nav-link cursorPointer" href="{{route('admin.inicio')}}">
           Inicio
         </a>
-      </li>      
+      </li>
         <li class="nav-item">
           <a class=" nav-link" href="{{ route('agregarNutricionistas.index') }}">Nutricionistas</a>
         </li>
@@ -96,7 +96,7 @@
                       <a class="nav-link cursorPointer" href="{{route('nutricionista.inicio')}}">
                         Inicio
                       </a>
-                    </li>                  
+                    </li>
                     <li class="nav-item">
                       <a class="  nav-link" href="{{ route('factores.index') }}">Factores</a>
                     </li>
@@ -129,6 +129,22 @@
                             </a>
                             <a class="dropdown-item" href="{{ route('planesAlimentarios.Listar') }}">
                               Ver planes creados
+                            </a>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div class="dropup nav-item">
+                        <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Consumo diario
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="about-us">
+                            <a class="dropdown-item" href="{{ route('registroDiario.index') }}">
+                              Ver consumos
+                            </a>
+                            <a class="dropdown-item" href="{{ route('registroDiario.create') }}">
+                              Agregar consumo
                             </a>
                         </div>
                       </div>

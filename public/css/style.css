@@ -461,7 +461,7 @@ body {
   cursor: pointer;
 }
 
-#containerSticky .form-control, #pa_apodo, .formNuevoAvance .form-control{
+#containerSticky .form-control, #pa_apodo, .formNuevoAvance .form-control, #chilamediabola .form-control{
   padding: 0px;
   border: none;
   border-radius: 0px;
@@ -469,7 +469,7 @@ body {
   transition: all .3s ease;
 }
 
-#containerSticky .form-control:hover, #pa_apodo:hover, .formNuevoAvance .form-control:hover{
+#containerSticky .form-control:hover, #pa_apodo:hover, .formNuevoAvance .form-control:hover, #chilamediabola .form-control:hover{
   border-bottom: 1px solid #b92e34;
 }
 
@@ -587,4 +587,50 @@ div.dropup button{
 
 a:not([href]):not([tabindex]) {
     font-size: 1rem;
+}
+
+
+/* /////////////////////////////////////////////////////////////////////*/
+/* /////////////////  REGISTRAR CONSUMO DIARIO  ///////////////////////*/
+
+#chilamediabola .display-2{
+  font-size: 1.5rem;
+}
+
+.titleLeftBorder{
+  border-left: .2rem solid #842F86;
+  padding-left: .5rem;
+}
+
+#registrosDiarios .display-2{
+  font-size: 1.2rem;
+}
+
+#registrosDiarios a{
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+.fuckingPadre{
+  transition: all .2s ease;
+}
+.fuckingPadre:hover{
+  opacity: .85 !important;
+}
+
+.cajean3{
+  background-color: #9b59b6;
+  border-bottom: 10px double #fff;
+}
+
+.thecolor{
+  background-color: #9D2F6B !important;
+}
+
+.fontAw{
+  font-size: 7rem;
+}
+
+.mispanreadyonready{
+  font-size: 1.25rem;
 }
