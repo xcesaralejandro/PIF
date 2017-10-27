@@ -34,7 +34,13 @@
           <img src="{{ asset('images/cliente_dashboard/diskette.svg') }}" width="150px">
         </div>
         <div class="fullDiv textoBlanco p-3">
-          <div class="numberDashboardCliente"><strong>00</strong></div>
+          <div class="numberDashboardCliente"><strong>
+            @if ($cd>= 0 && $cd<=9)
+              0{{$cd}}
+            @else
+              {{$cd}}
+            @endif
+          </strong></div>
           <span>Dias que haz registrado información</span>
         </div>
       </div>
