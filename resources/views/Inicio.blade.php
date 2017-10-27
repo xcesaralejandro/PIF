@@ -76,7 +76,7 @@
           <span class="display-2"><strong>Eficiencia</strong></span>
         </div>
         <div class="fullDiv">
-          Ahorra tiempo y define porcentajes y factores en base a tu experiencia para todos tus clientes.
+          Ahorra tiempo, define porcentajes y factores en base a tu experiencia para todos tus clientes.
         </div>
       </div>
 
