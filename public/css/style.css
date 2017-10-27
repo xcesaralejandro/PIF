@@ -601,3 +601,35 @@ a:not([href]):not([tabindex]) {
   border-left: .2rem solid #842F86;
   padding-left: .5rem;
 }
+
+#registrosDiarios .display-2{
+  font-size: 1.2rem;
+}
+
+#registrosDiarios a{
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+.fuckingPadre{
+  transition: all .2s ease;
+}
+.fuckingPadre:hover{
+  opacity: .85 !important;
+}
+
+.cajean3{
+  border-bottom: 10px double #fff;
+}
+
+.thecolor{
+  background-color: #9D2F6B !important;
+}
+
+.fontAw{
+  font-size: 7rem;
+}
+
+.mispanreadyonready{
+  font-size: 1.25rem;
+}
