@@ -24,8 +24,10 @@ class registroDiarioRequest extends FormRequest
     public function rules()
     {
         return [
-            'cs_ingesta_agua' => 'required|numeric',
-            'pa_id'           => 'required|numeric'
+            'cs_ingesta_agua'         => 'required|numeric',
+            'pa_id'                   => 'required|numeric',
+            'cs_alimentacion_familia' =>'max:2000',
+            'cs_alimentos_extra'      => 'max:2000'
         ];
     }
 }

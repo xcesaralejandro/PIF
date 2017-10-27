@@ -25,12 +25,17 @@ class consumoDiarioController extends Controller
      */
     public function create()
     {
+        $us   = (int)\Auth::user()->id;
+        $date = date('Y-m-d');
+        $findcd = consumosDiario::select('id')->where('us_id', $us)->where('cs_fecha',$date)->get();
+        $findcd = (int) $findcd[0]->id;
         $planes = planesAlimentario::select('id','pa_apodo')
                                     ->where('us_id',\Auth::user()->id)
                                     ->where('pa_estado','1')
                                     ->pluck('pa_apodo','id');
         return view('cliente.consumoDiario.create')
-        ->with('planes',$planes);
+        ->with('planes',$planes)
+        ->with('cd',$findcd);
     }
 
     /**
@@ -82,7 +87,25 @@ class consumoDiarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reg = consumosDiario::find($id);
+        if (count($reg) === 0) {
+          alertify()->error('No se ha encontrado un registro.')->delay(10000)->clickToClose()->position('bottom left');
+          return redirect()->back();
+        }
+        if ((int)$reg->us_id === (int) \Auth::user()->id) {
+        $findcd = consumosDiario::find($id)->where('us_id',\Auth::user()->id)->get();
+        $findcd = $findcd[0];
+        $planes = planesAlimentario::select('id','pa_apodo')
+                                    ->where('us_id',\Auth::user()->id)
+                                    ->where('pa_estado','1')
+                                    ->pluck('pa_apodo','id');
+        return view('cliente.consumoDiario.edit')
+        ->with('planes',$planes)
+        ->with('cd',$findcd);
+      }else{
+        alertify()->error('No se ha encontrado un registro.')->delay(10000)->clickToClose()->position('bottom left');
+        return redirect()->back();
+      }
     }
 
     /**
@@ -92,9 +115,19 @@ class consumoDiarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(registroDiarioRequest $request, $id)
     {
-        //
+        $findcd = consumosDiario::find($id)->where('us_id',\Auth::user()->id)->get();
+        $findcd = $findcd[0];
+        $findcd->fill($request->all());
+
+        if ($findcd->save()) {
+          alertify()->success('Se ha actualizado el registro con éxito.')->delay(10000)->clickToClose()->position('bottom left');
+          return redirect()->back();
+        }else{
+          alertify()->error('No se ha podido actualizar el registro, intentelo nuevamente.')->delay(10000)->clickToClose()->position('bottom left');
+          return redirect()->back();
+        }
     }
 
     /**

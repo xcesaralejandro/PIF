@@ -596,3 +596,8 @@ a:not([href]):not([tabindex]) {
 #chilamediabola .display-2{
   font-size: 1.5rem;
 }
+
+.titleLeftBorder{
+  border-left: .2rem solid #842F86;
+  padding-left: .5rem;
+}
