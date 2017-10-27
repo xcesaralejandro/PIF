@@ -34,7 +34,7 @@ class inicioClienteController extends Controller
         $imcInicial = self::imc(\Auth::user()->us_peso,\Auth::user()->us_estatura);
         $imcActual  = self::imc($lastna[0]->na_peso, $lastna[0]->na_altura);
         $pesotalla  = self::indicePesoTalla($lastna[0]->na_peso,self::minimoAceptable($lastna[0]->na_altura));
-
+        
         return View('cliente.Inicio')
         ->with('pa',$pa)
         ->with('agua',$agua)

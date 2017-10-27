@@ -99,7 +99,9 @@ Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista','b
     Route ::get('planes/grupos','planesAlimentariosController@grupos')              ->name('planes.grupos');
     Route ::get('planes/categorias/{id}','planesAlimentariosController@categorias') ->name('planes.categorias');
   	Route ::get('planes/alimentos/{id}','planesAlimentariosController@alimentos')   ->name('planes.alimentos');
-  	//Nuevo Avance
+  	// Nuevo Avance
     Route::resource('nuevoAvance','nuevoAvanceController');
   	Route::get('nuevoAvance/eliminar/{id}','nuevoAvanceController@destroy')->name('nuevoAvance.destroy');
+    // Registro diario
+    Route::resource('registroDiario','consumoDiarioController');
 });
