@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use frust\planesAlimentario;
 use frust\nuevosAvance;
 use frust\Traits\formulas;
+use frust\consumosDiario;
 
 class inicioClienteController extends Controller
 {
@@ -20,6 +21,11 @@ class inicioClienteController extends Controller
         $pa = planesAlimentario::all()
                                  ->where('us_id', \Auth::user()->id)
                                  ->count();
+
+        $cd = consumosDiario::all()
+                             ->where('us_id', \Auth::user()->id)
+                             ->count();
+
         $na = nuevosAvance::all()
                             ->where('us_id', \Auth::user()->id)
                             ->count();
@@ -34,9 +40,10 @@ class inicioClienteController extends Controller
         $imcInicial = self::imc(\Auth::user()->us_peso,\Auth::user()->us_estatura);
         $imcActual  = self::imc($lastna[0]->na_peso, $lastna[0]->na_altura);
         $pesotalla  = self::indicePesoTalla($lastna[0]->na_peso,self::minimoAceptable($lastna[0]->na_altura));
-        
+
         return View('cliente.Inicio')
         ->with('pa',$pa)
+        ->with('cd',$cd)
         ->with('agua',$agua)
         ->with('na',$na)
         ->with('pt',$pesotalla)
