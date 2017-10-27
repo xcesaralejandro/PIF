@@ -16,9 +16,6 @@ class consumoDiarioController extends Controller
     public function index()
     {
       $us   = (int)\Auth::user()->id;
-      $clases = ['#C62828','#AD1457','#6A1B9A','#4527A0','#283593','#1565C0','#0277BD','#00838F','#00695C',
-                 '#2E7D32','#558B2F','#D84315','#4E342E','#424242','#37474F','#EF6C00'];
-
       $findcd = consumosDiario::orderBy('id','desc')
                                 ->select('id','cs_fecha')
                                 ->where('us_id', $us)
@@ -26,8 +23,7 @@ class consumoDiarioController extends Controller
                                 ->get();
 
       return view('cliente.consumoDiario.listar')
-      ->with('cd',$findcd)
-      ->with('c',$clases);
+      ->with('cd',$findcd);
     }
 
     /**

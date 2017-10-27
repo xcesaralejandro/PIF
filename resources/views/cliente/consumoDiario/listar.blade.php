@@ -8,7 +8,7 @@
       <div class="col-sm-4 col-lg-3 col-xl-2">
         <div class="fuckingPadre">
           <a href="{{route('registroDiario.show',$v->id)}}">
-            <div class="cajean3 text-center mb-3 p-4 textoBlanco" style="background-color: {{$c[rand(0,15)]}}">
+            <div class="cajean3 text-center mb-3 p-4 textoBlanco">
                 <span class="display-2"><strong>{{$v->cs_fecha}}</strong></span>
             </div>
           </a>

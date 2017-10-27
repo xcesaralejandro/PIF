@@ -619,6 +619,7 @@ a:not([href]):not([tabindex]) {
 }
 
 .cajean3{
+  background-color: #9b59b6;
   border-bottom: 10px double #fff;
 }
 
