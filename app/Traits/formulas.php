@@ -71,7 +71,7 @@ public function indicePesoTalla($peso, $minAceptable){
     $temp[] = $valor;
     $temp[] = 'Enflaquecido';
     return $temp;
-  }elseif ($valor>=90 && $valor<=109) {
+  }elseif ($valor>=90 && $valor<110) {
     $temp[] = $valor;
     $temp[] = 'Normal';
     return $temp;
@@ -79,7 +79,7 @@ public function indicePesoTalla($peso, $minAceptable){
     $temp[] = $valor;
     $temp[] = 'Sobrepeso';
     return $temp;
-  }elseif ($valor>120) {
+  }elseif ($valor>119) {
     $temp[] = $valor;
     $temp[] = 'Obeso';
     return $temp;
