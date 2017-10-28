@@ -8,10 +8,10 @@
 @endsection 
 
 @section('urlEditar')
-{{ route ('etiquetanutricional.edit', $etiqueta -> id)}}
+{{ route ('campoetiquetanutricional.edit', $campo -> id)}}
 @endsection
 @section('urlEliminar')
-{{ route ('etiquetanutricional.destroy', $etiqueta -> id)}}
+{{ route ('campoetiquetanutricional.destroy', $campo -> id)}}
 @endsection
 
 @section('placeholderBuscar','Buscar Enfermedades') 
@@ -20,14 +20,14 @@
 <div class="row ">
 	
 	<div class="  col-sm-6 col-lg-4 mb-4  offset-sm-3  offset-md-4">
-<div class=" fullDiv borderPrimary">
-		<div class="card-header primaryPalet textoBlanco text-center">
-			{{ $campo ->cen_nombre }}
+		<div class=" fullDiv borderPrimary">
+			<div class="card-header primaryPalet textoBlanco text-center">
+				{{ $campo ->cen_nombre }}
+			</div>
+			<div class="card-block">
+				<p class="card-text">{!! $campo->cen_descripcion !!}</p>
+			</div>
 		</div>
-		<div class="card-block">
-			<p class="card-text">{!! $campo->cen_descripcion !!}</p>
-		</div>
-</div>
 	</div>
 </div>
 

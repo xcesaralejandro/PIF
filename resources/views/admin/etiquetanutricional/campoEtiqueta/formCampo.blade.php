@@ -10,7 +10,7 @@
 
 	<div class="col-lg-12">
 		<div class="form-group">
-			{{ Form::label('cen_descripcion','Breve descripción') }}
+			{{ Form::label('cen_descripcion',' ') }}
 			{{ Form::textarea('cen_descripcion',null,['class'  =>'form-control',
 											'placeholder' =>'Breve descripción',
 											'minlength'   =>'10',

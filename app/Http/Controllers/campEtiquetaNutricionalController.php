@@ -54,7 +54,7 @@ class campEtiquetaNutricionalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function detalle($id)
+    public function detalle($id) 
     {
         $campo   = camposEtiquetasNutricionale::find($id);
         $en_cont = etiquetasNutricionale::pluck('id', 'id');
