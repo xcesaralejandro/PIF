@@ -65,15 +65,15 @@ class alimentosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */   
-    public function categorias($gpoId){
+    public function getCategorias($gp_id){
         if (!\Auth::guest()) {
-            $cat = categoriasAlimento::orderBy('ct_nombre','asc')
-            ->where('ga_id',$gpoId)
+            $categorias = categoriasAlimento::orderBy('ct_nombre','ASC')
+            ->where('ga_id',$gp_id)
             ->pluck('id','ct_nombre');
         }else{
-            $cat = "Lo lamentamos, no compartimos la información de nuestra APP con terceros.";
+            $categorias = "Lo lamentamos, no compartimos la información de nuestra APP con terceros.";
         }
-        return response()->json($cat);
+        return response()->json($categorias);
     }
     public function edit($id)
     {

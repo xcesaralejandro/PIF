@@ -158,8 +158,8 @@
                 @endguest
 
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Buscar persona">
+              <form class="form-inline my-2 my-lg-0" action="{{ route('consulta.index') }}" method="GET" >
+                <input class="form-control mr-sm-2" type="email" name="correo" placeholder="Buscar persona">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
               </form>
             </div>
