@@ -77,7 +77,7 @@
                         'required',
                         'id'=>'rut']) }}
     </div>
-  
+
     <div class="form-group">
       {{ Form::label('password','Nueva Contraseña') }}
       {{ Form::password('password',['class'   =>'form-control',
@@ -108,7 +108,7 @@
             </button>
         </div>
     </div>
-{{-- Fin del boton para entrar al modal --}}    
+{{-- Fin del boton para entrar al modal --}}
 {{-- MODAL PARA GUARDAR CAMBIOS --}}
 <div class="modal fade" id="cambiardatos" tabindex="-1" role="dialog" aria-labelledby="cambiardatos" aria-hidden="true">
   <div class="modal-dialog" role="document">

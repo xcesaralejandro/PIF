@@ -18,9 +18,11 @@ class updateUserController extends Controller
      */
     public function index()
     {
-      $user   = User::find(\Auth::user()->id);
-      $region = Regione::orderBy('rg_nombre','ASD')->pluck('rg_nombre','id');
-      $comuna = Comuna::orderBy('co_nombre','ASD')->pluck('co_nombre','id');
+      $user     = User::find(\Auth::user()->id);
+      $region   = Regione::orderBy('rg_nombre','ASC')->pluck('rg_nombre','id');
+      $cActual  = $user->co_id;
+      $rActual  = $user->rg_id;
+      $comuna   = Comuna::orderBy('co_nombre','ASC')->pluck('co_nombre','id');
 
       return view('auth.update')
                   ->with('region',$region)
@@ -92,9 +94,9 @@ class updateUserController extends Controller
         if($request->password == ""){ //si dejas en blanco el campo de cnueva contraseña pa
             $user->password = $pass;
 
-    }else{// si coloca algo que lo cambie 
+    }else{// si coloca algo que lo cambie
         $user->password = bcrypt($request->password);
-    }     
+    }
        if (Hash::check(Input::get('current_password'), Auth::user()->password)){//pregunta si la contraseña colocada es igual a la que esta en la bbdd
         if ($user->save()) {
           alertify()->success('Datos actualizados correctamente.')->delay(10000)->clickToClose()->position('bottom left');
@@ -106,7 +108,7 @@ class updateUserController extends Controller
         }else{
         alertify()->error('La contraseña actual no es valida.')->delay(10000)->clickToClose()->position('bottom left');
         return redirect()->back();
-     }  
+     }
       }else{
         alertify()->error('No se han podido actualizar los datos de la cuenta.')->delay(10000)->clickToClose()->position('bottom left');
         return redirect()->back();
