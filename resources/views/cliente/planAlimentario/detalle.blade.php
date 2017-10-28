@@ -2,9 +2,16 @@
 @section('title','Detalle del plan alimentario')
 
 @section('content')
-<div class="p-4">
-	<div class="fullDiv text-center">
+
+<div class="p-2">
+	<button style="background: none; border: none;" id="atras" type="submit" onclick="history.back(-1)"> 
+		   <img  class="text-left" src="{{ asset('images/cliente_dashboard/atras.svg') }}" width="40px">	
+     </button>
+	<div class="fullDiv text-center">	
+
+	 
 	<span class="display-4">{{ $plan->pa_apodo }}</span>
+
 </div>
 {{-- COMIDA //////////////////////////////////////////////////////////////////////////////////// --}}
 <div class="fullDiv bk_blanco mt-3">
@@ -712,4 +719,11 @@
 	
 </div>
 
+@endsection
+@section('js')
+<script>
+	$('#atras').on('click',function(){
+		window.history.go(-1
+	)};
+</script>
 @endsection

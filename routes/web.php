@@ -70,7 +70,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','administrador','backOnB
     // Alimentos
     Route::resource('alimentos','alimentosController');
     Route::get('alimentos/{id}/destroy','alimentosController@destroy')      ->name('alimentos.destroy');
-    Route::get('alimentos/categorias/{id}','alimentosController@categorias')->name('alimentos.categorias');
+    Route::get('alimentos/getCategorias/{id}','alimentosController@getCategorias')->name('alimentos.categorias');
     // Regiones
     Route::resource('regiones','regionesController');
     Route::get('regiones/{id}/destroy','regionesController@destroy')->name('regiones.destroy');

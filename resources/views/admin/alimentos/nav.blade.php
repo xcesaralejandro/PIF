@@ -8,14 +8,3 @@
 {{ route('alimentos.index') }}
 @endsection
 @section('name','nombre')
-
-@section('js')
-<script >
-
-    $(".chosen-select").chosen({no_results_text: "No se ha podido localizar",
-								placeholder_text_single: "Seleccione Grupo"}); 
-        $(".chosen-select-cat").chosen({no_results_text: "No se ha podido localizar",
-								placeholder_text_single: "Seleccione categoria"}); 
-</script>
-
-@endsection

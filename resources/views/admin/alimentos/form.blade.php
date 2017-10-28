@@ -2,16 +2,13 @@
 	<div class="col-sm-6  col-lg-6 col-xl-3 ">
 		<div class=" form-group ">
 			{{ Form::label('ga_id',' ') }}
-			{{ Form::select('ga_id',$grupos,null,['class' => ' fullDiv chosen-select ','placeholder'=>' ','required']) }}
+			{{ Form::select('ga_id',$grupos,null,['class' => ' fullDiv chosen-select ','required', 'id'=>'grupos', 'placeholder'=>'']) }}
 		</div>
 	</div>
 	<div class="col-sm-6  col-lg-6  col-xl-3">
 		<div class="form-group  ">
 			{{ Form::label('ct_id',' ') }}
-			{{ Form::select('ct_id',['1' => 'Categoria 1',
-													      '2' => 'Categoria 2',
-													      '3' => 'Categoria 3',
-													      '4' => 'Categoria 4'],null,['class' => 'chosen-select-cat fullDiv','required']) }}
+			{{ Form::select('ct_id',$categorias,null,['class' => ' chosen-select','required', 'id '=>'categorias','placeholder'=>'']) }}
 		</div>
 	</div>
 	<div class=" col-sm-12  col-lg-12 col-xl-6 ">

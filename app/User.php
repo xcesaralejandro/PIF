@@ -52,7 +52,9 @@ class User extends Authenticatable
     public function scopeSearch($query, $us_nombres){
         return $query->where('us_nombres', 'LIKE', "%$us_nombres%");
     }
-
+    public function scopeBuscarEmail($query, $us_email){
+        return $query->where('us_email', 'LIKE', "%$us_email%");
+    }
     // SUS HIJOS
 
     public function enfermedades(){

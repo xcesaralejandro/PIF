@@ -114,14 +114,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"  style="margin: 0 auto !important;">Actualizar</h5>
+        <h5 class="modal-title" id="exampleModalLabel"  style="margin: 0 auto !important;">¿Desea confirmar sus cambios?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
       <div class="form-group text-center">
-      {{ Form::label('current_password','Ingrese contraseña para guardar cambios') }}
+      {{ Form::label('current_password','Ingrese contraseña') }}
       <div class=" col-sm-6 offset-sm-3 text-center ">
       {{ Form::password('current_password',['class'   =>'form-control',
                        'placeholder'=>'***',
