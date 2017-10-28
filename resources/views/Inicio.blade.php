@@ -119,11 +119,6 @@
     </div>
   </div>
 </section>
-<div class="fullDiv ajustan3Logo">
-  <div class="d-flex justify-content-center">
-    <img src="http://frust.cl/images/Logo_Frust.svg" width="200px" height="200px">
-  </div>
-</div>
 
 <section id="pruebaGratis">
   <div class="container">
