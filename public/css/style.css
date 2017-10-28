@@ -37,6 +37,7 @@ body {
 }
 
 /* /////////////////////////////////////////////////////////////////////*/
+
 /* //////////////////////////////  NAV  ////////////////////////////////*/
 
 .navbar-light .navbar-brand, .navbar-light .navbar-toggler {
@@ -129,6 +130,12 @@ nav .btn {
   }
 }
 
+.dropdown-item:focus, .dropdown-item:hover {
+  color: #1d1e1f;
+  text-decoration: none;
+  background-color: #5F235F;
+}
+
 /* /////////////////////////////////////////////////////////////////////*/
 
 /* ////////////////////  REGLAS CSS IMPORTANTES ////////////////////////*/
@@ -190,35 +197,35 @@ body {
 }
 
 /* /////////////////////////////////////////////////////////////////////*/
+
 /* /////////////////////////  INICIO APP //////////////////////////////*/
-#features .display-2 ,
-#llamandoNutricionistas .display-2,
-#pruebaGratis, .display-2{
+
+#features .display-2, #llamandoNutricionistas .display-2, #pruebaGratis, .display-2 {
   font-size: 1.7rem;
 }
 
-#features .display-4,
-#llamandoNutricionistas .display-4,
-#pruebaGratis, .display-4{
+#features .display-4, #llamandoNutricionistas .display-4, #pruebaGratis, .display-4 {
   font-size: 3rem;
 }
 
-#llamandoNutricionistas{
-    background-color: #7C5E01 !important;
-    padding: 3rem;
-    padding-top: 4rem;
-    padding-bottom: 7rem;
-    background-image: url(../images/vistas_publicas/triangulo.svg);
-    background-position: bottom;
-    background-size: 3rem;
-    background-repeat: repeat-x;
+#llamandoNutricionistas {
+  background-color: #7C5E01 !important;
+  padding: 3rem;
+  padding-top: 4rem;
+  padding-bottom: 7rem;
+  background-image: url(../images/vistas_publicas/triangulo.svg);
+  background-position: bottom;
+  background-size: 3rem;
+  background-repeat: repeat-x;
 }
 
-.ajustan3Logo{
+.ajustan3Logo {
   position: relative;
   bottom: 9.5rem;
 }
+
 /* /////////////////////////////////////////////////////////////////////*/
+
 /* /////////////////////////  MICELANIOS //////////////////////////////*/
 
 .btn {
@@ -490,7 +497,7 @@ body {
   cursor: pointer;
 }
 
-#containerSticky .form-control, #pa_apodo, .formNuevoAvance .form-control, #chilamediabola .form-control{
+#containerSticky .form-control, #pa_apodo, .formNuevoAvance .form-control, #chilamediabola .form-control {
   padding: 0px;
   border: none;
   border-radius: 0px;
@@ -498,7 +505,7 @@ body {
   transition: all .3s ease;
 }
 
-#containerSticky .form-control:hover, #pa_apodo:hover, .formNuevoAvance .form-control:hover, #chilamediabola .form-control:hover{
+#containerSticky .form-control:hover, #pa_apodo:hover, .formNuevoAvance .form-control:hover, #chilamediabola .form-control:hover {
   border-bottom: 1px solid #b92e34;
 }
 
@@ -590,76 +597,103 @@ article a {
 
 /* /////////////////  VISTAS DE DASHBOARD CLIENTE  /////////////////////*/
 
-.flat1{background-color: #F44336;}
-.flat2{background-color: #E91E63;}
-.flat3{background-color: #9C27B0;}
-.flat4{background-color: #2196F3;}
-.flat5{background-color: #4CAF50;}
-.flat6{background-color: #FFC107;}
-.flat7{background-color: #9E9D24;}
-.flat8{background-color: #5D4037;}
-.flat9{background-color: #E64A19;}
+.flat1 {
+  background-color: #F44336;
+}
 
-.numberDashboardCliente{
+.flat2 {
+  background-color: #E91E63;
+}
+
+.flat3 {
+  background-color: #9C27B0;
+}
+
+.flat4 {
+  background-color: #2196F3;
+}
+
+.flat5 {
+  background-color: #4CAF50;
+}
+
+.flat6 {
+  background-color: #FFC107;
+}
+
+.flat7 {
+  background-color: #9E9D24;
+}
+
+.flat8 {
+  background-color: #5D4037;
+}
+
+.flat9 {
+  background-color: #E64A19;
+}
+
+.numberDashboardCliente {
   font-size: 1.8rem;
 }
 
-.textImcDashboard{
+.textImcDashboard {
   font-size: 1.15rem;
   font-weight: bold;
 }
 
-div.dropup button{
-    font-size: .965rem !important;
-    padding-top: .57rem !important;
+div.dropup button {
+  font-size: .965rem !important;
+  padding-top: .57rem !important;
 }
 
 a:not([href]):not([tabindex]) {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
-
 /* /////////////////////////////////////////////////////////////////////*/
+
 /* /////////////////  REGISTRAR CONSUMO DIARIO  ///////////////////////*/
 
-#chilamediabola .display-2{
+#chilamediabola .display-2 {
   font-size: 1.5rem;
 }
 
-.titleLeftBorder{
+.titleLeftBorder {
   border-left: .2rem solid #842F86;
   padding-left: .5rem;
 }
 
-#registrosDiarios .display-2{
+#registrosDiarios .display-2 {
   font-size: 1.2rem;
 }
 
-#registrosDiarios a{
+#registrosDiarios a {
   text-decoration: none;
   transition: all .3s ease;
 }
 
-.fuckingPadre{
+.fuckingPadre {
   transition: all .2s ease;
 }
-.fuckingPadre:hover{
+
+.fuckingPadre:hover {
   opacity: .85 !important;
 }
 
-.cajean3{
+.cajean3 {
   background-color: #9b59b6;
   border-bottom: 10px double #fff;
 }
 
-.thecolor{
+.thecolor {
   background-color: #9D2F6B !important;
 }
 
-.fontAw{
+.fontAw {
   font-size: 7rem;
 }
 
-.mispanreadyonready{
+.mispanreadyonready {
   font-size: 1.25rem;
 }

@@ -17,6 +17,7 @@ Route::get('etiqueta', function () {
     return view('informacion/etiquetanutricional');
 });
 
+Route::get('{id}/getCategorias','apiController@getCategorias')->name('api.getCategorias');
 
 // VISTAS GENERALES PARA TODOS
 // Formulas comunes

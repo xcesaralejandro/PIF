@@ -64,7 +64,7 @@ class alimentosController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */   
+     */
     public function getCategorias($gp_id){
         if (!\Auth::guest()) {
             $categorias = categoriasAlimento::orderBy('ct_nombre','ASC')
