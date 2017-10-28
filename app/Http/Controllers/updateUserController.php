@@ -81,15 +81,21 @@ class updateUserController extends Controller
     {
       $this->validate($request, [
         'us_email' => 'required',
-        'cf_password' => 'min:4|same:password',
+        'cf_password' => 'same:password',
         'us_rut'=>'cl_rut'
       ]);
 
       if ((int)\Auth::user()->id === (int) $id) {
         $user   = User::find(\Auth::user()->id);
+        $pass = $user->password;
         $user->fill($request->all());
+        if($request->password == ""){ //si dejas en blanco el campo de cnueva contraseña pa
+            $user->password = $pass;
+
+    }else{// si coloca algo que lo cambie 
         $user->password = bcrypt($request->password);
-       if (Hash::check(Input::get('password_old'), Auth::user()->password)){
+    }     
+       if (Hash::check(Input::get('current_password'), Auth::user()->password)){//pregunta si la contraseña colocada es igual a la que esta en la bbdd
         if ($user->save()) {
           alertify()->success('Datos actualizados correctamente.')->delay(10000)->clickToClose()->position('bottom left');
           return redirect()->back();
@@ -100,7 +106,7 @@ class updateUserController extends Controller
         }else{
         alertify()->error('La contraseña actual no es valida.')->delay(10000)->clickToClose()->position('bottom left');
         return redirect()->back();
-       }  
+     }  
       }else{
         alertify()->error('No se han podido actualizar los datos de la cuenta.')->delay(10000)->clickToClose()->position('bottom left');
         return redirect()->back();

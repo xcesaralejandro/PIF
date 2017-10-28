@@ -17,14 +17,20 @@ Route::get('etiqueta', function () {
     return view('informacion/etiquetanutricional');
 });
 
+
 // VISTAS GENERALES PARA TODOS
 // Formulas comunes
 Route::post('formulasComunes/resultados','formulasComunesController@calcular')->name('resultados.formulas');
 Route::resource('formulasComunes','formulasComunesController');
+
 // Vistas informativas
 Route::get('sellosnegros','vistasInformativasController@sellosnegros')->name('sellosnegros');
 Route::get('enfermedades','vistasInformativasController@enfermedades')->name('enfermedades');
 Route::get('etiquetanutricional','vistasInformativasController@etiquetanutricional')->name('etiquetanutricional');
+
+
+//CONSULTAS
+Route::resource('consulta','consultasController');
 
 
 route::group(['middleware'=>'auth'],function(){
@@ -72,7 +78,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','administrador','backOnB
     // Alimentos
     Route::resource('alimentos','alimentosController');
     Route::get('alimentos/{id}/destroy','alimentosController@destroy')      ->name('alimentos.destroy');
-    Route::get('alimentos/categorias/{id}','alimentosController@categorias')->name('alimentos.categorias');
+    Route::get('alimentos/getCategorias/{id}','alimentosController@getCategorias')->name('alimentos.categorias');
     // Regiones
     Route::resource('regiones','regionesController');
     Route::get('regiones/{id}/destroy','regionesController@destroy')->name('regiones.destroy');

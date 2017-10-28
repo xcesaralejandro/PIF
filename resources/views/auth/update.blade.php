@@ -77,30 +77,21 @@
                         'required',
                         'id'=>'rut']) }}
     </div>
-     <div class="form-group">
-      {{ Form::label('password_old','Contraseña actual') }}
-      {{ Form::password('password_old',['class'   =>'form-control',
-                       'placeholder'=>'********',
-                       'id' =>'',
-                         'minlength'  =>'5',
-                         'required',]) }}
-    </div>   
+  
     <div class="form-group">
       {{ Form::label('password','Nueva Contraseña') }}
       {{ Form::password('password',['class'   =>'form-control',
-                       'placeholder'=>'********',
+                       'placeholder'=>'***',
                        'id'	=>'password1',
-                         'minlength'  =>'5',
-                         'required',]) }}
+                         'minlength'  =>'5']) }}
     </div>
 
     <div class="form-group">
       {{ Form::label('cf_password','Confirmar contraseña') }}
       {{ Form::password('cf_password',['class'   =>'form-control',
-                       'placeholder'=>'********',
+                       'placeholder'=>'***',
                        'id'	=>'password2',
-                         'minlength'  =>'5',
-                         'required']) }}
+                         'minlength'  =>'5']) }}
     </div>
 
   </div>{{-- .COL SM 6 --}}
@@ -109,16 +100,47 @@
 <div id="coSelected" style="display: none !important;">
   {{$user->co_id}}
 </div>
-
+{{-- Boton para entrar al modal --}}
     <div class="row">
         <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 mt-4 mb-5 pl-5 pr-5">
-            <button type="submit" class="btn btn-primary fullDiv">
+            <button type="button" class="btn btn-primary fullDiv" data-toggle="modal" data-target="#cambiardatos">
                 <i class="fa fa-user" aria-hidden="true"></i> Actualizar datos
             </button>
         </div>
     </div>
-
+{{-- Fin del boton para entrar al modal --}}    
+{{-- MODAL PARA GUARDAR CAMBIOS --}}
+<div class="modal fade" id="cambiardatos" tabindex="-1" role="dialog" aria-labelledby="cambiardatos" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"  style="margin: 0 auto !important;">¿Desea confirmar sus cambios?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="form-group text-center">
+      {{ Form::label('current_password','Ingrese contraseña') }}
+      <div class=" col-sm-6 offset-sm-3 text-center ">
+      {{ Form::password('current_password',['class'   =>'form-control',
+                       'placeholder'=>'***',
+                       'id' =>'',
+                         'minlength'  =>'5',
+                         'required',]) }}
+                         </div>
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{-- Fin del modal para guardar cambios --}}
 {!! Form::Close() !!}
+
 @endsection
 
 @section('js')
