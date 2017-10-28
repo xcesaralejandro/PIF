@@ -42,19 +42,19 @@ class factoresController extends Controller
             return redirect()->back();
         }elseif($request->ft_proteinas >20){
            alertify()->error('Se ha excedido en la ingesta de proteina')->persistent()->clickToClose();
-           return redirect()->back();    
+           return redirect()->back();
        }elseif($request->ft_lipidos<20){
            alertify()->error('La ingesta de lipidos es muy baja')->persistent()->clickToClose();
-           return redirect()->back();  
+           return redirect()->back();
        }elseif($request->ft_lipidos >25){
            alertify()->error('Se ha excedido en la ingesta de lipidos')->persistent()->clickToClose();
-           return redirect()->back();  
+           return redirect()->back();
        }elseif($request->ft_carbohidratos < 50){
            alertify()->error('La ingesta de carbohidratos es muy baja')->persistent()->clickToClose();
-           return redirect()->back();  
+           return redirect()->back();
        }elseif($request->ft_carbohidratos >60){
            alertify()->error('Se ha excedido en la ingesta de carbohidratos')->persistent()->clickToClose();
-           return redirect()->back();  
+           return redirect()->back();
 
        }else{
         $factor = new factore($request->all());
@@ -66,7 +66,7 @@ class factoresController extends Controller
         }
         $factor->save();
         alertify()->success('Enhorabuena se a agregado su factor')->persistent()->clickToClose();
-        return redirect()->back();  
+        return redirect()->back();
     }
 
 }
@@ -117,7 +117,7 @@ class factoresController extends Controller
         //
     }
 
-// //En caso de que se quiera activar esta opcion 
+// //En caso de que se quiera activar esta opcion
 //     public function Activar($id)
 //     {
 //         $activar = '1';
@@ -131,6 +131,6 @@ class factoresController extends Controller
 //         $factor->ft_estado = $activar;
 //         $factor->save();
 //         alertify()->success('Se a activado un nuevo factor')->persistent()->clickToClose();
-//         return redirect()->back(); 
+//         return redirect()->back();
 //     }
 }

@@ -19,7 +19,7 @@ class etiquetasNutricionale extends Model
     ];
     // SUS HIJOS
     public function camposEtiquetasNutricionales(){
-        return $this->hasMany('frust\camposEtiquetasNutricionale');
+        return $this->hasMany('frust\camposEtiquetasNutricionale','en_id','id');
     }
     // SUS PADRES
      public function User(){

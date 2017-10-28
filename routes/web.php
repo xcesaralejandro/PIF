@@ -21,6 +21,10 @@ Route::get('etiqueta', function () {
 // Formulas comunes
 Route::post('formulasComunes/resultados','formulasComunesController@calcular')->name('resultados.formulas');
 Route::resource('formulasComunes','formulasComunesController');
+// Vistas informativas
+Route::get('sellosnegros','vistasInformativasController@sellosnegros')->name('sellosnegros');
+Route::get('enfermedades','vistasInformativasController@enfermedades')->name('enfermedades');
+Route::get('etiquetanutricional','vistasInformativasController@etiquetanutricional')->name('etiquetanutricional');
 
 
 route::group(['middleware'=>'auth'],function(){

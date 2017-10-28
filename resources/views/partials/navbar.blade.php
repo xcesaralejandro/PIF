@@ -16,6 +16,10 @@
           </a>
         </li>
         <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Registrarse</a></li>
+        <li class="nav-item"><a href="{{ route('formulasComunes.index') }}" class="nav-link">Estado nutricional</a></li>
+        <li class="nav-item"><a href="{{ route('sellosnegros') }}" class="nav-link">Sellos negros</a></li>
+        <li class="nav-item"><a href="{{ route('enfermedades') }}" class="nav-link">Enfermedades</a></li>
+        <li class="nav-item"><a href="{{ route('etiquetanutricional') }}" class="nav-link">Etiqueta nutricional</a></li>
       @else
         <li class="nav-item">
           <div class="dropup nav-item">
