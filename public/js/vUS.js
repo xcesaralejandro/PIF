@@ -1,12 +1,5 @@
 $(function(){
 
-comunaseleccionadainicial();
-	function comunaseleccionadainicial(){
-		console.log($('#coSelected').text());
-		var obj =
-		$('select option[value=""]').attr("selected", true);
-	}
-
 // Cargamos choosen
 $(".chosen-select").chosen({
 		 placeholder_text_single: "Esperando selección...",
@@ -54,7 +47,6 @@ $('#password1').keyup(function(){
 	});
 
 // Cargamos los select
-llenarComunas($('#region').val());
 $('#region').on('change',function(){
 	llenarComunas($(this).val());
 });
