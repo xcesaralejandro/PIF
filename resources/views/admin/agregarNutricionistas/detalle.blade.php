@@ -4,8 +4,12 @@
 @section('nav')
 @include('admin.agregarNutricionistas.nav')
 @endsection 
-@section('urlEditar','#')
-@section('urlEliminar','#')
+@section('urlEditar')
+{{ route ('agregarNutricionistas.edit', $nutricionista -> id)}}
+@endsection
+@section('urlEliminar')
+{{ route ('agregarNutricionistas.destroy', $nutricionista -> id)}}
+@endsection
 
 @section('placeholderBuscar','Buscar') 
 @section('content')

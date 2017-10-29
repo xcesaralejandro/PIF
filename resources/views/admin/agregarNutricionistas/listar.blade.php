@@ -40,7 +40,7 @@
                             </a>
                         </div>
                         <div class="col-xs-4">
-                          <a href="#"> 
+                          <a href="{{ route('agregarNutricionistas.edit',$nutricionista -> id)}}"> 
                                 <img class="imgAction mr-1 mb-1" src="{{ asset('images/settings.svg') }}" width="25px">
                             </a>
                         </div>

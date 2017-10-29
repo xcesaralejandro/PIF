@@ -8,6 +8,9 @@ use frust\comuna;
 use frust\User;
 use Carbon\Carbon;
 use frust\Http\Requests\agregarNutricionistaRequest;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 class agregarNutricionistasController extends Controller
 {
     /**
@@ -45,6 +48,7 @@ class agregarNutricionistasController extends Controller
      */
     public function store(agregarNutricionistaRequest $request)
     {
+
         date_default_timezone_set('America/Argentina/Salta');
         $fecha = Carbon::now();
         $fecha->toDateTimeString();
@@ -135,6 +139,25 @@ class agregarNutricionistasController extends Controller
     }
     public function update(Request $request, $id)
     {
+      $this->validate($request, [
+        'us_email' => 'required',
+        'us_rut'=>'cl_rut'
+      ]);
+        $user   = User::find($id);
+        $pass = $user->password;
+        $user->fill($request->all());
+        if (Hash::check(Input::get('current_password'), Auth::user()->password)){//pregunta si la contraseña colocada es igual a la que esta en la bbdd
+        if ($user->save()) {
+          alertify()->success('Datos actualizados correctamente.')->delay(10000)->clickToClose()->position('bottom left');
+          return redirect()->back();
+        }else{
+          alertify()->error('No se han podido actualizar los datos de la cuenta.')->delay(10000)->clickToClose()->position('bottom left');
+          return redirect()->back();
+        }
+        }else{
+        alertify()->error('La contraseña actual no es valida.')->delay(10000)->clickToClose()->position('bottom left');
+        return redirect()->back();
+     }
 
     }
 
@@ -151,11 +174,15 @@ class agregarNutricionistasController extends Controller
        $titulo = $nutricionista->us_img_titulo;
        $carnet_f =$nutricionista->us_img_carnet_f;
        $carnet_p =$nutricionista->us_img_carnet_p;
-       unlink($dir.$titulo);
-       unlink($dir.$carnet_f);
+       if (!is_null($titulo)){
+        unlink($dir.$titulo);
+     }if(!is_null($carnet_f)){
+        unlink($dir.$carnet_f);
+     }if(!is_null($carnet_p)){
        unlink($dir.$carnet_p);
+     }
        $nutricionista->delete();
        alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
-       return redirect()->back();
-   }
+       return redirect()->back();  
+    }
 }
