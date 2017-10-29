@@ -6,7 +6,7 @@
 </li>
 
 <style type="text/css">
-    form.form-inline{
+    form#buscateesta{
         display: none;
     }
 
