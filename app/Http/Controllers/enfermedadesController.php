@@ -97,17 +97,26 @@ class enfermedadesController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $this->validate($request, [
+            'ef_nombre'      =>'required|min:5|max:50',
+            'ef_descripcion' =>'required|min:5|max:256',
+            'ef_url'         =>'required|min:5|max:256'
+      ]);
        $enfermedad =enfermedade::find($id);  
        $enfermedad->ef_nombre =ucfirst($request->ef_nombre); 
        $enfermedad->us_id = \Auth::user()->id;
+       $imagen = $enfermedad->ef_url_imagen;
        $enfermedad->ef_descripcion = $request->ef_descripcion; 
        $enfermedad->ef_url = $request->ef_url;       
        $file = $request->file('ef_url_imagen');
+       if(!is_null($file)){
        $nombre = 'img_enfermedades' . time() . '.' . $file->getClientOriginalExtension();
        $lugar = public_path() . '/images/img_enfermedades/';
        $file->move($lugar, $nombre);
        $enfermedad->ef_url_imagen = $nombre;
+   }else{
+    $enfermedad->ef_url_imagen = $imagen;
+   }
        $enfermedad->save();
        alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();
        return redirect()->route('enfermedades.index');

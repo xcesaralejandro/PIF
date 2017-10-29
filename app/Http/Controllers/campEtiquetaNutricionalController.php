@@ -60,8 +60,8 @@ class campEtiquetaNutricionalController extends Controller
         $en_cont = etiquetasNutricionale::pluck('id', 'id');
         $en_cont = count($en_cont);
         return View('admin.etiquetanutricional.campoEtiqueta.detalleCampo')
-            ->with('campo', $campo)
-            ->with('en_cont', $en_cont);
+        ->with('campo', $campo)
+        ->with('en_cont', $en_cont);
     }
     public function show($id)
     {
@@ -91,6 +91,9 @@ class campEtiquetaNutricionalController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'cen_descripcion' =>'required|min:5|max:256'
+        ]);
         $campo = camposEtiquetasNutricionale::find($id);
         $campo->fill($request->all());
         $campo->save();

@@ -24,15 +24,7 @@
 
 @section('js')
  <script src="{{ asset('js/validacionUsuario.js') }}"></script>
-    <script>
-        $(function(){
-           $(".chosen-select").chosen({
-                disable_search_threshold: 1,
-                no_results_text: "No hay resultados",
-                width: "100%"
-            });
-        });
-    </script>
+
     <script>
     $(".imagen").fileinput({ 
     uploadAsync: false,

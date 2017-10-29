@@ -56,7 +56,11 @@ class etiquetaNutricionalController extends Controller
      */
     public function store(Request $request)
     {
-
+      $this->validate($request, [
+        'en_titulo' => 'required',
+        'en_url_imagen' => 'image|required',
+        'en_descripcion'=> 'max:1500'
+      ]);
         $etiqueta = new etiquetasNutricionale();   
         $etiqueta->en_titulo =ucfirst($request->en_titulo); 
         $etiqueta->us_id = \Auth::user()->id;
@@ -108,17 +112,26 @@ class etiquetaNutricionalController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+        'en_titulo' => 'required',
+        'en_url_imagen' => 'image',
+        'en_descripcion'=> 'max:1500'
+      ]);
         $etiqueta = etiquetasNutricionale::find($id);   
+        $imagen = $etiqueta->en_url_imagen;
         $etiqueta->en_titulo =ucfirst($request->en_titulo); 
         $etiqueta->us_id = \Auth::user()->id;
         $etiqueta->en_descripcion = $request->en_descripcion;       
         $file = $request->file('en_url_imagen');
+        if(!is_null($file)){
         $nombre = 'img_etiqueta' . time() . '.' . $file->getClientOriginalExtension();
         $lugar = public_path() . '/images/img_etiqueta/';
         $file->move($lugar, $nombre);
         $etiqueta->en_url_imagen = $nombre;
-        $etiqueta->save();
-
+    }else{
+        $etiqueta->en_url_imagen = $imagen;
+    }
+      $etiqueta->save();
         alertify()->success('Se ha modificado existosamente')->persistent()->clickToClose();
         return redirect()->route('etiquetanutricional.index');
     }
