@@ -65,21 +65,13 @@ class alimentosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getCategorias($gp_id){
-        if (!\Auth::guest()) {
-            $categorias = categoriasAlimento::orderBy('ct_nombre','ASC')
-            ->where('ga_id',$gp_id)
-            ->pluck('id','ct_nombre');
-        }else{
-            $categorias = "Lo lamentamos, no compartimos la información de nuestra APP con terceros.";
-        }
-        return response()->json($categorias);
-    }
     public function edit($id)
     {
         $alimento =  alimento::find($id);
         $grupos = gruposAlimento::orderBy('ga_nombre', 'ASC')->pluck('ga_nombre', 'id');
         $categorias = categoriasAlimento::orderBy('ct_nombre', 'ASC')->pluck('ct_nombre', 'id');
+        $cActual =  $alimento->ct_id;
+        
         return view('admin.alimentos.modificar')
         ->with('alimento',$alimento)
         ->with('grupos',$grupos)

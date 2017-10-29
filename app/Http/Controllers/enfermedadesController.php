@@ -95,8 +95,9 @@ class enfermedadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(enfermedadesRequest $request, $id)
+    public function update(Request $request, $id)
     {
+
        $enfermedad =enfermedade::find($id);  
        $enfermedad->ef_nombre =ucfirst($request->ef_nombre); 
        $enfermedad->us_id = \Auth::user()->id;

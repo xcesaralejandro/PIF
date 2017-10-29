@@ -78,8 +78,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','administrador','backOnB
     Route::get('categoriasalimentarias/{id}/destroy','categoriasAlimentariasController@destroy')->name('categoriasalimentarias.destroy');
     // Alimentos
     Route::resource('alimentos','alimentosController');
-    Route::get('alimentos/{id}/destroy','alimentosController@destroy')      ->name('alimentos.destroy');
-    Route::get('alimentos/getCategorias/{id}','alimentosController@getCategorias')->name('alimentos.categorias');
+    Route::get('alimentos/{id}/destroy','alimentosController@destroy')->name('alimentos.destroy');
     // Regiones
     Route::resource('regiones','regionesController');
     Route::get('regiones/{id}/destroy','regionesController@destroy')->name('regiones.destroy');

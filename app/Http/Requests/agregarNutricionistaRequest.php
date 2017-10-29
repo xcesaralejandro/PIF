@@ -24,11 +24,10 @@ class agregarNutricionistaRequest extends FormRequest
     public function rules()
     {
         return [
-            'us_email' => 'requerid|email|unique:Users',
-             'password' => 'min:4|requerid',
-             'cf_password' => 'requerid|min:4|same:password',
-             'us_rut'=>'required|cl_rut|unique:Users',
-             
+            'password'      =>'min:4|required',
+            'cf_password'   =>'min:4|same:password',
+            'us_email'      =>'email|unique:Users',
+            'us_rut'        =>'required|cl_rut|unique:Users'
         ];
     }
 }

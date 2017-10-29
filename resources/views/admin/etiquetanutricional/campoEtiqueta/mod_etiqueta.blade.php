@@ -9,7 +9,7 @@
 @section('placeholderBuscar','Buscar campo') 
 @section('content')
 <div class="text-center mb-4 mt-3">
-    <span class="display-4">Agregar campo <strong>a la etiqueta</strong></span>
+    <span class="display-4">Modificar campo <strong>a la etiqueta</strong></span>
 </div>
 <hr>
 <div class="p-3">
@@ -23,8 +23,8 @@
 	    				<div class="col-2 text-left"">
 	    					<i class="fa fa-plus" aria-hidden="true"></i>	
 	    				</div>
-	    				<div class="col-10 text-center">
-	    					Agregar campo					
+	    				<div class="col-9 text-center">
+	    					Modificar					
 	    				</div>
 	    			</div>
 	    		</button>

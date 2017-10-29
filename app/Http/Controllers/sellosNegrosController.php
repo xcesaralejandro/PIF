@@ -77,9 +77,9 @@ class sellosNegrosController extends Controller
      */
     public function edit($id)
     {
-       $sello = sellosNegro::find($id);
-       return view('admin.sellosnegros.modificar')->with('sello',$sello);
-   }
+     $sello = sellosNegro::find($id);
+     return view('admin.sellosnegros.modificar')->with('sello',$sello);
+ }
 
     /**
      * Update the specified resource in storage.
@@ -90,19 +90,25 @@ class sellosNegrosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $sello = sellosNegro::find($id);   
+        $sello = sellosNegro::find($id); 
+        $foto = $sello->sn_url_imagen;  
         $sello->sn_nombre =ucfirst($request->sn_nombre); 
         $sello->us_id = \Auth::user()->id;
         $sello->sn_descripcion = $request->sn_descripcion;        
         $file = $request->file('sn_url_imagen');
-        $nombre = 'img_sellosnegros' . time() . '.' . $file->getClientOriginalExtension();
-        $lugar = public_path() . '/images/img_sellosnegros/';
-        $file->move($lugar, $nombre);
-        $sello->sn_url_imagen = $nombre;
-        $sello->save();
+        if(!is_null($file)){
+            $nombre = 'img_sellosnegros' . time() . '.' . $file->getClientOriginalExtension();
+            $lugar = public_path() . '/images/img_sellosnegros/';
+            $file->move($lugar, $nombre);
+            $sello->sn_url_imagen = $nombre;
+        }else{
+            $sello->sn_url_imagen =$foto;
+        }
+                    $sello->save();
+            alertify()->success('Registrado exitosamente')->persistent()->clickToClose();
+            return redirect()->route('sellosnegros.index');
 
-        alertify()->success('Registrado exitosamente')->persistent()->clickToClose();
-        return redirect()->route('sellosnegros.index');
+
     }
 
     /**

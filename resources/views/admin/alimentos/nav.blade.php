@@ -8,3 +8,7 @@
 {{ route('alimentos.index') }}
 @endsection
 @section('name','nombre')
+
+@section('js')
+<script src="{{ asset('js/sAlimentos.js') }}"></script>
+@endsection
