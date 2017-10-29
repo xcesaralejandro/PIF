@@ -76,15 +76,15 @@ class agregarNutricionistasController extends Controller
         $lugar = public_path() . '/images/img_nutricionista/';
         $titulo->move($lugar, $nombre_t);
         $nutricionista->us_img_titulo = $nombre_t;
-        $titulo = $request->file('us_img_carnet_f');
-        $nombre_c_f = 'us_img_carnet_f_' . time() . '.' . $titulo->getClientOriginalExtension();
+        $carnet_f = $request->file('us_img_carnet_f');
+        $nombre_c_f = 'us_img_carnet_f_' . time() . '.' . $carnet_f->getClientOriginalExtension();
         $lugar = public_path() . '/images/img_nutricionista/';
-        $titulo->move($lugar, $nombre_c_f);
+        $carnet_f->move($lugar, $nombre_c_f);
         $nutricionista->us_img_carnet_f = $nombre_c_f;
-        $titulo = $request->file('us_img_carnet_p');
-        $nombre_c_p = 'us_img_carnet_p_' . time() . '.' . $titulo->getClientOriginalExtension();
+        $carnet_p = $request->file('us_img_carnet_p');
+        $nombre_c_p = 'us_img_carnet_p_' . time() . '.' . $carnet_p->getClientOriginalExtension();
         $lugar = public_path() . '/images/img_nutricionista/';
-        $titulo->move($lugar, $nombre_c_p);
+        $carnet_p->move($lugar, $nombre_c_p);
         $nutricionista->us_img_carnet_p = $nombre_c_p;  
         if($nutricionista->save()){
            $nutricionista->us_id_nutricionista = $nutricionista->id;
@@ -118,6 +118,8 @@ class agregarNutricionistasController extends Controller
      $nutricionista = User::find($id);
      $comuna = comuna::orderBy('rg_id', 'DESC')->pluck('co_nombre', 'id');
      $region = Regione::orderBy('id', 'DESC')->pluck('rg_nombre', 'id');
+     $cActual  = $nutricionista->co_id;
+     $rActual  = $nutricionista->rg_id;
      return view('admin.agregarNutricionistas.modificar')
      ->with('nutricionista',$nutricionista)
      ->with('comuna',$comuna)
@@ -142,24 +144,51 @@ class agregarNutricionistasController extends Controller
       $this->validate($request, [
         'us_email' => 'required',
         'us_rut'=>'cl_rut'
-      ]);
-        $user   = User::find($id);
-        $pass = $user->password;
-        $user->fill($request->all());
-        if (Hash::check(Input::get('current_password'), Auth::user()->password)){//pregunta si la contraseña colocada es igual a la que esta en la bbdd
+    ]);
+      $user        = User::find($id);
+      $titulo_DB   = $user->us_img_titulo;
+      $carnet_f_DB = $user->us_img_carnet_f;
+      $carnet_p_DB = $user->us_img_carnet_p;
+      $user->fill($request->all());
+
+      $titulo = $request->file('us_img_titulo');
+      $carnet_f = $request->file('us_img_carnet_f');
+      $carnet_p = $request->file('us_img_carnet_p');
+      if(!is_null($titulo)){
+          $nombre_t = 'us_img_titulo_' . time() . '.' . $titulo->getClientOriginalExtension();
+          $lugar = public_path() . '/images/img_nutricionista/';
+          $titulo->move($lugar, $nombre_t);
+          $user->us_img_titulo = $nombre_t;
+      }else{
+        $user->us_img_titulo = $titulo_DB;
+    }if(!is_null($carnet_f)){
+        $nombre_c_f = 'us_img_carnet_f_' . time() . '.' . $carnet_f->getClientOriginalExtension();
+        $lugar = public_path() . '/images/img_nutricionista/';
+        $carnet_f->move($lugar, $nombre_c_f);
+        $user->us_img_carnet_f = $nombre_c_f;
+    }else{
+        $user->us_img_carnet_f = $carnet_f_DB;
+    }if(!is_null($carnet_p)){
+        $nombre_c_p = 'us_img_carnet_p_' . time() . '.' . $carnet_p->getClientOriginalExtension();
+        $lugar = public_path() . '/images/img_nutricionista/';
+        $carnet_p->move($lugar, $nombre_c_p);
+        $user->us_img_carnet_p = $nombre_c_p;    
+    }else{
+        $user->us_img_carnet_p = $carnet_p_DB;
+    }if (Hash::check(Input::get('current_password'), Auth::user()->password)){//pregunta si la contraseña colocada es igual a la que esta en la bbdd
         if ($user->save()) {
           alertify()->success('Datos actualizados correctamente.')->delay(10000)->clickToClose()->position('bottom left');
           return redirect()->back();
-        }else{
+      }else{
           alertify()->error('No se han podido actualizar los datos de la cuenta.')->delay(10000)->clickToClose()->position('bottom left');
           return redirect()->back();
-        }
-        }else{
-        alertify()->error('La contraseña actual no es valida.')->delay(10000)->clickToClose()->position('bottom left');
-        return redirect()->back();
-     }
+      }
+  }else{
+    alertify()->error('La contraseña actual no es valida.')->delay(10000)->clickToClose()->position('bottom left');
+    return redirect()->back();
+}
 
-    }
+}
 
     /**
      * Remove the specified resource from storage.
@@ -176,13 +205,13 @@ class agregarNutricionistasController extends Controller
        $carnet_p =$nutricionista->us_img_carnet_p;
        if (!is_null($titulo)){
         unlink($dir.$titulo);
-     }if(!is_null($carnet_f)){
+    }if(!is_null($carnet_f)){
         unlink($dir.$carnet_f);
-     }if(!is_null($carnet_p)){
+    }if(!is_null($carnet_p)){
        unlink($dir.$carnet_p);
-     }
-       $nutricionista->delete();
-       alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
-       return redirect()->back();  
-    }
+   }
+   $nutricionista->delete();
+   alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
+   return redirect()->back();  
+}
 }
