@@ -6,15 +6,8 @@ $(function(){
   		 width: "100%"
    });
 
-  limpiarCategorias();
-
   var selectGrupos     = $('select#grupos');
   var selectCategorias = $('select#categorias');
-
-  function limpiarCategorias(){
-    $('select#categorias').find('option').remove();
-    $('select#categorias').trigger("chosen:updated");
-  }
 
   selectGrupos.on('change',function(){
     var id     = selectGrupos.val();

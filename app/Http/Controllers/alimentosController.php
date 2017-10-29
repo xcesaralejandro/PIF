@@ -67,15 +67,29 @@ class alimentosController extends Controller
      */
     public function edit($id)
     {
-        $alimento =  alimento::find($id);
-        $grupos = gruposAlimento::orderBy('ga_nombre', 'ASC')->pluck('ga_nombre', 'id');
-        $categorias = categoriasAlimento::orderBy('ct_nombre', 'ASC')->pluck('ct_nombre', 'id');
-        $cActual =  $alimento->ct_id;
-        
+        // Traemos el alimento
+        $alimento    = alimento::find($id);
+        // Traemos la categoria del alimento
+        $catAlimento = categoriasAlimento::find($alimento->ct_id);
+        //  Traemos el grupo del alimento
+        $gpoAlimento = gruposAlimento::find($catAlimento->ga_id);
+
+        // Seleccion por defecto
+        $ct = $catAlimento->id;
+        $gp = $gpoAlimento->id;
+
+        // Traemos todos los datos respectivos para renderizar la VarnishStat
+        $grupos = gruposAlimento::orderBy('ga_nombre','asc')->pluck('ga_nombre','id');
+        $categorias = categoriasAlimento::orderBy('ct_nombre','asc')
+                                          ->where('ga_id',$gp)
+                                          ->pluck('ct_nombre','id');
+
         return view('admin.alimentos.modificar')
-        ->with('alimento',$alimento)
-        ->with('grupos',$grupos)
-        ->with('categorias',$categorias);
+        ->with('categorias', $categorias)
+        ->with('grupos'    , $grupos)
+        ->with('gActual'   , $gp)
+        ->with('cActual'   , $ct)
+        ->with('alimento'  , $alimento);
     }
 
     /**
