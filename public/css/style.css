@@ -196,6 +196,28 @@ body {
   cursor: pointer !important;
 }
 
+#frusteate{
+  width: 100% !important;
+  height: 100vh !important;
+  background-image: url('../images/inicio/smallDevice.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media(min-width:576px){
+  #frusteate{
+    background-image: url('../images/inicio/xd.jpg');
+  }
+
+}
+
+@media(min-width:992px){
+
+  #frusteate{
+    background-image: url('../images/inicio/smallDevice.svg');
+  }
+}
+
 /* /////////////////////////////////////////////////////////////////////*/
 
 /* /////////////////////////  INICIO APP //////////////////////////////*/
@@ -306,7 +328,7 @@ body {
 .max400 {
   max-width: 400px;
   max-height: 400px;
-  
+
 }
 
 .tituloPersonalizado {

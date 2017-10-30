@@ -3,6 +3,8 @@
 @section('title','Comer bien nunca fue tan facil')
 
 @section('sobreContainer')
+<section id="frusteate">
+</section>
 <section id="features" class="pb-5">
   <div class="container">
     <div class="fullDiv text-center mt-5 mb-5">
