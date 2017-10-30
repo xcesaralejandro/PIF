@@ -10,7 +10,7 @@
 </div>
 <hr>
 <div class="row">
-	<div class="col-md-6 offset-md-3 p-3">
+	<div class=" offset-sm-1 col-md-5 offset-md-2 offset-lg-3 offset-xl-4 p-3">
 			<img class="card-img-top max400" src="images/img_etiqueta/{{$et->en_url_imagen}}" alt="Card image cap">
 	</div>
 </div>
@@ -21,7 +21,7 @@
 	</span>
 </div>
 <div class="fullDiv p-4 text-justify mb-4">
-	{{$et->en_descripcion}}
+	{!!$et->en_descripcion!!}
 </div>
 </div>
 

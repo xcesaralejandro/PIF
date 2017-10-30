@@ -12,7 +12,7 @@
 <div class="row">
 	@foreach ($sn as $s)
 		<div class="col-sm-6 col-lg-3 text-center">
-			<img class="card-img-top" src="images/img_sellosnegros/{{$s->sn_url_imagen}}" alt="Card image cap">
+			<img class="card-img-top max200" src="images/img_sellosnegros/{{$s->sn_url_imagen}}" alt="Card image cap">
 		</div>
 	@endforeach
 </div>
@@ -23,7 +23,7 @@
 			<div class="tituloPersonalizado bk_negro">{{$s->sn_nombre}}</div>
 		</div>
 		<div class="text-justify p-3">
-			{{$s->sn_descripcion}}
+			{!!$s->sn_descripcion!!}
 		</div>
 	</div>
 @endforeach
