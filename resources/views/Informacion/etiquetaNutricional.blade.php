@@ -29,13 +29,13 @@
 
 	@foreach ($et->camposEtiquetasNutricionales as $v)
 		<div class="col-sm-6 col-lg-4 mb-4">
-			<div class="card">
-			  <div class="card-header primaryPalet textoBlanco">
+			<div class=" card " >
+			  <div class=" primaryPalet card-header  textoBlanco">
 			    {{$v->cen_nombre}}
 			  </div>
 			  <div class="card-block">
-			    <p class="card-text">
-			    	{{$v->cen_descripcion}}
+			    <p class="card-text ">
+			    	{!!$v->cen_descripcion!!}
 			    </p>
 			  </div>
 			</div>

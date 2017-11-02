@@ -14,8 +14,8 @@ class etiquetaNutricionalController extends Controller
      */
     public function index(Request $request)
     {
-        $campos = camposEtiquetasNutricionale::Search($request->nombre)->orderBy('id','DESC')->paginate(1);
-        $etiquetas = etiquetasNutricionale::orderBy('id','DESC')->paginate(15);
+        $campos = camposEtiquetasNutricionale::Search($request->nombre)->orderBy('id','DESC')->paginate(15);
+        $etiquetas = etiquetasNutricionale::orderBy('id','DESC')->paginate(1);
         $en_cont = etiquetasNutricionale::pluck('id','id');
         $en_cont = count($en_cont);
         return view('admin.etiquetanutricional.listar')

@@ -36,7 +36,12 @@ class consumoDiarioController extends Controller
         $us   = (int)\Auth::user()->id;
         $date = date('Y-m-d');
         $findcd = consumosDiario::select('id')->where('us_id', $us)->where('cs_fecha',$date)->get();
-        $findcd = (int) $findcd[0]->id;
+        if (count($findcd) > 0) {
+            $findcd = (int) $findcd[0]->id;
+        }else{
+            $findcd = NULL;            
+        }
+        
         $planes = planesAlimentario::select('id','pa_apodo')
                                     ->where('us_id',\Auth::user()->id)
                                     ->where('pa_estado','1')

@@ -34,7 +34,7 @@ Route::get('etiquetanutricional','vistasInformativasController@etiquetanutricion
 Route::resource('consulta','consultasController');
 
 
-route::group(['middleware'=>'auth'],function(){
+  Route::group(['middleware'=>'auth'],function(){
   Route::get('datosUsuario','updateUserController@index')      ->name('cuenta.index');
   Route::put('datosUsuario/{id}','updateUserController@update')->name('cuenta.update');
 });

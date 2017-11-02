@@ -65,7 +65,7 @@
 
 <section id="llamandoNutricionistas" class="mb-5 textoBlanco">
   <div class="fullDiv text-center pt-3">
-      <span class="display-4">¿Te gustaria trabajar en <strong>Frust</strong>?</span>
+    <span class="display-4">¿Te gustaria trabajar en <strong>Frust</strong>?</span>
   </div>
 
   <div class="container">
@@ -125,17 +125,41 @@
 <section id="pruebaGratis">
   <div class="container">
     <div class="row pb-5">
-      <div class="col-sm-6">
-        <span>30</span><br>
-        <span>dias gratis</span>
-      </div>
-      <div class="col-sm-6">
-        ¿Quieres registrar una cuenta? <br>
-        <div class="">
-          crear una cuenta aquí
-        </div>
-      </div>
-    </div>
-  </div>
+      <div class="fullDiv text-center">
+        <span>Si quieres la mejor version de ti</span><br/>
+        <div class="fullDiv text-center">
+          <a href="{{ route('register') }}">
+            <button style="height: 40px;" type="button" class="btn btn-primary">
+              <div class="row">
+                <div class="col-10 text-center display-2">
+                 <span >Registrate</span>
+               </div>
+             </div>
+           </button>
+         </a>
+       </div>
+       <span>y obtén 30 dias<strong id="diasGratis"> ¡GRATIS!</strong>  </span>
+     </div>
+
+   </div>
+ </div>
+</section>
+
+<section id="llamandoFormularioContacto" class="mb-5 textoBlanco">
+ <div class="fullDiv text-center pt-3">
+  <span class="display-4">¿Tienes dudas?<br/><strong>Contacate con nosotros</strong></span>
+</div>
+
+<div class="container">
+  @include('formContacto')
+  <div class="text-center ">
+   <button  type="button" class="btn btn-outline-success  col-sm-3">
+              <div class="row ">
+                <div class="col-12 text-center ">
+                 <span >Enviar</span>
+               </div>
+             </div>
+           </button>
+           </div>
 </section>
 @endsection
