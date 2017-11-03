@@ -42,7 +42,14 @@
     {{Form::close()}}
   </section>
   @else
-  <h1>DEBE REGISTRAR UN PLAN ALIMENTARIO PREVIAMENTE</h1>
+    <div class="fullDiv text-center pb-4">
+  		<div style="font-size: 17rem;">
+  			<i class="fa fa-frown-o" aria-hidden="true"></i>
+  		</div>
+  		<div class="display-4">
+  			Debes registrar un plan alimentario previamente para registrar tu consumo.
+  		</div>
+  	</div>
  @endif
 @endsection
 
