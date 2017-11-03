@@ -243,7 +243,7 @@ body {
 }
 #llamandoFormularioContacto{
   background-color: #137FAF !important;
-  padding: 3rem; 
+  padding: 3rem;
   padding-bottom: 7rem;
     background-image: url(../images/vistas_publicas/triangulo2.svg);
   background-position: top;
@@ -730,7 +730,82 @@ a:not([href]):not([tabindex]) {
   font-size: 1.25rem;
 }
 #diasGratis{
+  font-size:3rem;
+  color: #E5DD19;
+}
 
-font-size:3rem;
-color: #E5DD19;
+/* /////////////////////////////////////////////////////////////////////*/
+/* /////////////////  NUTRICIONISTAS BUSCAR Y ADD  ////////////////////*/
+
+.cajitaNutricionistaLinda{
+  border: 1px solid #2196f3 !important;
+  border-radius: 4px;
+}
+
+.bk_cajitaNutricionistaLinda{
+  background-color: #2196f3;
+}
+
+.img-thumbnail {
+    border: 1px solid #2196f3;
+}
+
+.beautyNutriDiv{
+  border-bottom: 1px solid #2196f3;
+  box-shadow: 0px 4px 15px #f1f0f0;
+}
+
+.beautyNutriDiv:hover{
+  box-shadow: 0px 8px 15px #dfdfdf;
+}
+
+a.borraTextDecoration{
+  text-decoration: none;
+  color: #2196f3 !important;
+}
+
+.headerProfile{
+  background-color: #842F86;
+  padding-top: 5rem;
+  padding-bottom: 8rem;
+}
+
+.acomodandoHeader{
+  position: relative;
+  bottom: 7rem;
+}
+
+#profileN .img-thumbnail{
+  border: 1px solid #fff;
+}
+
+#profileN h3{
+  color: #fff;
+}
+
+.btnSolicitarNutri{
+  background-color: #00cd6a;
+  display: inline-block !important;
+  border-radius: 5px;
+  position: fixed;
+  top: 2rem;
+  right: 0rem;
+  z-index: 500;
+}
+
+a#cambiarNutria{
+  text-decoration: none;
+  color: #fff !important;
+}
+
+.fontContactoNutri{
+  font-size: 1.4rem;
+}
+.expNutria{
+  font-size: 1.7rem;
+}
+
+.subInfoNutria{
+  position: relative;
+  bottom: 4rem;
 }
