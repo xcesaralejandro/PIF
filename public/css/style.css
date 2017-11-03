@@ -772,7 +772,7 @@ a.borraTextDecoration{
 
 .acomodandoHeader{
   position: relative;
-  bottom: 8rem;
+  bottom: 7rem;
 }
 
 #profileN .img-thumbnail{
@@ -785,18 +785,27 @@ a.borraTextDecoration{
 
 .btnSolicitarNutri{
   background-color: #00cd6a;
-  display: inline-block;
+  display: inline-block !important;
   border-radius: 5px;
-  position: relative;
-  bottom: 1rem;
-  z-index:300;
+  position: fixed;
+  top: 2rem;
+  right: 0rem;
+  z-index: 500;
 }
 
-.btnSolicitarNutr:hover{
-  opacity: 0.8;
-}
-
-#btnSolicitar a{
+a#cambiarNutria{
   text-decoration: none;
   color: #fff !important;
+}
+
+.fontContactoNutri{
+  font-size: 1.4rem;
+}
+.expNutria{
+  font-size: 1.7rem;
+}
+
+.subInfoNutria{
+  position: relative;
+  bottom: 4rem;
 }
