@@ -7,7 +7,7 @@
       <div class="col-sm-6 col-md-4 offset-md-2 col-lg-3 offset-lg-3 mb-2">
         <div class="thecolor textoBlanco p-2 pt-5">
           <div class="fullDiv fontAw">
-            <i class="fa fa-tint" aria-hidden="true"></i>
+            <img src="{{asset('images/cliente_dashboard/detailCD/water.svg')}}" width="150px">
           </div>
           <div class="fullDiv mt-5">
             <span class="mispanreadyonready">Ingesta de agua</span>
@@ -24,7 +24,7 @@
             <a href="{{route('planAlimentario.show',$cd->pa_id)}}" style="text-decoration:none !important;">
               <div class="thecolor textoBlanco p-2 pt-5">
                 <div class="fullDiv fontAw">
-                  <i class="fa fa-clipboard" aria-hidden="true"></i>
+                  <img src="{{asset('images/cliente_dashboard/detailCD/plan.svg')}}" width="150px">
                 </div>
                 <div class="fullDiv mt-5">
                   <span class="mispanreadyonready">Plan alimentario</span>
