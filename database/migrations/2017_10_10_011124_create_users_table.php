@@ -35,6 +35,10 @@ class CreateUsersTable extends Migration
             $table->string('us_registro_profesion',256)->nullable();
             $table->integer('us_id_nutricionista')->default(1);
             $table->enum('us_estado',[0,1])->default(1);
+            $table->string('pf_descripcion',2000)->nullable();
+            $table->string('pf_url_imagen',250)->nullable();
+            $table->string('pf_experiencia',10)->nullable();
+            $table->integer('pf_celular')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

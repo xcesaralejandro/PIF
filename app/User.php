@@ -36,6 +36,10 @@ class User extends Authenticatable
         'us_img_carnet_p',
         'us_registro_profesion',
         'us_id_nutricionista',
+        'pf_descripcion',
+        'pf_url_imagen',
+        'pf_experiencia',
+        'pf_celular',
         'remember_token',
         'created_at',
         'updated_at'
@@ -56,7 +60,9 @@ class User extends Authenticatable
         return $query->where('us_email', 'LIKE', "%$us_email%");
     }
     // SUS HIJOS
-
+    public function peticiones(){
+        return $this->hasMany('frust\peticione');
+    }
     public function enfermedades(){
         return $this->hasMany('frust\enfermedade');
     }
