@@ -61,7 +61,6 @@ class planesAlimentariosController extends Controller
     ->where('us_id', \Auth::user()->us_id_nutricionista)
     ->take(1)
     ->get();
-
     return View('cliente.planAlimentario.agregar')
     ->with('na', $na)
     ->with('comida', $comida)

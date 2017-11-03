@@ -20,7 +20,7 @@
   <div class="col-sm-6 col-lg-4 mb-3">
     <div class="flatColorFC1 p-4">
       <div class="fullDiv text-center fontAwH2 mb-1">
-        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+        <img src="{{asset('images/formulasComunes/imc.svg')}}" width="150px">
       </div>
       <div class="fullDiv mb-2 fontAwH5">
         IMC
@@ -34,7 +34,7 @@
   <div class="col-sm-6 col-lg-4 mb-3">
     <div class="flatColorFC2 p-4">
       <div class="fullDiv text-center fontAwH2 mb-1">
-        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+        <img src="{{asset('images/formulasComunes/pesoTalla.svg')}}" width="150px">
       </div>
       <div class="fullDiv mb-2 fontAwH5">
         IPT
@@ -48,7 +48,7 @@
   <div class="col-sm-6 col-lg-4 mb-3">
     <div class="flatColorFC3 p-4">
       <div class="fullDiv text-center fontAwH2 mb-1">
-        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+        <img src="{{asset('images/formulasComunes/pesoAjustado.svg')}}" width="150px">
       </div>
       <div class="fullDiv mb-2 fontAwH5">
         Peso ajustado
@@ -62,7 +62,7 @@
   <div class="col-sm-6 col-lg-4 mb-3">
     <div class="flatColorFC4 p-4">
       <div class="fullDiv text-center fontAwH2 mb-1">
-        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+        <img src="{{asset('images/formulasComunes/minAceptable.svg')}}" width="150px">
       </div>
       <div class="fullDiv mb-2 fontAwH5">
         Peso minimo
@@ -76,7 +76,7 @@
   <div class="col-sm-6 col-lg-4 mb-3">
     <div class="flatColorFC5 p-4">
       <div class="fullDiv text-center fontAwH2 mb-1">
-        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+        <img src="{{asset('images/formulasComunes/maxAceptable.svg')}}" width="150px">
       </div>
       <div class="fullDiv mb-2 fontAwH5">
         Peso maximo
@@ -90,7 +90,7 @@
   <div class="col-sm-6 col-lg-4 mb-3">
     <div class="flatColorFC6 p-4">
       <div class="fullDiv text-center fontAwH2 mb-1">
-        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+        <img src="{{asset('images/formulasComunes/pesoIdeal.svg')}}" width="150px">
       </div>
       <div class="fullDiv mb-2 fontAwH5">
         Peso ideal

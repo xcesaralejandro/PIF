@@ -723,6 +723,7 @@ a:not([href]):not([tabindex]) {
 
 .thecolor {
   background-color: #9D2F6B !important;
+  border: 2px solid #521e53;
 }
 
 .fontAw {
@@ -811,4 +812,12 @@ a#cambiarNutria{
 .subInfoNutria{
   position: relative;
   bottom: 4rem;
+}
+
+.amuentanx2{
+  font-size: 2.5rem;
+}
+
+.planDesactivadoOpacity{
+  opacity: .5 !important;
 }
