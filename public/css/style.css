@@ -334,7 +334,10 @@ body {
 .max200 {
   max-height: 200px;
 }
-
+.maxredondito {
+  height: 220px;
+  width: 220px;
+}
 .max400 {
   max-width: 400px;
   max-height: 400px;

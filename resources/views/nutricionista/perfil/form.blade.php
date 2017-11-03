@@ -3,7 +3,7 @@
 	<div class="col-lg-3 mt-5">
 		<div class="form-group">
 			{{ Form::label('pf_url_imagen',' ') }}<br/>
-			{{ Form::file('pf_url_imagen',['class'=>'imagen ','required']) }}
+			{{ Form::file('pf_url_imagen',['class'=>'imagen ']) }}
 		</div>
 	</div>
 	<div class="col-lg-8">
