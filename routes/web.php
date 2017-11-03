@@ -23,6 +23,8 @@ Route::get('{id}/getCategorias','apiController@getCategorias')->name('api.getCat
 // Formulas comunes
 Route::post('formulasComunes/resultados','formulasComunesController@calcular')->name('resultados.formulas');
 Route::resource('formulasComunes','formulasComunesController');
+Route::get('nutricionistasDisponibles','nutricionistasDisponiblesController@listar')->name('nutricionistas.disponibles');
+Route::get('perfilNutricionista/{id}','nutricionistasDisponiblesController@detalle')->name('nutricionistas.detalle');
 
 // Vistas informativas
 Route::get('sellosnegros','vistasInformativasController@sellosnegros')->name('sellosnegros');
