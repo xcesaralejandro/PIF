@@ -71,14 +71,6 @@
     </div>
 
     <div class="form-group">
-      {{ Form::label('us_rut','Rut') }}
-      {{ Form::text('us_rut',null,['class'      =>'form-control RUT',
-                        'placeholder'=>'12.345.678-9',
-                        'required',
-                        'id'=>'rut']) }}
-    </div>
-
-    <div class="form-group">
       {{ Form::label('password','Nueva Contraseña') }}
       {{ Form::password('password',['class'   =>'form-control',
                        'placeholder'=>'***',

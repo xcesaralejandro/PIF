@@ -6,7 +6,8 @@
     @include('nutricionista.comidas.nav')
 @endsection 
 
-@section('placeholderBuscar','Buscar comida') @section('content')
+@section('placeholderBuscar','Buscar comida') 
+@section('content')
 <div class="text-center mb-4 mt-3">
     <span class="display-4">Agregar <strong>comida</strong></span>
 </div>

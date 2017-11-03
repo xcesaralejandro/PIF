@@ -96,6 +96,8 @@ Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista','b
   // Route::get('factores/{id}/activar','factoresController@activar')->name('factores.activar');
   // Porcentaje de comidas
   Route::resource('comidas','comidasController');
+  //perfil
+  Route::resource('perfil','perfilesController');
 });
 
 

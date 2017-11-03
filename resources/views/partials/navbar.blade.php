@@ -102,6 +102,9 @@
                       </a>
                     </li>
                     <li class="nav-item">
+                      <a class="nav-link" href="{{ route('perfil.index') }}">Perfil</a>
+                    </li>                    
+                    <li class="nav-item">
                       <a class="  nav-link" href="{{ route('factores.index') }}">Factores</a>
                     </li>
                     <li class="nav-item">

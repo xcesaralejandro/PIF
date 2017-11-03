@@ -211,10 +211,10 @@
 }
 
 .krajee-default.file-preview-frame {
-    margin: 8px;
+    margin-top: 7px;
     border: 1px solid #ddd;
     box-shadow: 1px 1px 5px 0 #a2958a;
-    padding: 6px;
+    padding: 1px;
     float: left;
     text-align: center;
 }
