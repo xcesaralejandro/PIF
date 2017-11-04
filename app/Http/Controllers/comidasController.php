@@ -16,7 +16,7 @@ class comidasController extends Controller
     public function index()
     {
 
-        $comidas = comida::with(['subComidas'])->orderBy('id','DESC')->paginate(5);        
+        $comidas = comida::where('us_id',\Auth::user()->id)->with(['subComidas'])->orderBy('id','DESC')->paginate(5);        
         return view('nutricionista.comidas.listar')
         ->with('comidas',$comidas);
 
@@ -59,7 +59,7 @@ class comidasController extends Controller
             return redirect()->back()->withInput();
 
         }else{
-            $total = comida::all();
+            $total = comida::where('us_id',\Auth::user()->id)->get();
             foreach ($total as $value) {
              $value->cm_estado = $desactivado;
              $value->save();

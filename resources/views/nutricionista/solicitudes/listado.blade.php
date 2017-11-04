@@ -1,7 +1,12 @@
-@extends('layouts.main')
-@section('title-nav','Nutricionista')
+@extends('layouts.mainAdmin')
+@section('title-nav','Personas que desean trabajar contigo')
 @section('title','Personas que desean trabajar contigo')
+<style type="text/css">
+    form#buscateesta{
+        display: none;
+    }
 
+</style>
 @section('content')
 <div class="text-center mb-4 mt-3">
     <span class="display-4">Solicitudes<strong> pendientes</strong>

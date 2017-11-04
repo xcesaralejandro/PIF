@@ -107,7 +107,11 @@
           Ver solicitudes
         </a>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link cursorPointer" href="{{route('misClientes.index')}}">
+          Mis clientes
+        </a>
+      </li>
       <li>
         <div class="dropup nav-item">
           <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -179,18 +183,24 @@
         </div>
       </div>
     </li>
-    <li class="nav-item">
-      <a class="nav-link cursorPointer" href="{{route('nutricionistas.disponibles')}}">
-        Ver nutricionistas
-      </a>
+    <li>
+      <div class="dropup nav-item">
+        <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Nutricionistas
+        </button>
+        <div class="dropdown-menu" aria-labelledby="about-us">
+          <a class="dropdown-item" href="{{route('nutricionistas.disponibles')}}">
+            Ver nutricionistas
+          </a>
+            @if(Auth::user()->us_id_nutricionista != 1)
+          <a class="dropdown-item" href="{{ route('miNutricionista.miNutri', Auth::user()->us_id_nutricionista) }}">
+            Mi nutricionista
+          </a>
+              @endif
+        </div>
+      </div>
     </li>
-    @if(Auth::user()->us_id_nutricionista != 1)
-    <li class="nav-item">
-      <a class="nav-link cursorPointer" href="{{ route('miNutricionista.miNutri', Auth::user()->us_id_nutricionista) }}">
-        Mi nutricionistas
-      </a>
-    </li>
-    @endif
+  
     @endif
     @endguest
 

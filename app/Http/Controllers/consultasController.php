@@ -70,7 +70,7 @@ class consultasController extends Controller
 public function show($id)
 {
     $plan = planesAlimentario::with(['nuevosAvance', 'factore', 'detalleAlimentos'])->find($id);
-    // if ($plan->us_id == $usuario ) {
+
     $alimentos = detalleAlimento::with(['subComida', 'Alimento'])
     ->where('pa_id', $id)
     ->get();
@@ -78,11 +78,6 @@ public function show($id)
     return View('cliente.planAlimentario.detalle')
     ->with('plan', $plan)
     ->with('alimentos', $alimentos);
-
-    // } else {
-    //   alertify()->error('No se ha encontrado el plan alimentario.')->delay(10000)->clickToClose()->position('bottom left');
-    //   return redirect()->back();
-    // }
 }
 
 

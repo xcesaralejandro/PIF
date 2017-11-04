@@ -105,6 +105,10 @@ Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista','b
   Route::get('solicitudes','nutricionistasDisponiblesController@verSolicitudes')->name('nutricionista.solicitudes');
   Route::get('solicitudes/aceptar/{id}','nutricionistasDisponiblesController@aceptarSol')->name('aceptar.solicitud');
   Route::get('solicitudes/eliminar/{id}','nutricionistasDisponiblesController@eliminarSol')->name('eliminar.solicitud');
+  //Mis clientes
+  Route::resource('misClientes','misClientesController');
+  Route::get('misClientes/eliminar/{id}','misClientesController@eliminar')->name('eliminar.cliente');
+Route::get('misClientes/detalle/{id}','misClientesController@detalle')->name('detalle.cliente');
 });
 
 
