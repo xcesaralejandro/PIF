@@ -7,12 +7,13 @@
 <style>.cuerpoPagina {padding: 0px;}</style>
 
 <section id="profileN" class="pb-5">
-
-  <a href="#" id="cambiarNutria">
-    <div id="btnSolicitar" class="p-2 btnSolicitarNutri">
-      Utilizar nutricionista
-    </div>
-  </a>
+  @if (strtoupper(\Auth::user()->us_tipo_usuario) === 'CLIENTE')
+    <a href="/enviarSolicitud/{{ $perfil->id }}" id="cambiarNutria">
+      <div id="btnSolicitar" class="p-2 btnSolicitarNutri">
+        Contratar nutricionista
+      </div>
+    </a>
+  @endif
 
   <div class="fullDiv text-center headerProfile">
     <h3>{{ $perfil->us_nombres }} {{ $perfil->us_apellido_paterno }} {{ $perfil->us_apellido_materno }}</h3>
@@ -63,7 +64,11 @@
       .confirm("Si envía una solicitud a este nutricionista las anteriores solicitudes se cancelaran." +
         " Los cambios no se verán reflejados hasta que el nutricionista acepte su solicitud, es posible que " +
         "el nutricionista aplique cargos por sus servicios. <br /> <br /> ¿Está seguro que desea envíar una solicitud de " +
-        "requerimientos para este nutricionista?");
+        "requerimientos para este nutricionista?",function(e){
+          if (e) {
+              location.href = $('#cambiarNutria').attr('href');
+          }
+        });
     });
   });
 </script>

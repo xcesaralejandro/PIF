@@ -1,0 +1,35 @@
+@extends('layouts.main')
+@section('title','Personas que desean trabajar contigo')
+@section('content')
+<div class="text-center mb-4 mt-3">
+    <span class="display-4">Solicitudes<strong> pendientes</strong>
+    </span>
+</div>
+<hr>
+<table class="table table-striped table-hover">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Nombre</th>
+            <th>E-mail</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach ($pts as $pt)
+        <tr>
+          <td>{{$pt->User->us_nombres}} {{$pt->User->us_apellido_paterno}} {{$pt->User->us_apellido_materno}}</td>
+          <td>{{$pt->User->us_email}}</td>
+          <td class="fit">
+            <a href="{{route('aceptar.solicitud',$pt->id)}}" class="imgAction mr-1 deleteTextdec">
+              <img src="{{asset('images/userConfirm.svg')}}" width="25px">
+            </a>
+            <a href="{{route('eliminar.solicitud',$pt->id)}}" class="imgAction deleteTextdec">
+              <img src="{{asset('images/userDelete.svg')}}" width="25px">
+            </a>
+          </td>
+        </tr>
+      @endforeach
+    </tbody>
+</table>
+@endsection
+</hr>

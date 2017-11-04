@@ -22,7 +22,7 @@ class CreatePeticionesTable extends Migration
             $table->timestamps();
 
             // FOREIGN KEY
-            $table->foreign('us_id')->references('id')->on('users')->onDelete('cascade');            
+            $table->foreign('us_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

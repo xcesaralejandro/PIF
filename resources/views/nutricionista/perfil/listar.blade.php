@@ -4,7 +4,11 @@
 
 @section('content')
   <style>.cuerpoPagina{background-color: #F8F8F8;}</style>
-    
+    @if ($pt > 0)
+      <div class="fullDiv solicitudPendiente p-2 text-center bk_blanco textoGris">
+        Actualmente hay una petición de servicios que está a la espera de ser aceptada.
+      </div>
+    @endif
   <div class="row">
 
 @foreach($perfiles as $perfil)

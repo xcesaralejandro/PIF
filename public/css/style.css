@@ -788,13 +788,17 @@ a.borraTextDecoration{
 }
 
 .btnSolicitarNutri{
-  background-color: #00cd6a;
+  background-color: #2196F3;
   display: inline-block !important;
-  border-radius: 5px;
+  border-radius: 10px 0px 0px 10px;
   position: fixed;
   top: 2rem;
   right: 0rem;
   z-index: 500;
+}
+
+.btnSolicitarNutri:hover{
+  background-color: #3ca7fb;
 }
 
 a#cambiarNutria{
@@ -820,4 +824,12 @@ a#cambiarNutria{
 
 .planDesactivadoOpacity{
   opacity: .5 !important;
+}
+
+.solicitudPendiente{
+  border: 2px dashed #2196f3;
+}
+
+.deleteTextdec{
+  text-decoration: none !important;
 }

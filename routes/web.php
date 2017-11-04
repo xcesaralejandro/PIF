@@ -25,6 +25,7 @@ Route::post('formulasComunes/resultados','formulasComunesController@calcular')->
 Route::resource('formulasComunes','formulasComunesController');
 Route::get('nutricionistasDisponibles','nutricionistasDisponiblesController@listar')->name('nutricionistas.disponibles');
 Route::get('perfilNutricionista/{id}','nutricionistasDisponiblesController@detalle')->name('nutricionistas.detalle');
+Route::get('enviarSolicitud/{id}','nutricionistasDisponiblesController@solicitud')->name('nutricionista.detalle');
 
 // Vistas informativas
 Route::get('sellosnegros','vistasInformativasController@sellosnegros')->name('sellosnegros');
@@ -98,8 +99,12 @@ Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista','b
   // Route::get('factores/{id}/activar','factoresController@activar')->name('factores.activar');
   // Porcentaje de comidas
   Route::resource('comidas','comidasController');
-  //perfil
+  // perfil
   Route::resource('perfil','perfilesController');
+  // Solicitudes
+  Route::get('solicitudes','nutricionistasDisponiblesController@verSolicitudes')->name('nutricionista.solicitudes');
+  Route::get('solicitudes/aceptar/{id}','nutricionistasDisponiblesController@aceptarSol')->name('aceptar.solicitud');
+  Route::get('solicitudes/eliminar/{id}','nutricionistasDisponiblesController@eliminarSol')->name('eliminar.solicitud');
 });
 
 
