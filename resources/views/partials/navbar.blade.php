@@ -184,6 +184,13 @@
         Ver nutricionistas
       </a>
     </li>
+    @if(Auth::user()->us_id_nutricionista != 1)
+    <li class="nav-item">
+      <a class="nav-link cursorPointer" href="{{ route('miNutricionista.miNutri', Auth::user()->us_id_nutricionista) }}">
+        Mi nutricionistas
+      </a>
+    </li>
+    @endif
     @endif
     @endguest
 

@@ -57,7 +57,7 @@ class nutricionistasDisponiblesController extends Controller
 	}
 
 
-	public function verSolicitudes(){
+	public function verSolicitudes(Request $request){
 		$pts = peticione::with(['User'])
 									 ->where('pt_estado','1')
 									 ->where('pt_id_nut',\Auth::user()->id)

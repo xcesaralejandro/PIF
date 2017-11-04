@@ -7,7 +7,7 @@
 <style>.cuerpoPagina {padding: 0px;}</style>
 
 <section id="profileN" class="pb-5">
-  @if (strtoupper(\Auth::user()->us_tipo_usuario) === 'CLIENTE')
+  @if (strtoupper(\Auth::user()->us_tipo_usuario) === 'CLIENTE' && \Auth::user()->us_id_nutricionista !=  $perfil->id)
     <a href="/enviarSolicitud/{{ $perfil->id }}" id="cambiarNutria">
       <div id="btnSolicitar" class="p-2 btnSolicitarNutri">
         Contratar nutricionista

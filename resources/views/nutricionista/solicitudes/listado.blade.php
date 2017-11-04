@@ -1,5 +1,7 @@
 @extends('layouts.main')
+@section('title-nav','Nutricionista')
 @section('title','Personas que desean trabajar contigo')
+
 @section('content')
 <div class="text-center mb-4 mt-3">
     <span class="display-4">Solicitudes<strong> pendientes</strong>

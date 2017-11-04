@@ -123,4 +123,6 @@ Route::group(['prefix'=>'nutricionista','middleware'=>['auth','nutricionista','b
   	Route::get('nuevoAvance/eliminar/{id}','nuevoAvanceController@destroy')->name('nuevoAvance.destroy');
     // Registro diario
     Route::resource('registroDiario','consumoDiarioController');
+    // mi nutricionista
+    Route::get('miNutricionista/{id}','miNutricionistaController@nutricionista')->name('miNutricionista.miNutri');
 });

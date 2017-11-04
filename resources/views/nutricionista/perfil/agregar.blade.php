@@ -27,7 +27,7 @@
 </div>
 @endsection
 @section('js')
-</script>
+
 <script>
     $(".imagen").fileinput({ 
         uploadAsync: false,
@@ -38,7 +38,5 @@
     $('#descripPerfil').trumbowyg();
 
 </script>
-<script>
 
-</script>
 @endsection
