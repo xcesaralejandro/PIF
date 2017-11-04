@@ -20,10 +20,10 @@
           <td>{{$pt->User->us_nombres}} {{$pt->User->us_apellido_paterno}} {{$pt->User->us_apellido_materno}}</td>
           <td>{{$pt->User->us_email}}</td>
           <td class="fit">
-            <a href="{{route('aceptar.solicitud',$pt->id)}}" class="imgAction mr-1 deleteTextdec">
+            <a href="{{route('aceptar.solicitud',$pt->id)}}" class="imgAction mr-1 deleteTextdec agregarSol">
               <img src="{{asset('images/userConfirm.svg')}}" width="25px">
             </a>
-            <a href="{{route('eliminar.solicitud',$pt->id)}}" class="imgAction deleteTextdec">
+            <a href="{{route('eliminar.solicitud',$pt->id)}}" class="imgAction deleteTextdec borrarSol">
               <img src="{{asset('images/userDelete.svg')}}" width="25px">
             </a>
           </td>
@@ -32,4 +32,31 @@
     </tbody>
 </table>
 @endsection
-</hr>
+@section('js')
+  <script>
+    $(function(){
+
+      $('td a.agregarSol').on('click',function(e){
+        e.preventDefault();
+        var trigger = $(this);
+        alertify.okBtn('Aceptar').cancelBtn("Salir").confirm("Una vez que acepte la solicitud el usuario podrá utilizar sus formulas y factores.<br><br>"+
+                         "¿Está seguro que desea aceptar la solicitud?",function(e){
+          if (e) {
+            location.href = trigger.attr('href');
+          }
+        }); // End confirm
+      });
+
+      $('td a.borrarSol').on('click',function(e){
+        e.preventDefault();
+        var trigger = $(this);
+        alertify.okBtn('Eliminar').cancelBtn("Salir").confirm("Si elimina la solicitud el usuario deberá enviarla nuevamente.<br><br>"+
+                         "¿Está seguro que desea eliminar la solicitud?",function(e){
+          if (e) {
+            location.href = trigger.attr('href');
+          }
+        }); // End confirm
+      });
+    });
+  </script>
+@endsection

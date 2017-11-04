@@ -109,7 +109,7 @@ class nutricionistasDisponiblesController extends Controller
 						/*  Acá hago mis acciones */
 						$ownerUser->pt_estado = '0';
 						if ($ownerUser->save()) {
-							alertify()->success('Ha cancelado la petición con éxito.')->delay(10000)->clickToClose()->position('bottom left');
+							alertify()->success('¡Ha eliminado la solicitud con éxito!')->delay(10000)->clickToClose()->position('bottom left');
 							return redirect()->back();
 						}else{
 							alertify()->error('La petición no ha podido procesarse.')->delay(10000)->clickToClose()->position('bottom left');

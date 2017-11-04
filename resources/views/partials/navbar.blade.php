@@ -101,6 +101,13 @@
           Inicio
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link cursorPointer" href="{{route('nutricionista.solicitudes')}}">
+          Ver solicitudes
+        </a>
+      </li>
+
       <li>
         <div class="dropup nav-item">
           <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -113,13 +120,13 @@
            @else
            <a class="dropdown-item" href="{{ route('perfil.index') }}">
            Ver perfil</a>
-   
+
             <a class="dropdown-item" href="{{ route('perfil.create') }}">
            Modificar perfil</a>
          </div>
        </div>
        @endif
-     </li>                   
+     </li>
      <li class="nav-item">
       <a class="  nav-link" href="{{ route('factores.index') }}">Factores</a>
     </li>
