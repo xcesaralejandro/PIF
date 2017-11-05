@@ -12,10 +12,10 @@ function setCategoria(){
 	var ssAli   = $('#alim');
 	var uri    = "/cliente/planes/categorias/" + ssGpo.val();
 	var method = "GET";
-	
+
 	$.ajax({
 		url: uri,
-		type: method, 
+		type: method,
 		success:function(data){
 			limpiaSelect(ssCat);
 			limpiaSelect(ssAli);
@@ -41,10 +41,10 @@ function setAlimentos(){
 	var method = "GET";
 	$.ajax({
 		url: uri,
-		type: method, 
+		type: method,
 		success:function(data){
 			limpiaSelect(sAli);
-			
+
 			for (var i = 0; i <= data.length - 1; i++) {
 				var temp = data[i];
 				sAli.append('<option value="' + temp['id'] +'">' + temp['al_nombre'] +'</option>');
@@ -57,7 +57,7 @@ function setAlimentos(){
 					'al_carbohidratos': temp['al_carbohidratos']
 				});
 			}
-		
+
 		sAli.trigger("chosen:updated");
 		},
 		error:function(jqXHR, estado, error){
@@ -68,7 +68,7 @@ function setAlimentos(){
 		},
 		timeout:15000
 	});
-} 
+}
 
 // Funcion que limpia un select de option
 function limpiaSelect(obj){
@@ -162,7 +162,7 @@ headSearch.on('click',function(e){
 
 	// Comprobamos que el elemento no esté agregado en el divcomida seleccionado
 	var codigoNuevo = alimentoEncontrado.find('input.codigoAlimento').val();
-	var padreItems = divComidaSeleccionado.find('.listadoComida'); 
+	var padreItems = divComidaSeleccionado.find('.listadoComida');
 
 	if (searchElement(padreItems.find('input.codigoAlimento'),codigoNuevo)) {
 		alertify.error($('.alim option:selected').text() +' ya se encuentra en ' + divComidaSeleccionado.find('.tituloComida').text());
@@ -178,15 +178,15 @@ headSearch.on('click',function(e){
 						   		   .find('input.gramos_ingeridos')
 						   		   .removeAttr('readonly')
 						   		   .parents('.fullAlimento');
-		
-		// Traimos los valores de 100g y los pasamos a atributos data-	
+
+		// Traimos los valores de 100g y los pasamos a atributos data-
 		xd.find('div.bodyAlimento').data( "valoresAlimento", {  'kcal': xd.find('.kcalAlimento').val(),
 															    'prot': xd.find('.protAlimento').val(),
 															    'lip' : xd.find('.lipAlimento').val(),
 															    'ch'  : xd.find('.chAlimento').val()});
 		// Agregamos el alimento
 		var booleanAction = divComidaSeleccionado.find('div.listadoComida').append(xd);
-		
+
 		if (booleanAction) {
 			alertify.success("Ha agregado: " + nAlimento);
 			var obtenerAlimentos = divComidaSeleccionado.find('input.codigoAlimento');
@@ -323,29 +323,29 @@ function funcionMagica(divSeleccionado){
 	var allKcal        = divSeleccionado.find('input.kcalAlimento');
 	var sumaKcal       = parseInt(sumElement(allKcal));
 	var textoTotalKcal = divSeleccionado.find('strong.Kcal');
-	
+
 	var diffKcal = totalKcalCom - sumaKcal;
 
 	textoTotalKcal.text(sumaKcal);
 	if (totalKcalCom < sumaKcal) {
-		alertify.okBtn("Entendido !").alert('Haz excedido las ' 
+		alertify.okBtn("Entendido !").error('Haz excedido las '
 										   + totalKcalCom
-										   +' Kcal para ' 
+										   +' Kcal para '
 									       + divSeleccionado.find('.tituloComida').text()
-									       + ', reduce la cantidad de gramos a ingerir para disminuir '
+									       + ', reduce '
 									       + diffKcal * -1
-									       + ' Kcal o no podras registrar el plan alimentario.');
+									       + ' Kcal');
 	}
 	// Sumamos y seteamos las proteinas
 	var allProt  = divSeleccionado.find('input.protAlimento');
 	var sumaProt = 	sumElement(allProt);
 	divSeleccionado.find('strong.PROT').text(parseFloat(sumaProt).toFixed(2));
-	
+
 	//Sumamos y seteamos los lípidos
 	var allLip   = divSeleccionado.find('input.lipAlimento');
 	var sumaLip  = 	sumElement(allLip);
 	divSeleccionado.find('strong.LIP').text(parseFloat(sumaLip).toFixed(2));
-	
+
 	//Sumamos y seteamos los carbohidratos
 	var allCh    = divSeleccionado.find('input.chAlimento');
 	var sumaCh   = 	sumElement(allCh);
@@ -383,7 +383,7 @@ function cuantosGramos(){
 	var kcalNec  = parseInt($('.vct').text());
 	barraReq.find('.finalKcal').text(kcalNec);
 
-	// Traemos los % 
+	// Traemos los %
 	var pjProt = parseInt($('.pjPROT').text());
 	var pjLip  = parseInt($('.pjLIP').text());
 	var pjCh   = parseInt($('.pjCH').text());
@@ -415,12 +415,12 @@ function cuantosGramos(){
 // Esta funcion carga las kcal que se necesitan comer para cada comida
 function kcalComida(){
 	var vct        = parseInt($('.vct').text());
-	var pDesayuno  = parseInt($('.pDesayuno').text()); 
-	var pColacion1 = parseInt($('.pColacion1').text()); 
-	var pAlmuerzo  = parseInt($('.pAlmuerzo').text()); 
-	var pColacion2 = parseInt($('.pColacion2').text()); 
-	var pOnce      = parseInt($('.pOnce').text()); 
-	var pCena      = parseInt($('.pCena').text()); 
+	var pDesayuno  = parseInt($('.pDesayuno').text());
+	var pColacion1 = parseInt($('.pColacion1').text());
+	var pAlmuerzo  = parseInt($('.pAlmuerzo').text());
+	var pColacion2 = parseInt($('.pColacion2').text());
+	var pOnce      = parseInt($('.pOnce').text());
+	var pCena      = parseInt($('.pCena').text());
 
 	// Seteamos los valores
 	$('.kcalDesayuno').text(parseInt(pDesayuno * vct / 100));
@@ -428,7 +428,7 @@ function kcalComida(){
 	$('.kcalAlmuerzo').text(parseInt(pAlmuerzo * vct / 100));
 	$('.kcalColacion2').text(parseInt(pColacion2 * vct / 100));
 	$('.kcalOnce').text(parseInt(pOnce * vct / 100));
-	$('.kcalCena').text(parseInt(pCena * vct / 100)); 
+	$('.kcalCena').text(parseInt(pCena * vct / 100));
 
 	//Limpiamos la basurita
 	vct        = undefined;
@@ -442,21 +442,21 @@ function kcalComida(){
 
 // Esta funcion solo cambia el color del total del plan para que el user lo pille más facil
 function pintandoTotal(divComidaSeleccionado){
-	var finalKcal    = parseInt($('div.totalPlan .finalKcal').text()); 
+	var finalKcal    = parseInt($('div.totalPlan .finalKcal').text());
 	var finalPROT    = parseFloat($('.finalPROT').text()).toFixed(2);
 	var finalLIP     = parseFloat($('.finalLIP').text()).toFixed(2);
 	var finalCH      = parseFloat($('.finalCH').text()).toFixed(2);
-	var requerimKcal = parseInt($('div.totalRequerimientos .finalKcal').text()); 
+	var requerimKcal = parseInt($('div.totalRequerimientos .finalKcal').text());
 	var requerimPROT = parseFloat($('div.totalRequerimientos .finalPROT').text()).toFixed(2);
 	var requerimLIP  = parseFloat($('div.totalRequerimientos .finalLIP').text()).toFixed(2);
 	var requerimCH   = parseFloat($('div.totalRequerimientos .finalCH').text()).toFixed(2);
 
-	// Pintan2 las kcal 
+	// Pintan2 las kcal
 	if (finalKcal > requerimKcal + 100 || finalKcal < requerimKcal - 100) {
 		$('div.totalPlan .finalKcal').css('color','#F6171D');
 	}
 
-	if (finalKcal > requerimKcal && finalKcal < requerimKcal + 100 || 
+	if (finalKcal > requerimKcal && finalKcal < requerimKcal + 100 ||
 		finalKcal > requerimKcal - 100 && finalKcal < requerimKcal - 20) {
 		$('div.totalPlan .finalKcal').css('color','#FF7509');
 	}
@@ -470,7 +470,7 @@ function pintandoTotal(divComidaSeleccionado){
 		$('div.totalPlan .finalPROT').css('color','#F6171D');
 	}
 
-	if (Number(finalPROT) > Number(requerimPROT) && Number(finalPROT) < (Number(requerimPROT) + Number(15)) || 
+	if (Number(finalPROT) > Number(requerimPROT) && Number(finalPROT) < (Number(requerimPROT) + Number(15)) ||
 		Number(finalPROT) > (Number(requerimPROT) - 15) && Number(finalPROT) <= (Number(requerimPROT) - 1)) {
 		$('div.totalPlan .finalPROT').css('color','#FF7509');
 	}
@@ -484,7 +484,7 @@ function pintandoTotal(divComidaSeleccionado){
 		$('div.totalPlan .finalLIP').css('color','#F6171D');
 	}
 
-	if (Number(finalLIP) > Number(requerimLIP) && Number(finalLIP) < (Number(requerimLIP) + Number(15)) || 
+	if (Number(finalLIP) > Number(requerimLIP) && Number(finalLIP) < (Number(requerimLIP) + Number(15)) ||
 		Number(finalLIP) > (Number(requerimLIP) - 15) && Number(finalLIP) <= (Number(requerimLIP) - 1)) {
 		$('div.totalPlan .finalLIP').css('color','#FF7509');
 	}
@@ -498,7 +498,7 @@ function pintandoTotal(divComidaSeleccionado){
 		$('div.totalPlan .finalCH').css('color','#F6171D');
 	}
 
-	if (Number(finalCH) > Number(requerimCH) && Number(finalCH) < (Number(requerimCH) + Number(15)) || 
+	if (Number(finalCH) > Number(requerimCH) && Number(finalCH) < (Number(requerimCH) + Number(15)) ||
 		Number(finalCH) > (Number(requerimCH) - 15) && Number(finalCH) <= (Number(requerimCH) - 1)) {
 		$('div.totalPlan .finalCH').css('color','#FF7509');
 	}
@@ -536,14 +536,14 @@ $('#formPlan').on('submit', function(e){
 	var colacion2 = $('#formPlan .comidaColacion2 .fullAlimento');
 	var once      = $('#formPlan .comidaOnce      .fullAlimento');
 	var cena      = $('#formPlan .comidaCena      .fullAlimento');
-	
+
 	arrayName(desayuno  , 'desayuno');
 	arrayName(colacion1 , 'colacion1');
 	arrayName(almuerzo  , 'almuerzo');
 	arrayName(colacion2 , 'colacion2');
 	arrayName(once      , 'once');
 	arrayName(cena      , 'cena');
-	
+
 	$(this).unbind('submit').submit();
 
 });
