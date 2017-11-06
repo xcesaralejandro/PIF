@@ -19,7 +19,7 @@ class CreateConsumosDiariosTable extends Migration
             $table->integer('pa_id')->unsigned();
             $table->integer('cs_ingesta_agua');
             $table->text('cs_alimentacion_familia',2000);
-            $table->text('cs_alimentos_extra',2000);
+            $table->text('cs_alimentos_extra',2000)->nullable();
             $table->date('cs_fecha');
             $table->timestamps();
 

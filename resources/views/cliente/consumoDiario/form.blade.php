@@ -25,6 +25,6 @@
 <div class="fullDiv text-center pt-5">
   <span class="display-2 mb-3">¿Que comió hoy tu familia?</span>
 <div class="text-left">
-  {{Form::textarea('cs_alimentacion_familia',null,['id'=>'cs_alimentacion_familia'])}}
+  {{Form::textarea('cs_alimentacion_familia',null,['id'=>'cs_alimentacion_familia','required'])}}
 </div>
 </div>
