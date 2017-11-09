@@ -32,11 +32,16 @@ class vistasInformativasController extends Controller
     public function etiquetanutricional()
     {
         $et = Etiquetasnutricionale::with(['camposEtiquetasNutricionales'])->get();
-        $et = $et[0];
 
+        if(count($et) == 0){
+           alertify()->error('No se ha podido localzar informacion en la etiqueta nutricional')->persistent()->clickToClose();
+           return redirect()->back();
+       }else{
+        $et = $et[0];
         return view('Informacion.etiquetaNutricional')
         ->with('et',$et);
     }
+}
     /**
      * Show the form for creating a new resource.
      *

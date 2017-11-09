@@ -39,15 +39,16 @@ class misClientesController extends Controller
     }
     public function detalle($id){
      $cliente = User::find($id);
+
      $nuevosAvance = nuevosAvance::orderBy('id','desc')
                          ->where('na_fecha',date('Y-m-d'))
-                         ->find($id);
+                         ->find($id); 
     $paraGraficar = nuevosAvance::orderBy('id','desc')
                          ->where('us_id', $id)
                          ->take(5)
                          ->get();
         $planes = planesAlimentario::orderBy('id','desc')
-        ->where('us_id','=',$cliente)->limit(6)
+        ->where('us_id','=',$cliente->id)->limit(6)
         ->get();
 
         if(count($paraGraficar) != 0){

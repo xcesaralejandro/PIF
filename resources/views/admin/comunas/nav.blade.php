@@ -4,3 +4,7 @@
     </a>
 </li>
 
+    @section('action')
+{{ route('comunas.index') }}
+@endsection
+@section('name','nombre')

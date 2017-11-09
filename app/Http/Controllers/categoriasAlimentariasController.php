@@ -99,6 +99,6 @@ class categoriasAlimentariasController extends Controller
         $categoria = categoriasAlimento::find($id);
         $categoria->delete();
         alertify()->success('Se elimino correctamente ')->persistent()->clickToClose();
-        return redirect()->back();
+        return redirect()->route('etiquetanutricional.index');
     }
 }
