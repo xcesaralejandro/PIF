@@ -39,9 +39,9 @@ class consumoDiarioController extends Controller
         if (count($findcd) > 0) {
             $findcd = (int) $findcd[0]->id;
         }else{
-            $findcd = NULL;            
+            $findcd = NULL;
         }
-        
+
         $planes = planesAlimentario::select('id','pa_apodo')
                                     ->where('us_id',\Auth::user()->id)
                                     ->where('pa_estado','1')
@@ -59,6 +59,12 @@ class consumoDiarioController extends Controller
      */
     public function store(registroDiarioRequest $request)
     {
+        $this->validate($request,[
+          'cs_alimentacion_familia' =>'required',
+          'cs_ingesta_agua'         => 'required',
+          'pa_id'                   =>'required'
+        ]);
+
         $us   = (int)\Auth::user()->id;
         $date = date('Y-m-d');
         $findcd = consumosDiario::where('us_id', $us)->where('cs_fecha',$date)->count();
