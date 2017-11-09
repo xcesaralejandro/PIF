@@ -123,7 +123,7 @@
 </section>
 
 <section id="pruebaGratis">
-  <div class="container">
+  <div class="container pt-5 pb-5 mt-5 mb-5">
     <div class="row pb-5">
       <div class="fullDiv text-center">
         <span>Si quieres la mejor version de ti</span><br/>
@@ -145,14 +145,14 @@
  </div>
 </section>
 
-<section id="llamandoFormularioContacto" class="mb-5 textoBlanco">
+<section id="llamandoFormularioContacto" class="pb-5 textoBlanco">
  <div class="fullDiv text-center pt-3">
-  <span class="display-4">¿Tienes dudas?<br/><strong>Contacate con nosotros</strong></span>
+  <span class="display-4">¿Tienes dudas?<br/><strong>Contactate con nosotros</strong></span>
 </div>
 
 <div class="container">
   @include('formContacto')
-  <div class="text-center ">
+  <div class="text-center pb-5">
    <button  type="button" class="btn btn-outline-success  col-sm-3">
               <div class="row ">
                 <div class="col-12 text-center ">
@@ -162,4 +162,12 @@
            </button>
            </div>
 </section>
+@endsection
+
+@section('js')
+<script>
+$(function(){
+  location.href = "/#frusteate";
+});
+</script>
 @endsection

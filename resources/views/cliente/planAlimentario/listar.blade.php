@@ -31,7 +31,7 @@
 				</div>
 			@else
 					<div class="col-sm-6 col-lg-4">
-						<div class="planDesactivadoOpacity">
+						<div class="planDesactivadoOpacity" data-toggle="tooltip" data-placement="Este plan ya no cumple con tus requerimientos nutricionales." title="Este plan ya no cumple con tus requerimientos nutricionales.">
 
 						<article class="articlePlanes text-center m-3 p-2">
 							<header class="text-right mb-4">
@@ -71,4 +71,12 @@
 		</div>
 	</div>
 	@endif
+@endsection
+
+@section('js')
+	<script>
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+	</script>
 @endsection

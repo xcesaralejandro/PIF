@@ -86,7 +86,7 @@ nav .btn {
 
 #llamandoFormularioContacto .btn-outline-success:hover {
   background-color: #ffffff !important;
-  color: #137FAF !important;
+  color: #842f86 !important;
 }
 .dropup {
   background-color: transparent !important;
@@ -232,7 +232,7 @@ body {
 }
 
 #llamandoNutricionistas {
-  background-color: #7C5E01 !important;
+  background-color: #9D2F6B !important;
   padding: 3rem;
   padding-top: 4rem;
   padding-bottom: 7rem;
@@ -242,10 +242,9 @@ body {
   background-repeat: repeat-x;
 }
 #llamandoFormularioContacto{
-  background-color: #137FAF !important;
+  background-color: #842f86 !important;
   padding: 3rem;
   padding-bottom: 7rem;
-    background-image: url(../images/vistas_publicas/triangulo2.svg);
   background-position: top;
   background-size: 3rem;
   background-repeat: repeat-x;
@@ -734,8 +733,7 @@ a:not([href]):not([tabindex]) {
   font-size: 1.25rem;
 }
 #diasGratis{
-  font-size:3rem;
-  color: #E5DD19;
+  font-size:2.8rem;
 }
 
 /* /////////////////////////////////////////////////////////////////////*/
