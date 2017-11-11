@@ -383,6 +383,15 @@ body {
   text-align: center;
 }
 
+.inicioClienteDashboard a{
+  text-decoration: none !important;
+}
+.hovCajitas{
+  transition: all .3s ease;
+}
+.hovCajitas:hover{
+  opacity: .8 !important;
+}
 /* /////////////////////////////////////////////////////////////////////*/
 
 /* //////////////////////  VISTAS INFORMATIVAS //////////////////////////*/
