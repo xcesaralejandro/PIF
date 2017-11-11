@@ -17,10 +17,19 @@ class perfilesController extends Controller
        if(is_null($perfil->pf_descripcion)){
          return view('nutricionista.perfil.agregar')->with('perfil',$perfil);
      }else{
-         return view('nutricionista.perfil.detalle')->with('perfil',$perfil);    
+         return view('nutricionista.perfil.detalle')->with('perfil',$perfil);
      }
 
  }
+
+ public function showAll()
+ {
+  $perfil = User::where('us_tipo_usuario','nutricionista')
+                  ->where('pf_descripcion','!=','null')
+                  ->paginate(6);
+  return view ('nutricionista.perfil.listarPublic')->with('perfiles',$perfil);
+
+}
 
     /**
      * Show the form for creating a new resource.
@@ -78,7 +87,7 @@ class perfilesController extends Controller
       $perfil   = User::find(\Auth::user()->id);
       if(is_null($perfil->pf_descripcion)){
         if(!is_null($request->file('pf_url_imagen'))){
-           $perfil->pf_url_imagen = $request->pf_url_imagen;       
+           $perfil->pf_url_imagen = $request->pf_url_imagen;
            $file = $request->file('pf_url_imagen');
            $nombre = 'img_perfil_' . time() . '.' . $file->getClientOriginalExtension();
            $lugar = public_path() . '/images/img_nutricionista/';
@@ -91,7 +100,7 @@ class perfilesController extends Controller
        $perfil->save();
        alertify()->success('Se ha creado exitosamente')->persistent()->clickToClose();
        return redirect()->route('perfil.index');
-   }     
+   }
    if(!is_null($perfil->pf_descripcion)){
        $imagen = $perfil->pf_url_imagen;
        $ver = $request->file('pf_url_imagen');
@@ -108,7 +117,7 @@ class perfilesController extends Controller
   $perfil->pf_celular= $request->pf_celular;
   $perfil->save();
   alertify()->success('Se ha modificado exitosamente')->persistent()->clickToClose();
-  return redirect()->route('perfil.index'); 
+  return redirect()->route('perfil.index');
 }
 
 }

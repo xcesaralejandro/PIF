@@ -26,6 +26,7 @@ Route::resource('formulasComunes','formulasComunesController');
 Route::get('nutricionistasDisponibles','nutricionistasDisponiblesController@listar')->name('nutricionistas.disponibles');
 Route::get('perfilNutricionista/{id}','nutricionistasDisponiblesController@detalle')->name('nutricionistas.detalle');
 Route::get('enviarSolicitud/{id}','nutricionistasDisponiblesController@solicitud')->name('nutricionista.detalle');
+Route::get('nutricionistasMiembros','perfilesController@showAll')->name('nutricionistas.miembros');
 
 // Vistas informativas
 Route::get('sellosnegros','vistasInformativasController@sellosnegros')->name('sellosnegros');

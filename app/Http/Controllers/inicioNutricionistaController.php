@@ -3,7 +3,7 @@
 namespace frust\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use User;
 class inicioNutricionistaController extends Controller
 {
     /**
@@ -16,5 +16,5 @@ class inicioNutricionistaController extends Controller
       return view('nutricionista.inicio');
     }
 
-  
+
 }
