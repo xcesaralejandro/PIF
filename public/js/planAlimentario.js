@@ -105,7 +105,7 @@ sAli.on('change',function(){
 var containerEventos = $('.listadoComida');
 //---------------- INICIALIZAMOS CHOSEN PARA LOS SELECT ----------------//
 	$(".chosen-select").chosen({
-                placeholder_text_single: "Esperando selección...",
+                placeholder_text_single: "No hay registros aún...",
                 disable_search_threshold: 1,
                 no_results_text: "No hay resultados",
                 width: "100%"

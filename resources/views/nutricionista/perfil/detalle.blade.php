@@ -25,7 +25,11 @@
 
   <div class="subInfoNutria">
     <div class="fullDiv text-center expNutria">
-      {{ $perfil->pf_experiencia }}
+      @if ($perfil->pf_experiencia == 1)
+        {{ $perfil->pf_experiencia }} Año de experiencia
+      @else
+        {{ $perfil->pf_experiencia }} Años de experiencia
+      @endif
     </div>
 
     <div class="fullDiv text-center">
