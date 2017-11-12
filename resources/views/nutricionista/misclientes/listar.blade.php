@@ -6,11 +6,13 @@
 @endsection
 @section('placeholderBuscar','Buscar') 
 @section('content')
+@if(count($clientes)!= 0)
 <div class="text-center mb-4 mt-3">
   <span class="display-4"><strong>Clientes</strong>
   </span>
 </div>
 <hr>
+
 <table class="table table-striped  table-hover">
   <thead class="thead-inverse">
     <tr>
@@ -38,6 +40,16 @@
     @endforeach
   </tbody>
 </table>
+@else
+<div class="fullDiv text-center pb-4">
+      <div style="font-size: 17rem;">
+        <i class="fa fa-frown-o" aria-hidden="true"></i>
+      </div>
+      <div class="display-4">
+        No tiene clientes.
+      </div>
+    </div>
+@endif
 @endsection
 @section('js')
 <script>

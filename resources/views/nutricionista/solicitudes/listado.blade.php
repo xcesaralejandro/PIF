@@ -8,6 +8,7 @@
 
 </style>
 @section('content')
+@if(count($pts)!= 0)
 <div class="text-center mb-4 mt-3">
     <span class="display-4">Solicitudes<strong> pendientes</strong>
     </span>
@@ -38,6 +39,16 @@
       @endforeach
     </tbody>
 </table>
+@else
+<div class="fullDiv text-center pb-4">
+      <div style="font-size: 17rem;">
+        <i class="fa fa-frown-o" aria-hidden="true"></i>
+      </div>
+      <div class="display-4">
+        Usted no tiene solicitudes pendientes.
+      </div>
+    </div>
+@endif
 @endsection
 @section('js')
   <script>

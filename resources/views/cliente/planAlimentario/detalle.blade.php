@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="p-2">
-	<button style="background: none; border: none;" id="atras" type="submit" onclick="history.back(-1)"> 
+	<button style="background: none; border: none;  cursor:pointer;" id="atras" type="submit" onclick="history.back(-1)"> 
 		   <img  class="text-left" src="{{ asset('images/cliente_dashboard/atras.svg') }}" width="40px">	
      </button>
 	<div class="fullDiv text-center">	

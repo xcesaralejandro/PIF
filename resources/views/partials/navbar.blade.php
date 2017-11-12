@@ -135,8 +135,7 @@
            @else
            <a class="dropdown-item" href="{{ route('perfil.index') }}">
            Ver perfil</a>
-
-            <a class="dropdown-item" href="{{ route('perfil.create') }}">
+           <a class="dropdown-item" href="{{ route('perfil.create') }}">
            Modificar perfil</a>
          </div>
        </div>
@@ -172,27 +171,41 @@
           <a class="dropdown-item" href="{{ route('planAlimentario.create') }}">
             Crear nuevo plan
           </a>
-          <a class="dropdown-item" href="{{ route('planesAlimentarios.Listar') }}">
+          @if(frust\planesAlimentario::all()
+           ->where('us_id', \Auth::user()->id)
+           ->count() != 0)
+           <a class="dropdown-item" href="{{ route('planesAlimentarios.Listar') }}">
             Ver planes creados
           </a>
+          @endif
         </div>
       </div>
     </li>
 
     <li>
-      <div class="dropup nav-item">
+              @if(frust\planesAlimentario::all()
+       ->where('us_id', \Auth::user()->id)
+       ->count() != 0)
+       <div class="dropup nav-item">
+
         <button class="dropdown-toggle dropup nav-link" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Consumo diario
         </button>
         <div class="dropdown-menu" aria-labelledby="about-us">
-          <a class="dropdown-item" href="{{ route('registroDiario.index') }}">
+          @if(frust\consumosDiario::all()
+           ->where('us_id', \Auth::user()->id)
+           ->count() != 0)
+           <a class="dropdown-item" href="{{ route('registroDiario.index') }}">
             Ver consumos
           </a>
+          @endif
           <a class="dropdown-item" href="{{ route('registroDiario.create') }}">
             Agregar consumo
           </a>
         </div>
+
       </div>
+      @endif
     </li>
     <li>
       <div class="dropup nav-item">
@@ -203,11 +216,11 @@
           <a class="dropdown-item" href="{{route('nutricionistas.disponibles')}}">
             Ver nutricionistas
           </a>
-            @if(Auth::user()->us_id_nutricionista != 1)
+          @if(Auth::user()->us_id_nutricionista != 1)
           <a class="dropdown-item" href="{{ route('miNutricionista.miNutri', Auth::user()->us_id_nutricionista) }}">
             Mi nutricionista
           </a>
-              @endif
+          @endif
         </div>
       </div>
     </li>

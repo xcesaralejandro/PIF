@@ -21,8 +21,8 @@
                         <div class="col-2 text-left"">
                             <i class="fa fa-plus" aria-hidden="true"></i>   
                         </div>
-                        <div class="col-10 text-center">
-                            Agregar alimento                      
+                        <div class="col-9 text-center">
+                            Modificar                     
                         </div>
                     </div>
                 </button>

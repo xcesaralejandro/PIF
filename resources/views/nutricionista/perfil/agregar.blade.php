@@ -16,14 +16,20 @@
                     <div class="col-2 text-left">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </div>
+                    @if(is_null($perfil->pf_descripcion))
                     <div class="col-7 text-center">
-                     Crear
-                 </div>
-             </div>
-         </button>
-     </div>
- </div>
-    {{ Form::Close() }}
+                       Crear
+                   </div>
+                   @else
+                   <div class="col-7 text-center">
+                    Modificar
+                   </div>
+                   @endif
+               </div>
+           </button>
+       </div>
+   </div>
+   {{ Form::Close() }}
 </div>
 @endsection
 @section('js')

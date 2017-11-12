@@ -11,6 +11,7 @@
   @include('partials.mainCSS')
   @yield('css')
 </head>
+
 <body>
   @include('partials.navbar')
   <div class="container">
