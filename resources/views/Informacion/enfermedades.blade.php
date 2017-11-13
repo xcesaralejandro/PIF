@@ -15,8 +15,8 @@
 		<div class="col-sm-6 col-md-4 mb-4">
 			<div class="card p-3">
 				<img class="card-img-top max200" src="images/img_enfermedades/{{$e->ef_url_imagen}}" alt="Card image cap">
-				<div class="card-body text-center">
-					<h4 class="card-title">{{$e->ef_nombre}}</h4>
+				<div class="card-body ">
+					<h4 class="card-title text-center">{{$e->ef_nombre}}</h4>
 					<p class="card-text">{!!$e->ef_descripcion!!}</p>
 					<a href="{{$e->ef_url}}" class="btn btn-primary" target="_blank">Más información</a>
 				</div>
